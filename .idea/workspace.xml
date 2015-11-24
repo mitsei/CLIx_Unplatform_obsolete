@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/conf/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/conf/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/admin/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/admin/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/admindocs/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/admindocs/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/auth/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/auth/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/contenttypes/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/contenttypes/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/flatpages/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/flatpages/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/gis/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/gis/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/humanize/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/humanize/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/postgres/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/postgres/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/redirects/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/redirects/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/sessions/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/sessions/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/sites/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/sites/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/rest_framework/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/rest_framework/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/templates/research/index.html" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/views.py" afterPath="$PROJECT_DIR$/unplatform/research/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/settings.py" afterPath="$PROJECT_DIR$/unplatform/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/static/modules/phaser_tutorial/game.js" afterPath="$PROJECT_DIR$/unplatform/static/modules/phaser_tutorial/game.js" />
-    </list>
+    <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too" />
     <ignored path="unplatform2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
