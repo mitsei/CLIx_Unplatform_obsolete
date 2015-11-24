@@ -11,3 +11,10 @@ def get_ip():
 def index(request):
     template = loader.get_template('research/index.html')
     return HttpResponse(template.render())
+
+# from django.utils.translation import ugettext as _
+# from django.http import HttpResponse
+#
+# def my_view(request):
+#     output = _("Welcome to my site.")
+#     return HttpResponse(output)

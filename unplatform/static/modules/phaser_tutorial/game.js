@@ -13,6 +13,7 @@ function preload() {
 var player;
 var platforms;
 var cursors;
+var ledge;
 
 var stars;
 var score = 0;
@@ -42,7 +43,7 @@ function create() {
     ground.body.immovable = true;
 
     //  Now let's create two ledges
-    var ledge = platforms.create(400, 400, 'ground');
+    ledge = platforms.create(400, 400, 'ground');
     ledge.body.immovable = true;
 
     ledge = platforms.create(-150, 250, 'ground');
@@ -129,7 +130,7 @@ function update() {
     {
         player.body.velocity.y = -350;
     }
-
+    
 }
 
 function collectStar (player, star) {
