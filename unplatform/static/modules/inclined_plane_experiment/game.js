@@ -1,5 +1,5 @@
 var game = new Phaser.Game(800, 600, Phaser.CANVAS, '',{preload:preload, create:create, update:update});
-var static_url = '/static/modules/inclined_plane_experiment/';
+//static_url += 'static/modules/inclined_plane_experiment/';
 
 function preload() {
           
@@ -36,8 +36,8 @@ function create() {
     
     
     game.physics.startSystem(Phaser.Physics.P2JS); 
-    game.physics.p2.gravity.y = 1400; //1400 
-    game.physics.p2.friction = 10;
+    game.physics.p2.gravity.y = 10000; //1400 
+    game.physics.p2.friction = 100;
     // game.physics.p2.restitution = 0.8;
     //  A simple background for our game
     sky = game.add.sprite(0, 0, 'sky');
@@ -62,7 +62,7 @@ function create() {
     //  triangle.body.data.addBody(polygon);
     
 
-    wheel = game.add.sprite(420, 340, 'wheel');
+    wheel = game.add.sprite(780, 380, 'wheel');
     //wheel.anchor.setTo(0.5,0.5);
     wheel.scale.setTo(0.05,0.05); 
     game.physics.p2.enable(wheel);
@@ -74,7 +74,7 @@ function create() {
 
 
 
-    triangleProperties = game.add.text(16, 16, triangle.height + '\n' + triangle.body.angularForce , { fontSize: '32px', fill: '#000' });
+    triangleProperties = game.add.text(16, 16, wheel.body.angularVelocity , { fontSize: '32px', fill: '#000' });
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
@@ -86,14 +86,14 @@ function create() {
     triangle.body.static = true;    
     
     crumbs = game.add.group();
-    crumbGenerator = game.time.events.loop(Phaser.Timer.SECOND * 1, generateCrumb);
+    crumbGenerator = game.time.events.loop(Phaser.Timer.SECOND * .01, generateCrumb);
     crumbGenerator.timer.start();
 
 }
 
 function update() {
         
-    // triangleProperties.text = Math.round(triangle.height*10) / 10 + '\n' + Math.round(triangle.body.angularForce*10) / 10;
+    triangleProperties.text = Math.abs(Math.round(wheel.body.angularVelocity*10) / 10);
 
     // var xScale = 0.999; yScale = 1.001;
 
@@ -106,9 +106,9 @@ function update() {
     // triangle.body.addPolygon({}, triangleLocation);
     // triangle.body.adjustCenterOfMass();
     // triangle.body.debugBody.draw();
-    crumbs.forEach(function(sprite) {
-        crumb.alpha -= .1;
-    });
+    // crumbs.forEach(function(sprite) {
+    //     crumb.alpha -= .1;
+    // });
    
     if (cursors.left.isDown)
     {

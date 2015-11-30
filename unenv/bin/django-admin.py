@@ -1,4 +1,4 @@
-#!/home/brandon/versioned_projects/clix/unplatform2/unenv/bin/python
+#!/home/brandon/versioned_projects/clix/unplatform/unenv/bin/python
 from django.core import management
 
 if __name__ == "__main__":

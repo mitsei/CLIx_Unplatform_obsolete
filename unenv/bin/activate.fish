@@ -32,7 +32,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/brandon/versioned_projects/clix/unplatform2/unenv"
+set -gx VIRTUAL_ENV "/home/brandon/versioned_projects/clix/unplatform/unenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

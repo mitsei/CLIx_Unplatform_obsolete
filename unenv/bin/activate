@@ -39,7 +39,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/brandon/versioned_projects/clix/unplatform2/unenv"
+VIRTUAL_ENV="/home/brandon/versioned_projects/clix/unplatform/unenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
