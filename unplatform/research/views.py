@@ -1,6 +1,8 @@
 from django.shortcuts import render, loader
 from django.http import HttpResponse
 import socket
+
+import json
 # Create your views here.
 
 # This beast returns the ip address of the host machine
@@ -18,3 +20,9 @@ def index(request):
 # def my_view(request):
 #     output = _("Welcome to my site.")
 #     return HttpResponse(output)
+
+
+def comprehension(request):
+    testvar = [1,2,3,4]
+    template = loader.get_template('research/comprehension.html')
+    return HttpResponse(template.render({'testvar':testvar}))

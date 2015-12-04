@@ -2,65 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise-2.0.6.dist-info/DESCRIPTION.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise-2.0.6.dist-info/METADATA" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise-2.0.6.dist-info/RECORD" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise-2.0.6.dist-info/WHEEL" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise-2.0.6.dist-info/metadata.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise-2.0.6.dist-info/top_level.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise/base.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise/django.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise/gzip.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise/management/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise/management/commands/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise/management/commands/gzipstatic.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/whitenoise/storage_backport.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/locale/de/LC_MESSAGES/django.po" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatformlocale/de/LC_MESSAGES/django.po" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/local/bin" afterPath="$PROJECT_DIR$/unenv/local/bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/local/include" afterPath="$PROJECT_DIR$/unenv/local/include" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/local/lib" afterPath="$PROJECT_DIR$/unenv/local/lib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/unplatform2.iml" afterPath="$PROJECT_DIR$/.idea/unplatform2.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/game.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/hills-tilingsprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/index-p2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/mario-spritesheet.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/phaser.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/stars-tilingsprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/test-tilemap-polygon.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/test-tilemap.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/test-tileset.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/static/modules/testing_delete/test.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/activate" afterPath="$PROJECT_DIR$/unenv/bin/activate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/activate.csh" afterPath="$PROJECT_DIR$/unenv/bin/activate.csh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/activate.fish" afterPath="$PROJECT_DIR$/unenv/bin/activate.fish" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/django-admin" afterPath="$PROJECT_DIR$/unenv/bin/django-admin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/django-admin.py" afterPath="$PROJECT_DIR$/unenv/bin/django-admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/easy_install" afterPath="$PROJECT_DIR$/unenv/bin/easy_install" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/easy_install-2.7" afterPath="$PROJECT_DIR$/unenv/bin/easy_install-2.7" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/gunicorn" afterPath="$PROJECT_DIR$/unenv/bin/gunicorn" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/gunicorn_django" afterPath="$PROJECT_DIR$/unenv/bin/gunicorn_django" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/gunicorn_paster" afterPath="$PROJECT_DIR$/unenv/bin/gunicorn_paster" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/pip" afterPath="$PROJECT_DIR$/unenv/bin/pip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/pip2" afterPath="$PROJECT_DIR$/unenv/bin/pip2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/pip2.7" afterPath="$PROJECT_DIR$/unenv/bin/pip2.7" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/wheel" afterPath="$PROJECT_DIR$/unenv/bin/wheel" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/Django-1.8.6.dist-info/RECORD" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/Django-1.8.6.dist-info/RECORD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/conf/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/conf/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/admin/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/admin/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/admindocs/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/admindocs/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/auth/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/auth/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/contenttypes/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/contenttypes/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/flatpages/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/flatpages/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/gis/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/gis/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/humanize/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/humanize/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/postgres/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/postgres/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/redirects/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/redirects/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/sessions/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/sessions/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/sites/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/django/contrib/sites/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/gunicorn-19.3.0.dist-info/RECORD" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/gunicorn-19.3.0.dist-info/RECORD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/pip-7.1.2.dist-info/RECORD" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/pip-7.1.2.dist-info/RECORD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/rest_framework/locale/de/LC_MESSAGES/django.po" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/rest_framework/locale/de/LC_MESSAGES/django.po" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/setuptools-18.2.dist-info/RECORD" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/setuptools-18.2.dist-info/RECORD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/wheel-0.24.0.dist-info/RECORD" afterPath="$PROJECT_DIR$/unenv/lib/python2.7/site-packages/wheel-0.24.0.dist-info/RECORD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/pip-selfcheck.json" afterPath="$PROJECT_DIR$/unenv/pip-selfcheck.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/templates/research/index.html" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/urls.py" afterPath="$PROJECT_DIR$/unplatform/research/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/views.py" afterPath="$PROJECT_DIR$/unplatform/research/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/settings.py" afterPath="$PROJECT_DIR$/unplatform/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/static/modules/inclined_plane_experiment/game.js" afterPath="$PROJECT_DIR$/unplatform/static/modules/inclined_plane_experiment/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/wsgi.py" afterPath="$PROJECT_DIR$/unplatform/wsgi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/urls.py" afterPath="$PROJECT_DIR$/unplatform/urls.py" />
     </list>
     <ignored path="unplatform2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,11 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/unplatform/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.4566745">
+              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
               <folding>
                 <element signature="e#655#696#0" expanded="true" />
               </folding>
@@ -97,54 +55,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/unplatform/settings.py">
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/unplatform/wsgi.py">
+      <file leaf-file-name="comprehension.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/comprehension.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <caret line="93" column="11" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/unplatform/research/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
               <folding>
-                <element signature="e#226#235#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index2.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/index2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05102041">
-              <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/unplatform/static/modules/inclined_plane_experiment/game.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -153,10 +91,8 @@
         <entry file="file://$PROJECT_DIR$/unplatform/research/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -173,6 +109,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -187,14 +124,18 @@
         <option value="$PROJECT_DIR$/web/unplatform/research/views.py" />
         <option value="$PROJECT_DIR$/web/unplatform/research/templates/research/index.html" />
         <option value="$PROJECT_DIR$/web/unplatform/settings.py" />
-        <option value="$PROJECT_DIR$/unplatform/urls.py" />
         <option value="$PROJECT_DIR$/unplatform/static/js/api_test.js" />
         <option value="$PROJECT_DIR$/unplatform/static/modules/phaser_tutorial/game.js" />
-        <option value="$PROJECT_DIR$/unplatform/research/views.py" />
         <option value="$PROJECT_DIR$/unplatform/wsgi.py" />
-        <option value="$PROJECT_DIR$/unplatform/settings.py" />
-        <option value="$PROJECT_DIR$/unplatform/research/templates/research/index.html" />
         <option value="$PROJECT_DIR$/unplatform/static/modules/inclined_plane_experiment/game.js" />
+        <option value="$PROJECT_DIR$/unplatform/settings.py" />
+        <option value="$PROJECT_DIR$/unplatform/static/modules/comprehension_questions/index.html" />
+        <option value="$PROJECT_DIR$/unplatform/research/templates/research/index.html" />
+        <option value="$PROJECT_DIR$/unplatform/research/urls.py" />
+        <option value="$PROJECT_DIR$/unplatform/research/views.py" />
+        <option value="$PROJECT_DIR$/unplatform/research/templates/research/comprehension.html" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/unplatform/urls.py" />
       </list>
     </option>
   </component>
@@ -204,10 +145,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="268" />
-    <option name="y" value="171" />
-    <option name="width" value="906" />
-    <option name="height" value="492" />
+    <option name="x" value="1362" />
+    <option name="width" value="1288" />
+    <option name="height" value="1028" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -234,8 +174,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -285,8 +223,22 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="unplatform2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unplatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unplatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="research" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -304,44 +256,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="research" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="inclined_plane_experiment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="unplatform2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="unplatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="unplatform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="research" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="45" />
@@ -363,16 +299,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/unplatform/static/modules/phaser_tutorial" />
+      <recent name="$PROJECT_DIR$/web/unplatform/research/templates/modules" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/unplatform/research" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/web/unplatform" />
       <recent name="$PROJECT_DIR$/web/unplatform/research" />
       <recent name="$PROJECT_DIR$/web/unplatform/research/templates/research" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/unplatform/static/modules/phaser_tutorial" />
-      <recent name="$PROJECT_DIR$/web/unplatform/research/templates/modules" />
     </key>
   </component>
   <component name="RunManager" selected="Python.views">
@@ -617,28 +553,28 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="268" y="171" width="906" height="492" extended-state="0" />
+    <frame x="1362" y="0" width="1288" height="1028" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36191538" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25390625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.115384616" sideWeight="0.5044346" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.048596114" sideWeight="0.5044346" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277027" sideWeight="0.4941435" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293919" sideWeight="0.4955654" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -672,37 +608,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/index2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/static/modules/inclined_plane_experiment/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/research/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -735,9 +644,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -755,7 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,7 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,9 +683,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -788,7 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,7 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -845,9 +746,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -963,13 +862,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/research/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/static/modules/phaser_tutorial/part9.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="6.0075564">
@@ -984,64 +876,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#226#235#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-          <folding>
-            <element signature="e#655#696#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/research/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/static/modules/phaser_tutorial/game.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15761821">
           <caret line="6" column="31" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/static/modules/inclined_plane_experiment/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1052,11 +890,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44220182">
+          <caret line="63" column="54" selection-start-line="63" selection-start-column="54" selection-end-line="63" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3027523">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/index2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05102041">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.19195612">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/static/modules/comprehension_questions/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0">
+          <caret line="100" column="20" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/static/modules/inclined_plane_experiment/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3433735">
+          <caret line="19" column="68" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/comprehension.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="11" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/research/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/research/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4566745">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+          <folding>
+            <element signature="e#655#696#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
