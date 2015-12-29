@@ -3,6 +3,12 @@ from django.http import HttpResponse
 import socket
 
 import json
+
+from unplatform.research.models import Fingerprint
+from unplatform.research.serializers import FingerprintSerializer
+from rest_framework import viewsets
+
+
 # Create your views here.
 
 # This beast returns the ip address of the host machine
@@ -20,6 +26,9 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
+def get_uuid():
+    return 0
+
 
 def index(request):
     template = loader.get_template('research/index.html')
@@ -28,6 +37,8 @@ def index(request):
 def video(request):
     template = loader.get_template('research/video.html')
     return HttpResponse(template.render({'client_ip':get_client_ip(request)}))
+
+
 
 # from django.utils.translation import ugettext as _
 # from django.http import HttpResponse
@@ -42,3 +53,9 @@ def comprehension(request):
     template = loader.get_template('research/comprehension.html')
     return HttpResponse(template.render({'testvar':testvar}))
 
+class FingerprintViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Fingerprint.objects.all()
+    serializer_class = FingerprintSerializer
