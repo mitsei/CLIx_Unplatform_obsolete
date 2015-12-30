@@ -16,7 +16,6 @@ def get_client_ip(request):
 
 
 def get_session_id(request):
-# from django.http import HttpResponse
     if not request.session.get('has_session'):
         request.session['has_session'] = True
     return request.session.session_key

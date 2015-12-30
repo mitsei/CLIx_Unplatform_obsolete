@@ -1,21 +1,15 @@
 from django.shortcuts import render, loader
 from django.http import HttpResponse
 
-
-import json
-
 from unplatform.research.models import Fingerprint
 from unplatform.research.serializers import FingerprintSerializer
 from rest_framework import viewsets
-from rest_framework.decorators import detail_route
 
 from unplatform.research.utils import get_client_ip, get_host_ip, get_session_id
 
 
 # Create your views here.
 #
-# def get_client_ip(request):
-#     return request.META['HTTP_X_FORWARDED_FOR']
 
 
 def index(request):
@@ -54,18 +48,3 @@ class FingerprintViewSet(viewsets.ModelViewSet):
             serializer.save(client_ip=str(get_client_ip(self.request)),
                             server_ip=str(get_host_ip()),
                             uuid=get_session_id(self.request))
-
-
-    # @detail_route(methods=['post'])
-    # def update(self, request, pk=None):
-    #     fingerprint = self.get_object()
-    #     # serializer = PasswordSerializer(data=request.data)
-    #     # if serializer.is_valid():
-    #     # fingerprint.client_ip(str(get_client_ip(request)))
-    #     fingerprint.client_ip('123')
-    #     fingerprint.server_ip('1234')
-    #     fingerprint.uuid('12345')
-    #     # fingerprint.save()
-    #     pass
-    # def get_serializer_context(self):
-    #     return {'request': self.request}
