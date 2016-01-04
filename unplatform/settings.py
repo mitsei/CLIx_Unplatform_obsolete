@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'unplatform.research',
     'rest_framework',
-    'corsheaders'
+    # 'corsheaders'
 )
 
 MIDDLEWARE_CLASSES = (
