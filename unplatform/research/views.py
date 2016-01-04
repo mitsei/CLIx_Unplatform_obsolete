@@ -7,6 +7,7 @@ from rest_framework import viewsets
 
 from unplatform.research.utils import get_client_ip, get_host_ip, get_session_id
 
+import uuid
 
 # Create your views here.
 #
@@ -17,8 +18,12 @@ def index(request):
     return HttpResponse(template.render())
 
 def video(request):
+    print dir(request.session)
+    print (request.session.has_key)
+    print get_session_id(request)
+    print dir(request.session)
     template = loader.get_template('research/video.html')
-    return HttpResponse(template.render({'client_ip':get_client_ip(request)}))
+    return HttpResponse(template.render({'client_ip':get_client_ip(request), 'session_id':get_session_id(request)}))
 
 
 def comprehension(request):
@@ -45,6 +50,11 @@ class FingerprintViewSet(viewsets.ModelViewSet):
     serializer_class = FingerprintSerializer
 
     def perform_create(self, serializer):
-            serializer.save(client_ip=str(get_client_ip(self.request)),
-                            server_ip=str(get_host_ip()),
-                            uuid=get_session_id(self.request))
+        print dir(self.request.session)
+        print (self.request.session.has_key)
+        self.request.session['has_session'] = True
+        print get_session_id(self.request)
+        # serializer.save(client_ip=str(get_client_ip(self.request)),
+        #                 server_ip=str(get_host_ip()),
+        #                 uuid=get_session_id(self.request))
+        print dir(self.request.session)
