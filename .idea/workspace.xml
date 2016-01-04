@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/settings.py" afterPath="$PROJECT_DIR$/unplatform/settings.py" />
-    </list>
+    <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too" />
     <ignored path="unplatform2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -65,8 +62,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/unplatform/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6728188">
-              <caret line="113" column="37" selection-start-line="113" selection-start-column="37" selection-end-line="113" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.21979865">
+              <caret line="95" column="22" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -1009,8 +1006,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6728188">
-          <caret line="113" column="37" selection-start-line="113" selection-start-column="37" selection-end-line="113" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.21979865">
+          <caret line="95" column="22" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="22" />
           <folding />
         </state>
       </provider>
