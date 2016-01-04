@@ -39,7 +39,7 @@ class FingerprintViewSet(viewsets.ModelViewSet):
     queryset = Fingerprint.objects.all()
     serializer_class = FingerprintSerializer
 
-    def perform_create(self, serializer):
+    def perform_create(self, serializer) you:
         # print dir(self.request.session)
         # print (self.request.session.has_key)
         self.request.session['has_session'] = True
