@@ -7,4 +7,4 @@ from unplatform.research.models import Fingerprint
 class FingerprintSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fingerprint
-        fields = ('url', 'uuid', 'user_agent', 'client_ip', 'server_ip', 'time')
+        fields = ('url', 'uuid', 'user_agent', 'client_ip', 'server_ip', 'creation_time')
