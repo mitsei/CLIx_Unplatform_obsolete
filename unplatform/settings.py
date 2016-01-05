@@ -39,11 +39,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'unplatform.research',
     'rest_framework',
-    'corsheaders'
+    # 'corsheaders'
 )
 
 MIDDLEWARE_CLASSES = (
-    'corsheaders.middleware.CorsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -55,8 +55,8 @@ MIDDLEWARE_CLASSES = (
 
 )
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_URLS_REGEX = r'^/api/.*$'
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_URLS_REGEX = r'^/api/.*$'
 
 ROOT_URLCONF = 'unplatform.urls'
 
