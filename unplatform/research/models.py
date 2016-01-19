@@ -14,10 +14,10 @@ class Fingerprint(models.Model):
 
 
 #
-# class VideoData(models.Model):
+# class ModuleData(models.Model):
 # 	uuid = models.ForeignKey(SessionUUID, related_name='uuids')
 # 	metadata = models.
-#
+#       browser_url = models.CharField(max_length=200) # not sure if this is a good length
 # 	time = models.DateTimeField(auto_now_add=True)
 # 	def __unicode__(self):
 # 		return self.metadata
