@@ -42,9 +42,10 @@ class FingerprintViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         # print dir(self.request.session)
         # print (self.request.session.has_key)
-        self.request.session['has_session'] = True
+        # self.request.session['has_session'] = True
         # print get_session_id(self.request)
         serializer.save(client_ip=str(get_client_ip(self.request)),
+                        client_ip_private=
                         server_ip=str(get_host_ip())
                         )
         # uuid=get_session_id(self.request)
