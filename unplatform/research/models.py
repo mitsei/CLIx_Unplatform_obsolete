@@ -9,6 +9,7 @@ class Fingerprint(models.Model):
     uuid = models.CharField(max_length=32, null=True)
     user_agent = models.CharField(max_length=200) # not sure what a good length is yet
     client_ip = models.CharField(max_length=15, null=True)
+    client_ip_other = models.CharField(max_length=15, null=True)
     server_ip = models.CharField(max_length=15, null=True)
     creation_time = models.DateTimeField(auto_now_add=True)
 

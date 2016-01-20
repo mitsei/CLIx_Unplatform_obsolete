@@ -22,4 +22,4 @@ build/
 *.sqlite3
 
 # IDE
-.idea
+.idea/
