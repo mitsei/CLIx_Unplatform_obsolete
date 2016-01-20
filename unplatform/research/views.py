@@ -36,7 +36,7 @@ class FingerprintViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows fingerprints to be viewed or edited.
     """
-    queryset = Fingerprint.objects.all()
+    queryset = Fingerprint.objects.all().order_by('-creation_time')
     serializer_class = FingerprintSerializer
 
     def perform_create(self, serializer):
