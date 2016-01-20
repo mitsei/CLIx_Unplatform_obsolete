@@ -18,10 +18,10 @@ def index(request):
     return HttpResponse(template.render())
 
 def video(request):
-    print dir(request.session)
-    print (request.session.has_key)
-    print get_session_id(request)
-    print dir(request.session)
+    # print dir(request.session)
+    # print (request.session.has_key)
+    # print get_session_id(request)
+    # print dir(request.session)
     template = loader.get_template('research/video.html')
     return HttpResponse(template.render({'client_ip':get_client_ip(request), 'session_id':get_session_id(request)}))
 

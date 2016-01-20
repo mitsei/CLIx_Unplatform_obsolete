@@ -2,6 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/python" afterPath="$PROJECT_DIR$/unenv/bin/python" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/django-admin" afterPath="$PROJECT_DIR$/unenv/bin/django-admin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/django-admin.py" afterPath="$PROJECT_DIR$/unenv/bin/django-admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/easy_install" afterPath="$PROJECT_DIR$/unenv/bin/easy_install" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/gunicorn" afterPath="$PROJECT_DIR$/unenv/bin/gunicorn" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/gunicorn_django" afterPath="$PROJECT_DIR$/unenv/bin/gunicorn_django" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/gunicorn_paster" afterPath="$PROJECT_DIR$/unenv/bin/gunicorn_paster" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/pip" afterPath="$PROJECT_DIR$/unenv/bin/pip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unenv/bin/wheel" afterPath="$PROJECT_DIR$/unenv/bin/wheel" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/views.py" afterPath="$PROJECT_DIR$/unplatform/research/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/settings.py" afterPath="$PROJECT_DIR$/unplatform/settings.py" />
     </list>
     <ignored path="unplatform2.iws" />
@@ -30,8 +41,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/unplatform/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43001688">
-              <caret line="110" column="27" selection-start-line="110" selection-start-column="27" selection-end-line="110" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.22765599">
+              <caret line="89" column="3" selection-start-line="89" selection-start-column="3" selection-end-line="89" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -41,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/unplatform/research/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -61,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/unplatform/research/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -73,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/unplatform/research/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -132,9 +143,9 @@
         <option value="$PROJECT_DIR$/unplatform/research/templates/research/video.html" />
         <option value="$PROJECT_DIR$/unplatform/research/urls.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/unplatform/research/models.py" />
         <option value="$PROJECT_DIR$/unplatform/research/utils.py" />
         <option value="$PROJECT_DIR$/unplatform/research/serializers.py" />
+        <option value="$PROJECT_DIR$/unplatform/research/models.py" />
         <option value="$PROJECT_DIR$/unplatform/research/views.py" />
         <option value="$PROJECT_DIR$/unplatform/settings.py" />
       </list>
@@ -576,13 +587,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/unplatform/settings.py</url>
-          <line>55</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
@@ -902,14 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/research/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -920,28 +916,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/research/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/research/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/research/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/research/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="46" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -950,8 +954,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43001688">
-          <caret line="110" column="27" selection-start-line="110" selection-start-column="27" selection-end-line="110" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.22765599">
+          <caret line="89" column="3" selection-start-line="89" selection-start-column="3" selection-end-line="89" selection-end-column="3" />
           <folding />
         </state>
       </provider>
