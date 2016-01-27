@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/duplicate.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/move.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/pencil.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/trash.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/FileSaver.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/app.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jquery-2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jquery-ui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jquery-ui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jquery_002.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jquery_003.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jquery_004.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jquery_005.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jquery_006.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jszip-utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/jszip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/recorder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/Slideshow App_files/slideshowApp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/templates/research/slideshow.html" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/slideshow.html" />
     </list>
     <ignored path="unplatform2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,21 +91,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="slideshow.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="slideshow.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/slideshow.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.25">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.45833334">
+              <caret line="16" column="81" selection-start-line="16" selection-start-column="81" selection-end-line="16" selection-end-column="81" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="oldslideshow.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/oldslideshow.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.125">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="25" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/unplatform/static/Slideshow App_files/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -362,6 +353,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="research" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unplatform2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unplatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="unplatform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="research" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="research" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Slideshow App_files" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -716,16 +737,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/unplatform/research/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1073,18 +1084,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/slideshow.html">
+    <entry file="file://$PROJECT_DIR$/unplatform/static/Slideshow App_files/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.25">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/static/Slideshow App_files/app.css">
+    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/oldslideshow.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="25" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/slideshow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45833334">
+          <caret line="16" column="81" selection-start-line="16" selection-start-column="81" selection-end-line="16" selection-end-column="81" />
           <folding />
         </state>
       </provider>
