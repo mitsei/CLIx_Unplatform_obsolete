@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/static/oldslideshow.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/templates/research/oldslideshow.html" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/oldslideshow.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="unplatform2.iws" />
     <ignored path=".idea/workspace.xml" />
