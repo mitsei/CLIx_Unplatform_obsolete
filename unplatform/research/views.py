@@ -17,6 +17,10 @@ def index(request):
     template = loader.get_template('research/index.html')
     return HttpResponse(template.render())
 
+def slideshow(request):
+    template = loader.get_template('research/slideshow.html')
+    return HttpResponse(template.render())
+
 def video(request):
     # print dir(request.session)
     # print (request.session.has_key)
