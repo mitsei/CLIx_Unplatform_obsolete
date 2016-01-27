@@ -18,7 +18,7 @@ def index(request):
     return HttpResponse(template.render())
 
 def slideshow(request):
-    template = loader.get_template('research/Slideshow App.html')
+    template = loader.get_template('research/slideshow.html')
     return HttpResponse(template.render())
 
 def video(request):

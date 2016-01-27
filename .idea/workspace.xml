@@ -2,48 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/duplicate.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/move.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/pencil.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/trash.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/duplicate.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/move.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/pencil.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/trash.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/FileSaver.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/app.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jquery-2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jquery-ui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jquery-ui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jquery_002.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jquery_003.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jquery_004.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jquery_005.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jquery_006.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jszip-utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/jszip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/recorder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/modules/Slideshow App_files/slideshowApp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/FileSaver.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/app.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jquery-2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jquery-ui.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jquery-ui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jquery_002.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jquery_003.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jquery_004.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jquery_005.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jquery_006.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jszip-utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/jszip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/recorder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App_files/slideshowApp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/templates/research/slideshow.html" afterPath="$PROJECT_DIR$/unplatform/research/templates/research/slideshow.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/unplatform/research/views.py" afterPath="$PROJECT_DIR$/unplatform/research/views.py" />
     </list>
     <ignored path="unplatform2.iws" />
@@ -114,8 +74,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/unplatform/research/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29126215">
-              <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.47330096">
+              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -128,16 +88,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-11.875">
               <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Slideshow App.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6153846">
-              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -1041,20 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/slideshow.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/video.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48872182">
@@ -1099,14 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unplatform/research/templates/research/Slideshow App.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6153846">
-          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/research/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1117,8 +1045,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/unplatform/research/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29126215">
-          <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.47330096">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>

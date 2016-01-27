@@ -1,29 +1,28 @@
 {% load static %}
 
-
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
     <title>Slideshow App</title>
-    <link rel="stylesheet" href="{% static 'Slideshow%20App_files/app.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'Slideshow%20App_files/jquery-ui.css %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'Slideshow%20App_files/font-awesome.css' %}">
-    <script src="{% static 'Slideshow%20App_files/jquery-2.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/jquery-ui.js' %}"></script>
+    <link rel="stylesheet" href="http://web.mit.edu/coling/www/clix/slideshow/app.css" type="text/css" />
+    <link rel="stylesheet" href="http://web.mit.edu/coling/www/clix/slideshow/libs/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="http://web.mit.edu/coling/www/clix/slideshow/icons/font-awesome-4.4.0/css/font-awesome.min.css">
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jquery-2.1.4.min.js"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jquery-ui.min.js"></script>
 
-    <script src="{% static 'Slideshow%20App_files/jquery_002.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/jquery.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/jquery_005.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/jquery_004.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/jquery_003.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/jquery_006.js' %}"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jquery.i18n/src/jquery.i18n.js"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jquery.i18n/src/jquery.i18n.messagestore.js"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jquery.i18n/src/jquery.i18n.fallbacks.js"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jquery.i18n/src/jquery.i18n.parser.js"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jquery.i18n/src/jquery.i18n.emitter.js"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jquery.i18n/src/jquery.i18n.language.js"></script>
 
-    <script src="{% static 'Slideshow%20App_files/jszip.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/jszip-utils.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/FileSaver.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/recorder.js' %}"></script>
-    <script src="{% static 'Slideshow%20App_files/slideshowApp.js' %}"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jszip.js"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/jszip-utils.js"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/libs/FileSaver.js"></script>
+    <script src="http://web.mit.edu/coling/www/clix/slideshow/slideshowApp.js"></script>
 </head>
 <body>
 
@@ -42,12 +41,12 @@
             <div id="showView">
                 <div id="slideRollHolder" class="slideRollHolder">
                     <div class="title">
-                        Slideshow: &nbsp;<input id="nameTxtInput" type="text">
+                        Slideshow: &nbsp;<input type="text" id="nameTxtInput" />
                     </div>
-                    <div class="ui-sortable" id="slideRoll"><div id="slide1" class="slideControl"><div class="orderCol">1</div><button class="iconBtn slideControl-editBtn"><img src="{% static 'Slideshow%20App_files/pencil.png' %}"></button><button class="iconBtn slideControl-lockBtn lockToggleBtn"><i class="fa fa-unlock-alt"> </i></button><div class="ctrlImgHolder"><img class="slideControl-img"></div><button class="iconBtn slideControl-delBtn"><img src="{% static 'Slideshow%20App_files/trash.png' %}"></button><button class="iconBtn slideControl-dupBtn"><img src="{% static 'Slideshow%20App_files/duplicate.png' %}"></button><div class="slide-drag-handle ui-sortable-handle"><img src="{% static 'Slideshow%20App_files/move.png' %}"></div><div class="deleteModal hidden" title="Delete this slide?"><div>Delete this slide?</div><button class="textBtn">Delete</button><button class="textBtn">Cancel</button></div></div></div>
+                    <div id="slideRoll"></div>
                     <button id="addSlideBtn" type="button" class="controls"><i class="fa fa-plus-square"></i>Add Slide</button> &nbsp;(max 20)
                 </div>
-                <div id="slideEditor" class="editor hidden">
+                <div id="slideEditor" class="editor">
                     <div class="properties">
                         <div>
                             <button id="lockImgBtn" class="lockToggleBtn"><i class="fa fa-unlock-alt"></i></button>
@@ -75,7 +74,7 @@
                             <button id="lockDurationBtn" class="lockToggleBtn"><i class="fa fa-unlock-alt"></i></button>
                             <i class="fa fa-clock-o property"></i>
                             <div class="label">Duration</div>
-                            <input value="6" id="durationInput" min="1" max="20" placeholder="1-20" class="number-input" type="number">
+                            <input id="durationInput" type="number" min="1" max="20" placeholder="1-20" class="number-input" />
                             seconds
                         </div>
                     </div>
@@ -89,9 +88,9 @@
                     <div id="camDisplay"></div>
                     <div id="curSlide">
                         <div id="slideImgHolder">
-                            <video id="camVideo" hidden="">Webcam not initialized</video>
+                            <video id="camVideo" hidden>Webcam not initialized</video>
                             <div style="position:relative">
-                                <img src="{% static '' %}" id="slideImg">
+                                <img id="slideImg" />
                             </div>
                         </div>
                         <div id="captionHolder"></div>
@@ -103,8 +102,8 @@
                             <button id="toggleRecordBtn"><i class="fa fa-circle"></i></button><span id="audioTimer">0</span><span>&nbsp;/ 20 sec</span>
                             <audio id="slideAudio"></audio>
                         </div>
-                        <audio src="{% static '' %}" id="recordedAudio" controls="controls" class="hidden">
-                    </audio></div>
+                        <audio id="recordedAudio" controls class="hidden" />
+                    </div>
                     <div>
                         <button id="playShowBtn" type="button"><i class="fa fa-play"></i></button>
                     </div>
@@ -116,17 +115,16 @@
 
     </div>
 
-    <div class="hidden" id="dialogWrapper">
+    <div id="dialogWrapper">
         <div id="dialogBox">
             <div id="dialogMsg"></div>
             <div id="dialogBtns"></div>
         </div>
     </div>
 
-    <input id="imgFileInput" accept="image/*" style="display:none" type="file">
-    <input id="audioFileInput" accept="audio/*" style="display:none" type="file">
-    <input id="slideFileInput" accept=".cssw, .csst, .cssv" style="display:none" type="file">
+    <input type="file" id="imgFileInput" accept="image/*" style="display:none">
+    <input type="file" id="audioFileInput" accept="audio/*" style="display:none">
+    <input type="file" id="slideFileInput" accept=".cssw, .csst, .cssv" style="display:none">
     <canvas id="camCanvas" style="display:none"></canvas>
-
-
-</body></html>
+</body>
+</html>
