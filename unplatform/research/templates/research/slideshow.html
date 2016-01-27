@@ -89,7 +89,7 @@
                         <div id="slideImgHolder">
                             <video id="camVideo" hidden="">Webcam not initialized</video>
                             <div style="position:relative">
-                                <img src="{% static '' %}" id="slideImg">
+                                <img src="" id="slideImg">
                             </div>
                         </div>
                         <div id="captionHolder"></div>
@@ -101,30 +101,29 @@
                             <button id="toggleRecordBtn"><i class="fa fa-circle"></i></button><span id="audioTimer">0</span><span>&nbsp;/ 20 sec</span>
                             <audio id="slideAudio"></audio>
                         </div>
-                        <audio src="{% static '' %}" id="recordedAudio" controls="controls" class="hidden">
+                        <audio src="" id="recordedAudio" controls="controls" class="hidden">
                     </audio></div>
                     <div>
                         <button id="playShowBtn" type="button"><i class="fa fa-play"></i></button>
                     </div>
                 </div>
             </div>
-
-
         </div>
 
     </div>
 
-    <div class="hidden" id="dialogWrapper">
+    <div id="dialogWrapper">
         <div id="dialogBox">
             <div id="dialogMsg"></div>
             <div id="dialogBtns"></div>
         </div>
     </div>
 
-    <input id="imgFileInput" accept="image/*" style="display:none" type="file">
-    <input id="audioFileInput" accept="audio/*" style="display:none" type="file">
-    <input id="slideFileInput" accept=".cssw, .csst, .cssv" style="display:none" type="file">
+    <input type="file" id="imgFileInput" accept="image/*" style="display:none">
+    <input type="file" id="audioFileInput" accept="audio/*" style="display:none">
+    <input type="file" id="slideFileInput" accept=".cssw, .csst, .cssv" style="display:none">
     <canvas id="camCanvas" style="display:none"></canvas>
+</body>
 
 
-</body></html>
+</html>
