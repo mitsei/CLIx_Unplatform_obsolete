@@ -57,7 +57,7 @@ MIDDLEWARE_CLASSES = (
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/api/.*$'
-CORS_URLS_REGEX = r'^/slideshow/.*$'
+# CORS_URLS_REGEX = r'^/slideshow/.*$'
 
 ROOT_URLCONF = 'unplatform.urls'
 
