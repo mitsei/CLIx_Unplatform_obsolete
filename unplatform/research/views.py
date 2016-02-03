@@ -5,7 +5,7 @@ from unplatform.research.models import Fingerprint
 from unplatform.research.serializers import FingerprintSerializer
 from rest_framework import viewsets
 
-from unplatform.research.utils import get_client_ip, get_host_ip, get_session_id
+from unplatform.research.utils import get_client_ip, get_host_ip, get_session_id #, get_modules
 
 import uuid
 

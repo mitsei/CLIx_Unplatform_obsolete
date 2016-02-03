@@ -21,5 +21,8 @@ build/
 # Database
 *.sqlite3
 
-# IDE
-.idea/
+# Dot files, including IDE
+.*
+
+# Include gitignore
+!/.gitignore

@@ -1,6 +1,6 @@
 import socket
-
-from django.conf import settings
+import os
+from unplatform.settings import MODULES_DIR
 
 
 # This beast returns the ip address of the host machine
@@ -24,3 +24,6 @@ def get_session_id(request):
     return request.session.session_key
 
 # ,'session_id':get_session_id(request)}
+
+def get_modules():
+    return os.listdir(MODULES_DIR)
