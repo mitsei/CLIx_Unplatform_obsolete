@@ -21,11 +21,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    # url(r'^admin/', include(admin.site.urls)),
     # url(r'^$research/', include('unplatform.research.urls')),
     url(r'^', include('unplatform.research.urls')),
     #     url(r'^$', include('unplatform.research.urls')), ??????
-
+    url(r'^', include('unplatform.module_viewer.urls')),
 ]
 
 # this part is for dev only
