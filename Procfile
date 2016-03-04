@@ -1,1 +1,1 @@
-web: gunicorn unplatform.wsgi
+web: waitress-serve unplatform.wsgi
