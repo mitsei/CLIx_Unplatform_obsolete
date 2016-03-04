@@ -1,1 +1,1 @@
-web: waitress-serve unplatform.wsgi
+web: waitress-serve unplatform.wsgi:application
