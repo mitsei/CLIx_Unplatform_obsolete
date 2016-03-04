@@ -1,1 +1,1 @@
-web: waitress-serve --port=80 unplatform.wsgi:application
+web: waitress-serve --port=$PORT unplatform.wsgi:application

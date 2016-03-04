@@ -3,30 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7541fbe9-e577-45dd-814b-ce2ef6116d29" name="Default" comment="moved modules to static, added the phaser tutorial game to test it, added a basic ajax script test too">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/css/base.css" afterPath="$PROJECT_DIR$/staticfiles/admin/css/base.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/css/changelists.css" afterPath="$PROJECT_DIR$/staticfiles/admin/css/changelists.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/css/forms.css" afterPath="$PROJECT_DIR$/staticfiles/admin/css/forms.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/css/login.css" afterPath="$PROJECT_DIR$/staticfiles/admin/css/login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/css/rtl.css" afterPath="$PROJECT_DIR$/staticfiles/admin/css/rtl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/css/widgets.css" afterPath="$PROJECT_DIR$/staticfiles/admin/css/widgets.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/SelectBox.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/SelectBox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/SelectFilter2.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/SelectFilter2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/actions.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/actions.min.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/actions.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/admin/DateTimeShortcuts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/admin/RelatedObjectLookups.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/admin/RelatedObjectLookups.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/calendar.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/calendar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/collapse.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/collapse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/collapse.min.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/collapse.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/core.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/inlines.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/inlines.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/inlines.min.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/inlines.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/jquery.init.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/jquery.init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/prepopulate.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/prepopulate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/prepopulate.min.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/prepopulate.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/timeparse.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/timeparse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/admin/js/urlify.js" afterPath="$PROJECT_DIR$/staticfiles/admin/js/urlify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-tweaks.css" afterPath="$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-tweaks.css" />
     </list>
     <ignored path="unplatform2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+              <caret line="0" column="60" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -590,13 +566,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="741" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3557833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3557833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21928461" sideWeight="0.47218156" order="8" side_tool="true" content_ui="tabs" />
@@ -994,7 +970,7 @@
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+          <caret line="0" column="60" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="60" />
           <folding />
         </state>
       </provider>
