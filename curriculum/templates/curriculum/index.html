@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
+
+		<!-- <link type="text/css" rel="stylesheet" href="stylesheet.css"/> -->
+		<style>
+			header {
+			    background-color:black;
+			    color:white;
+			    text-align:center;
+			    padding:5px;
+			}
+			nav {
+			    line-height:30px;
+			    background-color:#eeeeee;
+			    height:300px;
+			    width:200px;
+			    float:left;
+			    padding:5px;
+			}
+			div {
+	            width:auto;
+				height:auto;
+			    float:left;
+			    padding:10px;
+			}
+			footer {
+			    background-color:black;
+			    color:white;
+			    clear:both;
+			    text-align:center;
+			    padding:5px;
+			}
+			img {
+				width:auto;
+				height:auto;
+				max-height: 120px;
+				max-width: 100px;
+				}
+			iframe {
+				width: 600px;
+				height:500px;
+			}
+
+
+		</style>
+
+		<script>
+
+		</script>
+
+
+    </head>
+
+    <body>
+        <header>
+			Something
+        </header>
+
+        <nav>
+            {% for x in modules %}
+				<a href="modules/{{ x }}/index.html">
+					{{ x }}
+				</a>
+				<br>
+			{% endfor %}
+        </nav>
+
+        <div id="main">
+            <iframe src="/modules/EPUB/index.html"></iframe>
+        </div>
+
+        <footer>
+        </footer>
+    </body>
+</html>

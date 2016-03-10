@@ -23,11 +23,12 @@ from django.conf.urls.static import static
 urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),
     # url(r'^$research/', include('unplatform.research.urls')),
-    url(r'^', include('unplatform.research.urls')),
+    url(r'^', include('research.urls')),
     #     url(r'^$', include('unplatform.research.urls')), ??????
-    url(r'^', include('unplatform.module_viewer.urls')),
+    url(r'^', include('curriculum.urls')),
+
 ]
 
 # this part is for dev only
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
