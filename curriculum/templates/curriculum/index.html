@@ -14,10 +14,9 @@
 			nav {
 			    line-height:30px;
 			    background-color:#eeeeee;
-			    height:300px;
-			    width:200px;
 			    float:left;
 			    padding:5px;
+                height: 500px;
 			}
 			div {
 	            width:auto;
@@ -39,7 +38,7 @@
 				max-width: 100px;
 				}
 			iframe {
-				width: 600px;
+				width: 1000px;
 				height:500px;
 			}
 
@@ -47,7 +46,7 @@
 		</style>
 
 		<script>
-
+			function go(loc) {	document.getElementById('frame').src = loc; }
 		</script>
 
 
@@ -55,12 +54,12 @@
 
     <body>
         <header>
-			Something
+			CLIx English
         </header>
 
         <nav>
             {% for x in modules %}
-				<a href="modules/{{ x }}/index.html">
+				<a href="modules/{{ x }}/index.html" target="frame">
 					{{ x }}
 				</a>
 				<br>
@@ -68,7 +67,7 @@
         </nav>
 
         <div id="main">
-            <iframe src="/modules/EPUB/index.html"></iframe>
+            <iframe name="frame" frameBorder="0" src="/modules/index.html" ></iframe>
         </div>
 
         <footer>

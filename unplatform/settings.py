@@ -141,6 +141,7 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'modules'),
     os.path.join(BASE_DIR, 'research/templates'),
+    os.path.join(BASE_DIR, 'curriculum/templates'),
 )
 
 STATICFILES_FINDERS = (
@@ -149,4 +150,4 @@ STATICFILES_FINDERS = (
 )
 
 
-MODULES_LIST = os.path.join(BASE_DIR,'modules/')
+MODULES_FOLDER = os.path.join(BASE_DIR,'modules/')
