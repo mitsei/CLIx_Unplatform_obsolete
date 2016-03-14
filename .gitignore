@@ -255,3 +255,9 @@ build/
 # Virtual environments
 unenv/
 venv/
+
+# Standalone Builds
+/dist_nix
+/dist_win
+/dist_mac
+/dist_linux
