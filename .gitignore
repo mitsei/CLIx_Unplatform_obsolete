@@ -259,3 +259,4 @@ venv/
 /dist_win
 /dist_mac
 /dist_linux
+/dist
