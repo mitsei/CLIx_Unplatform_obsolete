@@ -60,17 +60,18 @@ var QuestionBank;
             this.element = element;
             this.questions = [];
             //temp
-            this.questions.push(new QuestionBank.Question(0 /* Discussion */, "Have you ever gotten hurt? Describe how you got hurt and what you did.", "1-question.mp3", [
-                "When I was five I fell out of a tree and broke my leg. So I went to the hospital and had to get a cast."
+            this.questions.push(new QuestionBank.Question(1 /* RolePlay */, "It's the first day of school after the summer vacations. A new student has joined the class.", "U1L1AxQT1.mp3", [
+                "Student A: Talk to the new student to make him/her feel comfortable.",
+                "Student B: Talk about yourself and ask a few questions about the new school."
             ], [
-                "1-response.mp3"
-            ]));
-            this.questions.push(new QuestionBank.Question(1 /* RolePlay */, "Pretend there is a new student in your class.", "2-question.mp3", [
-                "Student A: You are a new student in the class.",
-                "Student B: You want to welcome the new student."
+                "U1L1AxMT1.mp3",
+                "U1L1AxMT1.mp3"
+            ]), new QuestionBank.Question(1 /* RolePlay */, "There is a local fair in the village. A new visitor to the village loses his way in this fair. " + "He looks lost and confused. Someone who lives in the village decides to help him.", "U1L1AxQT2.mp3", [
+                "Student A: You are a visitor looking for your relative, Sewak Ram who is a carpenter and lives in Model colony." + "<br>Name: Ajay" + "<br>Age: 25" + "<br>Job: Painter",
+                "Student B: You are from the village." + "<br>Name: Kishore" + "<br>Age: 30" + "<br>Job: Shopkeeper"
             ], [
-                "2-infoA.mp3",
-                "2-infoB.mp3"
+                "U1L1AxMT2.mp3",
+                "U1L1AxMT2.mp3"
             ]));
             this.curQ = this.questions[0];
         }
@@ -203,11 +204,11 @@ var QuestionBank;
                 });
                 switch (this.curQ.type) {
                     case 0 /* Discussion */:
-                        var responseEl = $("<tr/>").append($("<td/>").text(response).append(soundBtn));
+                        var responseEl = $("<tr/>").append($("<td/>").html(response).append(soundBtn));
                         $('#sampleResponses').append(responseEl);
                         break;
                     case 1 /* RolePlay */:
-                        var roleEl = $("<div/>").text(response).append(soundBtn);
+                        var roleEl = $("<div/>").html(response).append(soundBtn);
                         $('#roles').append(roleEl);
                         break;
                 }

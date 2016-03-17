@@ -21,7 +21,6 @@ div {
 #questionContent {
     display: inline-block;
     width: 240px;
-    text-align: center;
 
     border: 1px solid grey;
     background-color: wheat;
@@ -31,6 +30,7 @@ div {
 
 #questionText {
     display: inline-block;
+    text-align: left;
 }
 
 button.icon {
@@ -66,12 +66,16 @@ h1 {
     display: inline-block;
 }
 
+#responses {
+    vertical-align: top;
+}
+
 #sampleResponses {
     width: 400px;
 }
 
 #sampleResponses, #sampleResponses td {
-    border: 1px solid grey;
+    border: 2px solid grey;
     border-collapse: collapse;
 }
 
@@ -84,10 +88,12 @@ h1 {
 
 #recordResponse {
     display: inline-block;
+    vertical-align: top;
     border: 2px solid grey;
     text-align: center;
     padding: 8px;
 }
+
 
 #toggleRecordBtn {
     background-color: grey;
@@ -105,20 +111,21 @@ h1 {
 }
 
 #repsonse {
-    width: 300px;
+    width: 450px;
 }
 #instructions2 {
     width: 100%;
 }
 
 #roles {
-    border: 1px solid black;
+    border: 2px solid grey;
 }
 
 #roles div {
     display: inline-block;
-    width: 150px;
+    width: 180px;
     margin: 8px;
+    vertical-align: text-top;
 }
 #roles button {
     float: right;
