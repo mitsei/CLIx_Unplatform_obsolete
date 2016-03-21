@@ -13,28 +13,28 @@ import uuid
 #
 
 
-def index(request):
-    template = loader.get_template('research/index.html')
-    return HttpResponse(template.render())
-
-def slideshow(request):
-    template = loader.get_template('research/slideshow.html')
-    return HttpResponse(template.render())
-
-def video(request):
-    # print dir(request.session)
-    # print (request.session.has_key)
-    # print get_session_id(request)
-    # print dir(request.session)
-    template = loader.get_template('research/video.html')
-    return HttpResponse(template.render({'client_ip':get_client_ip(request), 'session_id':get_session_id(request)}))
-
-
-def comprehension(request):
-    testvar = [1,2,3,4]
-    template = loader.get_template('research/comprehension.html')
-    return HttpResponse(template.render({'testvar':testvar}))
-
+# def index(request):
+#     template = loader.get_template('research/index.html')
+#     return HttpResponse(template.render())
+#
+# def slideshow(request):
+#     template = loader.get_template('research/slideshow.html')
+#     return HttpResponse(template.render())
+#
+# def video(request):
+#     # print dir(request.session)
+#     # print (request.session.has_key)
+#     # print get_session_id(request)
+#     # print dir(request.session)
+#     template = loader.get_template('research/video.html')
+#     return HttpResponse(template.render({'client_ip':get_client_ip(request), 'session_id':get_session_id(request)}))
+#
+#
+# def comprehension(request):
+#     testvar = [1,2,3,4]
+#     template = loader.get_template('research/comprehension.html')
+#     return HttpResponse(template.render({'testvar':testvar}))
+#
 
 class FingerprintViewSet(viewsets.ModelViewSet):
     """
