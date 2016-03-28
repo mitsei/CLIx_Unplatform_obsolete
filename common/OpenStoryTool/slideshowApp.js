@@ -41,8 +41,10 @@ var Slideshow;
             });
         };
         Audio.prototype.load = function (blob) {
-            this.audioBlob = blob;
-            this.audioElement.src = URL.createObjectURL(blob);
+            if (blob) {
+                this.audioBlob = blob;
+                this.audioElement.src = URL.createObjectURL(blob);
+            }
         };
         Audio.prototype.play = function () {
             console.log('audio.play');
@@ -433,6 +435,12 @@ var Slideshow;
             this.state = 0 /* Init */;
             this.show = new Slideshow.Show();
             this.ui = new Slideshow.UI(element);
+            var startingFile = Slideshow.Utils.getUrlVars()["file"];
+            if (startingFile != null && startingFile != "") {
+                var parentURL = document.referrer;
+                parentURL = parentURL.substring(0, parentURL.lastIndexOf("/") + 1);
+                this.loadShowURL(parentURL + startingFile);
+            }
             var imgFolder = Slideshow.Utils.getUrlVars()["gallery"];
             console.log("folder: " + imgFolder);
             imgFolder = imgFolder == undefined ? "default" : imgFolder;
@@ -444,7 +452,6 @@ var Slideshow;
             this.gallery.closeHandler = function () {
                 _this.ui.hideGallery();
             };
-            //this.initMedia();
             this.audio = new Slideshow.Audio(this.ui.recordedAudio);
             $(this.ui.loadPictureBtn).on('click', function () {
                 _this.setState(3 /* Slide */);
@@ -1174,6 +1181,25 @@ var Slideshow;
             };
             reader.readAsArrayBuffer(file);
         };
+        SlideshowApp.prototype.loadShowURL = function (url) {
+            var _this = this;
+            var request = new XMLHttpRequest();
+            request.open('GET', url, true);
+            request.responseType = 'blob';
+            request.onload = function (e) {
+                if (request.status == 200) {
+                    console.log("file loaded:" + e);
+                    console.log("document.referrer: " + document.referrer);
+                    var blob = new Blob([request.response]);
+                    var file = Slideshow.Utils.blobToFile(blob, "slideshow");
+                    _this.loadShowFile(file);
+                }
+                else {
+                    console.log("file load error: " + e);
+                }
+            };
+            request.send();
+        };
         SlideshowApp.prototype.playShow = function () {
             var _this = this;
             console.log('playShow');
@@ -1369,6 +1395,15 @@ var Slideshow;
         };
         Utils.fromHTML = function (val) {
             return val.replace(/<br\s*[\/]?>/gi, '\r\n');
+        };
+        // from http://stackoverflow.com/questions/27159179/how-to-convert-blob-to-file-in-javascript
+        Utils.blobToFile = function (theBlob, fileName) {
+            var b = theBlob;
+            //A Blob() is almost a File() - it's just missing the two properties below which we will add
+            b.lastModifiedDate = new Date();
+            b.name = fileName;
+            //Cast to a File() type
+            return theBlob;
         };
         return Utils;
     })();
