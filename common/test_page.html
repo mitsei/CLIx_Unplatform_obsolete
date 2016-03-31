@@ -13,7 +13,7 @@
             });
 
 
-            xhr.open('POST', 'http://unplatform.herokuapp.com/api/fingerprints/', true);
+            xhr.open('POST', 'http://localhost:8080/api/fingerprints/', true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(fingerprint);
         };
@@ -32,7 +32,7 @@
               }
             }
 
-            xhr.open('POST', 'http://localhost:8080/api/v1/logging/logs', true);
+            xhr.open('POST', 'http://localhost:8091/api/v1/logging/logs', true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(fingerprint);
         };
