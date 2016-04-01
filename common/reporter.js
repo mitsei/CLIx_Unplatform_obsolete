@@ -8,11 +8,13 @@ var uuid4 =function() {
 	var uuidLength = 36;
 	var uuid = '';
 
+    // Returns a random character from a string
 	var randomChar = function ( fullString ) {
         var position = Math.floor(Math.random()*fullString.length)
 		return fullString.charAt( position )
 	}
 
+    // Build the uuid according to the spec
 	for (i = 0; i < uuidLength; i++) {
 		if (i == 8 || i == 13 || i == 18 || i == 23) {
 			uuid += '-'
@@ -31,24 +33,59 @@ var uuid4 =function() {
     return uuid;
 }
 
+// This function returns a string showing the screen size of the device, e.g. 1024x768
+
 var getScreenSize = function () {
     return screen.width + 'x' + screen.height;
 }
 
+// From http://www.w3schools.com/js/js_cookies.asp
+
+function setCookie(cname, cvalue, exhours) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exhours*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+function setUUIDCookie() {
+    var uuid = uuid4()
+    setCookie('session_uuid',uuid, 1)
+    return uuid;
+}
+
 var postFingerprint = function(cb) {
+
+    var session_uuid = getCookie('session_uuid')
+    if (session_uuid == '') {
+        session_uuid == setUUIDCookie();
+    }
 
 	var xhr = new XMLHttpRequest();
 	
-	var fingerprint = JSON.stringify({ 
+	var fingerprint = JSON.stringify({
+        uuid : session_uuid,
 		user_agent : navigator.userAgent,
-        uuid : uuid4(),
         screen_size : getScreenSize(),
         browser_url : window.location.href
-		})
+		});
 				
-		
-	xhr.open('POST', 'http://unplatform.herokuapp.com/api/fingerprints/', true);
+
+	xhr.open('POST', 'http://localhost:8080/api/fingerprints/', true);
 	xhr.setRequestHeader("Content-Type","application/json");
 	xhr.send(fingerprint);
 };
+
+
 window.onload=function(){postFingerprint();}
