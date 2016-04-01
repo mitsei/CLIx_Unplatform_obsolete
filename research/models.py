@@ -8,6 +8,8 @@ class Fingerprint(models.Model):
     # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     uuid = models.CharField(max_length=32, null=True)
     user_agent = models.CharField(max_length=200) # not sure what a good length is yet
+    screen_size = models.CharField(max_length=12, null=True)
+    browser_url = models.CharField(max_length=200, null=True)
     client_ip = models.CharField(max_length=15, null=True)
     client_ip_other = models.CharField(max_length=15, null=True)
     server_ip = models.CharField(max_length=15, null=True)
