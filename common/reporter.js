@@ -1,5 +1,5 @@
 // From https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29
-// Collision rate ?? need to calculate
+// 50% collision rate when uuid count > 2.7e18 so this should be good (world population is ~7.4e9 in 2016)
 
 var uuid4 =function() {
 
@@ -82,7 +82,7 @@ var postFingerprint = function(cb) {
 		});
 				
 
-	xhr.open('POST', 'http://localhost:8080/api/fingerprints/', true);
+	xhr.open('POST', 'http://unplatform.herokuapp.com/api/fingerprints/', true);
 	xhr.setRequestHeader("Content-Type","application/json");
 	xhr.send(fingerprint);
 };
