@@ -1,5 +1,5 @@
 // From https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_.28random.29
-// Collision rate
+// Collision rate ?? need to calculate
 
 var uuid4 =function() {
 
