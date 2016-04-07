@@ -1,7 +1,7 @@
 :start
-del unenv
-del build
-del *.spec
+del unenv /F /Q
+del build /F /Q
+del *.spec /F /Q
 
 git pull
 
