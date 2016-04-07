@@ -1,10 +1,10 @@
 #!/bin/bash 
 COUNTER=20
 until [  $COUNTER -lt 10 ]; do
-    source ${VENV}/activate
+    
     rm -r unenv
     rm -r build
-    
+    rm *.spec
     
     git pull
 
