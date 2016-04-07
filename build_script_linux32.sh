@@ -14,7 +14,7 @@ until [  $COUNTER -lt 10 ]; do
     
     cp -r unenv/lib/python3.4/site-packages/PyInstaller/bootloader/Linux-32bit unenv/lib/python3.4/site-packages/PyInstaller/bootloader/Linux-32bit-arm
     
-    pyinstaller unserver.py --clean --distpath ../unplatform-distributable -n unplatform_linux64 -y
+    pyinstaller unserver.py --clean --distpath ../unplatform-distributable -n unplatform_linux32 -y
     
     
     echo COUNTER $COUNTER
