@@ -8,11 +8,11 @@ until [  $COUNTER -lt 10 ]; do
     
     git pull
 
-    virtualenv -p python3 unenv
+    virtualevn -p python3 unenv
     source unenv/bin/activate
     pip install -r requirements.txt
     
-    mv unenv/lib/python3.4/site-packages/PyInstaller/bootloader Linux-32bit Linux-32bit-arm
+    mv unenv/lib/python3.4/site-packages/PyInstaller/bootloader/Linux-32bit Linux-32bit-arm
     
     pyinstaller unserver.py --clean --distpath ../unplatform_distributable -n unplatform_linux64 -y
     
