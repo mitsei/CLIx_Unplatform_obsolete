@@ -12,7 +12,7 @@ until [  $COUNTER -lt 10 ]; do
     source unenv/bin/activate
     pip install -r requirements.txt
     
-    pyinstaller unserver.py --clean --distpath ../unplatform_distributable -n unplatform_linux64 -y
+    pyinstaller unserver.py --clean --distpath ../unplatform-distributable -n unplatform_linux64 -y
     
     
     echo COUNTER $COUNTER
