@@ -17,5 +17,5 @@ until [  $COUNTER -lt 10 ]; do
     
     echo COUNTER $COUNTER
     let COUNTER-=1
-    sleep 10m
+    sleep 1h
 done
