@@ -5,7 +5,7 @@ del *.spec
 
 git pull
 
-virtualenv -p python3 unenv
+virtualenv unenv
 unenv/Scripts/activate
 pip install -r requirements.txt
 
