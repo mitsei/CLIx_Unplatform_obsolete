@@ -66,9 +66,9 @@ function setUUIDCookie() {
 }
 
 function getLanguages() {
-	var languages;
-	for (x in navigator.languages) { languages += navigator.languages[x] }
-	return languages.join([separator = ','])
+	var languages = [];
+	for (x in navigator.languages) { languages.push(navigator.languages[x]) }
+	return languages.join(',')
 }
 
 var postFingerprint = function(cb) {
