@@ -65,6 +65,12 @@ function setUUIDCookie() {
     return uuid;
 }
 
+function getLanguages() {
+	var languages;
+	for (x in navigator.languages) { languages += navigator.languages[x] }
+	return languages.join([separator = ','])
+}
+
 var postFingerprint = function(cb) {
 
     var session_uuid = getCookie('session_uuid');
@@ -79,7 +85,8 @@ var postFingerprint = function(cb) {
         uuid : session_uuid,
 		user_agent : navigator.userAgent,
         screen_size : getScreenSize(),
-        browser_url : window.location.href
+        browser_url : window.location.href,
+		languages : getLanguages()
 		});
 
 
