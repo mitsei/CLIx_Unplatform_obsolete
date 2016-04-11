@@ -33,7 +33,7 @@ def serve_module(request, path, insecure=False, **kwargs):
                 dirs.append(f)
         files = sorted(files)
         dirs = sorted(dirs)
-        files = json.dumps({'files': files, 'dirs': dirs})
+        files = json.dumps({'dirs': dirs, 'files': files})
 
     normalized_path = posixpath.normpath(unquote(path)).lstrip('/')
     absolute_path = finders.find(normalized_path)
