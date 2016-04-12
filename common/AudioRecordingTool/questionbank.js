@@ -59,26 +59,14 @@ var QuestionBank;
         function QBApp(element) {
             this.element = element;
             this.questions = [];
-            //temp
-            this.questions.push(new QuestionBank.Question(1 /* RolePlay */, "It's the first day of school after the summer vacations. A new student has joined the class.", "U1L1AxQT1.mp3", [
-                "Student A: Talk to the new student to make him/her feel comfortable.",
-                "Student B: Talk about yourself and ask a few questions about the new school."
-            ], [
-                "U1L1AxMT1.mp3",
-                "U1L1AxMT1.mp3"
-            ]), new QuestionBank.Question(1 /* RolePlay */, "There is a local fair in the village. A new visitor to the village loses his way in this fair. " + "He looks lost and confused. Someone who lives in the village decides to help him.", "U1L1AxQT2.mp3", [
-                "Student A: You are a visitor looking for your relative, Sewak Ram who is a carpenter and lives in Model colony." + "<br>Name: Ajay" + "<br>Age: 25" + "<br>Job: Painter",
-                "Student B: You are from the village." + "<br>Name: Kishore" + "<br>Age: 30" + "<br>Job: Shopkeeper"
-            ], [
-                "U1L1AxMT2.mp3",
-                "U1L1AxMT2.mp3"
-            ]));
-            this.curQ = this.questions[0];
         }
         QBApp.prototype.init = function () {
             var _this = this;
+            this.parentURL = document.referrer;
+            this.parentURL = this.parentURL.substring(0, this.parentURL.lastIndexOf("/") + 1);
+            this.audioFolder = this.parentURL + "audio/";
             this.responses = [];
-            this.displayQ(this.curQ);
+            this.maxRecordTime = QBApp.defaultRecordTime;
             this.audio = new QuestionBank.Audio($("#recordedAudio")[0]);
             this.initMedia(function () {
             });
@@ -95,7 +83,7 @@ var QuestionBank;
                 _this.answerQ();
             });
             $('#questionSoundBtn').on('click', function () {
-                _this.textAudio.src = 'audio/' + _this.curQ.audio;
+                _this.textAudio.src = _this.audioFolder + _this.curQ.audio;
                 _this.textAudio.play();
             });
             $('#toggleRecordBtn').on('click', function () {
@@ -111,6 +99,16 @@ var QuestionBank;
             });
             $('#submitResponseBtn').on('click', function () {
                 _this.submitResponse();
+            });
+            this.loadQuestions();
+        };
+        QBApp.prototype.loadQuestions = function () {
+            var _this = this;
+            $.getJSON(this.parentURL + "questions.json", function (json) {
+                _this.questions = json["questions"];
+                console.log(_this.questions);
+                _this.curQ = _this.questions[0];
+                _this.displayQ(_this.curQ);
             });
         };
         QBApp.prototype.initMedia = function (callback) {
@@ -138,7 +136,7 @@ var QuestionBank;
             this.audioTimer = setInterval(function () {
                 time += 1;
                 $("#audioTimer").text(time.toString());
-                if (time >= 20) {
+                if (time >= _this.maxRecordTime) {
                     _this.stopRecording();
                 }
             }, 1000);
@@ -170,53 +168,66 @@ var QuestionBank;
             $('#recordedAudio').addClass("hidden");
             $('#instructions3').addClass('hidden');
             $('#answerBtn').removeClass('hidden');
-            switch (q.type) {
-                case 0 /* Discussion */:
-                    $('#roles').addClass('hidden');
-                    $('#instructions2b').addClass('hidden');
-                    $('#sampleResponses').removeClass('hidden');
-                    $('#instructions2a').removeClass('hidden');
-                    break;
-                case 1 /* RolePlay */:
-                    $('#sampleResponses').addClass('hidden');
-                    $('#instructions2a').addClass('hidden');
-                    $('#roles').removeClass('hidden');
-                    $('#instructions2b').removeClass('hidden');
-                    break;
+            $('#instructions2').removeClass('hidden');
+            if (q.color) {
+                $('#questionContent').css('background-color', q.color);
             }
+            /*switch (q.questionType) {
+                case "discussion":
+                    console.log("discussion");
+                    $('#roles').addClass('hidden');
+                    $('#sampleResponses').removeClass('hidden');
+                    break;
+                case "roleplay":
+                    console.log("roleplay");
+                    $('#sampleResponses').addClass('hidden');
+                    $('#roles').removeClass('hidden');
+                    break;
+            }*/
+            $('#roles').empty();
+            $('#roles').removeClass('hidden');
             $('#questionText').text(q.text);
+            $('#instructions2').text(q.instructions);
+            $('#textAudio').attr('src', this.audioFolder + this.curQ.audio);
         };
         QBApp.prototype.answerQ = function () {
-            var _this = this;
+            this.maxRecordTime = this.curQ.maxRecordTime ? this.curQ.maxRecordTime : QBApp.defaultRecordTime;
             this.hideNav();
             $('#answerBtn').addClass('hidden');
             $('#responses').removeClass('hidden');
             $('#response').removeClass('hidden');
-            for (var i = 0; i < this.curQ.sampleResponses.length; i++) {
-                var response = this.curQ.sampleResponses[i];
-                var soundBtn = $('<button id="playResponse' + i + '" class="icon"><i class="fa fa-volume-up"></i></button>');
-                var responseAudio = this.curQ.responseAudio[i];
+            $('#maxRecordTime').text(this.maxRecordTime);
+            for (var i = 0; i < this.curQ.prompts.length; i++) {
+                var response = this.curQ.prompts[i];
+                var sampleAudio = $('<audio id="sampleResponse' + i + '" controls/>');
+                sampleAudio.attr('src', this.audioFolder + this.curQ.promptAudio[i]);
+                /*var soundBtn = $('<button id="playResponse' + i + '" class="icon"><i class="fa fa-volume-up"></i></button>');
+                var responseAudio = this.curQ.promptAudio[i];
                 soundBtn.attr('data', responseAudio);
-                soundBtn.on('click', function (e) {
+                soundBtn.on('click',(e) => {
                     var filename = $(e.target.parentNode).attr('data');
-                    _this.textAudio.src = 'audio/' + filename;
-                    _this.textAudio.play();
+                    this.textAudio.src = 'audio/' + filename;
+                    this.textAudio.play();
                 });
-                switch (this.curQ.type) {
-                    case 0 /* Discussion */:
-                        var responseEl = $("<tr/>").append($("<td/>").html(response).append(soundBtn));
+               
+                switch (this.curQ.questionType) {
+                    case "discussion":
+                        var responseEl = $("<tr/>").append(
+                            $("<td/>")
+                                .html(response)
+                                .append($('<p/>')
+                                    .append(sampleAudio)));
+
                         $('#sampleResponses').append(responseEl);
                         break;
-                    case 1 /* RolePlay */:
-                        var roleEl = $("<div/>").html(response).append(soundBtn);
-                        $('#roles').append(roleEl);
-                        break;
-                }
+
+                    case "roleplay":*/
+                var roleEl = $("<div/>").html(response).append($('<p/>').append(sampleAudio));
+                $('#roles').append(roleEl);
             }
         };
         QBApp.prototype.submitResponse = function () {
-            $('#instructions2a').addClass('hidden');
-            $('#instructions2b').addClass('hidden');
+            $('#instructions2').addClass('hidden');
             $('#responses').addClass('hidden');
             $('#instructions3').removeClass('hidden');
             this.showNav();
@@ -229,6 +240,7 @@ var QuestionBank;
             $('#cPrevBtn').removeClass('hidden');
             $('#cNextBtn').removeClass('hidden');
         };
+        QBApp.defaultRecordTime = 20;
         return QBApp;
     })();
     window.onload = function () {
@@ -247,16 +259,16 @@ var QuestionBank;
     var QuestionType = QuestionBank.QuestionType;
     ;
     var Question = (function () {
-        function Question(type, text, audio, sampleResponses, responseAudio) {
+        function Question(type, text, audio, prompts, promptAudio) {
             if (text === void 0) { text = ""; }
             if (audio === void 0) { audio = ""; }
-            if (sampleResponses === void 0) { sampleResponses = []; }
-            if (responseAudio === void 0) { responseAudio = []; }
-            this.type = type;
+            if (prompts === void 0) { prompts = []; }
+            if (promptAudio === void 0) { promptAudio = []; }
+            this.questionType = type;
             this.text = text;
-            this.sampleResponses = sampleResponses;
+            this.prompts = prompts;
             this.audio = audio;
-            this.responseAudio = responseAudio;
+            this.promptAudio = promptAudio;
         }
         return Question;
     })();

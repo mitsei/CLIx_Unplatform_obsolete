@@ -20,7 +20,7 @@ div {
 
 #questionContent {
     display: inline-block;
-    width: 240px;
+    width: 300px;
 
     border: 1px solid grey;
     background-color: wheat;
@@ -118,12 +118,13 @@ h1 {
 }
 
 #roles {
+    width: 400px;
     border: 2px solid grey;
 }
 
 #roles div {
-    display: inline-block;
-    width: 180px;
+    /*display: inline-block;
+    width: 180px;*/
     margin: 8px;
     vertical-align: text-top;
 }

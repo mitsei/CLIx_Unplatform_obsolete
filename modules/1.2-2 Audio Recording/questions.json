@@ -1,0 +1,36 @@
+﻿{
+    "questions": [
+        {
+            "questionType": "discussion",
+            "color": "lightblue",
+            "instructions": "Listen to the sample responses for ideas. Then discuss and record your own response.",
+            "text": "It's the first day of school after the summer vacations. A new student has joined the class.",
+            "audio": "U1L1AxQT1.mp3",
+            "prompts": [
+                "Student A: Talk to the new student to make him/her feel comfortable.",
+                "Student B: Talk about yourself and ask a few questions about the new school."
+            ],
+            "promptAudio": [
+                "U1L1AxMT1.mp3",
+                "U1L1AxMT1.mp3"
+            ],
+            "maxRecordTime":  30
+        },
+        {
+            "questionType": "roleplay",
+            "color": "yellow",
+            "instructions": "Read the information about your character. Then introduce yourself to your partner, as the character. Record your dialog.",
+            "text": "There is a local fair in the village. A new visitor to the village loses his way in this fair. He looks lost and confused. Someone who lives in the village decides to help him.",
+            "audio": "U1L1AxQT2.mp3",
+            "prompts": [
+                "Student A: You are a visitor looking for your relative, Sewak Ram who is a carpenter and lives in Model colony.<br>Name: Ajay<br>Age: 25<br>Job: Painter",
+                "Student B: You are from the village.<br>Name: Kishore<br>Age: 30<br>Job: Shopkeeper"
+            ],
+            "promptAudio": [
+                "U1L1AxMT2.mp3",
+                "U1L1AxMT2.mp3"
+            ],
+            "maxRecordTime":  20
+        }
+    ]
+}
