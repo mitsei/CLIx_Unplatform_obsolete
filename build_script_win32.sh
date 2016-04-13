@@ -5,6 +5,7 @@ until [  $COUNTER -lt 10 ]; do
     rm -r unenv
     rm -r build
     rm *.spec
+    find . -name "*.pyc" -type f -delete
     
     git pull
 
