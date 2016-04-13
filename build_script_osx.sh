@@ -14,5 +14,5 @@ until [  $COUNTER -lt 10 ]; do
     
     echo WAITING
     
-    sleep 1h
+    sleep 3600
 done
