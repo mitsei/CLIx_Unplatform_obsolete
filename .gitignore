@@ -238,8 +238,8 @@ build/
 # Backup files
 *~.nib
 
-# Database
-*.sqlite3
+## Database
+#*.sqlite3
 
 # Dot files, including IDE
 .*
