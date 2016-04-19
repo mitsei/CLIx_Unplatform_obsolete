@@ -67,6 +67,9 @@ function setUUIDCookie() {
 
 function getLanguages() {
 	var languages = [];
+	if (navigator.languages == null ) {
+		return navigator.language
+	};
 	for (x in navigator.languages) { languages.push(navigator.languages[x]) }
 	return languages.join(',')
 }
