@@ -17,6 +17,11 @@ def table_of_contents(request):
     return HttpResponse(template.render({'modules':modules}))
 
 
+def start_page(request):
+    template = loader.get_template('curriculum/start_page.html')
+    return HttpResponse(template.render())
+
+
 
 # Modified version of django.contrib.staticfiles.views which returns a directory listing as json
 def serve_module(request, path, insecure=False, **kwargs):
