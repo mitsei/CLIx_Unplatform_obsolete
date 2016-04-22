@@ -1,0 +1,179 @@
+@import "variables", "navigation";
+@import "base";
+
+@font-face {
+	font-family: 'Roboto Black';
+	src: url(/static/fonts/Roboto-Black.ttf);
+	font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Roboto-Black', helvetica, arial, sans-serif;
+}
+
+a:hover {
+	color: $blue;
+}
+
+img {
+	max-width: 100%;
+}
+
+section {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	border-top: 1px solid $gray1;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+}
+
+section:first-of-type {
+	border-top: 0;
+	margin-top: 0;
+}
+
+.content {
+	padding-top: 1.5em;
+}
+
+/* Home page */
+
+.questions {
+	margin-bottom: 20px;
+
+	summary {
+		line-height: 1.5em;
+		color: $blue;
+		cursor:pointer;
+	}
+
+	summary:hover {
+		opacity: .5;
+		text-decoration: underline;
+	}
+}
+
+.credit {
+	.credit-header {
+		font-weight: bold;
+	}
+}
+
+/* Game page */
+
+#featuredprojects h1 {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+/* All games */
+
+#profile {
+	.featurette {
+		h1 {
+			text-align: center;
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
+		.caption h3 {
+			margin-top: 0
+		}
+
+		.thumbnailimagediv {
+
+		}
+	}
+}
+
+.thumbnail {
+	text-align:center;
+}
+
+/* Report Form */
+
+.report-form {
+	display: none;
+	background-color: $gray1;
+	padding: 15px;
+	border-radius: $border-radius;
+
+	.report-response {
+		display:none;
+	}
+
+	table {
+		width: 100%;
+	}
+
+	.checkbox {
+		margin-top: 0px;
+	}
+}
+
+#game-profile {
+	.game-actions li {
+		margin: 10px 0;
+	}
+
+	.history {
+		.btn:first-of-type {
+			margin-right: 10px;
+		}
+	}
+}
+
+
+/* Media Queries */
+
+@media all and (max-width: 991px) {
+	#game-profile {
+		.game-actions li {
+			margin-right: 10px;
+			display: inline-block;
+		}
+	}
+
+	#homepage.logged-out {
+		h1, p, a, img {
+			text-align: center;
+		}
+	}
+}
+
+@media all and (max-width: 480px) {
+	.header {
+		text-align: center;
+		.mit-logo {
+			display: none;
+		}
+	}
+}
+
+
+.resetGameButtonPlay {
+  /* float:left;width:150px;height:30px;margin-left:45px;font-size:14pt;text-align:center;cursor:pointer;border-radius:10px;background-color:rgb(0,146,195);color:white;*/
+  @include Button(rgb(0,146,195), white);
+  display: inline-block;
+  font-size:14pt;
+}
+
+.stopGameButtonPlay {
+  /* style="float:left;width:150px;height:30px;margin-left:45px;font-size:14pt;text-align:center;border-radius:10px;background-color:rgb(212,25,0);color:white;" */
+  @include Button(rgb(212,25,0), white);
+  display: inline-block;
+  font-size:14pt;
+}
+
+.editGameButtonPlay {
+  /* style="float:left;width:150px;height:30px;margin-left:45px;font-size:14pt;text-align:center;border-radius:10px;background-color:rgb(212,25,0);color:white;" */
+  @include Button(rgb(212,25,0), white);
+  display: inline-block;
+  font-size:14pt;
+}
+
+.copyGameButtonPlay {
+  /* style="float:left;width:150px;height:30px;margin-left:45px;font-size:14pt;text-align:center;border-radius:10px;background-color:rgb(212,25,0);color:white;" */
+  @include Button(rgb(212,25,0), white);
+  display: inline-block;
+  font-size:14pt;
+}
