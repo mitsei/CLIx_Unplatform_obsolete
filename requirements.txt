@@ -15,5 +15,5 @@ PyInstaller==3.1.1
 pytz==2016.3
 redis==2.10.5
 redislite==3.0.271
-selenium==2.52.0
+requests==2.9.1
 waitress==0.8.10

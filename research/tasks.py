@@ -16,3 +16,19 @@ def mul(x, y):
 @shared_task
 def xsum(numbers):
     return sum(numbers)
+
+
+
+from research.models import Fingerprint
+import requests
+
+# @app.task
+@shared_task
+def update_link(pk):
+    link = Fingerprint.objects.get(pk=pk)
+    # ...
+    res = requests.get(link.url, timeout=2)
+    # ....
+
+     # create a task
+     # update_link.delay(link.pk)
