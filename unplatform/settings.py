@@ -82,40 +82,63 @@ WSGI_APPLICATION = 'unplatform.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-# # PAAS settings -------------------------------------------------
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'unplatform',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-dbconfig = dj_database_url.config()
-if dbconfig:
-    DATABASES['default'] =  dbconfig
+# # PAAS settings -------------------------------------------------
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#         'NAME': 'unplatform',                      # Or path to database file if using sqlite3.
+#         # The following settings are not used with sqlite3:
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+#         'PORT': '',                      # Set to empty string for default.
+#     }
+# }
+#
+# # Parse database configuration from $DATABASE_URL
+# import dj_database_url
+# dbconfig = dj_database_url.config()
+# if dbconfig:
+#     DATABASES['default'] =  dbconfig
+#
+# # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#
+# # Allow all host headers
+# ALLOWED_HOSTS = ['*']
 
 # # END --------------------------------------------
+
+
+
+
+
+
+# Async task Celery/Redis setup
+from redislite import Redis
+
+# Create a Redis instance using redislite
+RDB_PATH = os.path.join('/tmp/my_redis.db')
+rdb = Redis(RDB_PATH)
+REDIS_SOCKET_PATH = 'redis+socket://%s' % (rdb.socket_file, )
+
+# Use redislite for the Celery broker
+BROKER_URL = REDIS_SOCKET_PATH
+
+# (Optionally) use redislite for the Celery result backend
+CELERY_RESULT_BACKEND = REDIS_SOCKET_PATH
+
+
+
+
 
 
 # Internationalization
