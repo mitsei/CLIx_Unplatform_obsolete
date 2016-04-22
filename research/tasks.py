@@ -19,16 +19,21 @@ def xsum(numbers):
 
 
 
-from research.models import Fingerprint
-import requests
-
-# @app.task
-@shared_task
-def update_link(pk):
-    link = Fingerprint.objects.get(pk=pk)
-    # ...
-    res = requests.get(link.url, timeout=2)
+# from research.models import Fingerprint
+# import requests
+#
+# # @app.task
+# @shared_task
+# def update_link(pk):
+#     link = Fingerprint.objects.get(pk=pk)
+#     # ...
+#     res = requests.get(link.url, timeout=2)
     # ....
 
      # create a task
      # update_link.delay(link.pk)
+
+# @shared_task
+# def send_data_to_cloud():
+#
+

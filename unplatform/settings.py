@@ -31,8 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -122,7 +120,7 @@ DATABASES = {
 
 
 
-# Async task Celery/Redis setup
+# # Redis setup for async tasks ----------------
 from redislite import Redis
 
 # Create a Redis instance using redislite
@@ -133,10 +131,27 @@ REDIS_SOCKET_PATH = 'redis+socket://%s' % (rdb.socket_file, )
 # Use redislite for the Celery broker
 BROKER_URL = REDIS_SOCKET_PATH
 
-# (Optionally) use redislite for the Celery result backend
+# Use redislite for the Celery result backend
 CELERY_RESULT_BACKEND = REDIS_SOCKET_PATH
+# # END -------------------------------------------
 
 
+
+
+# This part adds an asynchronous job on an interval
+# Execute it with celery -A unplatform worker -B --loglevel=info
+from datetime import timedelta
+from unplatform.tasks import add
+import unplatform.tasks
+CELERYBEAT_SCHEDULE = {
+    'add-every-30-seconds': {
+        'task': 'unplatform.tasks.add',
+        'schedule': timedelta(seconds=3),
+        'args': (16, 16)
+    },
+}
+
+CELERY_TIMEZONE = 'UTC'
 
 
 
