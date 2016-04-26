@@ -60,7 +60,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
-build/
+# build/
 develop-eggs/
 downloads/
 eggs/
@@ -201,7 +201,7 @@ Temporary Items
 
 ### AppceleratorTitanium ###
 # Build folder and log file
-build/
+# build/
 build.log
 
 
@@ -211,7 +211,7 @@ build.log
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## Build generated
-build/
+# build/
 DerivedData/
 
 ## Various settings
@@ -231,7 +231,7 @@ xcuserdata/
 *.xcscmblueprint
 
 # Generated files
-build/
+# build/
 *.[oa]
 *.pyc
 
