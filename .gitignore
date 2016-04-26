@@ -168,7 +168,7 @@ $RECYCLE.BIN/
 # *.sublime-project
 
 # sftp configuration file
-sftp-config.iton
+sftp-config.json
 
 
 ### OSX ###
