@@ -1,0 +1,149 @@
+$box-shadow: 0 1px 2px rgba(0,0,0,.175);
+
+#helpShowButton, #helpHideButton {
+	position:fixed;
+	top: 120px;
+	right:0px;
+	width:40px;
+	height:35px;
+	z-index:1001;
+	background-color:#bebec6;
+	text-align: center;
+	padding: 25px 0;
+	line-height: 30px;
+	vertical-align: middle;
+	-webkit-box-shadow: $box-shadow;
+	box-shadow: $box-shadow;
+
+	&:hover {
+		background: #828587;
+	}
+
+	.text {
+		color: white;
+		-webkit-transform: rotate(270deg);
+		-moz-transform: rotate(270deg);
+		-ms-transform: rotate(270deg);
+		-o-transform: rotate(270deg);
+		transform: rotate(270deg);
+	}
+}
+
+#helpPanel {
+	position:fixed;
+	top:0px;
+	right:0px;
+	width:380px;
+	height:100%;
+	z-index:1000;
+	display:none;
+}
+
+#helpHideButton {
+	float:left;
+	position: relative;
+}
+
+.iframeContainer {
+	float:left;
+	width:340px;
+	height:100%;
+	background-color:#3f3f3f;
+	color: white;
+	-webkit-box-shadow: $box-shadow;
+	box-shadow: $box-shadow;
+
+	#rightPaneliFrame {
+		float:left;
+		width:100%;
+		height:100%;
+		border: none;
+	}
+}
+
+.panelContainer {
+	font-size: 14px;
+	float:left;
+	width:100%;
+	background-color:#3f3f3f;
+	color: white;
+	padding: 20px 16px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	h1 {
+		font-size: 140%;
+		font-weight: bold;
+	}
+
+	h2 {
+		font-size: 120%;
+		font-weight: bold;
+	}
+
+	section {
+		margin-top: 10px;
+		margin-bottom: 16px;
+	}
+
+	a, a:visited, a:focus {
+		color: #6dc5dc;
+	}
+
+	a:hover {
+		color: #6dc5dc;
+		opacity: 60%;
+	}
+
+	img {
+		display: block;
+		margin: 6px 0;
+	}
+
+	.button {
+		height: 50px;
+		line-height: 50px;
+		display: inline-block;
+		padding: 0 12px;
+		color: black;
+		font-weight: bold;
+		text-decoration: none;
+		background-color: rgb(255, 177, 0);
+		font-size: 110%;
+		border-radius: 4px;
+		margin: 10px 0;
+	}
+
+	.button:hover, .button:active {
+		color: black;
+		background-color: lighten(rgb(255, 177, 0), 10%);
+	}
+
+	.panelHeader {
+		text-align: center;
+	}
+
+	#headerPageButtons {
+		text-align: center;
+		border-bottom: 1px solid gray;
+		padding-bottom: 5px;
+		margin-bottom: 10px;
+
+		span, a {
+			margin: 0 10px;
+		}
+	}
+}
+
+	.nextButton {
+		@include Button($button-green, white);
+		font-size:24pt;
+		display: inline-block;
+	}
+	.helpHomeButton {
+		@include Button($button-blue, white);
+		font-size:24pt;
+		display: inline-block;
+	}
+	
