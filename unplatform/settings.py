@@ -80,39 +80,39 @@ WSGI_APPLICATION = 'unplatform.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-#
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-# # PAAS settings -------------------------------------------------
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'unplatform',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-dbconfig = dj_database_url.config()
-if dbconfig:
-    DATABASES['default'] =  dbconfig
+# # PAAS settings -------------------------------------------------
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#         'NAME': 'unplatform',                      # Or path to database file if using sqlite3.
+#         # The following settings are not used with sqlite3:
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+#         'PORT': '',                      # Set to empty string for default.
+#     }
+# }
+#
+# # Parse database configuration from $DATABASE_URL
+# import dj_database_url
+# dbconfig = dj_database_url.config()
+# if dbconfig:
+#     DATABASES['default'] =  dbconfig
+#
+# # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+#
+# # Allow all host headers
+# ALLOWED_HOSTS = ['*']
 
 # # END --------------------------------------------
 
@@ -141,14 +141,15 @@ CELERY_RESULT_BACKEND = REDIS_SOCKET_PATH
 
 # This part adds an asynchronous job on an interval
 # Execute it with celery -A unplatform worker -B --loglevel=info
+
 from datetime import timedelta
-from unplatform.tasks import add
 import unplatform.tasks
+
 CELERYBEAT_SCHEDULE = {
-    'add-every-30-seconds': {
-        'task': 'unplatform.tasks.add',
-        'schedule': timedelta(seconds=3),
-        'args': (16, 16)
+    'post-every-30-seconds': {
+        'task': 'research.tasks.send_data_to_cloud',
+        'schedule': timedelta(seconds=30),
+        'args': ()
     },
 }
 

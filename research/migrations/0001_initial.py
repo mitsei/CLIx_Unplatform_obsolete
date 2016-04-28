@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import django.utils.timezone
 
 
 class Migration(migrations.Migration):
@@ -13,13 +14,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Fingerprint',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
-                ('uuid', models.CharField(max_length=32, null=True)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('uuid', models.CharField(max_length=36, null=True)),
                 ('user_agent', models.CharField(max_length=200)),
+                ('screen_size', models.CharField(max_length=12, null=True)),
+                ('browser_url', models.CharField(max_length=200, null=True)),
+                ('languages', models.CharField(max_length=50, null=True)),
                 ('client_ip', models.CharField(max_length=15, null=True)),
                 ('client_ip_other', models.CharField(max_length=15, null=True)),
                 ('server_ip', models.CharField(max_length=15, null=True)),
-                ('creation_time', models.DateTimeField(auto_now_add=True)),
+                ('is_sent', models.BooleanField(null=True)),
+                ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
     ]

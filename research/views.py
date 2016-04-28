@@ -35,14 +35,8 @@ import uuid
 #     template = loader.get_template('research/comprehension.html')
 #     return HttpResponse(template.render({'testvar':testvar}))
 #
-from .tasks import add, mul
 
 class FingerprintViewSet(viewsets.ModelViewSet):
-    i=0
-    while i < 2000:
-        mul.apply_async((2, i))
-        add.delay(2, i)
-        i += 1
 
     """
     API endpoint that allows fingerprints to be viewed or edited.

@@ -93,7 +93,7 @@ var postFingerprint = function(cb) {
 		});
 
 
-	xhr.open('POST', 'http://unplatform.herokuapp.com/api/fingerprints/', true);
+	xhr.open('POST', '/api/fingerprints/', true);
 	xhr.setRequestHeader("Content-Type","application/json");
 	xhr.send(fingerprint);
 };

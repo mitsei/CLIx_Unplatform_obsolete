@@ -7,13 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('research', '0002_auto_20160401_1542'),
+        ('research', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='fingerprint',
-            name='uuid',
-            field=models.CharField(max_length=36, null=True),
+            name='is_sent',
+            field=models.NullBooleanField(),
         ),
     ]
