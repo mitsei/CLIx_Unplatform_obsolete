@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="10" tilewidth="64" tileheight="64" nextobjectid="36">
+ <tileset firstgid="1" name="tracks" tilewidth="64" tileheight="64">
+  <image source="tracks.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="10" name="train64" tilewidth="64" tileheight="64">
+  <image source="train64.png" width="192" height="256"/>
+ </tileset>
+ <tileset firstgid="22" name="flags" tilewidth="64" tileheight="64">
+  <image source="flags.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="26" name="buttons" tilewidth="150" tileheight="48">
+  <image source="buttons.png" width="150" height="144"/>
+ </tileset>
+ <tileset firstgid="29" name="gems2" tilewidth="64" tileheight="64">
+  <image source="gems2.png" width="192" height="192"/>
+ </tileset>
+ <tileset firstgid="38" name="goat" tilewidth="64" tileheight="64">
+  <image source="goat.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="39" name="stop" tilewidth="64" tileheight="64">
+  <image source="stop.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="40" name="10km" tilewidth="64" tileheight="64">
+  <image source="10km.png" width="64" height="64"/>
+ </tileset>
+ <layer name="RoadTiles" width="15" height="10">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,5,5,5,0,0,0,0,0,0,0,0,0,
+0,0,5,5,5,5,0,0,0,0,0,0,0,0,0,
+0,0,0,5,5,5,0,0,0,0,0,0,0,0,0,
+0,0,0,5,5,5,0,0,0,0,0,0,0,0,0,
+2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="Objects">
+  <object id="15" name="Goat" type="goat" gid="38" x="320" y="384" width="64" height="64"/>
+  <object id="28" name="train" type="train" gid="17" x="128" y="384" width="64" height="64"/>
+  <object id="32" type="10km" gid="40" x="192" y="320" width="64" height="64"/>
+  <object id="33" type="10km" gid="40" x="320" y="320" width="64" height="64"/>
+  <object id="34" type="10km" gid="40" x="448" y="320" width="64" height="64"/>
+  <object id="35" type="10km" gid="40" x="576" y="320" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup name="Stops">
+  <object id="16" name="stop1" type="busStop" gid="39" x="128" y="320" width="64" height="64">
+   <properties>
+    <property name="arrivalTime" value="0"/>
+    <property name="waitTime" value="0"/>
+   </properties>
+  </object>
+  <object id="17" name="stop2" type="busStop" gid="39" x="256" y="320" width="64" height="64">
+   <properties>
+    <property name="arrivalTime" value="20"/>
+    <property name="waitTime" value="0"/>
+   </properties>
+  </object>
+  <object id="18" name="stop3" type="busStop" gid="39" x="384" y="320" width="64" height="64">
+   <properties>
+    <property name="arrivalTime" value="50"/>
+    <property name="waitTime" value="10"/>
+   </properties>
+  </object>
+  <object id="19" name="stop4" type="busStop" gid="39" x="512" y="320" width="64" height="64">
+   <properties>
+    <property name="arrivalTime" value="60"/>
+    <property name="waitTime" value="0"/>
+   </properties>
+  </object>
+  <object id="20" name="stop5" type="busStop" gid="39" x="640" y="320" width="64" height="64">
+   <properties>
+    <property name="arrivalTime" value="90"/>
+    <property name="waitTime" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
