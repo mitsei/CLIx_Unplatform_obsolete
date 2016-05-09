@@ -1,5 +1,5 @@
 from __future__ import absolute_import
-from unplatform.settings import BROKER_URL, CELERY_RESULT_BACKEND
+from unplatform.settings import BROKER_URL # CELERY_RESULT_BACKEND
 import os
 
 from celery import Celery
@@ -9,7 +9,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'unplatform.settings')
 
 from django.conf import settings
 
-app = Celery('unplatform', broker=BROKER_URL, backend=CELERY_RESULT_BACKEND)
+# app = Celery('unplatform', broker=BROKER_URL, backend=CELERY_RESULT_BACKEND)
+app = Celery('unplatform', broker=BROKER_URL)
 
 # Using a string here means the worker will not have to
 # pickle the object when using Windows.

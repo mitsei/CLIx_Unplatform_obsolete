@@ -11,7 +11,7 @@ from celery.bin import worker
 worker = worker.worker(app=celery_app)
 
 options = {
-    'loglevel': 'INFO',
+
     'traceback': True,
     'beat': True,
 }
