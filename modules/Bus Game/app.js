@@ -86,7 +86,7 @@ function create() {
     player.body.setSize(1,1, -1, 32);  //body surrounds train and used for collisions, setSize(width, height, offsetX, offsetY)
         
     //put the start game button out
-    button = new LabelButton(game, 100, 64, 'buttons', "Start game!", doBtnStartHandler, this, 2, 1, 0); // button frames 1=over, 0=off, 2=down
+    button = new LabelButton(game, 150, 130, 'buttons', "Start game!", doBtnStartHandler, this, 2, 1, 0); // button frames 1=over, 0=off, 2=down
     
    
     currentTime = clock.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
