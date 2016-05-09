@@ -7,7 +7,9 @@ from research.models import Fingerprint
 class FingerprintSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fingerprint
-        fields = ('url', 'uuid', 'user_agent', 'screen_size', 'browser_url', 'languages', 'client_ip', 'client_ip_other', 'server_ip', 'is_sent', 'creation_time')
+        fields = ('url', 'uuid', 'user_agent', 'screen_size', 'browser_url', 'languages', 'client_ip', 'client_ip_other', 'server_ip', 'creation_time')
+# removed , 'is_sent'
+
 
 #
 # class ModuleSerializer(serializers.ModelSerializer):
