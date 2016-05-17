@@ -5,7 +5,9 @@ from django.conf import settings
 from . import views
 
 router = routers.DefaultRouter()
+router.register(r'uuids', views.UUIDViewSet)
 router.register(r'fingerprints', views.FingerprintViewSet)
+router.register(r'appdata', views.AppDataViewSet)
 
 
 urlpatterns = [

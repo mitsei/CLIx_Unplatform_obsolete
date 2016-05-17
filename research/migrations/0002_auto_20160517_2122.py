@@ -12,8 +12,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='fingerprint',
-            name='is_sent',
-            field=models.NullBooleanField(),
+            model_name='uuid',
+            name='uuid',
+            field=models.CharField(max_length=36, serialize=False, primary_key=True),
         ),
     ]

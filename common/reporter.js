@@ -85,7 +85,7 @@ var postFingerprint = function(cb) {
 	var xhr = new XMLHttpRequest();
 
 	var fingerprint = JSON.stringify({
-        uuid : session_uuid,
+        session_id : session_uuid,
 		user_agent : navigator.userAgent,
         screen_size : getScreenSize(),
         browser_url : window.location.href,
