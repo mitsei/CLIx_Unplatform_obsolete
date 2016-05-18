@@ -15,6 +15,6 @@ until [  $COUNTER -lt 10 ]; do
     pyinstaller unserver.py --clean --distpath ../unplatform-distributable -n unplatform_win32 -y
 
     echo WAITING
-    
+
     sleep 1h
 done
