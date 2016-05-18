@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 import os
 import celery
+from celery import fixups
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "unplatform.settings")
 # This will make sure the app is always imported when
