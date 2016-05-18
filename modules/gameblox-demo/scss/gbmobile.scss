@@ -1,0 +1,10 @@
+/*$light: #000 !default;
+$stable: #000 !default;
+*/
+$dark: #0c0c0c !default;
+ion-content {
+  background-color: #e0f5f5;
+}
+
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../lib/ionic/scss/ionic";

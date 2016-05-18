@@ -1,0 +1,46 @@
+$button-green : #3ab625;
+$button-blue: #177fc7;
+$button-red: #bf0707;
+
+@mixin simpleGradient($color)
+{	
+	background-image: -linear-gradient(top, $color 00%, darken($color, 13%) 100%);
+	background-image: -webkit-linear-gradient(top, $color 00%, darken($color, 13%) 100%);
+	background-image: -moz-linear-gradient(top, $color 00%, darken($color, 13%) 100%);
+	background-image: -ms-linear-gradient(top, $color 00%, darken($color, 13%) 100%);
+}
+@mixin simpleGradient2($color, $color2)
+{
+	
+	background-image: -linear-gradient(top, $color 00%, $color2 100%);
+	background-image: -webkit-linear-gradient(top, $color 00%, $color2 100%);
+	background-image: -moz-linear-gradient(top, $color 00%, $color2 100%);
+	background-image: -ms-linear-gradient(top, $color 00%, $color2 100%);
+}
+@mixin border-shadow($width, $radius)
+{
+    border-bottom: solid #CCC $width;
+    border-right: solid #CCC $width;
+    border-radius: $radius;
+}
+@mixin shadow($h, $v, $blur, $spread)
+{
+	box-shadow: $h $v $blur $spread #000;
+  -webkit-box-shadow: $h $v $blur $spread #000;
+  -moz-box-shadow: $h $v $blur $spread #000;
+  -ms-box-shadow: $h $v $blur $spread #000;
+  -o-box-shadow: $h $v $blur $spread #000;
+}
+@mixin Button($backColor, $color)
+{
+	color: $color;
+	@include simpleGradient($backColor);
+	border-width: 0px;	
+	padding: 6px 10px;
+	border-radius: 2px;
+	cursor: pointer;
+	&:hover
+	{
+		@include simpleGradient(darken($backColor, 8%));
+	}
+}
