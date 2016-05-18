@@ -1,8 +1,9 @@
 from __future__ import absolute_import
 from unplatform.settings import BROKER_URL # CELERY_RESULT_BACKEND
 import os
-
-from celery import Celery
+import celery
+from celery import Celery, fixups
+from celery.fixups import django
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'unplatform.settings')
