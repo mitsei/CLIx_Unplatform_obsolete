@@ -13,6 +13,8 @@ until [  $COUNTER -lt 10 ]; do
     pip install -r requirements.txt
     
     pyinstaller unserver.py --clean --distpath ../unplatform-distributable -n unplatform_win32 -y
+
+    echo WAITING
     
     sleep 1h
 done
