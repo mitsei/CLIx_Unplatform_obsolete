@@ -1,6 +1,8 @@
 from __future__ import absolute_import
 from unplatform.settings import BROKER_URL # CELERY_RESULT_BACKEND
 import os
+
+# All the following imports are so pyinstaller can detect the correct modules to load when building standalone distributables
 import celery
 from celery import Celery, fixups
 from celery.fixups import django
