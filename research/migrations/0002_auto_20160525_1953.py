@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AppData',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
                 ('app_name', models.CharField(max_length=15)),
                 ('event_type', models.CharField(max_length=15)),
                 ('params', models.TextField()),
@@ -24,14 +24,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='UUID',
             fields=[
-                ('session_id', models.CharField(primary_key=True, max_length=36, serialize=False)),
+                ('session_id', models.CharField(serialize=False, max_length=36, primary_key=True)),
                 ('creation_time', models.DateTimeField(auto_now_add=True)),
             ],
-        ),
-        migrations.AlterField(
-            model_name='fingerprint',
-            name='uuid',
-            field=models.ForeignKey(to='research.UUID'),
         ),
         migrations.AddField(
             model_name='appdata',
