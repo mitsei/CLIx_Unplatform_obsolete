@@ -8,9 +8,7 @@ class UUID(models.Model):
         return self.session_id
 
 class Fingerprint(models.Model):
-    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     session_id = models.ForeignKey(UUID)
-    # session_id = models.CharField(max_length=36, null=True)
     user_agent = models.CharField(max_length=200) # not sure what a good length is yet
     screen_size = models.CharField(max_length=12, null=True)
     browser_url = models.CharField(max_length=200, null=True) # also not sure about this length
@@ -18,7 +16,7 @@ class Fingerprint(models.Model):
     client_ip = models.CharField(max_length=15, null=True)
     client_ip_other = models.CharField(max_length=15, null=True)
     server_ip = models.CharField(max_length=15, null=True)
-    # is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
+    is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
     creation_time = models.DateTimeField(default=timezone.now) # Was auto_now_add=true but changed to allow override
 
 class AppData(models.Model):
@@ -26,4 +24,5 @@ class AppData(models.Model):
     app_name = models.CharField(max_length=15)
     event_type = models.CharField(max_length=15)
     params = models.TextField()
+    is_sent = models.NullBooleanField(null=True)
     creation_time = models.DateTimeField(auto_now_add=True)
