@@ -1,11 +1,11 @@
 from django.db import models
 from django.utils import timezone
 
-# class UUID(models.Model):
-#     session_id = models.CharField(max_length=36, primary_key=True)
-#     creation_time = models.DateTimeField(auto_now_add=True)
-#     def __str__(self):
-#         return self.session_id
+class UUID(models.Model):
+    session_id = models.CharField(max_length=36, primary_key=True)
+    creation_time = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.session_id
 
 class Fingerprint(models.Model):
     # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
