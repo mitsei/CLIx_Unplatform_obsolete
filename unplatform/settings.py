@@ -196,10 +196,12 @@ STATICFILES_FINDERS = (
 
 
 MODULES_FOLDER = os.path.join(BASE_DIR,'modules/')
-LOG_FILE = os.path.join(BASE_DIR,'debug.log')
 
+# Logging
+# https://docs.djangoproject.com/en/1.8/topics/logging/
+LOG_FILE = os.path.join(BASE_DIR,'debug.log')
 LOGGING = {
-    'version': 1,
+    'version': 1, # Note this is the logger version, not unplatform version
     'disable_existing_loggers': False,
     'handlers': {
         'file': {

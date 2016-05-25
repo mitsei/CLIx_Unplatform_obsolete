@@ -15,7 +15,6 @@ var Slideshow;
             this.audioElement = audioElement;
         }
         Audio.prototype.setStream = function (stream) {
-            console.log('audio.onStream');
             this.audioStream = stream;
             var streamSource = this.context.createMediaStreamSource(stream);
             this.recorder = new Recorder(streamSource, { workerPath: "libs/recorderWorker.js" });
@@ -26,14 +25,12 @@ var Slideshow;
             return this.context.currentTime;
         };
         Audio.prototype.record = function () {
-            console.log("audio.record");
             this.recorder.clear();
             this.recorder.record();
             this.isRecording = true;
         };
         Audio.prototype.stopRecording = function () {
             var _this = this;
-            console.log('audio.stopRecording');
             this.recorder.stop();
             this.isRecording = false;
             this.recorder.exportWAV(function (blob) {
@@ -47,7 +44,6 @@ var Slideshow;
             }
         };
         Audio.prototype.play = function () {
-            console.log('audio.play');
             this.audioElement.play();
         };
         Audio.prototype.clear = function () {
@@ -60,6 +56,84 @@ var Slideshow;
         return Audio;
     })();
     Slideshow.Audio = Audio;
+})(Slideshow || (Slideshow = {}));
+var Slideshow;
+(function (Slideshow) {
+    var Data = (function () {
+        function Data() {
+            this.session = "";
+            this.remoteLocation = "";
+            this.events = [];
+        }
+        Data.prototype.startSession = function () {
+            try {
+                this.session = Slideshow.Utils.getCookie("session_uuid");
+            }
+            catch (e) {
+                console.log("Cannot get session id cookie");
+            }
+        };
+        Data.prototype.logEvent = function (eventName, params) {
+            if (params === void 0) { params = null; }
+            var event = new SlideshowEvent();
+            event.event_type = eventName;
+            event.session_id = this.session;
+            if (params != null && params != {}) {
+                event.params = JSON.stringify(params);
+            }
+            this.events.push(event);
+            if (this.session != "" && this.remoteLocation != "") {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', this.remoteLocation, true);
+                xhr.setRequestHeader("Content-Type", "application/json");
+                xhr.send(JSON.stringify(event));
+            }
+        };
+        return Data;
+    })();
+    Slideshow.Data = Data;
+    var SlideshowEvent = (function () {
+        function SlideshowEvent() {
+            this.app_name = "OpenStory";
+        }
+        return SlideshowEvent;
+    })();
+    Slideshow.SlideshowEvent = SlideshowEvent;
+    (function (SlideshowEventType) {
+        // 15 character limit in database
+        SlideshowEventType[SlideshowEventType["NEW_SESSION"] = "new_session"] = "NEW_SESSION";
+        // params: filename, gallery
+        SlideshowEventType[SlideshowEventType["FILE_CREATED"] = "file_created"] = "FILE_CREATED";
+        SlideshowEventType[SlideshowEventType["FILE_OPENED"] = "file_opened"] = "FILE_OPENED";
+        SlideshowEventType[SlideshowEventType["FILE_SAVED"] = "file_saved"] = "FILE_SAVED";
+        // params: filename
+        SlideshowEventType[SlideshowEventType["TEMPLATE_SAVED"] = "template_saved"] = "TEMPLATE_SAVED";
+        // params: filename
+        SlideshowEventType[SlideshowEventType["SLIDESHOW_EXPORTED"] = "show_exported"] = "SLIDESHOW_EXPORTED";
+        // params: filename
+        SlideshowEventType[SlideshowEventType["SLIDESHOW_PLAYED"] = "show_played"] = "SLIDESHOW_PLAYED";
+        // All events below also contain a "slide" param
+        SlideshowEventType[SlideshowEventType["SLIDE_ADDED"] = "slide_added"] = "SLIDE_ADDED";
+        SlideshowEventType[SlideshowEventType["SLIDE_DELETED"] = "slide_deleted"] = "SLIDE_DELETED";
+        SlideshowEventType[SlideshowEventType["SLIDE_LOCKED"] = "slide_locked"] = "SLIDE_LOCKED";
+        SlideshowEventType[SlideshowEventType["SLIDE_UNLOCKED"] = "slide_unlocked"] = "SLIDE_UNLOCKED";
+        SlideshowEventType[SlideshowEventType["SLIDE_DUPLICATED"] = "slide_duped"] = "SLIDE_DUPLICATED";
+        SlideshowEventType[SlideshowEventType["SLIDE_EDITED"] = "slide_edited"] = "SLIDE_EDITED";
+        SlideshowEventType[SlideshowEventType["SLIDE_MOVED"] = "slide_moved"] = "SLIDE_MOVED";
+        // params: prevIndex, newIndex
+        SlideshowEventType[SlideshowEventType["IMAGE_ADDED"] = "image_added"] = "IMAGE_ADDED";
+        // params: source, filename
+        SlideshowEventType[SlideshowEventType["AUDIO_ADDED"] = "audio_added"] = "AUDIO_ADDED";
+        // params: source, length
+        SlideshowEventType[SlideshowEventType["CAPTION_EDITED"] = "caption_edited"] = "CAPTION_EDITED";
+        // params: value
+        SlideshowEventType[SlideshowEventType["DURATION_EDITED"] = "duration_edited"] = "DURATION_EDITED";
+        // params: value
+        SlideshowEventType[SlideshowEventType["ELEMENT_LOCKED"] = "element_locked"] = "ELEMENT_LOCKED";
+        // params: action(locked|unlocked), element(image|audio|caption|duration)
+        SlideshowEventType[SlideshowEventType["SLIDE_CLOSED"] = "slide_closed"] = "SLIDE_CLOSED";
+    })(Slideshow.SlideshowEventType || (Slideshow.SlideshowEventType = {}));
+    var SlideshowEventType = Slideshow.SlideshowEventType;
 })(Slideshow || (Slideshow = {}));
 var Slideshow;
 (function (Slideshow) {
@@ -101,7 +175,6 @@ var Slideshow;
                 imgDiv.append(lbl);
                 this.content.append(imgDiv);
                 img.click({ img: img[0] }, function (event) {
-                    console.log(event.data.img.src + " clicked");
                     if (_this.selectHandler) {
                         _this.selectHandler.call(null, event.data.img.src);
                     }
@@ -154,7 +227,6 @@ var Slideshow;
         };
         Playback.prototype.nextSlide = function () {
             var _this = this;
-            console.log("nextSlide");
             if (this.curSlide >= this.show.getLength() - 1) {
                 this.stop();
                 return;
@@ -163,7 +235,7 @@ var Slideshow;
             var slide = this.show.getSlideAt(this.curSlide);
             this.display.src = slide.image;
             this.text.innerText = slide.text ? slide.text : "";
-            if (this.audio) {
+            if (this.audio && slide.audio) {
                 this.audio.load(slide.audio);
                 this.audio.play();
             }
@@ -310,7 +382,6 @@ var Slideshow;
                             if (_this.processedAudioClips === _this.totalAudioClips) {
                                 var event = new Event('audio_processed');
                                 document.dispatchEvent(event);
-                                console.log('audio processed');
                             }
                         });
                     })(audioReader, id);
@@ -346,7 +417,6 @@ var Slideshow;
         }
         Slide.prototype.hasLockedFields = function () {
             var val = this.lockedFields[0 /* Image */] || this.lockedFields[1 /* Audio */] || this.lockedFields[2 /* Caption */] || this.lockedFields[3 /* Duration */];
-            console.log("hasLockedFields:" + val);
             return val;
         };
         Slide.prototype.clone = function () {
@@ -370,12 +440,10 @@ var Slideshow;
 (function (Slideshow) {
     var Localization = (function () {
         function Localization() {
-            this.test = "test";
         }
         Localization.prototype.init = function () {
-            console.log(this.test);
             var i18n = $.i18n();
-            var language, person, kittens, message, gender;
+            var language; //, person, kittens, message, gender;
             // Enable debug
             i18n.debug = true;
             /*
@@ -387,12 +455,12 @@ var Slideshow;
             kittens = $('.kittens').val();
             */
             //i18n.locale = "es";
-            console.log("locale: " + i18n.locale);
+            //console.log("locale: " + i18n.locale);
             i18n.load('i18n/' + i18n.locale + '.json', i18n.locale).done(function () {
-                console.log("i18n locale file loaded");
+                //console.log("i18n locale file loaded");
                 $("span[data-i18n]").each(function (index, elem) {
                     var id = $(elem).attr("data-i18n");
-                    console.log(id + ":" + $.i18n(id));
+                    //console.log(id + ":" + $.i18n(id));
                     $(elem).text($.i18n(id));
                 });
                 //var personName = $.i18n(person), localizedMessage = $.i18n(message, personName,
@@ -411,11 +479,12 @@ var Slideshow;
     (function (State) {
         State[State["Init"] = 0] = "Init";
         State[State["Ready"] = 1] = "Ready";
-        State[State["Show"] = 2] = "Show";
-        State[State["Slide"] = 3] = "Slide";
-        State[State["SlideCam"] = 4] = "SlideCam";
-        State[State["SlideAudio"] = 5] = "SlideAudio";
-        State[State["Play"] = 6] = "Play";
+        State[State["Loading"] = 2] = "Loading";
+        State[State["Show"] = 3] = "Show";
+        State[State["Slide"] = 4] = "Slide";
+        State[State["SlideCam"] = 5] = "SlideCam";
+        State[State["SlideAudio"] = 6] = "SlideAudio";
+        State[State["Play"] = 7] = "Play";
     })(State || (State = {}));
     ;
     var FileMode;
@@ -430,31 +499,40 @@ var Slideshow;
             var _this = this;
             this.workMode = 0 /* W */;
             this.exportMode = 0 /* W */;
+            this.isLoadingShow = true;
             this.slideThumbs = {};
             this.maxAudioTime = 40;
             this.state = 0 /* Init */;
             this.show = new Slideshow.Show();
             this.ui = new Slideshow.UI(element);
+            this.data = new Slideshow.Data();
+            this.data.remoteLocation = "/api/appdata/";
+            this.data.startSession();
+            var startParams = {};
             var startingFile = Slideshow.Utils.getUrlVars()["file"];
             if (startingFile != null && startingFile != "") {
-                var parentURL = document.referrer;
-                parentURL = parentURL.substring(0, parentURL.lastIndexOf("/") + 1);
-                this.loadShowURL(parentURL + startingFile);
+                this.loadShowURL(Slideshow.Utils.getParentURL() + startingFile);
+                startParams["filename"] = startingFile;
             }
-            var imgFolder = Slideshow.Utils.getUrlVars()["gallery"];
-            console.log("folder: " + imgFolder);
-            imgFolder = imgFolder == undefined ? "default" : imgFolder;
-            this.gallery = new Slideshow.Gallery($("#gallery")[0], SlideshowApp.galleries[imgFolder], "images/");
-            this.gallery.createDom();
-            this.gallery.selectHandler = function (param) {
-                _this.onGallerySelect(param);
-            };
-            this.gallery.closeHandler = function () {
-                _this.ui.hideGallery();
-            };
+            this.imgFolder = Slideshow.Utils.getUrlVars()["gallery"];
+            if (this.imgFolder == undefined) {
+                this.imgFolder = "";
+            }
+            else {
+                startParams["gallery"] = this.imgFolder;
+                this.imgFolder = this.imgFolder + "/";
+            }
+            var jqXHR = $.getJSON("images/" + this.imgFolder, function (json) {
+                _this.loadGallery(json);
+            }).fail(function () {
+                $.getJSON("images/files.json", function (json) {
+                    _this.loadGallery(json);
+                });
+            });
+            this.data.logEvent(Slideshow.SlideshowEventType.NEW_SESSION, startParams);
             this.audio = new Slideshow.Audio(this.ui.recordedAudio);
             $(this.ui.loadPictureBtn).on('click', function () {
-                _this.setState(3 /* Slide */);
+                _this.setState(4 /* Slide */);
                 // trigger open file dialog
                 _this.ui.imgFileInput.click();
             });
@@ -462,20 +540,20 @@ var Slideshow;
                 if (!_this.webcam || !_this.webcam.streaming) {
                     _this.initMedia(function () {
                         _this.useWebcam();
-                        _this.setState(4 /* SlideCam */);
+                        _this.setState(5 /* SlideCam */);
                     });
                 }
                 else {
                     _this.useWebcam();
-                    _this.setState(4 /* SlideCam */);
+                    _this.setState(5 /* SlideCam */);
                 }
             });
             $("#takePictureBtn").on('click', function () {
                 _this.takePicture();
-                _this.setState(3 /* Slide */);
+                _this.setState(4 /* Slide */);
             });
             $("#cancelPictureBtn").on('click', function () {
-                _this.setState(3 /* Slide */);
+                _this.setState(4 /* Slide */);
             });
             $(this.ui.imgFileInput).on("change", function () {
                 _this.loadUserImageFile(_this.ui.imgFileInput.files[0]);
@@ -485,7 +563,7 @@ var Slideshow;
             });
             $("#loadAudioBtn").on('click', function () {
                 $("#audioFileInput")[0].click();
-                _this.setState(5 /* SlideAudio */);
+                _this.setState(6 /* SlideAudio */);
             });
             $("#audioFileInput").on("change", function () {
                 _this.loadUserAudioFile($("#audioFileInput")[0].files[0]);
@@ -493,11 +571,11 @@ var Slideshow;
             $(this.ui.recordAudioBtn).on('click', function () {
                 if (!_this.webcam || !_this.webcam.streaming) {
                     _this.initMedia(function () {
-                        _this.setState(5 /* SlideAudio */);
+                        _this.setState(6 /* SlideAudio */);
                     });
                 }
                 else {
-                    _this.setState(5 /* SlideAudio */);
+                    _this.setState(6 /* SlideAudio */);
                 }
             });
             $(this.ui.toggleRecordBtn).on('click', function () {
@@ -541,7 +619,9 @@ var Slideshow;
                 _this.saveSlides();
             });
             this.ui.slideFileInput.onchange = function () {
-                _this.loadShowFile(_this.ui.slideFileInput.files[0]);
+                var file = _this.ui.slideFileInput.files[0];
+                _this.loadShowFile(file);
+                _this.data.logEvent(Slideshow.SlideshowEventType.FILE_OPENED, { 'filename': file.name });
             };
             $(this.ui.addSlideBtn).on('click', function () {
                 if (_this.show.getLength() < 20) {
@@ -552,6 +632,7 @@ var Slideshow;
             $(this.ui.playShowBtn).on('click', function () {
                 if (!_this.playback) {
                     _this.playShow();
+                    _this.data.logEvent(Slideshow.SlideshowEventType.SLIDESHOW_PLAYED);
                 }
                 else if (!_this.playback.playing) {
                     _this.resumeShow();
@@ -562,17 +643,25 @@ var Slideshow;
             });
             $("#saveSlideBtn").on("click", function () {
                 _this.updateSlide();
-                _this.setState(2 /* Show */);
+                _this.setState(3 /* Show */);
+                _this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_CLOSED, { 'saved': 'true' });
             });
             $("#cancelSlideBtn").on("click", function () {
                 _this.workingSlide = null;
                 _this.ui.slideImg.src = _this.curSlide.image;
-                _this.setState(2 /* Show */);
+                _this.setState(3 /* Show */);
+                _this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_CLOSED, { 'saved': 'false' });
             });
             $(this.ui.slideRoll).sortable({
                 containment: this.ui.slideRoll.parentElement,
                 stop: function (e, ui) {
+                    var target = $(e.originalEvent.target).closest('div[id^="slide"');
+                    var slideId = target.attr('id');
+                    var slide = _this.show.getSlide(slideId);
+                    var prevIndex = _this.show.getSlideIndex(slide);
                     _this.updateSlideOrder();
+                    var newIndex = _this.show.getSlideIndex(slide);
+                    _this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_MOVED, { 'slide': slideId, 'prevIndex': prevIndex, 'newIndex': newIndex });
                 }
             });
             $(this.ui.slideEditor).addClass("hidden");
@@ -580,6 +669,7 @@ var Slideshow;
                 if (_this.workMode != 1 /* T */) {
                     var val = _this.workingSlide.lockedFields[0 /* Image */] = !_this.workingSlide.lockedFields[0 /* Image */];
                     _this.ui.toggleLock($(e.currentTarget));
+                    _this.data.logEvent(Slideshow.SlideshowEventType.ELEMENT_LOCKED, { 'action': val ? 'locked' : 'unlocked', 'element': 'image' });
                 }
             });
             $('#lockAudioBtn').on('click', function (e) {
@@ -587,17 +677,20 @@ var Slideshow;
                     var val = _this.workingSlide.lockedFields[1 /* Audio */] = !_this.workingSlide.lockedFields[1 /* Audio */];
                     _this.ui.toggleLock($(e.currentTarget));
                 }
+                _this.data.logEvent(Slideshow.SlideshowEventType.ELEMENT_LOCKED, { 'action': val ? 'locked' : 'unlocked', 'element': 'audio' });
             });
             $('#lockCaptionBtn').on('click', function (e) {
                 if (_this.workMode != 1 /* T */) {
                     var val = _this.workingSlide.lockedFields[2 /* Caption */] = !_this.workingSlide.lockedFields[2 /* Caption */];
                     _this.ui.toggleLock($(e.currentTarget));
+                    _this.data.logEvent(Slideshow.SlideshowEventType.ELEMENT_LOCKED, { 'action': val ? 'locked' : 'unlocked', 'element': 'caption' });
                 }
             });
             $('#lockDurationBtn').on('click', function (e) {
                 if (_this.workMode != 1 /* T */) {
                     var val = _this.workingSlide.lockedFields[3 /* Duration */] = !_this.workingSlide.lockedFields[3 /* Duration */];
                     _this.ui.toggleLock($(e.currentTarget));
+                    _this.data.logEvent(Slideshow.SlideshowEventType.ELEMENT_LOCKED, { 'action': val ? 'locked' : 'unlocked', 'element': 'duration' });
                 }
             });
             $('#deleteImgBtn').on('click', function (e) {
@@ -607,10 +700,22 @@ var Slideshow;
             this.localization = new Slideshow.Localization();
             this.localization.init();
             this.addSlide();
+            this.isLoadingShow = false;
         }
+        SlideshowApp.prototype.loadGallery = function (json) {
+            var _this = this;
+            var files = json["files"];
+            this.gallery = new Slideshow.Gallery($("#gallery")[0], files, "images/" + this.imgFolder);
+            this.gallery.createDom();
+            this.gallery.selectHandler = function (param) {
+                _this.onGallerySelect(param);
+            };
+            this.gallery.closeHandler = function () {
+                _this.ui.hideGallery();
+            };
+        };
         SlideshowApp.prototype.initMedia = function (callback) {
             var _this = this;
-            console.log("initMedia");
             navigator.getMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
             navigator.getMedia({
                 video: true,
@@ -628,19 +733,17 @@ var Slideshow;
             });
         };
         SlideshowApp.prototype.clearAll = function () {
-            console.log("clearAll");
             $(this.ui.slideRoll).empty();
             this.ui.slideImg.src = "";
             this.show = new Slideshow.Show();
             this.slideThumbs = {};
             $("#nameTxtInput").val("");
             this.ui.setEditLocks([false, false, false, false], false);
-            this.setState(2 /* Show */);
+            this.setState(3 /* Show */);
             this.addSlide();
         };
         SlideshowApp.prototype.checkForSave = function (callback) {
             var _this = this;
-            console.log("checkForSave workMode: " + this.workMode);
             if (this.workMode == 2 /* V */) {
                 callback();
                 return;
@@ -672,6 +775,7 @@ var Slideshow;
             this.workMode = 0 /* W */;
             this.setWorkMode(0 /* W */);
             this.clearAll();
+            this.data.logEvent(Slideshow.SlideshowEventType.FILE_CREATED);
         };
         SlideshowApp.prototype.setWorkMode = function (mode) {
             switch (mode) {
@@ -696,13 +800,13 @@ var Slideshow;
         SlideshowApp.prototype.setState = function (newState) {
             if (this.state != newState) {
                 switch (this.state) {
-                    case 5 /* SlideAudio */:
+                    case 6 /* SlideAudio */:
                         if (this.curSlide.audio == null) {
                             $("#recordedAudio").addClass("hidden");
                         }
                         $("#recordAudioControls").addClass("hidden");
                         break;
-                    case 4 /* SlideCam */:
+                    case 5 /* SlideCam */:
                         $("#takePictureBtn").addClass("hidden");
                         $("#cancelPictureBtn").addClass("hidden");
                         this.ui.useWebcamBtn.disabled = false;
@@ -718,7 +822,7 @@ var Slideshow;
             switch (newState) {
                 case 1 /* Ready */:
                     break;
-                case 3 /* Slide */:
+                case 4 /* Slide */:
                     $("#playShowBtn").addClass("hidden");
                     $("#slideRollHolder").addClass("hidden");
                     $("#slideEditor").removeClass("hidden");
@@ -728,17 +832,17 @@ var Slideshow;
                     }
                     $("#recordAudioBtn").removeClass("disabled");
                     break;
-                case 5 /* SlideAudio */:
+                case 6 /* SlideAudio */:
                     $("#recordAudioBtn").addClass("disabled");
                     $("#takePictureBtn").addClass("hidden");
                     $("#recordedAudio").removeClass("hidden");
                     $("#recordAudioControls").removeClass("hidden");
                     break;
-                case 4 /* SlideCam */:
+                case 5 /* SlideCam */:
                     $("#takePictureBtn").removeClass("hidden");
                     $("#cancelPictureBtn").removeClass("hidden");
                     break;
-                case 2 /* Show */:
+                case 3 /* Show */:
                     $("#slideEditor").addClass("hidden");
                     $("#recordAudioControls").addClass("hidden");
                     $("#takePictureBtn").addClass("hidden");
@@ -767,7 +871,7 @@ var Slideshow;
             var _this = this;
             if (file.type.substring(0, 5) != 'audio') {
                 // TODO: show error msg
-                console.log('invalid image type');
+                console.log('invalid audio file');
                 return;
             }
             var reader = new FileReader();
@@ -779,6 +883,7 @@ var Slideshow;
             };
             reader.readAsArrayBuffer(file);
             this.ui.setFilename($("#audioFilename"), this.curSlide.id + "audio.wav");
+            this.data.logEvent(Slideshow.SlideshowEventType.AUDIO_ADDED, { 'source': 'computer' });
         };
         SlideshowApp.prototype.loadUserImageFile = function (file) {
             var _this = this;
@@ -787,23 +892,22 @@ var Slideshow;
                 console.log('invalid image type');
                 return;
             }
-            console.log("loading img file");
             var reader = new FileReader();
             reader.onload = function (e) {
                 _this.workingSlide.image = _this.ui.slideImg.src = e.target.result;
-                console.log("img file loaded");
                 _this.ui.imgFileInput.value = null;
             };
             reader.readAsDataURL(file);
             this.ui.setFilename($("#imgFilename"), this.curSlide.id + "img.png");
+            this.data.logEvent(Slideshow.SlideshowEventType.IMAGE_ADDED, { 'source': 'computer' });
         };
         SlideshowApp.prototype.onGallerySelect = function (imgURL) {
             var _this = this;
-            console.log("onGallerySelect: " + imgURL);
             // convert the image into a base64 string
             // modified from http://stackoverflow.com/questions/6150289/how-to-convert-image-into-base64-string-using-javascript#answer-20285053
             var xhr = new XMLHttpRequest();
             xhr.responseType = 'blob';
+            var filename = imgURL.substr(imgURL.lastIndexOf("/") + 1);
             xhr.onload = function () {
                 var reader = new FileReader();
                 reader.onloadend = function () {
@@ -815,9 +919,10 @@ var Slideshow;
             xhr.send();
             var callback = function (url64) {
                 _this.workingSlide.image = _this.ui.slideImg.src = url64;
-                _this.ui.setFilename($("#imgFilename"), _this.curSlide.id + "img.png");
+                _this.ui.setFilename($("#imgFilename"), filename);
                 _this.ui.hideGallery();
             };
+            this.data.logEvent(Slideshow.SlideshowEventType.IMAGE_ADDED, { 'source': 'gallery', 'filename': filename });
         };
         SlideshowApp.prototype.useWebcam = function () {
             var _this = this;
@@ -840,7 +945,8 @@ var Slideshow;
             var imgName = this.curSlide.id + "img.png";
             this.ui.setFilename($("#imgFilename"), imgName);
             //this.webcam.stop();
-            this.setState(3 /* Slide */);
+            this.setState(4 /* Slide */);
+            this.data.logEvent(Slideshow.SlideshowEventType.IMAGE_ADDED, { 'source': 'camera' });
         };
         SlideshowApp.prototype.startRecording = function () {
             var _this = this;
@@ -865,6 +971,7 @@ var Slideshow;
                 var filename = _this.curSlide.id + "audio.wav";
                 _this.ui.setFilename($("#audioFilename"), filename);
                 _this.workingSlide.audio = _this.audio.audioBlob;
+                _this.data.logEvent(Slideshow.SlideshowEventType.AUDIO_ADDED, { 'source': 'recorded', 'length': _this.workingSlide.duration.toString() });
             });
             this.ui.toggleRecordBtn.classList.remove("active");
             this.audio.stopRecording();
@@ -883,6 +990,9 @@ var Slideshow;
             this.ui.durationInput.value = this.curSlide.duration.toString();
             var thumb = this.createSlideThumb(this.curSlide);
             this.curThumb = thumb;
+            if (!this.isLoadingShow) {
+                this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_ADDED, { 'slide': this.curSlide.id });
+            }
         };
         SlideshowApp.prototype.createSlideThumb = function (slide) {
             var _this = this;
@@ -937,17 +1047,21 @@ var Slideshow;
             });
             slideThumb.editBtn.on("click", function (e) {
                 _this.workingSlide = _this.curSlide.clone();
-                _this.setState(3 /* Slide */);
+                _this.setState(4 /* Slide */);
+                _this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_EDITED, { 'slide': _this.curSlide.id });
             });
-            console.log("createSlideThumb");
             if (this.workMode == 0 /* W */) {
-                console.log("workMode: FileMode.W");
-                // todo:
                 slideThumb.lockBtn.on("click", function (e) {
                     var id = $(e.currentTarget).parent()[0].id;
                     var slide = _this.show.getSlide(id);
                     _this.ui.toggleLock($(e.currentTarget));
                     slide.locked = !slide.locked;
+                    if (slide.locked) {
+                        _this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_LOCKED, { 'slide': id });
+                    }
+                    else {
+                        _this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_UNLOCKED, { 'slide': id });
+                    }
                 });
             }
             else {
@@ -964,6 +1078,7 @@ var Slideshow;
             var index = this.show.getSlideIndex(slide) + 1;
             this.show.addSlideAt(dupe, index);
             this.createSlideThumb(dupe);
+            this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_DUPLICATED, { 'slide': id });
         };
         SlideshowApp.prototype.deleteSlide = function (id) {
             if (this.curSlide.id == id) {
@@ -983,6 +1098,7 @@ var Slideshow;
             this.ui.slideRoll.removeChild(slideThumb.getElement());
             delete this.slideThumbs[id];
             this.updateSlideOrder();
+            this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_DELETED, { 'slide': id });
         };
         SlideshowApp.prototype.setSlide = function (id) {
             this.curSlide = this.show.slides[id];
@@ -1018,11 +1134,14 @@ var Slideshow;
             }
         };
         SlideshowApp.prototype.updateSlide = function () {
-            if (this.ui.captionInput.value) {
+            if (this.ui.captionInput.value && this.ui.captionInput.value != this.workingSlide.text) {
                 this.workingSlide.text = this.ui.captionInput.value;
+                this.data.logEvent(Slideshow.SlideshowEventType.CAPTION_EDITED, { 'value': this.ui.captionInput.value });
             }
-            if (this.ui.durationInput.value) {
-                this.workingSlide.duration = parseInt(this.ui.durationInput.value);
+            var newDuration = parseInt(this.ui.durationInput.value);
+            if (this.ui.durationInput.value && newDuration != this.workingSlide.duration) {
+                this.workingSlide.duration = newDuration;
+                this.data.logEvent(Slideshow.SlideshowEventType.DURATION_EDITED, { 'value': this.ui.durationInput.value });
             }
             // replace original version of slide with working slide
             var index = this.show.getSlideIndex(this.curSlide);
@@ -1036,7 +1155,6 @@ var Slideshow;
         };
         SlideshowApp.prototype.saveSlides = function (callback) {
             var _this = this;
-            console.log('saveSlides');
             var onAudioProcessed = function () {
                 document.removeEventListener('audio_processed', onAudioProcessed);
                 _this.finishSave();
@@ -1044,14 +1162,12 @@ var Slideshow;
             document.addEventListener('audio_processed', onAudioProcessed);
             if (callback) {
                 document.addEventListener('slideshow_saved', function () {
-                    console.log("saved callback");
                     callback();
                 });
             }
             this.show.prepForSave();
         };
         SlideshowApp.prototype.finishSave = function () {
-            console.log('onAudioProcessed');
             var name = this.ui.nameTxtInput.value ? this.ui.nameTxtInput.value : "slideshow";
             var slidesJSON = '{"name":"' + name + '",\n"slides": [';
             var zip = new JSZip();
@@ -1098,28 +1214,34 @@ var Slideshow;
             slidesJSON += ']}';
             zip.file("slides.json", slidesJSON);
             var content = zip.generate({ type: "blob" });
-            var ext;
+            var ext, eventType;
             switch (this.exportMode) {
                 case 0 /* W */:
                     ext = "cssw";
+                    eventType = Slideshow.SlideshowEventType.FILE_SAVED;
                     break;
                 case 1 /* T */:
                     ext = "csst";
+                    eventType = Slideshow.SlideshowEventType.TEMPLATE_SAVED;
                     break;
                 case 2 /* V */:
                     ext = "cssv";
+                    eventType = Slideshow.SlideshowEventType.SLIDESHOW_EXPORTED;
                     break;
             }
             //FileSaver.js
-            saveAs(content, name + "." + ext);
+            var filename = name + "." + ext;
+            saveAs(content, filename);
             console.log('saved slides');
             var event = new Event("slideshow_saved");
             document.dispatchEvent(event);
+            this.data.logEvent(eventType, { 'filename': filename });
         };
         SlideshowApp.prototype.loadShowFile = function (file) {
             var _this = this;
+            this.isLoadingShow = true;
             this.show = new Slideshow.Show();
-            this.setState(2 /* Show */);
+            this.setState(3 /* Show */);
             var ext = file.name.substr(file.name.lastIndexOf('.'));
             switch (ext) {
                 case ".cssw":
@@ -1132,7 +1254,6 @@ var Slideshow;
                     this.workMode = 2 /* V */;
                     break;
             }
-            console.log("loadShow workmode: " + this.workMode);
             this.setWorkMode(this.workMode);
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -1178,6 +1299,7 @@ var Slideshow;
                 }
                 _this.setSlide(_this.show.getSlideAt(0).id);
                 _this.ui.slideFileInput.value = null;
+                _this.isLoadingShow = false;
             };
             reader.readAsArrayBuffer(file);
         };
@@ -1188,10 +1310,9 @@ var Slideshow;
             request.responseType = 'blob';
             request.onload = function (e) {
                 if (request.status == 200) {
-                    console.log("file loaded:" + e);
-                    console.log("document.referrer: " + document.referrer);
                     var blob = new Blob([request.response]);
-                    var file = Slideshow.Utils.blobToFile(blob, "slideshow");
+                    var filename = url.substring(url.lastIndexOf("/") + 1);
+                    var file = Slideshow.Utils.blobToFile(blob, filename);
                     _this.loadShowFile(file);
                 }
                 else {
@@ -1222,11 +1343,6 @@ var Slideshow;
             this.ui.togglePlayBtn();
             this.setSlide(this.show.getSlideAt(0).id);
             this.playback = null;
-        };
-        SlideshowApp.galleries = {
-            "default": ["boat.jpg", "candles.jpg", "deer.jpg", "elephants.jpg", "fly.jpg", "helicopter.jpg", "hippo.jpg", "horses.jpg", "iguana.jpg", "lamb.jpg", "matterhorn.jpg", "moon.jpg", "racetrack.jpg", "rooster.jpg", "skiresort.jpg", "small-fishing-boat.jpg", "snake.jpg", "squirrel.jpg", "surfer.jpg", "telephone.jpg", "towerbridge.jpg", "tulipfield.jpg", "wave.jpg", "westie-dog.jpg", "windmill.jpg"],
-            "animals": ["deer.jpg", "elephants.jpg", "fly.jpg", "hippo.jpg", "horses.jpg", "iguana.jpg", "lamb.jpg", "rooster.jpg", "snake.jpg", "squirrel.jpg", "westie-dog.jpg"],
-            "scenery": ["boat.jpg", "matterhorn.jpg", "moon.jpg", "racetrack.jpg", "skiresort.jpg", "small-fishing-boat.jpg", "towerbridge.jpg", "tulipfield.jpg", "wave.jpg", "windmill.jpg"]
         };
         return SlideshowApp;
     })();
@@ -1343,7 +1459,7 @@ var Slideshow;
             }
         };
         UI.prototype.setLock = function (button, val, templateMode) {
-            console.log("setLock: " + button + " = " + val + " (template=" + templateMode + ")");
+            //console.log("setLock: " + button + " = " + val + " (template=" + templateMode + ")");
             if (templateMode) {
                 button.addClass("hidden");
             }
@@ -1389,6 +1505,24 @@ var Slideshow;
                 return m;
             });
             return vars;
+        };
+        Utils.getParentURL = function () {
+            var url = document.referrer;
+            url = url.substring(0, url.lastIndexOf("/") + 1);
+            return url;
+        };
+        // from unplatform reporter.js
+        Utils.getCookie = function (cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ')
+                    c = c.substring(1);
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
+            }
+            return "";
         };
         Utils.toHTML = function (val) {
             return val.replace(/(?:\r\n|\r|\n)/g, '<br>');
