@@ -1,11 +1,11 @@
 from django.db import models
 from django.utils import timezone
 
-class UUID(models.Model):
-    session_id = models.CharField(max_length=36, primary_key=True)
-    creation_time = models.DateTimeField(auto_now_add=True)
-    def __str__(self):
-        return self.session_id
+# class UUID(models.Model):
+#     session_id = models.CharField(max_length=36, primary_key=True)
+#     creation_time = models.DateTimeField(auto_now_add=True)
+#     def __str__(self):
+#         return self.session_id
 
 class Fingerprint(models.Model):
     # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -20,9 +20,9 @@ class Fingerprint(models.Model):
     # is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
     creation_time = models.DateTimeField(default=timezone.now) # Was auto_now_add=true but changed to allow override
 
-class AppData(models.Model):
-    session_id = models.ForeignKey(UUID)
-    app_name = models.CharField(max_length=15)
-    event_type = models.CharField(max_length=15)
-    params = models.TextField()
-    creation_time = models.DateTimeField(auto_now_add=True)
+# class AppData(models.Model):
+#     session_id = models.ForeignKey(UUID)
+#     app_name = models.CharField(max_length=15)
+#     event_type = models.CharField(max_length=15)
+#     params = models.TextField()
+#     creation_time = models.DateTimeField(auto_now_add=True)
