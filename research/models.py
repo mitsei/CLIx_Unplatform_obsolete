@@ -21,9 +21,9 @@ class Fingerprint(models.Model):
     # is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
     creation_time = models.DateTimeField(default=timezone.now) # Was auto_now_add=true but changed to allow override
 
-# class AppData(models.Model):
-#     session_id = models.ForeignKey(UUID)
-#     app_name = models.CharField(max_length=15)
-#     event_type = models.CharField(max_length=15)
-#     params = models.TextField()
-#     creation_time = models.DateTimeField(auto_now_add=True)
+class AppData(models.Model):
+    session_id = models.ForeignKey(UUID)
+    app_name = models.CharField(max_length=15)
+    event_type = models.CharField(max_length=15)
+    params = models.TextField()
+    creation_time = models.DateTimeField(auto_now_add=True)
