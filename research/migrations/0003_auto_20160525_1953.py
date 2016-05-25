@@ -7,13 +7,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('research', '0003_auto_20160517_2129'),
+        ('research', '0002_auto_20160525_1953'),
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='appdata',
-            name='session_id',
-            field=models.ForeignKey(to='research.UUID'),
+        migrations.RenameField(
+            model_name='fingerprint',
+            old_name='uuid',
+            new_name='session_id',
         ),
     ]
