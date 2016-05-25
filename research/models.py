@@ -3,7 +3,7 @@ from django.utils import timezone
 
 class UUID(models.Model):
     session_id = models.CharField(max_length=36, primary_key=True)
-    creation_time = models.DateTimeField(auto_now_add=True)
+    creation_time = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.session_id
 
