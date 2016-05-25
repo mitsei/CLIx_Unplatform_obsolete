@@ -8,7 +8,7 @@ class FingerprintSerializer(serializers.ModelSerializer):
     session_id = CreatableSlugRelatedField(queryset=UUID.objects.all(), slug_field='session_id')
     class Meta:
         model = Fingerprint
-        fields = ('url', 'session_id', 'user_agent', 'screen_size', 'browser_url', 'languages', 'client_ip', 'client_ip_other', 'server_ip', 'creation_time')
+        fields = ('url', 'uuid', 'user_agent', 'screen_size', 'browser_url', 'languages', 'client_ip', 'client_ip_other', 'server_ip', 'creation_time')
 # removed , 'is_sent'
 
 
