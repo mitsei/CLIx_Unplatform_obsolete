@@ -9,7 +9,7 @@ class UUID(models.Model):
 
 class Fingerprint(models.Model):
     # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    session_id = models.ForeignKey(UUID)
+    uuid = models.ForeignKey(UUID)
     user_agent = models.CharField(max_length=200) # not sure what a good length is yet
     screen_size = models.CharField(max_length=12, null=True)
     browser_url = models.CharField(max_length=200, null=True) # also not sure about this length
