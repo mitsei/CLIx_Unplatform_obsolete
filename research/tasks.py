@@ -9,15 +9,22 @@ import json, requests
 
 @shared_task
 def send_data_to_cloud():
-    to_be_sent = Fingerprint.objects.exclude(is_sent=True)
-    serialized = json.loads(serializers.serialize('json', to_be_sent))
+    fingerprints_to_be_sent = Fingerprint.objects.exclude(is_sent=True)
+    serialized = json.loads(serializers.serialize('json', fingerprints_to_be_sent))
     for index, obj in enumerate(serialized):
         r=requests.post('http://unplatform.herokuapp.com/api/fingerprints/', json=obj['fields'])
         if r.status_code==201:
-            to_be_sent[index].is_sent=True
-            to_be_sent[index].save()
-            print("pk=" + str(to_be_sent[index].pk) + " succcessfully sent")
-
+            fingerprints_to_be_sent[index].is_sent=True
+            fingerprints_to_be_sent[index].save()
+            print("fingerprint pk=" + str(fingerprints_to_be_sent[index].pk) + " succcessfully sent")
+    appdata_to_be_sent = Fingerprint.objects.exclude(is_sent=True)
+    serialized = json.loads(serializers.serialize('json', appdata_to_be_sent))
+    for index, obj in enumerate(serialized):
+        r=requests.post('http://unplatform.herokuapp.com/api/appdata/', json=obj['fields'])
+        if r.status_code==201:
+            appdata_to_be_sent[index].is_sent=True
+            appdata_to_be_sent[index].save()
+            print("appdata pk=" + str(appdata_to_be_sent[index].pk) + " succcessfully sent")
 
 
 # from research.models import Fingerprint
