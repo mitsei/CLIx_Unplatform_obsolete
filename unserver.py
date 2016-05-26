@@ -14,4 +14,5 @@ from unplatform.wsgi import application
 # logger = logging.getLogger('waitress')
 # logger.setLevel(logging.INFO)
 
-serve(application)
+# serve(, url_scheme='https')
+serve(application, host='0.0.0.0', port=8080, url_scheme='https')

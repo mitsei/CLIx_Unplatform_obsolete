@@ -25,4 +25,4 @@ class AppData(models.Model):
     event_type = models.CharField(max_length=15)
     params = models.TextField()
     is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
-    creation_time = models.DateTimeField(auto_now_add=True)
+    creation_time = models.DateTimeField(default=timezone.now)
