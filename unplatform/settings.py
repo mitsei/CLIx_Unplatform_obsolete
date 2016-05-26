@@ -150,7 +150,7 @@ import unplatform.tasks
 CELERYBEAT_SCHEDULE = {
     'post-every-30-seconds': {
         'task': 'research.tasks.send_data_to_cloud',
-        'schedule': timedelta(minutes=3),
+        'schedule': timedelta(minutes=5),
         'args': ()
     },
 }

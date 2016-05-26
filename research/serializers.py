@@ -8,15 +8,14 @@ class FingerprintSerializer(serializers.ModelSerializer):
     session_id = GetOrCreateSlugRelatedField(queryset=UUID.objects.all(), slug_field='session_id')
     class Meta:
         model = Fingerprint
-        fields = ('url', 'session_id', 'user_agent', 'screen_size', 'browser_url', 'languages', 'client_ip', 'client_ip_other', 'server_ip', 'creation_time')
-# removed , 'is_sent'
+        fields = ('url', 'session_id', 'user_agent', 'screen_size', 'browser_url', 'languages', 'client_ip', 'client_ip_other', 'server_ip', 'creation_time', 'is_sent')
 
 
 class AppDataSerializer(serializers.ModelSerializer):
     session_id = GetOrCreateSlugRelatedField(queryset=UUID.objects.all(), slug_field='session_id')
     class Meta:
         model = AppData
-        fields = ('url', 'session_id', 'app_name', 'event_type', 'params', 'creation_time')
+        fields = ('url', 'session_id', 'app_name', 'event_type', 'params', 'creation_time', 'is_sent')
 
 
 # class DataSerializer(serializers.ModelSerializer):
@@ -29,4 +28,4 @@ class UUIDSerializer(serializers.ModelSerializer):
     # appdata = AppDataSerializer(many=True, read_only=True)
     class Meta:
         model = UUID
-        fields = ('url', 'session_id')
+        fields = ('url', 'session_id', 'creation_time')
