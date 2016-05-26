@@ -8,7 +8,7 @@ class UUID(models.Model):
         return self.session_id
 
 class Fingerprint(models.Model):
-    session_id = models.ForeignKey(UUID)
+    session_id = models.ForeignKey(UUID, related_name='fingerprints')
     user_agent = models.CharField(max_length=200) # not sure what a good length is yet
     screen_size = models.CharField(max_length=12, null=True)
     browser_url = models.CharField(max_length=200, null=True) # also not sure about this length
@@ -20,7 +20,7 @@ class Fingerprint(models.Model):
     creation_time = models.DateTimeField(default=timezone.now) # Was auto_now_add=true but changed to allow override
 
 class AppData(models.Model):
-    session_id = models.ForeignKey(UUID)
+    session_id = models.ForeignKey(UUID, related_name='appdata')
     app_name = models.CharField(max_length=15)
     event_type = models.CharField(max_length=15)
     params = models.TextField()
