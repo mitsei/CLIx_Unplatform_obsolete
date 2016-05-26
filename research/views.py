@@ -42,7 +42,7 @@ class AppDataViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = AppData.objects.all()
+    queryset = AppData.objects.all().order_by('-creation_time')
     serializer_class = AppDataSerializer
 
 
@@ -50,5 +50,5 @@ class UUIDViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
-    queryset = UUID.objects.all()
+    queryset = UUID.objects.all().order_by('-creation_time')
     serializer_class = UUIDSerializer
