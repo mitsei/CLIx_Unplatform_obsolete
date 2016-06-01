@@ -1,0 +1,113 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="utf-8">
+<title> Police Quad </title>
+<link rel="stylesheet" type="text/css" href="../css/css.css">
+<link href="../css/toastr.min.css" rel="stylesheet"/>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Indie+Flower|Lobster' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../src/shapes0.json"></script>
+<script type="text/javascript" src="../src/shapes1.json"></script>
+<script type="text/javascript" src="../src/shapes2.json"></script>
+<script type="text/javascript" src="../src/shapes3.json"></script>
+<script type="text/javascript" src="../src/shapes4.json"></script>
+<script type="text/javascript" src="../src/shapes9.json"></script>
+<script type="text/javascript" src="../src/clues0.json"></script>
+<script type="text/javascript" src="../src/clues1.json"></script>
+<script type="text/javascript" src="../src/clues2.json"></script>
+<script type="text/javascript" src="../src/clues3.json"></script>
+<script type="text/javascript" src="../src/clues4.json"></script>
+<script type="text/javascript" src="../src/clues5.json"></script>
+<script type="text/javascript" src="../src/clues6.json"></script>
+<script type="text/javascript" src="../src/clues7.json"></script>
+<script type="text/javascript" src="../src/clues8.json"></script>
+<script type="text/javascript" src="../libs/loadxmldoc.js"></script>
+<script type="text/javascript" src="../libs/common.js"></script>
+<script type="text/javascript" src="../libs/jquery.js"></script>
+<script type="text/javascript" src="../libs/jquery_ui.js"></script>
+<script type="text/javascript" src="../libs/jquery_ui_touch.js"></script>
+<!-- <script type="text/javascript" src="../libs/script.js"></script> -->
+<script type="text/javascript" src="../libs/main.js"></script>
+<script type="text/javascript" src="../libs/jcanvas.min.js"></script>
+<script type="text/javascript" src="../libs/PxLoader.js"></script>
+<script type="text/javascript" src="../libs/PxLoaderImage.js"></script>
+<script src="../libs/toastr.min.js"></script>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> -->
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+
+    <script>
+        var getParameters = getURLParameters();
+        if(typeof getParameters['numberLanguage']=="undefined") numberLanguage = 'english'; else numberLanguage = getParameters['numberLanguage'];
+    </script>
+</head>
+
+<body onresize="resize();" onload="resize();">
+	
+	<div id="PreLoader">
+		<span id="LoadingText">Loading...</span>
+		<img id="LoadingImg" alt="loader" src="../assets/loader.gif"/>
+	</div>
+	
+	<div id="mainDiv">
+		<div id="introDiv">
+            <div id="gameTitle">
+                <h1>POLICE QUAD</h1>
+                <div class="button" id="play">START</div>
+            </div>
+        </div>	
+		<div id="screenDiv1" class="screenDiv">
+            <div class='left-side'>
+                 <div id="topRow">
+                    <div>Level - <span id='level'>1</span></div>
+                    <div><i class="fa fa-star" aria-hidden="true"></i> - x1</div>
+                    <div>High Score - <span id='highScore'></span></div>
+                </div>
+                <div id="shapes"></div>
+                <div id="clues">
+                    <h1>Clues</h1>
+                    <p>According to eyewitness accounts, the culprit has</p>
+                    <ul class="cluesList"></ul>
+                </div>
+                <div id='gameActions'>
+                    <div class='nextClue'><i class="fa fa-arrow-right" aria-hidden="true"></i><br>Next</div>
+                     <div class='replayGame'><i class="fa fa-repeat" aria-hidden="true"></i><br>Replay</div>
+                      <div class='finishGame'><i class="fa fa-check-circle" aria-hidden="true"></i><br>Done</div>
+                </div>
+            </div>
+           <div class='right-side'>
+                <div id='mangoTreats'></div>
+                <div id='nextCase'><i class="fa fa-arrow-right" aria-hidden="true"></i><br>Next Case</div>
+                <div class='suspect-pic'>
+                    <img src='../assets/alien1.png' />
+                </div>
+           </div>
+            <!-- <div id="que1"></div> -->
+            
+			<!-- <div id="rollingSurface">
+                <canvas id="game_canvas" width="800" height="600">
+				Your browser doesn't support canvas.
+			    </canvas>
+                <canvas id="game_canvas3" width="800" height="600">
+				Your browser doesn't support canvas.
+			    </canvas>
+                <div class="button" id="surfaceButt">OK</div>
+            </div> -->
+		</div>
+		<div class='overlay'>
+            <div id='gameStats'>
+                <h1>Case Summary</h1>
+                <ul id='summaryClues'></ul>
+                <h1 id='endStatus'></h1>
+                <p>Game Points - <span id='gamePoints'></span></p>
+                <p>Treats Earned - <span id='treatsEarned'></span></p>
+                <p>Bonus Points - <span id='bonusPoints'></span></p>
+                <p>Total Score - <span id='totalScore'></span>
+                <div class="button" id="replay">Replay</div>
+                <div class="button" id="nextLevel">Next Level</div>
+            </div>
+        </div>
+	</div>
+  
+	
+</body>
+</html>
