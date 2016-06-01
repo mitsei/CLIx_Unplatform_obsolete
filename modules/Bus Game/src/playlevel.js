@@ -111,7 +111,7 @@ playLevel = {
 						level++;
 						instructions = instruction_array[level - 1]
 						game.loadJSONTilemap('assets/level' + level + '.json') // bug workaround included
-						if (level == 1 || level == 2) { totalTicks = 2 } else { totalTicks = 13 }
+						if (level == 1 || level == 2 || level == 3) { totalTicks = 2 } else { totalTicks = 13 }
 						game.input.onDown.add(function(){game.state.start("PlayLevel")}, self);
 					}
 				}

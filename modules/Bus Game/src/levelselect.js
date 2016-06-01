@@ -1,11 +1,6 @@
 levelSelect = {
     create: function() {
-        // Create a label to use as a button
-        menu_button = game.add.text(640, 20, 'MENU', { font: '24px Arial', fill: '#1AF' });
-        menu_button.inputEnabled = true;
-        //menu_button.events.onInputUp.add(function () {
-        // When the pause button is pressed, we pause the game
-        game.paused = true;
+        
 
         // Then add the menu
         menu = game.add.sprite(50, h/2, 'menu');
@@ -13,6 +8,13 @@ levelSelect = {
         
         // language_select = game.add.sprite(150, h/2, 'language_select');
         // language_select.anchor.setTo(0.5, 0.5);
+        
+        // Create a label to use as a button
+        menu_button = game.add.text(640, 20, 'MENU', { font: '24px Arial', fill: '#1AF' });
+        menu_button.inputEnabled = true;
+        //menu_button.events.onInputUp.add(function () {
+        // When the pause button is pressed, we pause the game
+        game.paused = true;
 
         // And a label to illustrate which menu item was chosen. (This is not necessary)
         choiceLabel = game.add.text(w/2, h-150, 'Choose a level', { font: '30px Arial', fill: '#fff' });

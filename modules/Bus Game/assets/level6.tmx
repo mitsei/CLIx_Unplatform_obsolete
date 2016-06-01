@@ -33,7 +33,7 @@
   </data>
  </layer>
  <objectgroup name="Objects">
-  <object id="66" name="Goat" type="goat" gid="38" x="256" y="192" width="64" height="64">
+  <object id="66" name="Goat" type="goat" gid="38" x="320" y="192" width="64" height="64">
    <properties>
     <property name="max_velocity" value="20"/>
     <property name="min_velocity" value="0"/>
@@ -42,7 +42,7 @@
   <object id="68" type="10km" gid="40" x="192" y="128" width="64" height="64"/>
   <object id="69" type="10km" gid="40" x="320" y="128" width="64" height="64"/>
   <object id="70" type="10km" gid="40" x="448" y="128" width="64" height="64"/>
-  <object id="150" name="bus" type="bus" gid="41" x="64" y="192" width="64" height="64"/>
+  <object id="150" name="bus" type="bus" gid="41" x="128" y="192" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="Stops">
   <object id="87" name="stop1" type="busStop" gid="39" x="128" y="128" width="64" height="64">

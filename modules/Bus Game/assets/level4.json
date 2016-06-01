@@ -29,7 +29,7 @@
                  "type":"bus",
                  "visible":true,
                  "width":64,
-                 "x":64,
+                 "x":128,
                  "y":192
                 }],
          "opacity":1,

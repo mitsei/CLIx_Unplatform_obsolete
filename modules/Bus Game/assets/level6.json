@@ -30,7 +30,7 @@
                  "type":"goat",
                  "visible":true,
                  "width":64,
-                 "x":256,
+                 "x":320,
                  "y":192
                 }, 
                 {
@@ -94,7 +94,7 @@
                  "type":"bus",
                  "visible":true,
                  "width":64,
-                 "x":64,
+                 "x":128,
                  "y":192
                 }],
          "opacity":1,
