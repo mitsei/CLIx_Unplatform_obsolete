@@ -1,6 +1,6 @@
 var w = 800, h = 600;
 
-var debug = true;
+var debug = false;
 
 
 var game = new Phaser.Game(w, h, Phaser.AUTO, '');
