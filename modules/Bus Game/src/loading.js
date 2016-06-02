@@ -6,7 +6,8 @@ loading = {
     preload: function() {
         
         game.load.image('menu', 'assets/level-buttons-90x540.png', 90, 540);
-        game.load.image('language_select', 'assets/language-buttons-90x180.png', 90, 180);
+        game.load.image('language_select_en', 'assets/language-buttons-en-90x180.png', 90, 180);
+        game.load.image('language_select_hi', 'assets/language-buttons-hi-90x180.png', 90, 180);
         game.load.image('tracks', 'assets/tracks.png');  //track image
         game.load.spritesheet('bus', 'assets/bus.png', 64, 64);
         game.load.spritesheet('gems', 'assets/gems2.png', 64, 64, 9);

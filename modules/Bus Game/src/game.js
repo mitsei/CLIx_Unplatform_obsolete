@@ -1,6 +1,6 @@
 var w = 800, h = 600;
 
-var debug = true;
+var debug = false;
 
 
 var game = new Phaser.Game(w, h, Phaser.CANVAS, '');
@@ -23,6 +23,7 @@ var instructions;
 var fail;
 var withinBounds = true;
 var started = false;
+var language = 0;
 // var pass;
 
 game.loadJSONTilemap = function(url) {
