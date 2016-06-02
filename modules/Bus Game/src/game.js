@@ -3,7 +3,7 @@ var w = 800, h = 600;
 var debug = true;
 
 
-var game = new Phaser.Game(w, h, Phaser.CANVAS, '');
+var game = new Phaser.Game(w, h, Phaser.AUTO, '');
 
 
 var player, gem, gems, flags, button; //,buttonsprite;
