@@ -1,10 +1,5 @@
 loading = {
-    init: function() {
-        
-    },
-  
     preload: function() {
-        
         game.load.image('menu', 'assets/level-buttons-90x540.png', 90, 540);
         game.load.image('language_select_en', 'assets/language-buttons-en-90x180.png', 90, 180);
         game.load.image('language_select_hi', 'assets/language-buttons-hi-90x180.png', 90, 180);
@@ -20,7 +15,10 @@ loading = {
         game.load.spritesheet('red_x', 'assets/red_x.png', 64, 64);
         game.loadJSONTilemap('assets/level1.json')
         
-        game.load.start()
+    },
+  
+    create: function() {
+        game.load.start()       
         
         if (debug) { game.time.advancedTiming = true; }
         
