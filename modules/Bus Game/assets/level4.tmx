@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="13" height="7" tilewidth="64" tileheight="64" nextobjectid="151">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="13" height="7" tilewidth="64" tileheight="64" nextobjectid="190">
  <tileset firstgid="1" name="tracks" tilewidth="64" tileheight="64">
   <image source="tracks.png" width="192" height="192"/>
  </tileset>
@@ -27,6 +27,9 @@
  <tileset firstgid="41" name="bus" tilewidth="64" tileheight="64">
   <image source="bus.png" width="64" height="64"/>
  </tileset>
+ <tileset firstgid="42" name="invisible_goat" tilewidth="64" tileheight="64">
+  <image source="invisible_goat.png" trans="ffffff" width="64" height="64"/>
+ </tileset>
  <layer name="RoadTiles" width="13" height="7">
   <data encoding="base64" compression="zlib">
    eJxjYEAAViRMLCBWDxMZeLgBAD8gADk=
@@ -34,6 +37,66 @@
  </layer>
  <objectgroup name="Objects">
   <object id="150" name="bus" type="bus" gid="41" x="128" y="192" width="64" height="64"/>
+  <object id="176" type="goat" gid="42" x="192" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
+  <object id="177" type="goat" gid="42" x="256" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
+  <object id="178" type="goat" gid="42" x="320" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
+  <object id="179" type="goat" gid="42" x="384" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
+  <object id="180" type="goat" gid="42" x="448" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
+  <object id="181" type="goat" gid="42" x="512" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
+  <object id="186" type="goat" gid="42" x="576" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
+  <object id="187" type="goat" gid="42" x="640" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
+  <object id="188" type="goat" gid="42" x="704" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
+  <object id="189" type="goat" gid="42" x="768" y="192" width="64" height="64">
+   <properties>
+    <property name="max_velocity" value="999"/>
+    <property name="min_velocity" value="40"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Stops"/>
 </map>

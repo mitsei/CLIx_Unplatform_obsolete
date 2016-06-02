@@ -31,6 +31,23 @@
                  "width":64,
                  "x":64,
                  "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":151,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"60",
+                     "min_velocity":"60"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":128,
+                 "y":192
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -51,7 +68,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":151,
+ "nextobjectid":159,
  "orientation":"orthogonal",
  "properties":
     {
@@ -194,6 +211,22 @@
          "spacing":0,
          "tileheight":64,
          "tilewidth":64
+        }, 
+        {
+         "firstgid":42,
+         "image":"invisible_goat.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "margin":0,
+         "name":"invisible_goat",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":64,
+         "tilewidth":64,
+         "transparentcolor":"#ffffff"
         }],
  "tilewidth":64,
  "version":1,

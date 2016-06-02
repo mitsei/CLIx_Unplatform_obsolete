@@ -31,6 +31,176 @@
                  "width":64,
                  "x":128,
                  "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":176,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":192,
+                 "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":177,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":256,
+                 "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":178,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":320,
+                 "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":179,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":384,
+                 "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":180,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":448,
+                 "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":181,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":512,
+                 "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":186,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":576,
+                 "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":187,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":640,
+                 "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":188,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":704,
+                 "y":192
+                }, 
+                {
+                 "gid":42,
+                 "height":64,
+                 "id":189,
+                 "name":"",
+                 "properties":
+                    {
+                     "max_velocity":"999",
+                     "min_velocity":"40"
+                    },
+                 "rotation":0,
+                 "type":"goat",
+                 "visible":true,
+                 "width":64,
+                 "x":768,
+                 "y":192
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -51,7 +221,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":151,
+ "nextobjectid":190,
  "orientation":"orthogonal",
  "properties":
     {
@@ -194,6 +364,22 @@
          "spacing":0,
          "tileheight":64,
          "tilewidth":64
+        }, 
+        {
+         "firstgid":42,
+         "image":"invisible_goat.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "margin":0,
+         "name":"invisible_goat",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":64,
+         "tilewidth":64,
+         "transparentcolor":"#ffffff"
         }],
  "tilewidth":64,
  "version":1,

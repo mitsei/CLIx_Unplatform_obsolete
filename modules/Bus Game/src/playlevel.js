@@ -33,16 +33,15 @@ playLevel = {
             result.forEach(function(element) {
               this.createStopFromTiledObject(element, busStops);
             }, this);  
-              
+             
+			obstacles = game.add.group(); 
             result = this.findObjectsByType('goat', map, 'Objects');  //setup the goat
 				if (result.length > 0 ) {
-				goat = game.add.sprite(result[0].x, result[0].y, 'goats', 8);
-				this.copyProperties(result[0], goat);
-				goat.y -= goat._frame.height;
-				game.physics.enable(goat);
-				goat.body.setSize(64, 64);
-				goat_present = true;
-			} else { goat_present = false }
+					result.forEach(function(element) {
+    	          		this.createObstacleFromTiledObject(element, obstacles);
+            		}, this);
+					goat_present = true;  
+				} else { goat_present = false }
 			
             distanceMarkers = game.add.group();
             result = this.findObjectsByType('10km', map, 'Objects'); 
@@ -58,10 +57,14 @@ playLevel = {
             
             game.physics.enable(player);
             player.body.setSize(5,32, -2, 32);  //body surrounds bus and used for collisions, setSize(width, height, offsetX, offsetY)
-                
+            // player.body.collideWorldBounds=true;
+			player.checkWorldBounds = true;
+			player.events.onOutOfBounds.add(function(){withinBounds = false; console.log('collide')}, this);
+			game.world.bringToTop(player)
+			    
             //put the start game button out
-            button = new LabelButton(game, 150, 220, 'buttons', "Go!", this.doBtnStartHandler, this, 2, 1, 0); // button frames 1=over, 0=off, 2=down
-            
+            go_button = new LabelButton(game, 150, 210, 'buttons', "Go!", this.doBtnStartHandler, this, 2, 1, 0); // button frames 1=over, 0=off, 2=down
+            			
             // sample text
             textBox = this.game.add.text(0, 0, instructions , {
               font: "20px Arial",
@@ -72,21 +75,26 @@ playLevel = {
               wordWrap: true,
               wordWrapWidth: 300,
             });
-            textBox.setTextBounds(60, 260, 300, 20); // text location
+            textBox.setTextBounds(60, 300, 300, 20); // text location
         
             var area
             var index = 0;
             plotPoint = function() {
+				
                 velocity_chart.series[0].addPoint([index*5,velocity_chart.series[1].points[index].y], false);
                 if (index == 0) {
-                  area = 0 
+                	area = 0 
 				} else {
-                    area = ( velocity_chart.series[1].points[index].y * 5 )/60 + area
+                	area = ( velocity_chart.series[1].points[index].y * 5 )/60 + area
 				}
                 position_chart.series[0].addPoint([index*5,area], false);
-                if (index < totalTicks) {      
+				
+				// if (player.checkWorldBounds){ index = totalTicks }; // kills the game if player leaves the boundary
+				
+                if (index < totalTicks && withinBounds) {
+					if (debug) {console.log('in bounds:' + withinBounds)}      
                     player.body.velocity.x = (64 / (60)) * parseInt(velocity_chart.series[1].points[index].y);
-                    console.log('index: ' + index)
+                    if (debug) {console.log('index: ' + index)}
                     clock.setMinutes(clock.getMinutes() + 5);
                     clockDisplay.text = clock.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'})
                     index++;
@@ -94,25 +102,33 @@ playLevel = {
                     
                     console.log("end_of_game")
 					if (level == 2 && velocity_chart.series[1].points[index].y != 60) { fail = true; } // separate out into level validation
-					console.log(player.body.velocity.x)
+					
+					
+					restart_button = new LabelButton(game, 150, 210, 'buttons', "Restart", function(){game.state.start("PlayLevel")}, this, 2, 1, 0);
+					
                     player.body.velocity.x = 0;
 					if (fail) {
-						fail = false; 
-						button.label.setText('Restart')
-						button.visible = true;
-						
-						// game.add.text(w/2, h/2, 'Click to restart', { font: '30px Arial', fill: '#fff' });
-						
-						game.input.onDown.add(function(){game.state.start("PlayLevel")}, self);
+						fail = false;
+						console.log('restart')
+						 
                 	} else {
-						button.label.setText('Next level')
-						button.visible = true;
+						
+						// Clear variables and setup for next level
+						// go_button.label.setText('Next level')
+						// go_button.visible = true;
+						started = false;
+						next_button = new LabelButton(game, 150, 260, 'buttons', "Next Level", function(){
 							
-						level++;
-						instructions = instruction_array[level - 1]
-						game.loadJSONTilemap('assets/level' + level + '.json') // bug workaround included
-						if (level == 1 || level == 2 || level == 3) { totalTicks = 2 } else { totalTicks = 13 }
-						game.input.onDown.add(function(){game.state.start("PlayLevel")}, self);
+							level++;
+							instructions = instruction_array[language][level - 1]
+							game.loadJSONTilemap('assets/level' + level + '.json') // bug workaround included
+							if (level == 1 || level == 2 || level == 3) { totalTicks = 2 } else { totalTicks = 13 }
+							game.input.onDown.add(function(){game.paused = false; game.state.start("PlayLevel")}, self)
+							game.state.start("PlayLevel")}, this, 2, 1, 0);
+						
+						// game.paused = true;
+							
+						;
 					}
 				}
 			};
@@ -129,7 +145,7 @@ playLevel = {
         game.physics.arcade.overlap(player, busStops, stopcollide, stopprocess, this);
         
 		if (goat_present) {
-		game.physics.arcade.overlap(player, goat, goatcollide, goatprocess, this);
+			game.physics.arcade.overlap(player, obstacles, goatcollide, goatprocess, this);
 		}
 		
         function stopcollide() {  //not used - passed along to process instead
@@ -148,27 +164,33 @@ playLevel = {
             if (busStop.arriveTime.onTime && busStop.leaveTime.onTime) {
               game.add.sprite(busStop.x, busStop.y, "green_check")
             } else {
-              // if (!busStop.leaveTime.onTime) {
+              if ( clock.valueOf() > busStop.leaveTime.time.valueOf() ) {
                 game.add.sprite(busStop.x, busStop.y, "red_x")
 				fail = true; 
+			  }
             }
         }
         
         function goatcollide() {  //not used - passed along to process instead
         }
         function goatprocess(player, goat) {
-          if (player.body.velocity.x < goat.max_velocity 
-            && player.body.velocity.x > goat.min_velocity ) {
-            
-            game.add.sprite(goat.x, goat.y, "green_check")
-          }
-          else {
-            if (debug) {console.log('player body: ' + player.body.velocity.x )
-            console.log( 'goat min: ' + goat.min_velocity )
-            console.log( 'goat max: ' + goat.max_velocity ) }
-            game.add.sprite(goat.x, goat.y, "red_x");
-			fail = true; 
-        }
+			if (debug) {console.log('player body: ' + player.body.velocity.x )
+				console.log( 'goat min: ' + goat.min_velocity )
+				console.log( 'goat max: ' + goat.max_velocity ) 
+			}
+			
+			if (player.body.velocity.x <= goat.max_velocity + 5
+				&& player.body.velocity.x >= goat.min_velocity - 5) {
+				// goat.pass = true;
+			} else { goat.pass = false }
+			
+			if (goat.pass) { 
+				game.add.sprite(goat.x, goat.y, "green_check")
+			} else if (started) {
+				game.add.sprite(goat.x, goat.y, "red_x");
+				fail = true; 
+			}
+        
         }
         function checktime(a,b) {
             var threshold = 1000;
@@ -178,12 +200,13 @@ playLevel = {
     },
 	
 	doBtnStartHandler: function() {  //when the button is started.  
+		started = true;
 		timer.removeAll();
 		timer.start();
 		//set the player going.  this might need to be in parameters in stead
 		timer.repeat(1000, totalTicks + 1, plotPoint, this);  //set a timer for plotting points
 		timer.repeat(1000, 100, updatechart, this);  //set a timer for updating the chart not every point
-		button.visible = false;
+		go_button.visible = false;
 	},
 		
 	findObjectsByType: function(type, map, layer) {
@@ -199,18 +222,31 @@ playLevel = {
 		return result;
 	},
 	
+	createObstacleFromTiledObject: function(element, group) {
+		if (level == 2 || level == 4) {
+			goat = this.game.add.sprite(element.x, element.y, 'obstacles');
+		} else {
+			goat = this.game.add.sprite(element.x, element.y, 'goats');
+		}
+		goat.y -= goat._frame.height;
+		
+		game.physics.enable(goat);
+		this.copyProperties(element, goat);
+		// element.body.enable = true;
+		goat.body.enable = true;
+		goat.body.setSize(64, 64);
+		goat.pass = true;
+		group.add(goat)
+		
+	},
+	
 	createStopFromTiledObject: function(element, group) {
 		busStop = this.game.add.sprite(element.x, element.y, 'busStops');
 		busStop.y -= busStop._frame.height;
 		this.game.physics.enable(busStop);
 	
 		this.copyProperties(element, busStop);
-		//copy all properties to the sprite rewrote to new function
-		// Object.keys(element.properties).forEach(function(key) {
-		//   busStop[key] = element.properties[key];
-		// });
-		
-		busStop.collided = false;  //only allow flags to collide once - check manually.  
+
 		busStop.body.enable = true;
 		busStop.body.setSize(3, 64, 0, 64);
 	
@@ -354,7 +390,8 @@ playLevel = {
 		if (debug) { 
 			game.debug.bodyInfo(player)
 			game.debug.body(player)
-			if (goat_present) { game.debug.body(goat) }
+			if (goat_present) { obstacles.forEachAlive(this.renderGroup, this); 
+				game.debug.body(goat); }
 			busStops.forEachAlive(this.renderGroup, this);
 			game.debug.text(game.time.fps || '--', 2, 14, "#00ff00");
 		}
