@@ -83,13 +83,18 @@ playLevel = {
 				
                 velocity_chart.series[0].addPoint([index*5,velocity_chart.series[1].points[index].y], false);
                 if (index == 0) {
-                	area = 0 
+                	area = 0;
 				} else {
-                	area = ( velocity_chart.series[1].points[index].y * 5 )/60 + area
+                	area = ( velocity_chart.series[1].points[index-1].y * 5 )/60 + area
+				}
+				if (debug) {
+					console.log('vel chart: ' + velocity_chart.series[1].points[index].y)
+					console.log('area: ' + area)
 				}
                 position_chart.series[0].addPoint([index*5,area], false);
 				
-				// if (player.checkWorldBounds){ index = totalTicks }; // kills the game if player leaves the boundary
+				// position_chart.series[0].addPoint([index*5,area], false);
+				
 				
                 if (index < totalTicks && withinBounds) {
 					if (debug) {console.log('in bounds:' + withinBounds)}      
@@ -175,13 +180,14 @@ playLevel = {
         }
         function goatprocess(player, goat) {
 			if (debug) {console.log('player body: ' + player.body.velocity.x )
-				console.log( 'goat min: ' + goat.min_velocity )
-				console.log( 'goat max: ' + goat.max_velocity ) 
+				console.log( 'goat min: ' + (goat.min_velocity - 5) )
+				console.log( 'goat max: ' + (goat.max_velocity + 5) ) 
+				console.log(player.body.velocity.x <= (goat.max_velocity + 5))
+				console.log( player.body.velocity.x >= (goat.min_velocity - 5))
 			}
 			
-			if (player.body.velocity.x <= goat.max_velocity + 5
-				&& player.body.velocity.x >= goat.min_velocity - 5) {
-				// goat.pass = true;
+			if (player.body.velocity.x <= (parseInt(goat.max_velocity) + 5)
+				&& player.body.velocity.x >= (parseInt(goat.min_velocity) - 5)) {		
 			} else { goat.pass = false }
 			
 			if (goat.pass) { 
@@ -368,10 +374,10 @@ playLevel = {
 		}]
 	
 	};
-	// if (level == 1 | level == 2) {
-	// 	velocity_options.series[0].step = 'left';
-	// 	velocity_options.series[1].step = 'left';
-	// }
+	if (level == 3) {
+		velocity_options.series[0].step = 'left';
+		velocity_options.series[1].step = 'left';
+	}
 	velocity_chart = new Highcharts.Chart(velocity_options);
 	position_chart = new Highcharts.Chart(position_options);
 	console.log(velocity_options)
