@@ -1,7 +1,7 @@
 var goat_present
 playLevel = {
     create: function() {
-			fail = false;
+			
 			menu_button = game.add.text(640, 20, 'MENU', { font: '24px Arial', fill: '#1AF' });
 			menu_button.inputEnabled = true;
 			menu_button.events.onInputUp.add(function () {
@@ -57,7 +57,7 @@ playLevel = {
             player.speed = 1.0; //should get from tiled insaread
             
             game.physics.enable(player);
-            player.body.setSize(5,32, -2, 32);  //body surrounds bus and used for collisions, setSize(width, height, offsetX, offsetY)
+            player.body.setSize(6,32, -2, 32);  //body surrounds bus and used for collisions, setSize(width, height, offsetX, offsetY)
             // player.body.collideWorldBounds=true;
 			player.checkWorldBounds = true;
 			player.events.onOutOfBounds.add(function(){withinBounds = false; console.log('collide')}, this);
@@ -160,19 +160,24 @@ playLevel = {
             if (checktime(clock.valueOf(), busStop.arriveTime.time.valueOf())) {
               busStop.arriveTime.onTime = true;
             } else {
-              // busStop.arriveTime.onTime = false;
+            //   busStop.arriveTime.onTime = false;
             }
             if (checktime(clock.valueOf(), busStop.leaveTime.time.valueOf() + 5*60*1000)) {
               busStop.leaveTime.onTime = true;
             } else {
               // busStop.leaveTime.onTime = false;
             }
+			
+			// need to fix it so busses can arrive early without penalty
             if (busStop.arriveTime.onTime && busStop.leaveTime.onTime) {
               game.add.sprite(busStop.x, busStop.y, "green_check")
             } else {
-              if ( clock.valueOf() > busStop.leaveTime.time.valueOf() ) {
-                game.add.sprite(busStop.x, busStop.y, "red_x")
-				fail = true; 
+			  if (started){
+				if (clock.valueOf() > busStop.leaveTime.time.valueOf() || 
+				clock.valueOf() < busStop.arriveTime.time.valueOf() ) {
+					game.add.sprite(busStop.x, busStop.y, "red_x")
+					fail = true; 
+				}
 			  }
             }
         }
@@ -207,7 +212,11 @@ playLevel = {
     },
 	
 	doBtnStartHandler: function() {  //when the button is started.  
+		// Reset states
 		started = true;
+		withinBounds = true;
+		fail = false;
+		
 		timer.removeAll();
 		timer.start();
 		//set the player going.  this might need to be in parameters in stead
@@ -255,7 +264,7 @@ playLevel = {
 		this.copyProperties(element, busStop);
 
 		busStop.body.enable = true;
-		busStop.body.setSize(5, 64, 0, 64);
+		busStop.body.setSize(10, 64, 0, 64);
 	
 		
 		// label the stop according to arrival time.
@@ -381,7 +390,7 @@ playLevel = {
 	}
 	velocity_chart = new Highcharts.Chart(velocity_options);
 	position_chart = new Highcharts.Chart(position_options);
-	console.log(velocity_options)
+	if (debug){console.log(velocity_options)}
 	velocity_chart.series[0].data = [];
 	velocity_chart.series[0].data.length = 0;
 	position_chart.series[0].data = [];
