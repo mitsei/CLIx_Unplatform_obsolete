@@ -1,6 +1,7 @@
 var goat_present
 playLevel = {
     create: function() {
+			fail = false;
 			menu_button = game.add.text(640, 20, 'MENU', { font: '24px Arial', fill: '#1AF' });
 			menu_button.inputEnabled = true;
 			menu_button.events.onInputUp.add(function () {
