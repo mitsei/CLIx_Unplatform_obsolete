@@ -48,8 +48,8 @@ levelSelect = {
                     // choiceLabel.text = 'You chose menu item: ' + choicemap[choice];
                     level = choice + 1;
                     game.loadJSONTilemap('assets/level' + level + '.json') // bug workaround included
-                    if (level == 1 || level == 2) { totalTicks = 2 
-                    } else if (level == 3){ totalTicks = 3 
+                    if (level == 1 ) { totalTicks = 2 
+                    } else if (level == 2 || level == 3){ totalTicks = 3 
                     } else { totalTicks = 13 }
                     instructions = instruction_array[language][level - 1] // "The quick brown fox jumps over the lazy dog. This is called a pangram."
                     
