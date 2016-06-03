@@ -255,7 +255,7 @@ playLevel = {
 		this.copyProperties(element, busStop);
 
 		busStop.body.enable = true;
-		busStop.body.setSize(3, 64, 0, 64);
+		busStop.body.setSize(5, 64, 0, 64);
 	
 		
 		// label the stop according to arrival time.
