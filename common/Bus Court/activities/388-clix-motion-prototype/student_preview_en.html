@@ -214,7 +214,8 @@
       "steps": [
         "/shared/clix-motion-prototype/page/11-3b/step/1",
         "/shared/clix-motion-prototype/page/11-3b/step/2",
-        "/shared/clix-motion-prototype/page/11-3b/step/3"
+        "/shared/clix-motion-prototype/page/11-3b/step/3",
+        "/shared/clix-motion-prototype/page/11-3b/step/4"
       ],
       "firstStep": "/shared/clix-motion-prototype/page/11-3b/step/1",
       "contextVars": [
@@ -483,7 +484,7 @@
     {
       "url": "/shared/clix-motion-prototype/page/9-2c/step/3",
       "activityPage": "/shared/clix-motion-prototype/page/9-2c",
-      "beforeText": "",
+      "beforeText": "<p>When the graph line showing the bus's position is flat, it means the bus was not changing position and therefore not moving. The horizontal line lasts for 5 minutes, meaning the bus was stopped for 5 minutes.</p>\r\n<p>Driver S was in a hurry and did not stop as long as he should have. An apology will be made to Passenger B.</p>",
       "paneConfig": "single",
       "panes": {
         "single": {
@@ -560,7 +561,7 @@
             ],
             1
           ],
-          "step": "/shared/clix-motion-prototype/page/11-3b/step/3"
+          "step": "/shared/clix-motion-prototype/page/11-3b/step/4"
         }
       ],
       "isFinalStep": false
@@ -568,7 +569,45 @@
     {
       "url": "/shared/clix-motion-prototype/page/11-3b/step/2",
       "activityPage": "/shared/clix-motion-prototype/page/11-3b",
-      "beforeText": "",
+      "beforeText": "<p>What time, along the x-axis, was the bus stopped, indicated by a horitzonal line?</p>",
+      "paneConfig": "single",
+      "panes": {
+        "single": {
+          "type": "image",
+          "path": "/modules/Bus Court/u/20762071/CLIxBusGameImages/Q3Graph_rev1.png",
+          "caption": " ",
+          "showFullImage": true
+        }
+      },
+      "submitButtonTitle": "Check My Answer",
+      "defaultBranch": "/shared/clix-motion-prototype/page/11-3b/step/3",
+      "responseTemplate": "/shared/clix-motion-prototype/response-templates/multiple-choice-3",
+      "submissibilityCriterion": [
+        "isNumeric",
+        [
+          "responseField",
+          1
+        ]
+      ],
+      "responseBranches": [
+        {
+          "criterion": [
+            "=",
+            [
+              "responseField",
+              1
+            ],
+            1
+          ],
+          "step": "/shared/clix-motion-prototype/page/11-3b/step/4"
+        }
+      ],
+      "isFinalStep": false
+    },
+    {
+      "url": "/shared/clix-motion-prototype/page/11-3b/step/3",
+      "activityPage": "/shared/clix-motion-prototype/page/11-3b",
+      "beforeText": "<p>If you look at the 10 Km spot on the y-axis, you can see when that happened, meaning when the bus was 10 km from the starting location, by seeing what time that happened. When the bus gets to 10 km, the position line stays flat at 10 km, meaning the bus did not move. We can assume the bus was stopped at that location, 10 km from the start.</p>",
       "paneConfig": "single",
       "panes": {
         "single": {
@@ -582,7 +621,7 @@
       "nextButtonShouldSubmit": true
     },
     {
-      "url": "/shared/clix-motion-prototype/page/11-3b/step/3",
+      "url": "/shared/clix-motion-prototype/page/11-3b/step/4",
       "activityPage": "/shared/clix-motion-prototype/page/11-3b",
       "beforeText": "<p>A) Yes, the driver appears to have stopped for 5 minutes at 10Km. Driver V made the correct stop.</p>",
       "paneConfig": "single",
