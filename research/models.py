@@ -21,8 +21,8 @@ class Fingerprint(models.Model):
 
 class AppData(models.Model):
     session_id = models.ForeignKey(UUID, related_name='appdata')
-    app_name = models.CharField(max_length=15)
-    event_type = models.CharField(max_length=15)
+    app_name = models.CharField(max_length=32)
+    event_type = models.CharField(max_length=32)
     params = models.TextField()
     is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
     creation_time = models.DateTimeField(default=timezone.now)
