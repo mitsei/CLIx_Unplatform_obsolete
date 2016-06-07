@@ -247,7 +247,9 @@ button {
     vertical-align: middle;
     margin: 0 4px 0 4px;
     padding: 34px 2px 4px 2px;
-    right: 0;
+    position: relative;
+    right: 10px;
+    float: right;
 }
 
 .slide-drag-handle img {
@@ -443,7 +445,13 @@ input, textarea {
     display: none;
 }
 
-.disabled {
+.disabled, .disabled i {
     color: #999999;
     user-select: none;
 }
+
+.iconBtn.disabled {
+    background-color: #999999;
+}
+
+

@@ -1,7 +1,7 @@
 {
-    "cssa-new": "New",
+    "cssa-new": "New File",
     "cssa-load":  "Open",
-    "cssa-save":  "Save",
+    "cssa-save":  "Save File",
     "cssa-save-template": "Save Template",
     "cssa-export": "Export"
 }
