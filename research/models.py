@@ -4,6 +4,8 @@ from django.utils import timezone
 class UUID(models.Model):
     session_id = models.CharField(max_length=36, primary_key=True)
     creation_time = models.DateTimeField(default=timezone.now)
+    user_type = models.CharField(max_length=15, null=True)
+    user_count = models.CharField(max_length=2, null=True)
     def __str__(self):
         return self.session_id
 
