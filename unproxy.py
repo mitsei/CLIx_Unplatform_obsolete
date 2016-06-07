@@ -20,8 +20,8 @@ import maproxy.proxyserver
 container = wsgi.WSGIContainer(application)
 http_server = httpserver.HTTPServer(container)
 http_server.listen(8888)
-ssl_certs={     "certfile":  "../unplatform.cert.dummy.pem",
-                "keyfile": "../unplatform.key.dummy.pem" }
+ssl_certs={     "certfile":  "./unplatform.cert.dummy.pem",
+                "keyfile": "./unplatform.key.dummy.pem" }
 server = maproxy.proxyserver.ProxyServer("localhost",8888,
                                          client_ssl_options=ssl_certs)
 server.listen(8080)
