@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from research.models import Fingerprint, AppData, UUID
+from research.models import Fingerprint, AppData, UUID, Configuration
 from research.fields import GetOrCreateSlugRelatedField
 
 
@@ -18,14 +18,12 @@ class AppDataSerializer(serializers.ModelSerializer):
         fields = ('url', 'session_id', 'app_name', 'event_type', 'params', 'creation_time', 'is_sent')
 
 
-# class DataSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Fingerprint
-#         fields = ('url', 'user_agent', 'screen_size', 'browser_url', 'languages', 'client_ip', 'client_ip_other', 'server_ip', 'creation_time')
-
 class UUIDSerializer(serializers.ModelSerializer):
-    # fingerprints = FingerprintSerializer(many=True, read_only=True)
-    # appdata = AppDataSerializer(many=True, read_only=True)
     class Meta:
         model = UUID
-        fields = ('url', 'session_id', 'creation_time')
+        fields = ('url', 'session_id', 'user_type', 'user_count', 'configuration', 'creation_time')
+
+class ConfigurationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Configuration
+        fields = ('url', 'school_id', 'terminal_id', 'creation_time')

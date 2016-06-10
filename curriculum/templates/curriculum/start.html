@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
+
+	<script src="/modules/reporter.js"></script>
+	<script type="text/javascript">
+		var nextPage = function(user, count) {
+
+			 var session_uuid = getCookie('session_uuid');
+
+			    if (session_uuid == '') {
+			        session_uuid = setUUIDCookie();
+			    }
+
+				var xhr = new XMLHttpRequest();
+
+				var user_info = JSON.stringify({
+			        session_id : session_uuid,
+					user_type : user,
+			        user_count : count
+					});
+
+
+			xhr.open('POST', '/api/uuids/', false);
+			xhr.setRequestHeader("Content-Type","application/json");
+			xhr.send(user_info);
+			console.log(xhr.status)
+			// window.location.href='/tableofcontents/'	
+		}
+	</script>
+
+
+    </head>
+
+    <body>
+        <header>
+			CLIx
+        </header>
+
+Who you are:
+<button type="button" onclick="nextPage('teacher', null)"">Teacher</button>
+<button type="button" onclick="">Student</button>
+<button type="button" onclick="nextPage('visitor', null)">Visitor/Other</button>
+<button type="button" onclick="alert('Hello world!')">Class Demonsstration</button>
+
+    </body>
+</html>

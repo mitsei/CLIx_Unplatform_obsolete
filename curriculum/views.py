@@ -10,22 +10,28 @@ from django.utils.six.moves.urllib.parse import unquote
 from django.views import static
 import json
 
+
+def start(request):
+    template = loader.get_template('curriculum/start.html')
+    return HttpResponse(template.render())
+
 def table_of_contents(request):
     modules = os.listdir(MODULES_FOLDER)
     modules = sorted(modules)
     template = loader.get_template('curriculum/index.html')
     return HttpResponse(template.render({'modules':modules}))
 
-
-def start_page(request):
-    template = loader.get_template('curriculum/start_page.html')
+def select_school(request):
+    template = loader.get_template('curriculum/school.html')
     return HttpResponse(template.render())
+
+
+
 
 
 
 # Modified version of django.contrib.staticfiles.views which returns a directory listing as json
 def serve_module(request, path, insecure=False, **kwargs):
-
     file_path =  os.path.join(BASE_DIR, 'common/', path)
     valid_path = os.path.isdir(file_path) and path != ''
     if valid_path:

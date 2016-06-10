@@ -1,11 +1,18 @@
 from django.db import models
 from django.utils import timezone
 
+
+class Configuration(models.Model):
+    school_id = models.CharField(max_length=36, primary_key=True)
+    terminal_id = models.CharField(max_length=6, null=True)
+    creation_time = models.DateTimeField(default=timezone.now)
+
 class UUID(models.Model):
     session_id = models.CharField(max_length=36, primary_key=True)
     creation_time = models.DateTimeField(default=timezone.now)
     user_type = models.CharField(max_length=15, null=True)
     user_count = models.CharField(max_length=2, null=True)
+    configuration = models.ForeignKey(Configuration, related_name='configuration', default=Configuration.objects.latest('creation_time').school_id)
     def __str__(self):
         return self.session_id
 
@@ -28,3 +35,4 @@ class AppData(models.Model):
     params = models.TextField()
     is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
     creation_time = models.DateTimeField(default=timezone.now)
+

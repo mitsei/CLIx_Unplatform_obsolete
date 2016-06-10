@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
+
+	<script src="/modules/reporter.js"></script>
+	<script type="text/javascript">
+	var current_terminal
+	var current_school		
+	var populate = function(){
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', '/api/configuration/?format=json', false);		
+		xhr.send()
+		var response = JSON.parse(xhr.response)
+		console.log(response.length)
+		if (response.length == 0) { 
+			current_school = 'NOTSET'
+			current_terminal = 'NOTSET'
+		} else {
+			current_school = response[0]['school_id']
+			current_terminal = response[0]['terminal_id']
+		}
+
+		var current_setting = document.getElementById('current_setting')
+		current_setting.textContent = "Current School + Terminal: " + current_school + " - " + current_terminal
+		var school = document.getElementById('school')
+		school.value = current_school
+		var terminal = document.getElementById('terminal')
+		terminal.value = current_terminal
+
+	    var state_districts = {
+	    	"Chhattisgarh":["Dhamteri","Bilaspur"], 
+	    	"Mizoram":["Aizawl"],
+	    	"Rajasthan":["Baran", "Jaipur", "Jhalawar", "Sirohi"],
+	    	"Telangana":["Karimnagar","Warangal","RangaReddy"] 
+	    };
+
+	    var state = document.getElementById('state');
+	    var district = document.getElementById('district');
+
+	    state.onchange = function(){
+	        district.length = 0;
+
+	        var selection = this.options[this.selectedIndex].value;
+
+	        for ( var i in state_districts[selection]){
+
+	            var option = document.createElement('option');
+	            option.value = state_districts[selection][i];
+	            option.text = state_districts[selection][i];
+
+	            district.appendChild(option);
+	        }
+	    };
+
+	    state.onchange();
+	};
+	window.onload=populate
+	</script>
+
+    </head>
+
+    <body>
+        <header>
+			CLIx
+        </header>
+
+
+    <select id='state' name='state' >
+	    <option value="" disabled="disabled" selected="selected">Please select a state</option>
+	    <option value="Chhattisgarh">Chhattisgarh</option>
+	    <option value="Mizoram">Mizoram</option>
+	    <option value="Rajasthan">Rajasthan</option>
+	    <option value="Telangana">Telangana</option>
+	</select>
+
+	<select id='district' name='district'>
+	    <option value="" disabled="disabled" selected="selected">Please select a district</option>
+	</select>
+
+
+
+	<form action="/api/configuration/" method="post" onsubmit="setTimeout(function () { window.location.reload(); }, 10)">
+	    <label for="school">School ID: </label>
+	    <br>
+	    <input id="school" type="text" name="school_id" >
+	    <br>
+	    <label for="terminal">Terminal ID (optional): </label>
+	    <br>
+	    <input id="terminal" type="text" name="terminal_id">
+	    <input type="submit" value="OK">
+	</form>
+	<br>
+	<span id=current_setting>asdf</span>
+
+    </body>
+</html>

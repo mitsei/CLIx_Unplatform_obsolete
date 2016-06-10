@@ -76,6 +76,13 @@ TEMPLATES = [
     },
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
 WSGI_APPLICATION = 'unplatform.wsgi.application'
 
 
@@ -109,13 +116,11 @@ DATABASES = {
 # if dbconfig:
 #     DATABASES['default'] =  dbconfig
 #
+# # END --------------------------------------------
+
 # # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURE_SSL_REDIRECT=True
-
-# # END --------------------------------------------
-
-
 
 
 
