@@ -12,9 +12,11 @@ class UUID(models.Model):
     creation_time = models.DateTimeField(default=timezone.now)
     user_type = models.CharField(max_length=15, null=True)
     user_count = models.CharField(max_length=2, null=True)
-    configuration = models.ForeignKey(Configuration, related_name='configuration', default=Configuration.objects.latest('creation_time').school_id)
+    configuration = models.ForeignKey(Configuration, related_name='configuration', default='NOTSET')
     def __str__(self):
         return self.session_id
+# default should be Configuration.objects.latest('creation_time').school_id
+
 
 class Fingerprint(models.Model):
     session_id = models.ForeignKey(UUID, related_name='fingerprints')

@@ -19,6 +19,7 @@ class AppDataSerializer(serializers.ModelSerializer):
 
 
 class UUIDSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = UUID
         fields = ('url', 'session_id', 'user_type', 'user_count', 'configuration', 'creation_time')
