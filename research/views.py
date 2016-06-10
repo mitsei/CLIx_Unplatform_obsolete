@@ -53,6 +53,8 @@ class UUIDViewSet(viewsets.ModelViewSet):
     queryset = UUID.objects.all().order_by('-creation_time')
     serializer_class = UUIDSerializer
 
+    # def perform_create(self, serializer):
+
 class ConfigurationViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows school configurations to be viewed or edited.

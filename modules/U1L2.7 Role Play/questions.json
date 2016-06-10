@@ -1,0 +1,46 @@
+{
+    "questions": [
+        {
+            "questionType": "roleplay",
+            "color": "lightblue",
+            "instructions": "INSTRUCTION: Click play button to listen to a sample before you record your own dialogue.",
+            "text": "Option 1: Imagine you are a nurse. Introduce yourself to your partner. <br><br>Describe to your partner how you took care of a patient who was in an accident. ",
+            "audio": "U1L2AxQT1.mp3",
+            "prompts": [
+                 "Where do you work? What do you do each day in your workplace? What did you do for the patient? "
+            ],
+            "promptAudio": [
+                "U1L2AxMT1.mp3"
+            ],
+            "maxRecordTime":  30
+        },
+        {
+            "questionType": "roleplay",
+            "color": "lightblue",
+             "instructions": "INSTRUCTION: Click play button to listen to a sample before you record your own dialogue.",
+            "text": "Option 2: Imagine you are an actor. Introduce yourself to your partner. Talk to your partner about a film you acted in recently. ",
+            "audio": "U1L2AxQT2.mp3",
+            "prompts": [
+                 "What is the name of the film?<br> What was your role in the film?<br> Where was the film shot? How did your fans react to the film? "
+            ],
+            "promptAudio": [
+                "U1L2AxMT2.mp3"
+            ],
+            "maxRecordTime":  30
+        },
+        {
+            "questionType": "roleplay",
+            "color": "lightblue",
+             "instructions": "INSTRUCTION: Click play button to listen to a sample before you record your own dialogue.",
+            "text": "Option 3: Imagine you are a sportsman or sportswoman.Introduce yourself to your partner.Talk about an exciting match that you played recently. ",
+            "audio": "U1L2AxQT3.mp3",
+            "prompts": [
+                 "Which sport do you practise?<br> Where do you practise every day?<br> Which match did you play in? How did you perform in that match?"
+            ],
+            "promptAudio": [
+                "U1L2AxMT2.mp3"
+            ],
+            "maxRecordTime":  30
+        }
+    ]
+}
