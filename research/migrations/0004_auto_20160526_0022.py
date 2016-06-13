@@ -12,11 +12,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='appdata',
-            name='is_sent',
-            field=models.NullBooleanField(),
-        ),
         migrations.AlterField(
             model_name='fingerprint',
             name='session_id',
