@@ -17,11 +17,6 @@ class Migration(migrations.Migration):
             name='is_sent',
             field=models.NullBooleanField(),
         ),
-        migrations.AddField(
-            model_name='fingerprint',
-            name='is_sent',
-            field=models.NullBooleanField(),
-        ),
         migrations.AlterField(
             model_name='fingerprint',
             name='session_id',
