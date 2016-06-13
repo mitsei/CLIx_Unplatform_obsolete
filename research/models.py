@@ -2,10 +2,10 @@ from django.db import models
 from django.utils import timezone
 
 
-class Configuration(models.Model):
-    school_id = models.CharField(max_length=36, primary_key=True)
-    terminal_id = models.CharField(max_length=6, null=True)
-    creation_time = models.DateTimeField(default=timezone.now)
+# class Configuration(models.Model):
+#     school_id = models.CharField(max_length=36, primary_key=True)
+#     terminal_id = models.CharField(max_length=6, null=True)
+#     creation_time = models.DateTimeField(default=timezone.now)
 
 class UUID(models.Model):
     session_id = models.CharField(max_length=36, primary_key=True)
@@ -15,11 +15,11 @@ class UUID(models.Model):
         return self.session_id
 # default should be Configuration.objects.latest('creation_time').school_id
 
-class User(models.Model):
-    session_id = models.ForeignKey(UUID, related_name='users')
-    user_type = models.CharField(max_length=15, null=True)
-    user_count = models.CharField(max_length=2, null=True)
-    creation_time = models.DateTimeField(default=timezone.now)
+# class User(models.Model):
+#     session_id = models.ForeignKey(UUID, related_name='users')
+#     user_type = models.CharField(max_length=15, null=True)
+#     user_count = models.CharField(max_length=2, null=True)
+#     creation_time = models.DateTimeField(default=timezone.now)
 
 class Fingerprint(models.Model):
     session_id = models.ForeignKey(UUID, related_name='fingerprints')
