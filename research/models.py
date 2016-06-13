@@ -10,13 +10,16 @@ class Configuration(models.Model):
 class UUID(models.Model):
     session_id = models.CharField(max_length=36, primary_key=True)
     creation_time = models.DateTimeField(default=timezone.now)
-    user_type = models.CharField(max_length=15, null=True)
-    user_count = models.CharField(max_length=2, null=True)
     configuration = models.ForeignKey(Configuration, related_name='configuration', default='NOTSET')
     def __str__(self):
         return self.session_id
 # default should be Configuration.objects.latest('creation_time').school_id
 
+class User(models.Model):
+    session_id = models.ForeignKey(UUID, related_name='users')
+    user_type = models.CharField(max_length=15, null=True)
+    user_count = models.CharField(max_length=2, null=True)
+    creation_time = models.DateTimeField(default=timezone.now)
 
 class Fingerprint(models.Model):
     session_id = models.ForeignKey(UUID, related_name='fingerprints')

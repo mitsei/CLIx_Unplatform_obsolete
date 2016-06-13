@@ -1,8 +1,8 @@
 from django.shortcuts import render, loader
 from django.http import HttpResponse
 
-from research.models import Fingerprint, AppData, UUID, Configuration
-from research.serializers import FingerprintSerializer, AppDataSerializer, UUIDSerializer, ConfigurationSerializer
+from research.models import Fingerprint, AppData, UUID, Configuration, User
+from research.serializers import FingerprintSerializer, AppDataSerializer, UUIDSerializer, ConfigurationSerializer, UserSerializer
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
@@ -54,6 +54,13 @@ class UUIDViewSet(viewsets.ModelViewSet):
     serializer_class = UUIDSerializer
 
     # def perform_create(self, serializer):
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows school configurations to be viewed or edited.
+    """
+    queryset = User.objects.all().order_by('-creation_time')
+    serializer_class = UserSerializer
 
 class ConfigurationViewSet(viewsets.ModelViewSet):
     """

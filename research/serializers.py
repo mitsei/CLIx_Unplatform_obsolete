@@ -19,12 +19,17 @@ class AppDataSerializer(serializers.ModelSerializer):
 
 
 class UUIDSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = UUID
-        fields = ('url', 'session_id', 'user_type', 'user_count', 'configuration', 'creation_time')
+        fields = ('url', 'session_id', 'configuration', 'creation_time')
 
 class ConfigurationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Configuration
         fields = ('url', 'school_id', 'terminal_id', 'creation_time')
+
+class UserSerializer(serializers.ModelSerializer):
+    session_id = GetOrCreateSlugRelatedField(queryset=UUID.objects.all(), slug_field='session_id')
+    class Meta:
+        model = AppData
+        fields = ('url', 'session_id', 'user_type', 'user_count', 'creation_time')

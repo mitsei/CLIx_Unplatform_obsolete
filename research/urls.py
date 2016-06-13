@@ -12,10 +12,6 @@ router.register(r'configuration', views.ConfigurationViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
-    # url(r'^$', views.index, name='index'),
-    # url(r'^comprehension/$', views.comprehension, name='comprehension'),
-    # url(r'^video/$', views.video, name='video'),
-    # url(r'^slideshow/$', views.slideshow, name='slideshow')
     ]
 
 
