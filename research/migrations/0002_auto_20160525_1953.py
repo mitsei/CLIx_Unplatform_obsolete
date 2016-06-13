@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('app_name', models.CharField(max_length=15)),
                 ('event_type', models.CharField(max_length=15)),
                 ('params', models.TextField()),
-                ('is_sent'. models.NullBooleanField(null=True)),
+                ('is_sent', models.NullBooleanField(null=True)),
                 ('creation_time', models.DateTimeField(auto_now_add=True)),
             ],
         ),
