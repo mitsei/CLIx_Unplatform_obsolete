@@ -10,7 +10,7 @@ class Configuration(models.Model):
 class UUID(models.Model):
     session_id = models.CharField(max_length=36, primary_key=True)
     creation_time = models.DateTimeField(default=timezone.now)
-    configuration = models.ForeignKey(Configuration, related_name='configuration', default='NOTSET')
+    # configuration = models.ForeignKey(Configuration, related_name='configuration', default='NOTSET')
     def __str__(self):
         return self.session_id
 # default should be Configuration.objects.latest('creation_time').school_id
