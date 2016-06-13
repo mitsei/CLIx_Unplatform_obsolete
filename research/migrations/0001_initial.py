@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AppData',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
                 ('app_name', models.CharField(max_length=32)),
                 ('event_type', models.CharField(max_length=32)),
                 ('params', models.TextField()),
@@ -23,9 +23,17 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='Configuration',
+            fields=[
+                ('school_id', models.CharField(max_length=36, primary_key=True, serialize=False)),
+                ('terminal_id', models.CharField(null=True, max_length=6)),
+                ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
+            ],
+        ),
+        migrations.CreateModel(
             name='Fingerprint',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
                 ('user_agent', models.CharField(max_length=200)),
                 ('screen_size', models.CharField(null=True, max_length=12)),
                 ('browser_url', models.CharField(null=True, max_length=200)),
@@ -40,7 +48,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='User',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
                 ('user_type', models.CharField(null=True, max_length=15)),
                 ('user_count', models.CharField(null=True, max_length=2)),
                 ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
@@ -49,23 +57,23 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='UUID',
             fields=[
-                ('session_id', models.CharField(primary_key=True, serialize=False, max_length=36)),
+                ('session_id', models.CharField(max_length=36, primary_key=True, serialize=False)),
                 ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
         migrations.AddField(
             model_name='user',
             name='session_id',
-            field=models.ForeignKey(to='research.UUID', related_name='users'),
+            field=models.ForeignKey(related_name='users', to='research.UUID'),
         ),
         migrations.AddField(
             model_name='fingerprint',
             name='session_id',
-            field=models.ForeignKey(to='research.UUID', related_name='fingerprints'),
+            field=models.ForeignKey(related_name='fingerprints', to='research.UUID'),
         ),
         migrations.AddField(
             model_name='appdata',
             name='session_id',
-            field=models.ForeignKey(to='research.UUID', related_name='appdata'),
+            field=models.ForeignKey(related_name='appdata', to='research.UUID'),
         ),
     ]
