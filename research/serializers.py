@@ -26,7 +26,7 @@ class UUIDSerializer(serializers.ModelSerializer):
 class ConfigurationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Configuration
-        fields = ('url', 'school_id', 'terminal_id', 'creation_time')
+        fields = ('url', 'state', 'district', 'school_id', 'terminal_id', 'creation_time')
 
 class UserSerializer(serializers.ModelSerializer):
     session_id = GetOrCreateSlugRelatedField(queryset=UUID.objects.all(), slug_field='session_id')

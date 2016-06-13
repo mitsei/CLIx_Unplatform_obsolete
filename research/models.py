@@ -3,14 +3,23 @@ from django.utils import timezone
 
 
 class Configuration(models.Model):
+    state = models.CharField(max_length=32, default="NOTSET")
+    district = models.CharField(max_length=32, default="NOTSET")
     school_id = models.CharField(max_length=36, primary_key=True)
     terminal_id = models.CharField(max_length=6, null=True)
     creation_time = models.DateTimeField(default=timezone.now)
 
+def get_configuration():
+    try:
+        data = Configuration.objects.latest('creation_time').school_id
+    except Configuration.DoesNotExist:
+        data = "NOTSET"
+    return data
+
 class UUID(models.Model):
     session_id = models.CharField(max_length=36, primary_key=True)
     creation_time = models.DateTimeField(default=timezone.now)
-    # configuration = models.ForeignKey(Configuration, related_name='configuration', default='NOTSET')
+    configuration = models.ForeignKey(Configuration, related_name='configuration', default=get_configuration)
     def __str__(self):
         return self.session_id
 # default should be Configuration.objects.latest('creation_time').school_id
@@ -25,7 +34,7 @@ class Fingerprint(models.Model):
     session_id = models.ForeignKey(UUID, related_name='fingerprints')
     user_agent = models.CharField(max_length=200) # not sure what a good length is yet
     screen_size = models.CharField(max_length=12, null=True)
-    browser_url = models.CharField(max_length=200, null=True) # also not suere about this length
+    browser_url = models.CharField(max_length=200, null=True) # also not sure about this length
     languages = models.CharField(max_length=50, null=True) # or this one, for that matter
     client_ip = models.CharField(max_length=15, null=True)
     client_ip_other = models.CharField(max_length=15, null=True)
@@ -40,4 +49,6 @@ class AppData(models.Model):
     params = models.TextField()
     is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
     creation_time = models.DateTimeField(default=timezone.now)
+
+
 
