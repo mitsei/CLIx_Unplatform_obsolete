@@ -3,8 +3,8 @@ from django.utils import timezone
 
 
 class Configuration(models.Model):
-    state = models.CharField(max_length=32, default="NOTSET")
-    district = models.CharField(max_length=32, default="NOTSET")
+    state = models.CharField(max_length=32, null=True)
+    district = models.CharField(max_length=32, null=True)
     school_id = models.CharField(max_length=36, primary_key=True)
     terminal_id = models.CharField(max_length=6, null=True)
     creation_time = models.DateTimeField(default=timezone.now)
