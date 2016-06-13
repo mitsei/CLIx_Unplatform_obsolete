@@ -38,6 +38,6 @@ class AppData(models.Model):
     app_name = models.CharField(max_length=32)
     event_type = models.CharField(max_length=32)
     params = models.TextField()
-    is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
+    # is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
     creation_time = models.DateTimeField(default=timezone.now)
 
