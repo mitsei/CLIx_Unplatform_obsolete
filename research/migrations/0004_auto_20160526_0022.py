@@ -13,12 +13,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='fingerprint',
-            name='session_id',
-            field=models.ForeignKey(to='research.UUID', default='dummy'),
-            preserve_default=False,
-        ),
-        migrations.AlterField(
             model_name='uuid',
             name='creation_time',
             field=models.DateTimeField(default=django.utils.timezone.now),
