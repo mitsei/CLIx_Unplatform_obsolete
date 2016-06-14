@@ -46,25 +46,11 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='User',
-            fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
-                ('user_type', models.CharField(null=True, max_length=15)),
-                ('user_count', models.CharField(null=True, max_length=2)),
-                ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
-            ],
-        ),
-        migrations.CreateModel(
             name='UUID',
             fields=[
                 ('session_id', models.CharField(max_length=36, primary_key=True, serialize=False)),
                 ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
             ],
-        ),
-        migrations.AddField(
-            model_name='user',
-            name='session_id',
-            field=models.ForeignKey(related_name='users', to='research.UUID'),
         ),
         migrations.AddField(
             model_name='fingerprint',
