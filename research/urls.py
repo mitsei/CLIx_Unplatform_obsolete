@@ -9,6 +9,8 @@ router.register(r'uuids', views.UUIDViewSet)
 router.register(r'fingerprints', views.FingerprintViewSet)
 router.register(r'appdata', views.AppDataViewSet)
 router.register(r'configuration', views.ConfigurationViewSet)
+router.register(r'users', views.UserViewSet)
+
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
