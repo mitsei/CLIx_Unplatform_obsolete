@@ -64,4 +64,9 @@ class Migration(migrations.Migration):
             name='session_id',
             field=models.ForeignKey(related_name='appdata', to='research.UUID'),
         ),
+        migrations.AddField(
+            model_name='uuid',
+            name='configuration',
+            field=models.ForeignKey(related_name='configurations', to='research.Configuration'),
+        ),
     ]
