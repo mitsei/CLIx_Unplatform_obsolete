@@ -26,6 +26,8 @@ class Migration(migrations.Migration):
             name='Configuration',
             fields=[
                 ('school_id', models.CharField(max_length=36, primary_key=True, serialize=False)),
+                ('state', models.CharField(max_length=32, null=True)
+                ('district', models.CharField(max_length=32, null=True)
                 ('terminal_id', models.CharField(null=True, max_length=6)),
                 ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
             ],
