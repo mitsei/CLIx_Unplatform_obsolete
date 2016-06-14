@@ -15,19 +15,38 @@ def start(request):
     template = loader.get_template('curriculum/start.html')
     return HttpResponse(template.render())
 
-def table_of_contents(request):
-    modules = os.listdir(MODULES_FOLDER)
-    modules = sorted(modules)
-    template = loader.get_template('curriculum/index.html')
-    return HttpResponse(template.render({'modules':modules}))
-
 def select_school(request):
     template = loader.get_template('curriculum/school.html')
     return HttpResponse(template.render())
 
+def select_subject(request):
+    template = loader.get_template('curriculum/subject.html')
+    return HttpResponse(template.render())
 
+def select_grade(request, subject):
+    template = loader.get_template('curriculum/grade.html')
+    return HttpResponse(template.render())
 
+def select_unit(request, subject, grade):
+    unit_location = os.path.join(MODULES_FOLDER, subject, grade)
+    units = os.listdir(unit_location)
+    units = sorted(units)
+    template = loader.get_template('curriculum/unit.html')
+    return HttpResponse(template.render({'units':units, 'subject':subject, 'grade':grade}))
 
+def select_lesson(request, subject, grade, unit):
+    lesson_location = os.path.join(MODULES_FOLDER, subject, grade, unit)
+    lessons = os.listdir(lesson_location)
+    lessons = sorted(lessons)
+    template = loader.get_template('curriculum/lesson.html')
+    return HttpResponse(template.render({'lessons':lessons}))
+
+def show_activities(request, subject, grade, unit, lesson):
+    activity_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
+    activities = os.listdir(activity_location)
+    activities = sorted(activities)
+    template = loader.get_template('curriculum/activity.html')
+    return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'lesson':lesson, 'activities':activities}))
 
 
 # Modified version of django.contrib.staticfiles.views which returns a directory listing as json

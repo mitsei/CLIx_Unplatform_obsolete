@@ -3,31 +3,54 @@
 	<head>
 	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
 
-	<script src="/modules/reporter.js"></script>
+	<script src="/modules/unplatform/report.js"></script>
 	<script type="text/javascript">
-		var nextPage = function(user, count) {
+		var report = new Report()
+		var user_info = {};
 
-			 var session_uuid = getCookie('session_uuid');
-
-			    if (session_uuid == '') {
-			        session_uuid = setUUIDCookie();
-			    }
-
-				var xhr = new XMLHttpRequest();
-
-				var user_info = JSON.stringify({
-			        session_id : session_uuid,
-					user_type : user,
-			        user_count : count
-					});
-
-
-			xhr.open('POST', '/api/uuids/', false);
-			xhr.setRequestHeader("Content-Type","application/json");
-			xhr.send(user_info);
-			console.log(xhr.status)
-			// window.location.href='/tableofcontents/'	
+		var teacher = function() {
+			user_info['user_type'] = 'teacher';
+			user_info['user_count'] = null;
+			toggle_student_count('none')
+			document.getElementById('next').style.display='block';
 		}
+		var display_student_count = function(){
+			user_info['user_type'] = 'student';
+			toggle_student_count('inline')
+		}
+
+		var toggle_student_count = function(property) {
+			var buttons = document.getElementsByClassName("student_count")
+			document.getElementById('next').style.display='none';
+			for (var i=0;i<buttons.length;i++) {
+				buttons[i].style.display=property;
+			};
+		}
+
+		var student_count = function(count) {
+			user_info['user_count'] = count;
+			document.getElementById('next').style.display='block';
+		}
+
+		var visitor = function() {
+			user_info['user_type'] = 'visitor';
+			user_info['user_count'] = null;
+			toggle_student_count('none')
+			document.getElementById('next').style.display='block';
+		}
+
+		var demo = function() {
+			user_info['user_type'] = 'demo';
+			user_info['user_count'] = null;
+			toggle_student_count('none')
+			document.getElementById('next').style.display='block';
+		}
+
+		var next = function(user_info) {
+			report.submitData('/api/users/', user_info)
+			window.location.href='/subject/'	
+		}
+
 	</script>
 
 
@@ -35,14 +58,28 @@
 
     <body>
         <header>
-			CLIx
         </header>
-
+<div style="margin: auto;">
+<h1> User Survey </h1>
+<center>
+Before you access your course content, please indicate who is at the computer.
+<br>
 Who you are:
-<button type="button" onclick="nextPage('teacher', null)"">Teacher</button>
-<button type="button" onclick="">Student</button>
-<button type="button" onclick="nextPage('visitor', null)">Visitor/Other</button>
-<button type="button" onclick="alert('Hello world!')">Class Demonstration</button>
+<button type="button" onclick="teacher()">Teacher</button>
+<button type="button" onclick="display_student_count()">Student</button>
+<button type="button" onclick="visitor()">Visitor/Other</button>
+<button type="button" onclick="demo()">Class Demonstration</button>
 
+<br><br>
+<div class="student_count" style="display: none">Number of users at this computer: </div>
+<button type="button" class="student_count" style="display: none" onclick="student_count(1)">1</button>
+<button type="button" class="student_count" style="display: none" onclick="student_count(2)"> 2 </button>
+<button type="button" class="student_count" style="display: none" onclick="student_count(3)"> 3 </button>
+<button type="button" class="student_count" style="display: none" onclick="student_count(3+)"> 3+ </button>
+
+<br><br><br>
+<button type="button" id="next" style="display: none" onclick="next(user_info)"> Next </button>
+</center>
+</div>
     </body>
 </html>

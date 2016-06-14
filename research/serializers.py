@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from research.models import Fingerprint, AppData, UUID, Configuration
+from research.models import Fingerprint, AppData, UUID, Configuration, User
 from research.fields import GetOrCreateSlugRelatedField
 
 
@@ -31,5 +31,5 @@ class ConfigurationSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     session_id = GetOrCreateSlugRelatedField(queryset=UUID.objects.all(), slug_field='session_id')
     class Meta:
-        model = AppData
+        model = User
         fields = ('url', 'session_id', 'user_type', 'user_count', 'creation_time')
