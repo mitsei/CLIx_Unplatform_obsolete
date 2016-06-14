@@ -16,7 +16,6 @@ urlpatterns = [
     url(r'^(?P<subject>\w+)/(?P<grade>\w+)/$', views.select_unit),
     url(r'^(?P<subject>\w+)/(?P<grade>\w+)/(?P<unit>\w+)/$', views.select_lesson),
     url(r'^(?P<subject>\w+)/(?P<grade>\w+)/(?P<unit>\w+)/(?P<lesson>\w+)/$', views.show_activities),
-    # url(r'^(?P<subject>)\w+/(?P<grade>)\w+/(?P<unit>)\w+/(?P<lesson>)\w+/(?P<activity>)\w+/$', views.show_activities),
     ]
 
 # handler404 = views.list_files

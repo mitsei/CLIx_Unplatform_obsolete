@@ -7,6 +7,21 @@
 	<script type="text/javascript">
 		var report = new Report()
 		var user_info = {};
+		function getLanguages() {
+			var languages = [];
+			if (navigator.languages == null ) {
+				return navigator.language
+			};
+			for (x in navigator.languages) { languages.push(navigator.languages[x]) }
+			return languages.join(',')
+		}
+		var fingerprint = {
+			user_agent : navigator.userAgent,
+	        screen_size : (screen.width + 'x' + screen.height),
+	        browser_url : window.location.href,
+			languages : getLanguages()
+		};
+		report.submitData('/api/fingerprints/', fingerprint)
 
 		var teacher = function() {
 			user_info['user_type'] = 'teacher';
