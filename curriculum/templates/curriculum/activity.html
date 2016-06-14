@@ -47,6 +47,26 @@
 		</style>
 
 		<script src="/modules/unplatform/report.js"></script>
+		<script> 
+		var wentHome = function() {
+			var home_report = new Report()
+			current_url = window.location.href
+			data = { "app_name": "Unplatform",
+					"event_type": "home_click",
+					"params": {  url : current_url }
+				}
+			home_report.submitData('/api/appdata/', data) }
+		var finished = function () {
+			var finished_report = new Report()
+			current_url = window.location.href
+			data = { "app_name": "Unplatform",
+					"event_type": "finished_click",
+					"params": {  url : current_url }
+				}
+			finished_report.submitData('/api/appdata/', data)
+			finished_report.setUUIDCookie()
+		}
+		</script>
 
     </head>
 
@@ -64,8 +84,8 @@
 				</a>
 				<br>
 			{% endfor %}
-			 <a href='/'><img id='home' src="/modules/unplatform/home.png"></a>
-			 <a href=''><img id='done' src="/modules/unplatform/done.png"></a>
+			 <a href='/'><img id='home' src="/modules/unplatform/home.png" onclick=wentHome()></a>
+			 <a href=''><img id='done' src="/modules/unplatform/done.png" onclick=finished()></a>
         </nav>
 
         <div id="main">

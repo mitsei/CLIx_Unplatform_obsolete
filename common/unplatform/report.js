@@ -8,7 +8,7 @@ class Report {
 		var xhr = new XMLHttpRequest();
 
 		var data_string = {}
-		data_string['session_id'] = this.session_id;
+		data_string['session_id'] = this.getCookie('session_uuid');
 		for (var key in data) {data_string[key] = data[key];};
 		data_string = JSON.stringify(data_string);
 		console.log(data_string)
@@ -42,6 +42,7 @@ class Report {
 	setUUIDCookie() {
 		var uuid = this.uuid4();
 		this.setCookie('session_uuid',uuid, 1)
+		console.log("new id: " + uuid)
 		return uuid;
 	}
 	uuid4() {
@@ -91,10 +92,11 @@ function callback(e) {
 			"params": { "from": window.location.href, "to": e.target.href }
 		}
 	} else {
+		//console.log(e)
 		data = {
 			"app_name": "Unplatform",
 			"event_type": "link_click",
-			"params": { "from": window.location.href, "to": e.parentElement.href }
+			"params": { "from": window.location.href, "to": e.target.parentElement.href }
 		}
 	}
 	navReporter.submitData('/api/appdata/', data)
@@ -116,11 +118,49 @@ function focusData(appdata) {
 }
 
 (function(){ window.onfocus=function() {
-	focusData( {"event_type": "focused",
-			"params": {} })
+	focusData( {"event_type": "focus",
+			"params": "focused" })
 	}
 	window.onblur=function() {
-	focusData( {"event_type": "unfocused",
-			"params": {} })
+	focusData( {"event_type": "focus",
+			"params": "defocused" })
 	}
+})();
+
+(function () {
+    var time;
+	var count = 0;
+	var threshold = 60; // seconds you must be idle before reporting
+	var data = {
+		"app_name": "Unplatform",
+		"event_type": "idle_time",
+	}
+    document.onmousemove = resetTimer;
+    document.onkeypress = resetTimer;
+
+    function idReset() {
+        console.log('timed out');
+		data["params"] = "timed_out";
+		navReporter.submitData('/api/appdata/', data)
+		navReporter.setUUIDCookie();
+    }
+
+	function counter() {
+		count++;
+		if (count == 60*15) {
+			idReset()
+		}
+	}
+
+    function resetTimer() {
+		console.log(count)
+		if (count >= threshold) {
+			data["params"] = {"seconds_idle": count };
+			navReporter.submitData('/api/appdata/', data);
+			console.log('reported');
+		}
+		count = 0;
+        clearTimeout(time);
+        time = setInterval(counter, 1000)
+    }
 })();
