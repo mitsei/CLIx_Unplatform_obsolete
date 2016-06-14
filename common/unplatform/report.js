@@ -153,7 +153,6 @@ function focusData(appdata) {
 	}
 
     function resetTimer() {
-		console.log(count)
 		if (count >= threshold) {
 			data["params"] = {"seconds_idle": count };
 			navReporter.submitData('/api/appdata/', data);
