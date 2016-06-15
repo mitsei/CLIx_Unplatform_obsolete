@@ -85,12 +85,15 @@ var navReporter = new Report()
 function callback(e) {
     var e = window.e || e;
 	var currentURL = (function(){ return window.location.href; })();
+	console.log(e.target.tagName)
     if (e.target.tagName.toLowerCase() == 'a') {
 		data = {
 			"app_name": "Unplatform",
 			"event_type": "link_click",
-			"params": { "from": window.location.href, "to": e.target.href }
+			"params": {"from": window.location.href, "to": e.target.href}
 		}
+	} else if (e.target.tagName.toLowerCase() == 'html') {
+		return;
 	} else {
 		//console.log(e)
 		data = {

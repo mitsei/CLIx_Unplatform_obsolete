@@ -27,9 +27,9 @@
 		}
 
 		var current_location = document.getElementById('current_location')
-		current_location.textContent = "Current State + District: " + current_state + " - " + current_district
+		current_location.textContent = current_state + " / " + current_district
 		var current_setting = document.getElementById('current_setting')
-		current_setting.textContent = "Current School + Terminal: " + current_school + " - " + current_terminal
+		current_setting.textContent =  current_school + " / " + current_terminal
 
 		var school = document.getElementById('school')
 		school.value = current_school
@@ -53,14 +53,18 @@
 	        document.getElementById('state_input').value = selection;
 	        document.getElementById('district').disabled = false;
 	        console.log(selection)
+	        var prompt = document.createElement('option');
+	        prompt.value = "Please select a district"
+	        prompt.text = "Please select a district"
+	        prompt.disabled = true;
+	        prompt.selected = true;
+	        district.appendChild(prompt);
+			document.getElementById('district_input').value = "NOTSET"
+
 	        for ( var i in state_districts[selection]){
-        		if (i==0) {
-        			document.getElementById('district_input').value = state_districts[selection][i];
-        		}
 	            var option = document.createElement('option');
 	            option.value = state_districts[selection][i];
 	            option.text = state_districts[selection][i];
-
 	            district.appendChild(option);
 	        }
 	    };
@@ -109,8 +113,8 @@
 	    <input type="submit" value="OK">
 	</form>
 	<br>
-	<span id=current_location></span>
+	<strong>Current State / District: </strong><span id=current_location></span>
 	<br>
-	<span id=current_setting></span>	
+	<strong>Current School / Terminal: </strong><span id=current_setting></span>	
     </body>
 </html>
