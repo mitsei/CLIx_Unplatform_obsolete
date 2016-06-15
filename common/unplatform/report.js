@@ -13,7 +13,7 @@ class Report {
 		data_string = JSON.stringify(data_string);
 		console.log(data_string)
 
-		xhr.open('POST', url, false);
+		xhr.open('POST', url, true);
 		xhr.setRequestHeader("Content-Type","application/json");
 		xhr.send(data_string);
 		console.log(xhr.response)

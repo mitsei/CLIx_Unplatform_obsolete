@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
                 ('app_name', models.CharField(max_length=32)),
-                ('event_type', models.CharField(max_length=32)),
+                ('event_type', models.CharField(max_length=15)),
                 ('params', models.TextField()),
                 ('is_sent', models.NullBooleanField()),
                 ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
