@@ -17,13 +17,20 @@
 		if (response.length == 0) { 
 			current_school = 'NOTSET'
 			current_terminal = 'NOTSET'
+			current_state = 'NOTSET'
+			current_district = 'NOTSET'
 		} else {
+			current_state = response[0]['state']
+			current_district = response[0]['district']
 			current_school = response[0]['school_id']
 			current_terminal = response[0]['terminal_id']
 		}
 
+		var current_location = document.getElementById('current_location')
+		current_location.textContent = "Current State + District: " + current_state + " - " + current_district
 		var current_setting = document.getElementById('current_setting')
 		current_setting.textContent = "Current School + Terminal: " + current_school + " - " + current_terminal
+
 		var school = document.getElementById('school')
 		school.value = current_school
 		var terminal = document.getElementById('terminal')
@@ -102,6 +109,8 @@
 	    <input type="submit" value="OK">
 	</form>
 	<br>
-	<span id=current_setting></span>
+	<span id=current_location></span>
+	<br>
+	<span id=current_setting></span>	
     </body>
 </html>

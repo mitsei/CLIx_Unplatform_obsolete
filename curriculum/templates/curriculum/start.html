@@ -26,23 +26,23 @@
 		var teacher = function() {
 			user_info['user_type'] = 'teacher';
 			user_info['user_count'] = null;
-			toggle_student_count('none')
-			document.getElementById('next').style.display='block';
+			toggle_count('inline')
+			// document.getElementById('next').style.display='block';
 		}
-		var display_student_count = function(){
+		var student = function(){
 			user_info['user_type'] = 'student';
-			toggle_student_count('inline')
+			toggle_count('inline')
 		}
 
-		var toggle_student_count = function(property) {
-			var buttons = document.getElementsByClassName("student_count")
+		var toggle_count = function(property) {
+			var buttons = document.getElementsByClassName("count")
 			document.getElementById('next').style.display='none';
 			for (var i=0;i<buttons.length;i++) {
 				buttons[i].style.display=property;
 			};
 		}
 
-		var student_count = function(count) {
+		var count = function(count) {
 			user_info['user_count'] = count;
 			document.getElementById('next').style.display='block';
 		}
@@ -50,14 +50,14 @@
 		var visitor = function() {
 			user_info['user_type'] = 'visitor';
 			user_info['user_count'] = null;
-			toggle_student_count('none')
-			document.getElementById('next').style.display='block';
+			toggle_count('inline')
+			// document.getElementById('next').style.display='block';
 		}
 
 		var demo = function() {
 			user_info['user_type'] = 'demo';
 			user_info['user_count'] = null;
-			toggle_student_count('none')
+			toggle_count('none')
 			document.getElementById('next').style.display='block';
 		}
 
@@ -81,16 +81,16 @@ Before you access your course content, please indicate who is at the computer.
 <br>
 Who you are:
 <button type="button" onclick="teacher()">Teacher</button>
-<button type="button" onclick="display_student_count()">Student</button>
+<button type="button" onclick="student()">Student</button>
 <button type="button" onclick="visitor()">Visitor/Other</button>
 <button type="button" onclick="demo()">Class Demonstration</button>
 
 <br><br>
-<div class="student_count" style="display: none">Number of users at this computer: </div>
-<button type="button" class="student_count" style="display: none" onclick="student_count(1)">1</button>
-<button type="button" class="student_count" style="display: none" onclick="student_count(2)"> 2 </button>
-<button type="button" class="student_count" style="display: none" onclick="student_count(3)"> 3 </button>
-<button type="button" class="student_count" style="display: none" onclick="student_count(3+)"> 3+ </button>
+<div class="count" style="display: none">Number of users at this computer: </div>
+<button type="button" class="count" style="display: none" onclick="count('1')">1</button>
+<button type="button" class="count" style="display: none" onclick="count('2')"> 2 </button>
+<button type="button" class="count" style="display: none" onclick="count('3')"> 3 </button>
+<button type="button" class="count" style="display: none" onclick="count('3+')"> 3+ </button>
 
 <br><br><br>
 <button type="button" id="next" style="display: none" onclick="next(user_info)"> Next </button>
