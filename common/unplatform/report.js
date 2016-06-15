@@ -13,7 +13,7 @@ class Report {
 		data_string = JSON.stringify(data_string);
 		console.log(data_string)
 
-		xhr.open('POST', url, true);
+		xhr.open('POST', url, false);
 		xhr.setRequestHeader("Content-Type","application/json");
 		xhr.send(data_string);
 		console.log(xhr.response)
@@ -146,13 +146,21 @@ function focusData(appdata) {
 		data["params"] = "timed_out";
 		navReporter.submitData('/api/appdata/', data)
 		navReporter.setUUIDCookie();
+		window.location.href = '/'
     }
 
 	function counter() {
 		count++;
-		if (count == 60*15) {
+		console.log(count)
+		if (count == 15) {
+			if (!confirm("Do you want to continue working?")){
+				idReset()
+			}
+		}
+		else if (count == 60*30){
 			idReset()
 		}
+
 	}
 
     function resetTimer() {
