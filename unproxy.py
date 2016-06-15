@@ -2,7 +2,7 @@ from unplatform.wsgi import application
 from tornado import httpserver, wsgi, ioloop
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CERTFILE = os.path.join(BASE_DIR, "unplatform.cert.dummy.pem")
 KEYFILE = os.path.join(BASE_DIR, "unplatform.cert.dummy.pem")
 
