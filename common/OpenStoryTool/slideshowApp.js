@@ -119,9 +119,11 @@ var Slideshow;
         // params: filename
         SlideshowEventType[SlideshowEventType["SLIDESHOW_EXPORTED"] = "show_exported"] = "SLIDESHOW_EXPORTED";
         // params: filename
-        SlideshowEventType[SlideshowEventType["SLIDESHOW_PLAYED"] = "show_played"] = "SLIDESHOW_PLAYED";
-        SlideshowEventType[SlideshowEventType["SLIDESHOW_PAUSED"] = "show_paused"] = "SLIDESHOW_PAUSED";
         // All events below also contain a "slide" param
+        SlideshowEventType[SlideshowEventType["SLIDESHOW_PLAYED"] = "show_played"] = "SLIDESHOW_PLAYED";
+        // params: index
+        SlideshowEventType[SlideshowEventType["SLIDESHOW_PAUSED"] = "show_paused"] = "SLIDESHOW_PAUSED";
+        // params: index
         SlideshowEventType[SlideshowEventType["SLIDE_ADDED"] = "slide_added"] = "SLIDE_ADDED";
         SlideshowEventType[SlideshowEventType["SLIDE_DELETED"] = "slide_deleted"] = "SLIDE_DELETED";
         SlideshowEventType[SlideshowEventType["SLIDE_LOCKED"] = "slide_locked"] = "SLIDE_LOCKED";
@@ -140,7 +142,7 @@ var Slideshow;
         // params: value
         SlideshowEventType[SlideshowEventType["ELEMENT_LOCKED"] = "element_locked"] = "ELEMENT_LOCKED";
         // params: element(image|audio|caption|duration)
-        SlideshowEventType[SlideshowEventType["ELEMENT_UNLOCKED"] = "element_unlockd"] = "ELEMENT_UNLOCKED";
+        SlideshowEventType[SlideshowEventType["ELEMENT_UNLOCKED"] = "element_unlocked"] = "ELEMENT_UNLOCKED";
         // params: element(image|audio|caption|duration)
         SlideshowEventType[SlideshowEventType["SLIDE_CLOSED"] = "slide_closed"] = "SLIDE_CLOSED";
     })(Slideshow.SlideshowEventType || (Slideshow.SlideshowEventType = {}));
@@ -202,19 +204,18 @@ var Slideshow;
         function PlaybackEvent() {
         }
         PlaybackEvent.START = "playback_start";
+        PlaybackEvent.NEXT = "playback_next";
         PlaybackEvent.PAUSE = "playback_pause";
         PlaybackEvent.FINISH = "playback_finish";
         return PlaybackEvent;
     })();
     Slideshow.PlaybackEvent = PlaybackEvent;
     var Playback = (function () {
-        function Playback(show, display, text, audio) {
+        function Playback(show, startIndex) {
+            if (startIndex === void 0) { startIndex = 0; }
             this.playing = false;
             this.show = show;
-            this.display = display;
-            this.text = text;
-            this.audio = audio;
-            this.curSlide = -1;
+            this.curSlide = startIndex - 1;
         }
         Playback.prototype.start = function () {
             this.nextSlide();
@@ -244,18 +245,12 @@ var Slideshow;
             }
             this.curSlide++;
             var slide = this.show.getSlideAt(this.curSlide);
-            this.display.src = slide.image;
-            this.text.innerText = slide.text ? slide.text : "";
-            if (this.audio) {
-                this.audio.stop();
-                if (slide.audio) {
-                    this.audio.load(slide.audio);
-                    this.audio.play();
-                }
-            }
             this.timerID = window.setTimeout(function () {
                 _this.nextSlide();
             }, slide.duration * 1000);
+            // trigger img/text/audio update, selected slide indicator
+            var event = new Event(PlaybackEvent.NEXT);
+            document.dispatchEvent(event);
         };
         return Playback;
     })();
@@ -311,6 +306,12 @@ var Slideshow;
         SlideControl.prototype.getElement = function () {
             return this.element[0];
         };
+        SlideControl.prototype.select = function () {
+            this.element.addClass("selected");
+        };
+        SlideControl.prototype.deselect = function () {
+            this.element.removeClass("selected");
+        };
         return SlideControl;
     })();
     Slideshow.SlideControl = SlideControl;
@@ -336,6 +337,117 @@ var Slideshow;
         return SlideEditor;
     })();
     Slideshow.SlideEditor = SlideEditor;
+})(Slideshow || (Slideshow = {}));
+var Slideshow;
+(function (Slideshow) {
+    var Show = (function () {
+        function Show() {
+            this.slideIds = [];
+            this.slides = {};
+            this.slideInc = 1;
+        }
+        Show.prototype.nextId = function () {
+            var id = 'slide' + this.slideInc.toString();
+            this.slideInc += 1;
+            return id;
+        };
+        Show.prototype.addSlide = function (slide) {
+            this.slideIds.push(slide.id);
+            this.slides[slide.id] = slide;
+        };
+        Show.prototype.addSlideAt = function (slide, index) {
+            this.slideIds.splice(index, 0, slide.id);
+            this.slides[slide.id] = slide;
+        };
+        Show.prototype.removeSlide = function (id) {
+            this.slideIds.splice(this.slideIds.indexOf(id), 1);
+            delete this.slides[id];
+        };
+        Show.prototype.getSlide = function (id) {
+            for (var slideId in this.slides) {
+                var slide = this.slides[slideId];
+                if (slide.id == id) {
+                    return slide;
+                }
+            }
+            return null;
+        };
+        Show.prototype.getSlideAt = function (index) {
+            return this.slides[this.slideIds[index]];
+        };
+        Show.prototype.getSlideIndex = function (slide) {
+            return this.slideIds.indexOf(slide.id);
+        };
+        Show.prototype.getLength = function () {
+            return this.slideIds.length;
+        };
+        Show.prototype.prepForSave = function () {
+            var _this = this;
+            this.totalAudioClips = 0;
+            this.processedAudioClips = 0;
+            for (var id in this.slides) {
+                var slide = this.slides[id];
+                if (slide.audio) {
+                    this.totalAudioClips++;
+                    var audioReader = new FileReader();
+                    (function (reader, j) {
+                        reader.addEventListener('loadend', function () {
+                            _this.slides[j].audioData = reader.result;
+                            _this.processedAudioClips++;
+                            if (_this.processedAudioClips === _this.totalAudioClips) {
+                                var event = new Event('audio_processed');
+                                document.dispatchEvent(event);
+                            }
+                        });
+                    })(audioReader, id);
+                    audioReader.readAsArrayBuffer(slide.audio);
+                }
+            }
+            if (this.totalAudioClips == 0) {
+                var event = new Event('audio_processed');
+                document.dispatchEvent(event);
+            }
+        };
+        return Show;
+    })();
+    Slideshow.Show = Show;
+    (function (SlideField) {
+        SlideField[SlideField["Image"] = 0] = "Image";
+        SlideField[SlideField["Audio"] = 1] = "Audio";
+        SlideField[SlideField["Caption"] = 2] = "Caption";
+        SlideField[SlideField["Duration"] = 3] = "Duration";
+    })(Slideshow.SlideField || (Slideshow.SlideField = {}));
+    var SlideField = Slideshow.SlideField;
+    var Slide = (function () {
+        function Slide() {
+            this.image = "";
+            this.imageName = "";
+            this.text = "";
+            this.lockedFields = [];
+            this.duration = 6;
+            this.lockedFields[0 /* Image */] = false;
+            this.lockedFields[1 /* Audio */] = false;
+            this.lockedFields[2 /* Caption */] = false;
+            this.lockedFields[3 /* Duration */] = false;
+        }
+        Slide.prototype.hasLockedFields = function () {
+            var val = this.lockedFields[0 /* Image */] || this.lockedFields[1 /* Audio */] || this.lockedFields[2 /* Caption */] || this.lockedFields[3 /* Duration */];
+            return val;
+        };
+        Slide.prototype.clone = function () {
+            var clone = new Slide();
+            clone.image = this.image;
+            clone.text = this.text;
+            clone.audio = this.audio;
+            clone.audioData = this.audioData;
+            clone.locked = this.locked;
+            clone.lockedFields = this.lockedFields.slice();
+            clone.duration = this.duration;
+            return clone;
+        };
+        return Slide;
+    })();
+    Slideshow.Slide = Slide;
 })(Slideshow || (Slideshow = {}));
 /// <reference path='libs/jquery.d.ts'/>
 /// <reference path='libs/jquery.i18n.d.ts'/>
@@ -459,7 +571,7 @@ var Slideshow;
             $("#cancelPictureBtn").on('click', function () {
                 _this.setState(4 /* Slide */);
             });
-            $(this.ui.imgFileInput).on("change", function () {
+            $("#imgFileInput").on("change", function () {
                 _this.loadUserImageFile(_this.ui.imgFileInput.files[0]);
             });
             $("#galleryBtn").on("click", function () {
@@ -472,7 +584,7 @@ var Slideshow;
             $("#audioFileInput").on("change", function () {
                 _this.loadUserAudioFile($("#audioFileInput")[0].files[0]);
             });
-            $(this.ui.recordAudioBtn).on('click', function () {
+            $("#recordAudioBtn").on('click', function () {
                 if (!_this.webcam || !_this.webcam.streaming) {
                     _this.initMedia(function () {
                         _this.setState(6 /* SlideAudio */);
@@ -482,7 +594,7 @@ var Slideshow;
                     _this.setState(6 /* SlideAudio */);
                 }
             });
-            $(this.ui.toggleRecordBtn).on('click', function () {
+            $("#toggleRecordBtn").on('click', function () {
                 if (!_this.audio.isRecording) {
                     _this.startRecording();
                 }
@@ -556,6 +668,7 @@ var Slideshow;
                 _this.workingSlide = null;
                 _this.ui.slideImg.src = _this.curSlide.image;
                 _this.setState(3 /* Show */);
+                _this.ui.setEditLocks(_this.curSlide.lockedFields, _this.workMode == 1 /* T */);
                 _this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_CLOSED, { 'saved': 'false' });
             });
             $(this.ui.slideRoll).sortable({
@@ -884,9 +997,9 @@ var Slideshow;
             this.audio.stopRecording();
         };
         SlideshowApp.prototype.addSlide = function () {
-            this.curSlide = new Slideshow.Slide();
-            this.curSlide.id = this.show.nextId();
-            this.show.addSlide(this.curSlide);
+            var slide = new Slideshow.Slide();
+            slide.id = this.show.nextId();
+            this.show.addSlide(slide);
             if (this.audio) {
                 this.audio.clear();
             }
@@ -894,9 +1007,9 @@ var Slideshow;
             $("#imgFilename").addClass("hidden");
             $("#audioFilename").addClass("hidden");
             this.ui.slideImg.src = "";
-            this.ui.durationInput.value = this.curSlide.duration.toString();
-            var thumb = this.createSlideThumb(this.curSlide);
-            this.curThumb = thumb;
+            this.ui.durationInput.value = slide.duration.toString();
+            var thumb = this.createSlideThumb(slide);
+            this.setSlide(slide.id);
             if (!this.isLoadingShow) {
                 this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_ADDED, { 'slide': this.curSlide.id });
             }
@@ -911,7 +1024,10 @@ var Slideshow;
             }
             this.ui.slideRoll.appendChild(thumbEl);
             this.slideThumbs[slide.id] = slideThumb;
-            var slideIndex = this.show.getSlideIndex(this.curSlide);
+            var slideIndex = 0;
+            if (this.curSlide) {
+                slideIndex = this.show.getSlideIndex(this.curSlide);
+            }
             slideIndex = Math.max(slideIndex, 0);
             slideThumb.setOrder(slideIndex + 1);
             if (this.show.getLength() > slideIndex + 1) {
@@ -922,36 +1038,13 @@ var Slideshow;
             // jump to new slide thumb
             this.ui.slideRoll.scrollTop = this.ui.slideRoll.scrollHeight;
             $(slideThumb.getElement()).on("mouseup", function (e) {
-                if (_this.curSlide.id == slideThumb.id) {
-                    return;
+                if (_this.playback) {
+                    if (_this.playback.playing) {
+                        _this.playback.stop();
+                    }
+                    _this.playback = null;
                 }
-                else {
-                    _this.curThumb = slideThumb;
-                    _this.setSlide(slideThumb.id);
-                }
-            });
-            slideThumb.deleteBtn.on("click", function (e) {
-                if (_this.workMode == 1 /* T */) {
-                    return;
-                }
-                var id = $(e.currentTarget).parent()[0].id;
-                slideThumb.deleteModal.removeClass("hidden");
-                var onConfirm = function () {
-                    _this.deleteSlide(id);
-                };
-                slideThumb.deleteConfirmBtn.on("click", onConfirm);
-                slideThumb.deleteCancelBtn.on("click", function () {
-                    slideThumb.deleteModal.addClass("hidden");
-                });
-            });
-            slideThumb.duplicateBtn.on("click", function (e) {
-                var id = $(e.currentTarget).parent()[0].id;
-                _this.duplicateSlide(id);
-            });
-            slideThumb.editBtn.on("click", function (e) {
-                _this.workingSlide = _this.curSlide.clone();
-                _this.setState(4 /* Slide */);
-                _this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_EDITED, { 'slide': _this.curSlide.id });
+                _this.setSlide(slideThumb.id);
             });
             if (this.workMode == 0 /* W */) {
                 slideThumb.lockBtn.on("click", function (e) {
@@ -969,9 +1062,29 @@ var Slideshow;
             }
             else {
                 slideThumb.lockBtn.addClass("hidden");
-                slideThumb.lockBtn[0].disabled = true;
-                slideThumb.lockBtn.addClass("disabledBtn");
             }
+            slideThumb.deleteBtn.on("click", function (e) {
+                if (_this.workMode == 1 /* T */) {
+                }
+                var id = $(e.currentTarget).parent()[0].id;
+                slideThumb.deleteModal.removeClass("hidden");
+                var onConfirm = function () {
+                    _this.deleteSlide(id);
+                };
+                slideThumb.deleteConfirmBtn.on("click", onConfirm);
+                slideThumb.deleteCancelBtn.on("click", function () {
+                    slideThumb.deleteModal.addClass("hidden");
+                });
+            });
+            slideThumb.editBtn.on("click", function (e) {
+                _this.workingSlide = _this.curSlide.clone();
+                _this.setState(4 /* Slide */);
+                _this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_EDITED, { 'slide': _this.curSlide.id });
+            });
+            slideThumb.duplicateBtn.on("click", function (e) {
+                var id = $(e.currentTarget).parent()[0].id;
+                _this.duplicateSlide(id);
+            });
             return slideThumb;
         };
         SlideshowApp.prototype.duplicateSlide = function (id) {
@@ -1008,7 +1121,12 @@ var Slideshow;
             this.data.logEvent(Slideshow.SlideshowEventType.SLIDE_DELETED, { 'slide': id });
         };
         SlideshowApp.prototype.setSlide = function (id) {
+            if (this.curThumb) {
+                this.curThumb.deselect();
+            }
             this.curSlide = this.show.slides[id];
+            this.curThumb = this.slideThumbs[id];
+            this.curThumb.select();
             // update lock buttons for current slide
             this.ui.setEditLocks(this.curSlide.lockedFields, (this.workMode == 1 /* T */));
             this.ui.captionInput.value = this.curSlide.text ? this.curSlide.text : "";
@@ -1021,24 +1139,20 @@ var Slideshow;
             else {
                 $("#imgFilename").addClass("hidden");
             }
+            this.audio.stop();
             if (this.curSlide.audio) {
                 this.ui.setFilename($("#audioFilename"), this.curSlide.id + "audio.wav");
                 $("#audioFilename").removeClass("hidden");
                 this.audio.load(this.curSlide.audio);
+                if (this.playback && this.playback.playing) {
+                    this.audio.play();
+                }
             }
             else {
                 $("#audioFilename").addClass("hidden");
-            }
-            this.ui.durationInput.value = this.curSlide.duration.toString();
-            if (this.curSlide.audio) {
-                this.audio.load(this.curSlide.audio);
-            }
-            else {
                 $("#audioTimer").text("0");
             }
-            if (this.workMode == 1 /* T */) {
-                $(".lockToggleBtn").addClass("disabledLockButton");
-            }
+            this.ui.durationInput.value = this.curSlide.duration.toString();
         };
         SlideshowApp.prototype.updateSlide = function () {
             if (this.ui.captionInput.value && this.ui.captionInput.value != this.workingSlide.text) {
@@ -1187,16 +1301,16 @@ var Slideshow;
                     if (slideObj.hasOwnProperty("locked") && slideObj["locked"] == "true") {
                         _this.curSlide.locked = true;
                         _this.ui.toggleLock(_this.curThumb.lockBtn);
-                    }
-                    if (_this.workMode == 1 /* T */) {
-                        if (_this.curSlide.locked) {
+                        if (_this.workMode == 1 /* T */) {
+                            _this.curThumb.deleteBtn.addClass("disabled");
+                            _this.curThumb.deleteBtn.off();
                             _this.curThumb.lockBtn.removeClass("hidden");
+                            _this.curThumb.lockBtn.addClass("disabled");
                             _this.curThumb.editBtn.addClass("hidden");
-                            _this.curThumb.deleteBtn.addClass("hidden");
                         }
-                        else {
-                            _this.curThumb.lockBtn.addClass("hidden");
-                        }
+                    }
+                    else if (_this.workMode == 1 /* T */) {
+                        _this.curThumb.lockBtn.addClass("hidden");
                     }
                     if (slideObj.hasOwnProperty("lockedFields")) {
                         _this.curSlide.lockedFields = slideObj["lockedFields"];
@@ -1229,270 +1343,50 @@ var Slideshow;
         };
         SlideshowApp.prototype.playShow = function () {
             var _this = this;
-            this.playback = new Slideshow.Playback(this.show, this.ui.slideImg, this.ui.captionHolder, this.audio);
-            this.ui.togglePlayBtn();
+            var index = this.show.getSlideIndex(this.curSlide);
+            this.playback = new Slideshow.Playback(this.show, index);
+            this.ui.setPauseBtn(true);
+            $(document).on(Slideshow.PlaybackEvent.NEXT, function () {
+                _this.onPlaybackNext();
+            });
             $(document).one(Slideshow.PlaybackEvent.FINISH, function () {
                 _this.onPlaybackFinished();
             });
             this.playback.start();
-            this.data.logEvent(Slideshow.SlideshowEventType.SLIDESHOW_PLAYED);
+            this.setSlide(this.curSlide.id);
+            this.data.logEvent(Slideshow.SlideshowEventType.SLIDESHOW_PLAYED, { 'slide': this.show.getSlideAt(this.playback.curSlide).id, 'index': index + 1 });
         };
         SlideshowApp.prototype.pauseShow = function () {
-            this.ui.togglePlayBtn();
+            var index = this.playback.curSlide;
+            var slideId = this.show.getSlideAt(index).id;
+            this.ui.setPauseBtn(false);
             this.playback.pause();
-            this.data.logEvent(Slideshow.SlideshowEventType.SLIDESHOW_PAUSED);
+            if (this.audio) {
+                this.audio.stop();
+            }
+            this.data.logEvent(Slideshow.SlideshowEventType.SLIDESHOW_PAUSED, { 'slide': slideId, 'index': index + 1 });
         };
         SlideshowApp.prototype.resumeShow = function () {
-            this.ui.togglePlayBtn();
+            this.ui.setPauseBtn(true);
             this.playback.start();
-            this.data.logEvent(Slideshow.SlideshowEventType.SLIDESHOW_PLAYED);
+            if (this.audio && this.curSlide.audio) {
+                this.audio.play();
+            }
+            var index = this.playback.curSlide;
+            var slideId = this.show.getSlideAt(index).id;
+            this.data.logEvent(Slideshow.SlideshowEventType.SLIDESHOW_PLAYED, { 'slide': slideId, 'index': index + 1 });
+        };
+        SlideshowApp.prototype.onPlaybackNext = function () {
+            this.setSlide(this.show.getSlideAt(this.playback.curSlide).id);
         };
         SlideshowApp.prototype.onPlaybackFinished = function () {
-            this.ui.togglePlayBtn();
-            this.setSlide(this.show.getSlideAt(0).id);
+            this.ui.setPauseBtn(false);
+            $(document).off(Slideshow.PlaybackEvent.NEXT);
             this.playback = null;
         };
         return SlideshowApp;
     })();
     Slideshow.SlideshowApp = SlideshowApp;
-})(Slideshow || (Slideshow = {}));
-var Slideshow;
-(function (Slideshow) {
-    var Utils = (function () {
-        function Utils() {
-        }
-        // from http://stackoverflow.com/questions/979975/how-to-get-the-value-from-the-url-parameter
-        Utils.getUrlVars = function () {
-            var vars = {};
-            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-                vars[key] = value;
-                return m;
-            });
-            return vars;
-        };
-        Utils.getParentURL = function () {
-            var url = document.referrer;
-            url = url.substring(0, url.lastIndexOf("/") + 1);
-            return url;
-        };
-        // from unplatform reporter.js
-        Utils.getCookie = function (cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ')
-                    c = c.substring(1);
-                if (c.indexOf(name) == 0)
-                    return c.substring(name.length, c.length);
-            }
-            return "";
-        };
-        Utils.toHTML = function (val) {
-            return val.replace(/(?:\r\n|\r|\n)/g, '<br>');
-        };
-        Utils.fromHTML = function (val) {
-            return val.replace(/<br\s*[\/]?>/gi, '\r\n');
-        };
-        // from http://stackoverflow.com/questions/27159179/how-to-convert-blob-to-file-in-javascript
-        Utils.blobToFile = function (theBlob, fileName) {
-            var b = theBlob;
-            //A Blob() is almost a File() - it's just missing the two properties below which we will add
-            b.lastModifiedDate = new Date();
-            b.name = fileName;
-            //Cast to a File() type
-            return theBlob;
-        };
-        return Utils;
-    })();
-    Slideshow.Utils = Utils;
-})(Slideshow || (Slideshow = {}));
-var Slideshow;
-(function (Slideshow) {
-    var Webcam = (function () {
-        function Webcam(stream, video, canvas) {
-            var _this = this;
-            this.camWidth = 384;
-            this.camHeight = 288;
-            console.log('new Webcam');
-            this.video = video;
-            this.canvas = canvas;
-            this.stream = stream;
-            video.muted = true;
-            var browserURL = window.URL || window.webkitURL || window.mozURL || window.msURL;
-            video.src = browserURL.createObjectURL(stream);
-            video.addEventListener('canplay', function (e) {
-                if (!_this.streaming) {
-                    _this.checkSizes();
-                }
-            }, false);
-        }
-        Webcam.prototype.stop = function () {
-            console.log("webcam.stop");
-            //this.stream.stop();
-            this.stream.active = false;
-            this.streaming = false;
-        };
-        Webcam.prototype.start = function () {
-            if (!this.streaming) {
-                this.stream.active = true;
-                this.streaming = true;
-            }
-        };
-        Webcam.prototype.checkSizes = function () {
-            var onTimeUpdate = function (e) {
-                this.checkSizes();
-            };
-            if (this.video.videoHeight != 0 && this.video.videoWidth != 0) {
-                this.fixSizes();
-                this.video.removeEventListener('timeupdate', function (e) { return onTimeUpdate; });
-            }
-            else {
-                // account for FireFox bug (https://bugzilla.mozilla.org/show_bug.cgi?id=926753)
-                this.video.addEventListener('timeupdate', function (e) { return onTimeUpdate; }, false);
-            }
-        };
-        Webcam.prototype.showVideo = function () {
-            this.video.hidden = false;
-            this.video.play();
-        };
-        Webcam.prototype.hideVideo = function () {
-            this.video.hidden = true;
-            this.video.pause();
-        };
-        Webcam.prototype.fixSizes = function () {
-            this.camHeight = this.video.videoHeight / (this.video.videoWidth / this.camWidth);
-            this.video.setAttribute('width', this.camWidth.toString());
-            this.video.setAttribute('height', this.camHeight.toString());
-            this.canvas.setAttribute('width', this.camWidth.toString());
-            this.canvas.setAttribute('height', this.camHeight.toString());
-            this.streaming = true;
-        };
-        Webcam.prototype.takePicture = function () {
-            this.canvas.width = this.camWidth;
-            this.canvas.height = this.camHeight;
-            var ctx = this.canvas.getContext('2d');
-            ctx.save();
-            ctx.scale(-1, 1);
-            ctx.drawImage(this.video, this.camWidth * -1, 0, this.camWidth, this.camHeight);
-            ctx.restore();
-            var data = this.canvas.toDataURL('image/png');
-            return data;
-        };
-        return Webcam;
-    })();
-    Slideshow.Webcam = Webcam;
-})(Slideshow || (Slideshow = {}));
-var Slideshow;
-(function (Slideshow) {
-    var Show = (function () {
-        function Show() {
-            this.slideIds = [];
-            this.slides = {};
-            this.slideInc = 1;
-        }
-        Show.prototype.nextId = function () {
-            var id = 'slide' + this.slideInc.toString();
-            this.slideInc += 1;
-            return id;
-        };
-        Show.prototype.addSlide = function (slide) {
-            this.slideIds.push(slide.id);
-            this.slides[slide.id] = slide;
-        };
-        Show.prototype.addSlideAt = function (slide, index) {
-            this.slideIds.splice(index, 0, slide.id);
-            this.slides[slide.id] = slide;
-        };
-        Show.prototype.removeSlide = function (id) {
-            this.slideIds.splice(this.slideIds.indexOf(id), 1);
-            delete this.slides[id];
-        };
-        Show.prototype.getSlide = function (id) {
-            for (var slideId in this.slides) {
-                var slide = this.slides[slideId];
-                if (slide.id == id) {
-                    return slide;
-                }
-            }
-            return null;
-        };
-        Show.prototype.getSlideAt = function (index) {
-            return this.slides[this.slideIds[index]];
-        };
-        Show.prototype.getSlideIndex = function (slide) {
-            return this.slideIds.indexOf(slide.id);
-        };
-        Show.prototype.getLength = function () {
-            return this.slideIds.length;
-        };
-        Show.prototype.prepForSave = function () {
-            var _this = this;
-            this.totalAudioClips = 0;
-            this.processedAudioClips = 0;
-            for (var id in this.slides) {
-                var slide = this.slides[id];
-                if (slide.audio) {
-                    this.totalAudioClips++;
-                    var audioReader = new FileReader();
-                    (function (reader, j) {
-                        reader.addEventListener('loadend', function () {
-                            _this.slides[j].audioData = reader.result;
-                            _this.processedAudioClips++;
-                            if (_this.processedAudioClips === _this.totalAudioClips) {
-                                var event = new Event('audio_processed');
-                                document.dispatchEvent(event);
-                            }
-                        });
-                    })(audioReader, id);
-                    audioReader.readAsArrayBuffer(slide.audio);
-                }
-            }
-            if (this.totalAudioClips == 0) {
-                var event = new Event('audio_processed');
-                document.dispatchEvent(event);
-            }
-        };
-        return Show;
-    })();
-    Slideshow.Show = Show;
-    (function (SlideField) {
-        SlideField[SlideField["Image"] = 0] = "Image";
-        SlideField[SlideField["Audio"] = 1] = "Audio";
-        SlideField[SlideField["Caption"] = 2] = "Caption";
-        SlideField[SlideField["Duration"] = 3] = "Duration";
-    })(Slideshow.SlideField || (Slideshow.SlideField = {}));
-    var SlideField = Slideshow.SlideField;
-    var Slide = (function () {
-        function Slide() {
-            this.image = "";
-            this.imageName = "";
-            this.text = "";
-            this.lockedFields = [];
-            this.duration = 6;
-            this.lockedFields[0 /* Image */] = false;
-            this.lockedFields[1 /* Audio */] = false;
-            this.lockedFields[2 /* Caption */] = false;
-            this.lockedFields[3 /* Duration */] = false;
-        }
-        Slide.prototype.hasLockedFields = function () {
-            var val = this.lockedFields[0 /* Image */] || this.lockedFields[1 /* Audio */] || this.lockedFields[2 /* Caption */] || this.lockedFields[3 /* Duration */];
-            return val;
-        };
-        Slide.prototype.clone = function () {
-            var clone = new Slide();
-            clone.image = this.image;
-            clone.text = this.text;
-            clone.audio = this.audio;
-            clone.audioData = this.audioData;
-            clone.locked = this.locked;
-            clone.lockedFields = this.lockedFields.slice();
-            clone.duration = this.duration;
-            return clone;
-        };
-        return Slide;
-    })();
-    Slideshow.Slide = Slide;
 })(Slideshow || (Slideshow = {}));
 var Slideshow;
 (function (Slideshow) {
@@ -1624,6 +1518,14 @@ var Slideshow;
         UI.prototype.togglePlayBtn = function () {
             $("#playShowBtn").children("i").toggleClass("fa-play").toggleClass("fa-pause");
         };
+        UI.prototype.setPauseBtn = function (showPause) {
+            if (showPause) {
+                $("#playShowBtn").children("i").removeClass("fa-play").addClass("fa-pause");
+            }
+            else {
+                $("#playShowBtn").children("i").removeClass("fa-pause").addClass("fa-play");
+            }
+        };
         UI.prototype.showGallery = function () {
             $("#gallery").removeClass("hidden");
         };
@@ -1636,5 +1538,132 @@ var Slideshow;
         return UI;
     })();
     Slideshow.UI = UI;
+})(Slideshow || (Slideshow = {}));
+var Slideshow;
+(function (Slideshow) {
+    var Utils = (function () {
+        function Utils() {
+        }
+        // from http://stackoverflow.com/questions/979975/how-to-get-the-value-from-the-url-parameter
+        Utils.getUrlVars = function () {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+                return m;
+            });
+            return vars;
+        };
+        Utils.getParentURL = function () {
+            var url = document.referrer;
+            url = url.substring(0, url.lastIndexOf("/") + 1);
+            return url;
+        };
+        // from unplatform reporter.js
+        Utils.getCookie = function (cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ')
+                    c = c.substring(1);
+                if (c.indexOf(name) == 0)
+                    return c.substring(name.length, c.length);
+            }
+            return "";
+        };
+        Utils.toHTML = function (val) {
+            return val.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        };
+        Utils.fromHTML = function (val) {
+            return val.replace(/<br\s*[\/]?>/gi, '\r\n');
+        };
+        // from http://stackoverflow.com/questions/27159179/how-to-convert-blob-to-file-in-javascript
+        Utils.blobToFile = function (theBlob, fileName) {
+            var b = theBlob;
+            //A Blob() is almost a File() - it's just missing the two properties below which we will add
+            b.lastModifiedDate = new Date();
+            b.name = fileName;
+            //Cast to a File() type
+            return theBlob;
+        };
+        return Utils;
+    })();
+    Slideshow.Utils = Utils;
+})(Slideshow || (Slideshow = {}));
+var Slideshow;
+(function (Slideshow) {
+    var Webcam = (function () {
+        function Webcam(stream, video, canvas) {
+            var _this = this;
+            this.camWidth = 384;
+            this.camHeight = 288;
+            console.log('new Webcam');
+            this.video = video;
+            this.canvas = canvas;
+            this.stream = stream;
+            video.muted = true;
+            var browserURL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+            video.src = browserURL.createObjectURL(stream);
+            video.addEventListener('canplay', function (e) {
+                if (!_this.streaming) {
+                    _this.checkSizes();
+                }
+            }, false);
+        }
+        Webcam.prototype.stop = function () {
+            console.log("webcam.stop");
+            //this.stream.stop();
+            this.stream.active = false;
+            this.streaming = false;
+        };
+        Webcam.prototype.start = function () {
+            if (!this.streaming) {
+                this.stream.active = true;
+                this.streaming = true;
+            }
+        };
+        Webcam.prototype.checkSizes = function () {
+            var onTimeUpdate = function (e) {
+                this.checkSizes();
+            };
+            if (this.video.videoHeight != 0 && this.video.videoWidth != 0) {
+                this.fixSizes();
+                this.video.removeEventListener('timeupdate', function (e) { return onTimeUpdate; });
+            }
+            else {
+                // account for FireFox bug (https://bugzilla.mozilla.org/show_bug.cgi?id=926753)
+                this.video.addEventListener('timeupdate', function (e) { return onTimeUpdate; }, false);
+            }
+        };
+        Webcam.prototype.showVideo = function () {
+            this.video.hidden = false;
+            this.video.play();
+        };
+        Webcam.prototype.hideVideo = function () {
+            this.video.hidden = true;
+            this.video.pause();
+        };
+        Webcam.prototype.fixSizes = function () {
+            this.camHeight = this.video.videoHeight / (this.video.videoWidth / this.camWidth);
+            this.video.setAttribute('width', this.camWidth.toString());
+            this.video.setAttribute('height', this.camHeight.toString());
+            this.canvas.setAttribute('width', this.camWidth.toString());
+            this.canvas.setAttribute('height', this.camHeight.toString());
+            this.streaming = true;
+        };
+        Webcam.prototype.takePicture = function () {
+            this.canvas.width = this.camWidth;
+            this.canvas.height = this.camHeight;
+            var ctx = this.canvas.getContext('2d');
+            ctx.save();
+            ctx.scale(-1, 1);
+            ctx.drawImage(this.video, this.camWidth * -1, 0, this.camWidth, this.camHeight);
+            ctx.restore();
+            var data = this.canvas.toDataURL('image/png');
+            return data;
+        };
+        return Webcam;
+    })();
+    Slideshow.Webcam = Webcam;
 })(Slideshow || (Slideshow = {}));
 //# sourceMappingURL=slideshowApp.js.map

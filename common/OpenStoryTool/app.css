@@ -184,6 +184,10 @@ button {
     margin: 8px 10px;
 }
 
+.slideControl.selected {
+    background-color: #DDF0F6;
+}
+
 .ctrlImgHolder {
     display: inline-block;
     width: 126px;
@@ -229,6 +233,9 @@ button {
     background-color: goldenrod;
     font-size: 24px;
 }
+.slideControl-lockBtn.disabled i{
+    color: white;
+}
 
 .slideControl .deleteModal {
     width: 372px;
@@ -240,7 +247,7 @@ button {
 
 .slide-drag-handle {
     display: inline-block;
-    background-color: #999;
+    background-color: #34495e;
     width: 26px;
     height: 60px;
     border-radius: 4px;
@@ -446,7 +453,7 @@ input, textarea {
 }
 
 .disabled, .disabled i {
-    color: #999999;
+    color: #AAA;
     user-select: none;
 }
 
