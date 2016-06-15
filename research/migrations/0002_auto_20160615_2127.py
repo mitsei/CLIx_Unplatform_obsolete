@@ -18,14 +18,4 @@ class Migration(migrations.Migration):
             name='event_type',
             field=models.CharField(max_length=32),
         ),
-        migrations.AlterField(
-            model_name='uuid',
-            name='configuration',
-            field=models.ForeignKey(related_name='configurations', default=research.models.get_configuration, to='research.Configuration'),
-        ),
-        migrations.AddField(
-            model_name='user',
-            name='session_id',
-            field=models.ForeignKey(to='research.UUID', related_name='users'),
-        ),
     ]
