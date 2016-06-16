@@ -28,3 +28,13 @@ def get_session_id(request):
 
 # def get_modules():
 #     return os.listdir(MODULES_DIR)
+
+REMOTE_SERVER = "www.google.co.in"
+def is_connected():
+  try:
+    host = socket.gethostbyname(REMOTE_SERVER)
+    s = socket.create_connection((host, 80), 2)
+    return True
+  except:
+     pass
+  return False

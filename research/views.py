@@ -29,11 +29,12 @@ class FingerprintViewSet(viewsets.ModelViewSet):
         other_ip = None
         if len(ip_list) > 1:
             other_ip = str(ip_list[0])
-
+        # try:
+        #     host_ip = server_ip
+        # except NameError:
+        #     host_ip = str(get_host_ip())
         serializer.save(client_ip=public_ip,
-                        client_ip_other=other_ip,
-                        server_ip=str(get_host_ip())
-                        )
+                        client_ip_other=other_ip) # server_ip=str(get_host_ip()
         # uuid=get_session_id(self.request)
         # print dir(self.request.session)
 

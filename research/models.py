@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from research.utils import get_host_ip
 
 
 class Configuration(models.Model):
@@ -30,6 +31,8 @@ class User(models.Model):
     user_count = models.CharField(max_length=2, null=True)
     creation_time = models.DateTimeField(default=timezone.now)
 
+
+
 class Fingerprint(models.Model):
     session_id = models.ForeignKey(UUID, related_name='fingerprints')
     user_agent = models.CharField(max_length=200) # not sure what a good length is yet
@@ -38,7 +41,7 @@ class Fingerprint(models.Model):
     languages = models.CharField(max_length=50, null=True) # or this one, for that matter
     client_ip = models.CharField(max_length=15, null=True)
     client_ip_other = models.CharField(max_length=15, null=True)
-    server_ip = models.CharField(max_length=15, null=True)
+    server_ip = models.CharField(max_length=15, default=get_host_ip)
     is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)#
     creation_time = models.DateTimeField(default=timezone.now) # Was auto_now_add=true but changed to allow override
 #
