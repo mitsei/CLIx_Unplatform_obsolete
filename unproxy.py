@@ -9,6 +9,7 @@ from celery.bin import worker
 import celery.apps
 import celery.apps.worker
 import celery.app.log
+import celery.app.amqp
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CERTFILE = os.path.join(BASE_DIR, "unplatform/unplatform.cert.dummy.pem")
