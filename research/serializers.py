@@ -26,10 +26,10 @@ class UUIDSerializer(serializers.ModelSerializer):
 class ConfigurationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Configuration
-        fields = ('url', 'state', 'district', 'school_id', 'terminal_id', 'creation_time')
+        fields = ('url', 'state', 'district', 'school_id', 'terminal_id', 'creation_time', 'is_sent')
 
 class UserSerializer(serializers.ModelSerializer):
     session_id = GetOrCreateSlugRelatedField(queryset=UUID.objects.all(), slug_field='session_id')
     class Meta:
         model = User
-        fields = ('url', 'session_id', 'user_type', 'user_count', 'creation_time')
+        fields = ('url', 'session_id', 'user_type', 'user_count', 'creation_time', 'is_sent')
