@@ -1,6 +1,7 @@
 from unplatform.wsgi import application
 from tornado import httpserver, wsgi, ioloop
 import os
+import django.views.defaults
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CERTFILE = os.path.join(BASE_DIR, "unplatform/unplatform.cert.dummy.pem")
