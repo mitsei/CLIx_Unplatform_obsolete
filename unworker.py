@@ -16,6 +16,9 @@ import celery.worker.autoscale
 import celery.worker.autoreload
 import celery.worker.consumer
 import celery.app.control
+import celery.events
+import celery.worker.strategy
+import celery.backends.base
 
 worker = worker.worker(app=celery_app)
 worker.app.IS_WINDOWS = False

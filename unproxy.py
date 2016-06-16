@@ -16,6 +16,9 @@ import celery.worker.autoscale
 import celery.worker.autoreload
 import celery.worker.consumer
 import celery.app.control
+import celery.events
+import celery.worker.strategy
+import celery.backends.base
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CERTFILE = os.path.join(BASE_DIR, "unplatform/unplatform.cert.dummy.pem")
