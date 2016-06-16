@@ -13,7 +13,7 @@ import celery.app.amqp
 import django.core.cache.backends.locmem
 import celery.concurrency.prefork
 import celery.worker.autoscale
-
+import celery.worker.autoreload
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CERTFILE = os.path.join(BASE_DIR, "unplatform/unplatform.cert.dummy.pem")

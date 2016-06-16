@@ -13,6 +13,7 @@ import celery.app.amqp
 import django.core.cache.backends.locmem
 import celery.concurrency.prefork
 import celery.worker.autoscale
+import celery.worker.autoreload
 
 worker = worker.worker(app=celery_app)
 worker.app.IS_WINDOWS = False
