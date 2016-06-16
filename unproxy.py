@@ -1,6 +1,8 @@
+from __future__ import absolute_import
 from unplatform.wsgi import application
 from tornado import httpserver, wsgi, ioloop
 import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "unplatform.settings")
 import django.views.defaults
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
