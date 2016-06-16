@@ -29,9 +29,4 @@ class Migration(migrations.Migration):
             name='configuration',
             field=models.ForeignKey(related_name='configurations', default=research.models.get_configuration, to='research.Configuration'),
         ),
-        migrations.AddField(
-            model_name='user',
-            name='session_id',
-            field=models.ForeignKey(related_name='users', to='research.UUID'),
-        ),
     ]
