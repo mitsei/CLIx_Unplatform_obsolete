@@ -43,6 +43,29 @@
 				height:850px;
 			}
 
+			.container-popup {
+			    position: relative;
+			    position: fixed;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    background: rgba(0,0,0,.8);
+			}
+
+			.popup {
+			    width: 50%;
+			    height: 50%;
+			    background: white;
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    margin: auto;
+			    text-align:center;
+			}
+
 
 		</style>
 
@@ -56,15 +79,22 @@
 					"params": {  url : current_url }
 				}
 			home_report.submitData('/api/appdata/', data) }
-		var finished = function () {
+		var toggleFinished = function(state) {
+			document.getElementsByClassName('container-popup')[0].style.display = state;
+		}
+
+		var finished = function(answer) {
 			var finished_report = new Report()
 			current_url = window.location.href
 			data = { "app_name": "Unplatform",
-					"event_type": "finished_click",
-					"params": {  url : current_url }
+					"event_type": "clicked_finished",
+					"params": {  url : current_url, response : answer }
 				}
 			finished_report.submitData('/api/appdata/', data)
-			finished_report.setUUIDCookie()
+			if (answer == 'yes') {
+				finished_report.setUUIDCookie()
+				window.location.href = '/';
+			}
 		}
 		</script>
 
@@ -85,12 +115,23 @@
 				<br>
 			{% endfor %}
 			 <a href='/subject/'><img id='home' src="/modules/unplatform/home.png" onclick=wentHome()></a>
-			 <a href=''><img id='done' src="/modules/unplatform/done.png" onclick=finished()></a>
+			 <img id='done' src="/modules/unplatform/done.png" onclick=toggleFinished('block')>
         </nav>
 
         <div id="main">
             <iframe name="frame" frameBorder="0" src="/modules/index.html" style="position: absolute"></iframe>
         </div>
+
+        <div class="container-popup" style="display:none">
+		    <div class="popup">
+			    <span>
+				    <strong>Do you want to end the session?</strong>
+				    <br>
+				    <button onclick=finished('yes')>Yes</button>
+				    <button onclick="toggleFinished('none'); finished('no');">No</button>
+			    </span>
+		    </div>
+		</div>
 
         <!--<footer>-->
         <!--</footer>-->

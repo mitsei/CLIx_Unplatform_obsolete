@@ -130,47 +130,72 @@ function focusData(appdata) {
 	}
 })();
 
-(function () {
-    var time;
-	var count = 0;
-	var threshold = 60; // seconds you must be idle before reporting
-	var data = {
-		"app_name": "Unplatform",
-		"event_type": "idle_time",
-	}
-    document.onmousemove = resetTimer;
+
+
+
+// todo: rewrite this to not have global scope
+var idleTime;
+var idleCount = 0;
+var idleThreshold = 60; // seconds you must be idle before reporting
+var idleData = {
+	"app_name": "Unplatform",
+	"event_type": "idle_time",
+}
+var idleTimer = function () {
+	document.onmousemove = resetTimer;
     document.onkeypress = resetTimer;
+}
+function idReset() {
+	console.log('timed out');
+	idleData["params"] = "timed_out";
+	navReporter.submitData('/api/appdata/', idleData)
+	navReporter.setUUIDCookie();
+	window.location.href = '/'
+}
 
-    function idReset() {
-        console.log('timed out');
-		data["params"] = "timed_out";
-		navReporter.submitData('/api/appdata/', data)
-		navReporter.setUUIDCookie();
-		window.location.href = '/'
-    }
-
-	function counter() {
-		count++;
-		console.log(count)
-		if (count == 15) {
-			if (!confirm("Do you want to continue working?")){
-				idReset()
-			}
-		}
-		else if (count == 60*30){
-			idReset()
-		}
-
+function counter() {
+	idleCount++;
+	console.log(idleCount)
+	if (idleCount == 60*15) {
+		continue_prompt()
+	}
+	else if (idleCount == 60*30){
+		idReset()
 	}
 
-    function resetTimer() {
-		if (count >= threshold) {
-			data["params"] = {"seconds_idle": count };
-			navReporter.submitData('/api/appdata/', data);
-			console.log('reported');
-		}
-		count = 0;
-        clearTimeout(time);
-        time = setInterval(counter, 1000)
-    }
-})();
+}
+
+function resetTimer() {
+	if (idleCount >= idleThreshold) {
+		idleData["params"] = {"seconds_idle": idleCount };
+		navReporter.submitData('/api/appdata/', idleData);
+		console.log('reported');
+	}
+	idleCount = 0;
+	clearTimeout(idleTime);
+	idleTime = setInterval(counter, 1000)
+}
+
+function continue_prompt() {
+	var idleStyle = document.createElement('style')
+	idleStyle.innerHTML = '.container-popup {position: relative;position: fixed;' +
+		'top: 0;right: 0;bottom: 0;left: 0;background: rgba(0,0,0,.8); } .popup ' +
+		'{ width: 50%; height: 50%; background: white; position: absolute; top: 0;' +
+		' right: 0; bottom: 0; left: 0; margin: auto; text-align:center; }';
+	var body = document.getElementsByTagName('body')[0]
+	body.appendChild(idleStyle)
+
+	var popover = document.createElement('div');
+	popover.id='popover'
+	popover.innerHTML = '<div class="container-popup" ><div class="popup"> ' +
+			'<span><strong>Are you still working on the same session?</strong>' +
+			'<br><button onclick="resetTimer(); hidePopover();">Yes</button>' +
+			'<button onclick="idReset()">No' +
+			'</button></span></div></div>'
+
+	body.appendChild(popover)
+}
+function hidePopover() {
+	 document.getElementById("popover").style="display:none"
+}
+idleTimer();
