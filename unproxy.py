@@ -8,6 +8,7 @@ from unplatform.celeryapp import app as celery_app
 from celery.bin import worker
 import celery.apps
 import celery.apps.worker
+import celery.app.log
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CERTFILE = os.path.join(BASE_DIR, "unplatform/unplatform.cert.dummy.pem")

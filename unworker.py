@@ -8,6 +8,7 @@ from unplatform.celeryapp import app as celery_app
 import celery.apps
 from celery.bin import worker
 import celery.apps.worker
+import celery.app.log
 
 worker = worker.worker(app=celery_app)
 worker.app.IS_WINDOWS = False
