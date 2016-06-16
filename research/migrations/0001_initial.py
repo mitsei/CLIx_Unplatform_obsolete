@@ -48,6 +48,16 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
+            name='User',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('user_type', models.CharField(max_length=15, null=True)),
+                ('user_count', models.CharField(max_length=2, null=True)),
+                ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
+                ('session_id', models.ForeignKey(related_name='users', to='research.UUID')),
+            ],
+        ),
+        migrations.CreateModel(
             name='UUID',
             fields=[
                 ('session_id', models.CharField(max_length=36, primary_key=True, serialize=False)),
