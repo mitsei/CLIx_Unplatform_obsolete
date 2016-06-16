@@ -14,16 +14,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='User',
-            fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
-                ('user_type', models.CharField(null=True, max_length=15)),
-                ('user_count', models.CharField(null=True, max_length=2)),
-                ('is_sent', models.NullBooleanField()),
-                ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
-            ],
-        ),
         migrations.AddField(
             model_name='configuration',
             name='is_sent',
