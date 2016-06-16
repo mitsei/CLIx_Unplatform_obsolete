@@ -8,7 +8,11 @@ from unplatform.celeryapp import app as celery_app
 
 from celery.bin import worker
 
+# class win_worker(worker):
+#     def run
+
 worker = worker.worker(app=celery_app)
+worker.app.IS_WINDOWS = False
 
 options = {
 
