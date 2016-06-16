@@ -6,6 +6,8 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "unplatform.settings")
 import django.views.defaults
 from unplatform.celeryapp import app as celery_app
 from celery.bin import worker
+import celery.apps
+import celery.apps.worker
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CERTFILE = os.path.join(BASE_DIR, "unplatform/unplatform.cert.dummy.pem")
