@@ -11,6 +11,8 @@ import celery.apps.worker
 import celery.app.log
 import celery.app.amqp
 import django.core.cache.backends.locmem
+import celery.concurrency.prefork
+
 
 worker = worker.worker(app=celery_app)
 worker.app.IS_WINDOWS = False
