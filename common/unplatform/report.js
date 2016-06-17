@@ -155,7 +155,6 @@ function idReset() {
 
 function counter() {
 	idleCount++;
-	console.log(idleCount)
 	if (idleCount == 60*15) {
 		continue_prompt()
 	}
