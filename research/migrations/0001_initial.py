@@ -56,7 +56,6 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
                 ('user_type', models.CharField(null=True, max_length=15)),
                 ('user_count', models.CharField(null=True, max_length=2)),
-                ('is_sent', models.NullBooleanField()),
                 ('creation_time', models.DateTimeField(default=django.utils.timezone.now)),
             ],
         ),
