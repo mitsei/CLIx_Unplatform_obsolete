@@ -14,6 +14,8 @@ until [  $COUNTER -lt 10 ]; do
     pyinstaller unproxy.py --clean --distpath ../unplatform-distributable -n unplatform_linux64 -y
     pyinstaller unworker.py --clean --distpath ../unplatform-distributable -n unplatform_linux64_worker -y
     
+    rm -r build
+    
     echo COUNTER $COUNTER
     sleep 1h
 done

@@ -15,6 +15,8 @@ until [  $COUNTER -lt 10 ]; do
     pyinstaller unproxy.py --clean --distpath ../unplatform-distributable -n unplatform_osx -y
     pyinstaller unworker.py --clean --distpath ../unplatform-distributable -n unplatform_osx_worker -y
     
+    rm -r build
+    
     echo WAITING
     
     sleep 3600

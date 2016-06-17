@@ -2,7 +2,6 @@
 COUNTER=20
 until [  $COUNTER -lt 10 ]; do
     
-    rm -r unenv
     rm -r build
     rm *.spec
     find . -name "*.pyc" -type f -delete
@@ -16,6 +15,8 @@ until [  $COUNTER -lt 10 ]; do
     pyinstaller unproxy.py --clean --distpath ../unplatform-distributable -n unplatform_win32 -y
     pyinstaller unworker.py --clean --distpath ../unplatform-distributable -n unplatform_win32_worker -y
 
+    rm -r build
+    
     echo WAITING
 
     sleep 1h
