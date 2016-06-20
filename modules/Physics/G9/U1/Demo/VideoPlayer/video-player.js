@@ -13,34 +13,25 @@ window.onload=function(){
         }()),
         playSelectedFile = function playSelectedFileInit(event) {
             var file = this.files[0];
-
             var type = file.type;
-
             var videoNode = document.querySelector('video');
-
             var canPlay = videoNode.canPlayType(type);
-
             canPlay = (canPlay === '' ? 'no' : canPlay);
-
             var message = 'Can play type "' + type + '": ' + canPlay;
-
             var isError = canPlay === 'no';
 
             displayMessage(message, isError);
-
             if (isError) {
                 return;
             }
 
             var fileURL = URL.createObjectURL(file);
-
             videoNode.src = fileURL;
         },
         inputNode = document.querySelector('input');
         
     if (!URL) {
         displayMessage('Your browser is not supported!', true);
-        
         return;
     }                
                                                                                                                                                                                          

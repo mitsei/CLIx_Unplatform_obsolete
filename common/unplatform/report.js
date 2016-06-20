@@ -41,6 +41,7 @@ class Report {
 	}
 	setUUIDCookie() {
 		var uuid = this.uuid4();
+		this.session_id = uuid;
 		this.setCookie('session_uuid',uuid, 1)
 		console.log("new id: " + uuid)
 		return uuid;

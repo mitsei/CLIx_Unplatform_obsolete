@@ -38,7 +38,7 @@ function newButts() {
 		var video = document.getElementById("video");
 		
 		video.oncanplay = function() {
-			
+			playButton.innerHTML = "Pause";
 			
 			// Event listener for the play/pause button
 			playButton.addEventListener("click", function() {
