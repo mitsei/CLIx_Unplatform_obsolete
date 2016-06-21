@@ -34,8 +34,8 @@ function newButts() {
 	// }
 	// input.onchange = function () {
 		
-		// Video
-		var video = document.getElementById("video");
+	// Video
+	var video = document.getElementById("video");
 		
 		video.oncanplay = function() {
 			playButton.innerHTML = "Pause";
@@ -83,7 +83,6 @@ function newButts() {
 				// Update the video volume
 				video.volume = volumeBar.value;
 			});
-			
 			
 			
 			// Event listener for the full-screen button
@@ -134,10 +133,7 @@ function newButts() {
 				currentTime.innerHTML = video.currentTime.toFixed(3);
 				
 			});
-			
-			
-			
-			
+						
 			// Pause the video when the slider handle is being dragged
 			seekBar.addEventListener("mousedown", function() {
 				video.pause();
@@ -147,6 +143,23 @@ function newButts() {
 			seekBar.addEventListener("mouseup", function() {
 				video.play();
 			});
+
+			document.onkeypress=function(e){
+			var key = e.keyCode; 
+    		if (key == 109) {
+    			muteButton.click()
+    		} else if (key == 102) {
+    			fullScreenButton.click()
+    		} else if (key == 103) {
+    			minusButton.click()
+    		} else if (key == 104) {
+    			plusButton.click()
+    		} else if (key == 32) {
+    			playButton.click()
+    		}
+ 
+			}
 		}
-	// }
+		
 }
+
