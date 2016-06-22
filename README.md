@@ -26,7 +26,7 @@ After download, unzip to the location of your choice. OS specific installation p
 Session ID notes
 -------------------
 When a browser visits unplatform content, a session_uuid cookie is set if one does not exist. That cookie is available
-until the browser is closed. session_uuid cookies regenerate on user timeouts and "finish" events.
+until the browser is closed. session_uuid cookies regenerate on user inactivity timeouts and "finish" events.
 
 
 API notes
@@ -68,36 +68,30 @@ a directory listing of /unplatform/common/some_tool/ can be retrieved at /module
 author tools which are dynamically aware of the filesystem.
 
 
+Database
+-------------------
+unplatform uses sqlite. The database file can be found at unplatform/db.sqlite3 and can be opened by any
+compatible tool. Because sqlite does not support concurrency well, occasionally a database lock error may be returned
+as error code 500.
 
-* The last entry set on /school/ is the entry used for reporting school data
-* session_uuid cookie /     -session timeout after 15 minutes of idle time
-    -when the home button or finish buttons are clicked
 
-   -configuration (for global variables like school codes)
-    -users (for tracking user type on the landing page)
+SSL certificates
+-------------------
+unplatform provides dummy certificates to enable ssl so that the browser has access to the webcam & microphone. These
+dummy certificates will cause browser issues regarding unrecognized certificate authority, but they can be safely and
+permanantly dismissed.
+
+
+Navigation templates
+-------------------
+Navigation templates are available under /unplatform/curriculum/templates/curriculum/ They represent the navigational
+structure of unplatform and can be safely edited for localization and styling.
 
 
 /modules/ folder
 *Navigation has been reworked to reflect the desired subject/grade/unit/lesson structure, and all 3 subjects have sample data.
 *A sample epub has been included under physics
 
-
-navigation templates
-* Navigation templates are available for translation
-
-db.sqlite notes
-* The file /unplatform/db.sqlite3 is available for use in any sqlite viewer
-
-
-certs
-* Dummy *.pem certs have been provided for SSL support.  They can be overwritten with new certs as long as their filename is the same.
-* SSL support has been added so that browsers can access microphones/webcams
-
-
-Developer notes:
-* Navigation templates are available for styling & translation in the folder unplatform/curriculum/templates/unplatform
-
-Please provide feedback to me bhanks@mit.edu Include what operating system & browser information when possible.
-
-
-*Async worker can pass data along intermittent connections
+Contact
+-------------------
+Please provide feedback to bhanks@mit.edu
