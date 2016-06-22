@@ -6,7 +6,7 @@ unplatform is written in python3.4 and powered by django, tornado, and pyinstall
 
 Example content:
 
-    Student entry point (/):    https://unplatform.herokuapp.com/
+    Student entry point (/):    [https://unplatform.herokuapp.com/]
 
     FSP entry point (/school/):    https://unplatform.herokuapp.com/school/
 
