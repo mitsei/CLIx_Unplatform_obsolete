@@ -22,7 +22,11 @@ Installation
 - Linux64: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eWVRsMmd4U1hoOTA&export=download
 
 After download, unzip to the location of your choice. OS specific installation procedures can be found in /readme/
-Once installed, navigate to /school/ and set the location specific identifiers.
+
+Session ID notes
+-------------------
+When a browser visits unplatform content, a session_uuid cookie is set if one does not exist. That cookie is available
+until the browser is closed. session_uuid cookies regenerate on user timeouts and "finish" events.
 
 
 API notes
@@ -58,7 +62,7 @@ automatically by unplatform so there is no need to post data to this endpoint.
 Configuration stores global variables. This data is set by the FSP at /school/ upon installation and should
 not have data POSTed to it.
 
-### unplatform/common micro-api
+### unplatform/common folder micro-api
 JSON format directory listings of common subfolders can be obtained by point a url at them. For example,
 a directory listing of /unplatform/common/some_tool/ can be retrieved at /modules/some_tool/ This allows you to
 author tools which are dynamically aware of the filesystem.
