@@ -12,10 +12,10 @@ Example content
 - API (/api/):    https://unplatform.herokuapp.com/api/
 - API documentation (/docs/): https://unplatform.herokuapp.com/docs/
 
-### Installation
-
-Download (requires clixindia.org sign-in)
+Installation
 -------------------
+
+### Download (requires clixindia.org sign-in)
 
 - Win32: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eV19CRFVWUEpvYlk&export=download
 - OSX: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eaDU5Ni03X25YUkU&export=download
@@ -25,7 +25,8 @@ After download, unzip to the location of your choice. OS specific installation p
 Once installed, navigate to /school/ and set the location specific identifiers.
 
 
-### API notes
+API notes
+-------------------
 unplatform's API is build on django rest framework, which means each endpoint is self describing at each url.
 When POSTing, the only header that currently must be set is content-type: application/json.
 
@@ -49,13 +50,18 @@ AppData is where all tool and application data is reported. It accepts the follo
     event_type (required, length < 32, name of the type of event)
     params (parameters of the event_type)
 
-* Users
+* Users: /api/users/
 Users stores anonymous information about the users that initiate a session. This information is generated
 automatically by unplatform so there is no need to post data to this endpoint.
 
 * Configuration: /api/configuration/
+Configuration stores global variables. This data is set by the FSP at /school/ upon installation and should
+not have data POSTed to it.
 
-
+### unplatform/common micro-api
+JSON format directory listings of common subfolders can be obtained by point a url at them. For example,
+a directory listing of /unplatform/common/some_tool/ can be retrieved at /modules/some_tool/ This allows you to
+author tools which are dynamically aware of the filesystem.
 
 
 
@@ -65,9 +71,6 @@ automatically by unplatform so there is no need to post data to this endpoint.
 
    -configuration (for global variables like school codes)
     -users (for tracking user type on the landing page)
-
-/common/ api
-* All common files belong in the folder /unplatform/common/ and have a filesystem API if you point your browser at a directory in /modules/*commonfolder*/ (ex: https://localhost:8888/
 
 
 /modules/ folder
