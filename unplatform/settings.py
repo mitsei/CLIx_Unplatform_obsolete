@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'curriculum',
     'rest_framework',
     'corsheaders',
-    'kombu.transport.django'
+    'kombu.transport.django',
+    'rest_framework_swagger'
 )
 
 MIDDLEWARE_CLASSES = (

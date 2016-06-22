@@ -10,7 +10,11 @@ Linux64: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eWVRsMmd4U1ho
 Example cloud hosted content:
     Student entry point (/):    https://unplatform.herokuapp.com/
     FSP entry point (/school/):    https://unplatform.herokuapp.com/school/
-    API (/api):    https://unplatform.herokuapp.com/api/
+    API (/api/):    https://unplatform.herokuapp.com/api/
+    API documentation (/docs/): https://unplatform.herokuapp.com/docs/
+
+
+
 
 Changes:
 *Navigation has been reworked to reflect the desired subject/grade/unit/lesson structure, and all 3 subjects have sample data.
