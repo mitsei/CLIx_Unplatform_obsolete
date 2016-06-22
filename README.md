@@ -26,6 +26,39 @@ Once installed, navigate to /school/ and set the location specific identifiers.
 
 
 ### API notes
+unplatform's API is build on django rest framework, which means each endpoint is self describing at each url.
+When POSTing, the only header that currently must be set is content-type: application/json.
+
+Currently the following models are implemented:
+
+* UUID: /api/uuids/
+UUIDs are the primary piece of data for tying together session data across all other models.
+There is no need to post any data to this endpoint because when data is posted to the other endpoints,
+a get_or_create action is performed on this table.
+
+* Fingerprints: /api/fingerprints/
+Fingerprints are automatically generated device environment data, including browser information, network information,
+and screen resolution. unplatform captures and reports all of this data automatically, so there is also no need to
+post data to this endpoint.
+
+* AppData: /api/appdata/
+AppData is where all tool and application data is reported. It accepts the follow data:
+
+    session_id (required, get it from the browser session_uuid cookie)
+    app_name (required, length < 32, name of the app)
+    event_type (required, length < 32, name of the type of event)
+    params (parameters of the event_type)
+
+* Users
+Users stores anonymous information about the users that initiate a session. This information is generated
+automatically by unplatform so there is no need to post data to this endpoint.
+
+* Configuration: /api/configuration/
+
+
+
+
+
 * The last entry set on /school/ is the entry used for reporting school data
 * session_uuid cookie /     -session timeout after 15 minutes of idle time
     -when the home button or finish buttons are clicked
