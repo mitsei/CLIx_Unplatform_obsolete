@@ -5,9 +5,13 @@ A modularized quasi-LMS for use in unconnected learning environments.
 unplatform is written in python3.4 and powered by django, tornado, and pyinstaller
 
 Example content:
+
     Student entry point (/):    https://unplatform.herokuapp.com/
+
     FSP entry point (/school/):    https://unplatform.herokuapp.com/school/
+
     API (/api/):    https://unplatform.herokuapp.com/api/
+
     API documentation (/docs/): https://unplatform.herokuapp.com/docs/
 
 ### Installation
@@ -17,10 +21,9 @@ Win32: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eV19CRFVWUEpvYl
 OSX: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eaDU5Ni03X25YUkU&export=download
 Linux64: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eWVRsMmd4U1hoOTA&export=download
 
+After download, unzip to the location of your choice. OS specific installation procedures can be found in /readme/
 
-unzip & read
-*FSPs can now set school & terminal ID codes at /school/
-
+Once installed, navigate to /school/ and set the location specific identifiers.
 
 
 ### API notes
