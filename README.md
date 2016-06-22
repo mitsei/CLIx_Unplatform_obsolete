@@ -49,10 +49,10 @@ post data to this endpoint.
 * AppData: /api/appdata/
 AppData is where all tool and application data is reported. It accepts the follow data:
 
-    ```session_id (required, get it from the browser session_uuid cookie)
-    app_name (required, length < 32, name of the app)
-    event_type (required, length < 32, name of the type of event)
-    params (parameters of the event_type)```
+    ```session_id``` (required, get it from the browser session_uuid cookie)
+    ```app_name``` (required, length < 32, name of the app)
+    ```event_type``` (required, length < 32, name of the type of event)
+    ```params``` (parameters of the event_type)
 
 * Users: /api/users/
 Users stores anonymous information about the users that initiate a session. This information is generated
