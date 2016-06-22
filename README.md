@@ -7,21 +7,21 @@ unplatform is written in python3.4 and powered by django, tornado, and pyinstall
 Example content
 -------------------
 
-    -Student entry point (/):    https://unplatform.herokuapp.com/
-    -FSP entry point (/school/):    https://unplatform.herokuapp.com/school/
-    -API (/api/):    https://unplatform.herokuapp.com/api/
-    -API documentation (/docs/): https://unplatform.herokuapp.com/docs/
+- Student entry point (/):    https://unplatform.herokuapp.com/
+- FSP entry point (/school/):    https://unplatform.herokuapp.com/school/
+- API (/api/):    https://unplatform.herokuapp.com/api/
+- API documentation (/docs/): https://unplatform.herokuapp.com/docs/
 
 ### Installation
 
-Download (requires clixindia.org sign-in):
+Download (requires clixindia.org sign-in)
+-------------------
 
-    Win32: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eV19CRFVWUEpvYlk&export=download
-    OSX: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eaDU5Ni03X25YUkU&export=download
-    Linux64: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eWVRsMmd4U1hoOTA&export=download
+- Win32: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eV19CRFVWUEpvYlk&export=download
+- OSX: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eaDU5Ni03X25YUkU&export=download
+- Linux64: https://docs.google.com/a/clixindia.org/uc?id=0BxQsxUG7EC3eWVRsMmd4U1hoOTA&export=download
 
 After download, unzip to the location of your choice. OS specific installation procedures can be found in /readme/
-
 Once installed, navigate to /school/ and set the location specific identifiers.
 
 
