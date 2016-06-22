@@ -2,14 +2,13 @@ unplatform
 ==========
 A modularized quasi-LMS for use in unconnected learning environments.
 
-Example cloud hosted content:
+unplatform is written in python3.4 and powered by django, tornado, and pyinstaller
+
+Example content:
     Student entry point (/):    https://unplatform.herokuapp.com/
     FSP entry point (/school/):    https://unplatform.herokuapp.com/school/
     API (/api/):    https://unplatform.herokuapp.com/api/
     API documentation (/docs/): https://unplatform.herokuapp.com/docs/
-
-
-
 
 ### Installation
 
