@@ -1,0 +1,63 @@
+<smil xmlns="http://www.w3.org/ns/SMIL" xmlns:epub="http://www.idpf.org/2007/ops" version="3.0">
+  <body>
+    <seq id="id1" epub:textref="section-0003.html">
+      <par id="id2">
+        <text src="section-0003.html#smil_id_1"/>
+      </par>
+      <seq id="id3" epub:textref="section-0003.html" epub:type="chapter">
+        <par id="id4" epub:type="title">
+          <text src="section-0003.html#tables"/>
+        </par>
+        <seq id="id5" epub:textref="section-0003.html" epub:type="table">
+          <seq id="id6" epub:textref="section-0003.html" epub:type="table-row">
+            <seq id="id8" epub:textref="section-0003.html" epub:type="table-cell">
+              <par id="id9">
+                <text src="section-0003.html#smil_id_2"/>
+              </par>
+            </seq>
+            <seq id="id10" epub:textref="section-0003.html" epub:type="table-cell">
+              <par id="id11">
+                <text src="section-0003.html#smil_id_3"/>
+              </par>
+            </seq>
+          </seq>
+          <seq id="id12" epub:textref="section-0003.html" epub:type="table-row">
+            <seq id="id13" epub:textref="section-0003.html" epub:type="table-cell">
+              <par id="id14">
+                <text src="section-0003.html#smil_id_4"/>
+              </par>
+            </seq>
+            <seq id="id15" epub:textref="section-0003.html" epub:type="table-cell">
+              <par id="id16">
+                <text src="section-0003.html#smil_id_5"/>
+              </par>
+            </seq>
+            <seq id="id17" epub:textref="section-0003.html" epub:type="table-cell">
+              <par id="id18">
+                <text src="section-0003.html#smil_id_6"/>
+              </par>
+            </seq>
+          </seq>
+          <seq id="id19" epub:textref="section-0003.html" epub:type="table-row">
+            <seq id="id20" epub:textref="section-0003.html" epub:type="table-cell">
+              <par id="id21">
+                <text src="section-0003.html#smil_id_7"/>
+              </par>
+            </seq>
+            <seq id="id22" epub:textref="section-0003.html" epub:type="table-cell">
+              <par id="id23">
+                <text src="section-0003.html#smil_id_8"/>
+              </par>
+            </seq>
+          </seq>
+        </seq>
+        <par id="id24">
+          <text src="section-0003.html#smil_id_9"/>
+        </par>
+        <par id="id25">
+          <text src="section-0003.html#smil_id_10"/>
+        </par>
+      </seq>
+    </seq>
+  </body>
+</smil>

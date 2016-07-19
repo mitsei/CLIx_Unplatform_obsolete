@@ -1,0 +1,14 @@
+<smil xmlns="http://www.w3.org/ns/SMIL" xmlns:epub="http://www.idpf.org/2007/ops" version="3.0">
+  <body>
+    <seq id="id1" epub:textref="section-0005.html">
+      <par id="id2">
+        <text src="section-0005.html#smil_id_1"/>
+      </par>
+      <seq id="id3" epub:textref="section-0005.html" epub:type="chapter">
+        <par id="id4" epub:type="title">
+          <text src="section-0005.html#auto_bookmark_toc_1"/>
+        </par>
+      </seq>
+    </seq>
+  </body>
+</smil>

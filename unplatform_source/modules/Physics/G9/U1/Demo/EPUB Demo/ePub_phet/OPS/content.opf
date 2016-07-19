@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId" version="3.0">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:title id="title1">Epub 3 Sample</dc:title>
+        <dc:contributor id="contributor2">Jutoh 2.42 [http://www.jutoh.com]</dc:contributor>
+        <meta refines="#contributor2" property="role">bkp</meta>
+        <dc:language id="language1">en</dc:language>
+        <dc:identifier id="BookId">urn:uuid:5c9b492a-5aca-4969-89f7-142745de2b46</dc:identifier>
+        <meta refines="#BookId" property="identifier-type" scheme="xsd:string">uuid</meta>
+        <dc:subject id="subject1">Factual</dc:subject>
+        <dc:description id="description1">Testing ePub features</dc:description>
+        <dc:date id="date1">2016</dc:date>
+        <meta property="dcterms:modified">2016-06-20T11:17:34Z</meta>
+        <meta property="media:active-class">C2</meta>
+        <meta property="media:duration" refines="#section-0001_overlay_smil">0:00:00.000</meta>
+        <meta property="media:duration" refines="#section-0002_overlay_smil">0:00:00.000</meta>
+        <meta property="media:duration" refines="#section-0003_overlay_smil">0:00:00.000</meta>
+        <meta property="media:duration" refines="#section-0004_overlay_smil">0:00:00.000</meta>
+        <meta property="media:duration" refines="#section-0005_overlay_smil">0:00:00.000</meta>
+        <meta property="media:duration" refines="#section-0006_overlay_smil">0:00:00.000</meta>
+        <meta property="media:duration" refines="#section-0007_overlay_smil">0:00:00.000</meta>
+        <meta property="media:duration" refines="#section-0008_overlay_smil">0:00:00.000</meta>
+        <meta property="media:duration" refines="#section-0009_overlay_smil">0:00:00.000</meta>
+        <meta property="media:duration">0:00:00.000</meta>
+        <meta name="cover" content="cover"/>
+    </metadata>
+    <manifest>
+        <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+        <item id="navtoc_xhtml" href="navtoc.xhtml" properties="nav" media-type="application/xhtml+xml"/>
+        <item id="cover" href="CoverDesign.jpg" properties="cover-image" media-type="image/jpeg"/>
+        <item id="CoverPage_html" href="CoverPage.html" media-type="application/xhtml+xml"/>
+        <item id="styles_css" href="styles.css" media-type="text/css"/>
+        <item id="section-0001_html" href="section-0001.html" media-overlay="section-0001_overlay_smil" media-type="application/xhtml+xml"/>
+        <item id="toc" href="section-0002.html" media-overlay="section-0002_overlay_smil" media-type="application/xhtml+xml"/>
+        <item id="section-0003_html" href="section-0003.html" media-overlay="section-0003_overlay_smil" media-type="application/xhtml+xml"/>
+        <item id="section-0004_html" href="section-0004.html" media-overlay="section-0004_overlay_smil" media-type="application/xhtml+xml" properties="scripted"/>
+        <item id="section-0005_html" href="section-0005.html" media-overlay="section-0005_overlay_smil" media-type="application/xhtml+xml"/>
+        <item id="section-0006_html" href="section-0006.html" media-overlay="section-0006_overlay_smil" media-type="application/xhtml+xml"/>
+        <item id="section-0007_html" href="section-0007.html" media-overlay="section-0007_overlay_smil" media-type="application/xhtml+xml"/>
+        <item id="section-0008_html" href="section-0008.html" media-overlay="section-0008_overlay_smil" media-type="application/xhtml+xml"/>
+        <item id="section-0009_html" href="section-0009.html" media-overlay="section-0009_overlay_smil" media-type="application/xhtml+xml"/>
+        <item id="section-0001_overlay_smil" href="section-0001_overlay.smil" media-type="application/smil+xml"/>
+        <item id="image0_jpg" href="image0.jpg" media-type="image/jpeg"/>
+        <item id="section-0002_overlay_smil" href="section-0002_overlay.smil" media-type="application/smil+xml"/>
+        <item id="section-0003_overlay_smil" href="section-0003_overlay.smil" media-type="application/smil+xml"/>
+        <item id="image1_jpg" href="image1.jpg" media-type="image/jpeg"/>
+        <item id="section-0004_overlay_smil" href="section-0004_overlay.smil" media-type="application/smil+xml"/>
+        <item id="section-0005_overlay_smil" href="section-0005_overlay.smil" media-type="application/smil+xml"/>
+        <item id="section-0006_overlay_smil" href="section-0006_overlay.smil" media-type="application/smil+xml"/>
+        <item id="section-0007_overlay_smil" href="section-0007_overlay.smil" media-type="application/smil+xml"/>
+        <item id="image001_jpg" href="image001.jpg" media-type="image/jpeg"/>
+        <item id="image002_jpg" href="image002.jpg" media-type="image/jpeg"/>
+        <item id="image003_jpg" href="image003.jpg" media-type="image/jpeg"/>
+        <item id="image004_jpg" href="image004.jpg" media-type="image/jpeg"/>
+        <item id="image005_jpg" href="image005.jpg" media-type="image/jpeg"/>
+        <item id="image006_jpg" href="image006.jpg" media-type="image/jpeg"/>
+        <item id="image007_jpg" href="image007.jpg" media-type="image/jpeg"/>
+        <item id="image008_jpg" href="image008.jpg" media-type="image/jpeg"/>
+        <item id="image009_jpg" href="image009.jpg" media-type="image/jpeg"/>
+        <item id="image010_jpg" href="image010.jpg" media-type="image/jpeg"/>
+        <item id="image011_jpg" href="image011.jpg" media-type="image/jpeg"/>
+        <item id="image012_jpg" href="image012.jpg" media-type="image/jpeg"/>
+        <item id="image013_jpg" href="image013.jpg" media-type="image/jpeg"/>
+        <item id="image014_jpg" href="image014.jpg" media-type="image/jpeg"/>
+        <item id="image015_jpg" href="image015.jpg" media-type="image/jpeg"/>
+        <item id="image016_jpg" href="image016.jpg" media-type="image/jpeg"/>
+        <item id="section-0008_overlay_smil" href="section-0008_overlay.smil" media-type="application/smil+xml"/>
+        <item id="mathlets-in-lecture-300x225_jpg" href="mathlets-in-lecture-300x225.jpg" media-type="image/jpeg"/>
+        <item id="latex_jpg" href="latex.jpg" media-type="image/jpeg"/>
+        <item id="latex_1__jpg" href="latex_1_.jpg" media-type="image/jpeg"/>
+        <item id="latex_2__jpg" href="latex_2_.jpg" media-type="image/jpeg"/>
+        <item id="latex_3__jpg" href="latex_3_.jpg" media-type="image/jpeg"/>
+        <item id="haynes-miller-235x300_jpg" href="haynes-miller-235x300.jpg" media-type="image/jpeg"/>
+        <item id="latex_4__jpg" href="latex_4_.jpg" media-type="image/jpeg"/>
+        <item id="latex_5__jpg" href="latex_5_.jpg" media-type="image/jpeg"/>
+        <item id="latex_6__jpg" href="latex_6_.jpg" media-type="image/jpeg"/>
+        <item id="section-0009_overlay_smil" href="section-0009_overlay.smil" media-type="application/smil+xml"/>
+        <item id="UbuntuMono-B_ttf" href="fonts/UbuntuMono-B.ttf" media-type="application/vnd.ms-opentype"/>
+        <item id="UbuntuMono-BI_ttf" href="fonts/UbuntuMono-BI.ttf" media-type="application/vnd.ms-opentype"/>
+        <item id="UbuntuMono-R_ttf" href="fonts/UbuntuMono-R.ttf" media-type="application/vnd.ms-opentype"/>
+        <item id="UbuntuMono-RI_ttf" href="fonts/UbuntuMono-RI.ttf" media-type="application/vnd.ms-opentype"/>
+        <item id="FreeSerif_otf" href="fonts/FreeSerif.otf" media-type="application/vnd.ms-opentype"/>
+        <item id="FreeSansBold_otf" href="fonts/FreeSansBold.otf" media-type="application/vnd.ms-opentype"/>
+        <item id="play24x24_png" href="media/play24x24.png" media-type="image/png"/>
+        <item id="test_mp4" href="media/test.mp4" media-type="audio/mp4"/>
+        <item id="acid-base_en_html" href="acid-base_en.html" media-type="application/xhtml+xml"/>
+        <item id="en_pls" href="en.pls" media-type="application/pls+xml"/>
+        <item id="fr_pls" href="fr.pls" media-type="application/pls+xml"/>
+        <item id="lexicon1-en_pls" href="lexicon1-en.pls" media-type="application/pls+xml"/>
+    </manifest>
+    <spine toc="ncx">
+        <itemref idref="CoverPage_html"/>
+        <itemref idref="section-0001_html"/>
+        <itemref idref="toc"/>
+        <itemref idref="section-0003_html"/>
+        <itemref idref="section-0004_html"/>
+        <itemref idref="section-0005_html"/>
+        <itemref idref="section-0006_html"/>
+        <itemref idref="section-0007_html"/>
+        <itemref idref="section-0008_html"/>
+        <itemref idref="section-0009_html"/>
+    </spine>
+    <guide>
+        <reference type="cover" title="Cover Page"
+            href="CoverPage.html" />
+        <reference type="toc" title="Table of Contents"
+            href="section-0002.html" />
+    </guide>
+</package>
