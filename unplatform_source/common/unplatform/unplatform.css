@@ -26,7 +26,6 @@ header {
   margin-left: 16px;
   width: 143px;
   height: 32px;
-   /*swap bg image url with locally-hosted svg*/
   background-image: url('/modules/unplatform/clix-logo.svg');
   text-indent: 100%;
   overflow: hidden;
