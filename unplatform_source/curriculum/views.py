@@ -19,6 +19,14 @@ def select_school(request):
     template = loader.get_template('curriculum/school.html')
     return HttpResponse(template.render())
 
+def select_epub(request):
+    epub_location = os.path.join(MODULES_FOLDER, 'epubs/pubs')
+    epubs = os.listdir(epub_location)
+    epubs = sorted(epubs)
+    template = loader.get_template('curriculum/epubs.html')
+    return HttpResponse(template.render({'epubs':epubs}))
+
+
 def select_subject(request):
     template = loader.get_template('curriculum/subject.html')
     return HttpResponse(template.render())
@@ -43,10 +51,14 @@ def select_lesson(request, subject, grade, unit):
 
 def show_activities(request, subject, grade, unit, lesson):
     activity_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
+    epub_location = os.path.join(MODULES_FOLDER, 'epubs/pubs')
+    epubs = os.listdir(epub_location)
+    epubs = sorted(epubs)
     activities = os.listdir(activity_location)
     activities = sorted(activities)
+    contentName = request.GET.get('contentName') # not sure if this will be needed
     template = loader.get_template('curriculum/activity.html')
-    return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'lesson':lesson, 'activities':activities}))
+    return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'lesson':lesson, 'activities':activities, 'epubs':epubs, 'contentName': contentName}))
 
 
 # Modified version of django.contrib.staticfiles.views which returns a directory listing as json

@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^$', views.start),
     url(r'^modules/(?P<path>.*)$', views.serve_module),
     url(r'^school/$', views.select_school),
+    url(r'^epubs/$', views.select_epub),
     url(r'^subject/$', views.select_subject),
     url(r'^(?P<subject>\w+)/$', views.select_grade),
     url(r'^(?P<subject>\w+)/(?P<grade>\w+)/$', views.select_unit),
