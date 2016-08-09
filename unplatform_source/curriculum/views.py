@@ -51,7 +51,7 @@ def select_lesson(request, subject, grade, unit):
 
 def show_activities(request, subject, grade, unit, lesson):
     activity_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
-    epub_location = os.path.join(MODULES_FOLDER, 'epubs/pubs')
+    epub_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
     epubs = os.listdir(epub_location)
     epubs = sorted(epubs)
     activities = os.listdir(activity_location)
