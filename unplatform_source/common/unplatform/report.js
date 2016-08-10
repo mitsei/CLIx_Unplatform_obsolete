@@ -16,7 +16,7 @@ class Report {
 		xhr.open('POST', url, false);
 		xhr.setRequestHeader("Content-Type","application/json");
 		xhr.send(data_string);
-		console.log(xhr.response)
+		//console.log(xhr.response)
 		return xhr.response
 	}
 
