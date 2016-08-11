@@ -13,11 +13,15 @@
                 return "";
         }
 
+        function getAPIURL() {
+                return "https://" + window.location.host + "/api/v1/"
+        }
+
         window.DEFAULT_SETTINGS = {
                 user_id: 0,
                 max_attempts: 1,
                 eid: getCookie("session_uuid"),
-                api_url: "https://qbank-clix-dev.mit.edu/api/v1/",
+                api_url: getAPIURL(),
                 bank: "assessment.Bank%3A57867b0dc89cd93f9e22cc2f%40ODL.MIT.EDU%40ODL.MIT.EDU",
                 assessment_offered_id: "assessment.AssessmentOffered%3A5791382bc89cd96c58adf4cc%40ODL.MIT.EDU",
                 assessment_kind: "SUMMATIVE",
