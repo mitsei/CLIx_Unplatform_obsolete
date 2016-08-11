@@ -1,4 +1,6 @@
-#!/bin/bash 
+#!/bin/bash
+
+cd ..
 
 rm -r build
 rm *.spec
@@ -7,10 +9,11 @@ find . -name ".DS_Store" -type f -delete
 find . -name ".directory" -type f -delete
 
 git pull
-pip install -r requirements.txt
 
-pyinstaller ../unplatform_source/unserver_ssl.py --clean --distpath ../unplatform-distributable -n unplatform_linux64 -y
-pyinstaller ../unplatform_source/unworker.py --clean --distpath ../unplatform-distributable -n unplatform_linux64_worker -y
+pip install -r unplatform_source/requirements.txt
+
+pyinstaller unplatform_source/unserver_ssl.py --clean --distpath ../unplatform-distributable -n unplatform_linux64 -y
+pyinstaller unplatform_source/unworker.py --clean --distpath ../unplatform-distributable -n unplatform_linux64_worker -y
 
 rm -r build
     
