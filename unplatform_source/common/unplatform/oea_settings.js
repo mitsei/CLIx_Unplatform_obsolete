@@ -14,7 +14,7 @@
         }
 
         function getAPIURL() {
-                return "https://" + window.location.host + "/api/v1/"
+                return "https://" + window.location.hostname + ":8080/api/v1/"
         }
 
         window.DEFAULT_SETTINGS = {
