@@ -6,12 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="/modules/unplatform/header.css">
 	<link rel="stylesheet" type="text/css" href="/modules/unplatform/nav.css">
 	<script src="/modules/unplatform/oea_settings.js"></script>
+	<script src="/modules/unplatform/oea_app.js"></script>
 	<script src="/modules/unplatform/report.js"></script>
 	<script>
 	var wentHome = function() {
 		var home_report = new Report()
 		current_url = window.location.href
-		data = { "app_name": "Unplatform",
+		data = { "app_name": "unplatform",
 				"event_type": "home_click",
 				"params": {  url : current_url }
 			}
@@ -23,7 +24,7 @@
 	var finished = function(answer) {
 		var finished_report = new Report()
 		current_url = window.location.href
-		data = { "app_name": "Unplatform",
+		data = { "app_name": "unplatform",
 				"event_type": "clicked_finished",
 				"params": {  url : current_url, response : answer }
 			}
