@@ -1,5 +1,7 @@
 #!/bin/bash 
 
+cd ..
+
 rm -r build
 rm *.spec
 find . -name "*.pyc" -type f -delete
@@ -10,7 +12,7 @@ git pull
 
 pip install -r requirements.txt
 
-pyinstaller ../unplatform_source/unserver_ssl.py --clean --distpath ../unplatform-distributable -n unplatform_win32 -y
-pyinstaller ../unplatform_source/unworker.py --clean --distpath ../unplatform-distributable -n unplatform_win32_worker -y
+pyinstaller /unplatform_source/unserver_ssl.py --clean --distpath ../unplatform-distributable -n unplatform_win32 -y
+pyinstaller /unplatform_source/unworker.py --clean --distpath ../unplatform-distributable -n unplatform_win32_worker -y
 
 rm -r build
