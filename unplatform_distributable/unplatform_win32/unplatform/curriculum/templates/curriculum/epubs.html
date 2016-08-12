@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
+	<script src="/modules/unplatform/jquery-2.2.4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/modules/unplatform/html5reset_css.css">
+	<link rel="stylesheet" type="text/css" href="/modules/unplatform/header.css">
+	<link rel="stylesheet" type="text/css" href="/modules/unplatform/nav.css">
+		<script src="/modules/unplatform/nav.js"></script>
+	</head>
+<header>
+  <h1 class="logo">CLIx Connected Learning Initiative</h1>
+  <p class="unplat-v">unplatform version 0.0</p>
+  <nav>
+    <button>choose new lesson</button>
+    <button>finish lesson</button>
+  </nav>
+</header>
+<body>
+<main>
+
+  <section class="toc">
+    <input type="checkbox" id="toggler"/>
+    <label for="toggler" class="toggle-me">activity list</label>
+    <nav>
+      <small class="nav-labels">grade - unit</small>
+      <h1 class="nav-title">lesson subject</h1>
+      <ul id="menu">
+		{% for x in epubs %}
+			<li class="effect-bar"><a href="/modules/epubs/index.html?epubUrl=/modules/epubs/pubs/{{ x }}" target="frame">
+				{{ x }}
+			</a></li>
+		{% endfor %}
+      </ul>
+    </nav>
+  </section>
+
+  <section class="content">
+    <iframe name="frame" class="fill-win" frameBorder="0"></iframe>
+  </section>
+
+</main>
+
+	</nav>
+
+</body>
+</html>
