@@ -1,0 +1,62 @@
+v0.3.0
+* navigation has been reworked
+* modules now have nested structure
+* session id now should time out
+* async worker now works again on all platforms & harvests from all API data types
+* launcher now points at https
+* misc bugfixes
+
+v0.2.0
+* /api/ now includes support for school configuration and user information
+* changed local webserver from waitress to tornado
+* added SSL support. dummy files are included and must be accepted by the user
+* async worker disabled until windows issues are resolved
+
+v0.1.4
+* Bug fixes for cross platform support
+
+v0.1.3
+* Bugfixes
+
+v0.1.2
+* Modified the backend to add an app data repository
+* Separated the uuid into its own model, which supports get_or_create during query
+
+v0.1.1
+* Bug fixes for cross platform support
+
+v0.1.0
+* Added asynchronous functionality for reporting data to a cloud repo
+
+v0.0.8
+* Bugfixes
+* Added more documentation/instructions
+
+v0.0.7
+* Began automatic cross-platform distrutable building
+* Added /common/ directory listing micro API. Access it by navigating chrome to a tool. 
+    ** Example: http://localhost:8080/modules/OpenStoryTool/ will respond with directory contents of /common/OpenStoryTool in JSON form
+    ** Nonexistent urls will still 404
+
+v0.0.6
+* Added OSX support
+
+v0.0.5
+* Moved common files from /curriculum/templates to /common/
+* Added a couple of simple tests for GPU testing & POSTing to the backend
+
+v0.0.4
+* Bugfixes
+
+v0.0.3
+* Added Linux support
+
+v0.0.2
+* Bugfixes
+
+v0.0.1
+* Unplatform first release! Unplatform is a modularized quasi-LMS for use in unconnected learning environments.
+* Run the executable to begin hosting content
+* Drop content into the modules folder to have it dynamically added to the Table of Contents
+    ** Content must be in the form of a folder with an index.html
+* Data saving api located at localhost:8080/api/

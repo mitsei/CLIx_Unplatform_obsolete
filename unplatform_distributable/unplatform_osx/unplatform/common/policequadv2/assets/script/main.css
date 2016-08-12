@@ -1,0 +1,33 @@
+		body
+		{
+			background-color:#404040;
+			 background-image: url("../../images/preloader5.gif");
+			background-repeat: no-repeat;
+			background-position: center 225px; 
+		}
+		.textPointer{
+			pointer-events:none;
+		}
+	
+		
+	.optionText{
+	cursor:pointer;
+	}
+		
+		#close_btn{
+		display:none;
+		position:absolute; left:50%; top:10px; z-index:10;
+		width:40px; height:40px;
+		background-image:url("../images/closeBtn.png");
+		background-repeat:no-repeat;
+		background-position:0px 0px;
+		padding:0px;
+		margin:0px;
+		margin-left:455px;
+		cursor:pointer;
+		}
+		#close_btn.hover{
+			background-position:-40px 0px;
+		}
+		
+	

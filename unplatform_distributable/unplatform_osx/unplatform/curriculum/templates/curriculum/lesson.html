@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
+
+	<script src="/modules/unplatform/report.js"></script>
+	<style> 
+		div { width:200px; height:200px; text-align:center; font-color:black; vertical-align:middle; border:solid;}
+		a:link { color: black; }
+		a:visited { color: black; }
+		a:hover { color: green; }
+		a:active { color: black; }
+	</style>
+    </head>
+
+    <body>
+        <header>
+			<center><h1>Select a Lesson</h1></center>
+        </header>
+        <img src='/modules/unplatform/left_arrow.png' onclick=window.history.go(-1);>
+        <center>
+        <table>
+        	<tr>
+        		{% for x in lessons %}
+        		<td>
+					<a href="{{ x }}/?contentName={{ x }}">
+						<div>{{ x }}</div>
+					</a>
+				</td>
+				<br>
+				{% endfor %}
+			</tr>
+		</table>
+		</center>
+
+<br>
+
+
+    </body>
+</html>
