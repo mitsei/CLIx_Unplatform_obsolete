@@ -19,9 +19,7 @@ pyinstaller unplatform_source/unworker.py --clean --distpath unplatform_distribu
 
 rm -r build
 rm *.spec
-    
-rsync --remove-source-files -vr unplatform_distributable/unplatform_win32_worker/ unplatform_distributable/unplatform_win32/
-rm -r unplatform_distributable/unplatform_win32_worker
+
 
 mv unplatform_distributable/unplatform_win32/* unplatform_distributable/unplatform_win32/unplatform/
 
@@ -34,6 +32,6 @@ cp -r -v unplatform_source/unplatform unplatform_distributable/unplatform_win32/
 cp unplatform_source/unplatform.cert.dummy.pem unplatform_distributable/unplatform_win32/unplatform/
 cp unplatform_source/unplatform.key.dummy.pem unplatform_distributable/unplatform_win32/unplatform/
 
-cp unplatform_distributable/launchers/unplatform_win32_ssl.sh unplatform_distributable/unplatform_win32
+cp unplatform_distributable/launchers/unplatform_win32_ssl.bat unplatform_distributable/unplatform_win32
 
 cp -r -v unplatform_distributable/readme unplatform_distributable/unplatform_win32/readme
