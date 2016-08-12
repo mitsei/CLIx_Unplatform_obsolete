@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
+    <link rel="stylesheet" type="text/css" href="../mystyles.css">
+        
+		<!-- <link type="text/css" rel="stylesheet" href="stylesheet.css"/> -->
+		<style>
+			header {
+			    background-color:black;
+			    color:white;
+			    text-align:center;
+			    padding:5px;
+			}
+			nav {
+			    line-height:30px;
+			    background-color:#eeeeee;
+			    float:left;
+			    padding:5px;
+                height: 500px;
+			}
+			div {
+	            width:auto;
+				height:auto;
+			    float:left;
+			    padding:10px;
+			}
+			footer {
+			    background-color:black;
+			    color:white;
+			    clear:both;
+			    text-align:center;
+			    padding:5px;
+			}
+			img {
+				width:auto;
+				height:auto;
+				max-height: 120px;
+				max-width: 100px;
+				}
+			iframe {
+				width: 77em;
+				height:42em;
+			}
+            
+        /*Roboto Mono font saved in fonts folder*/
+            @font-face {
+            font-family: 'RobotoMono';
+            src: url('/fonts') format('ttf');
+            }
+
+            h1 {
+                font-family: "RobotoMono", sans-serif;
+                font-size: 3em;
+                font-style: normal;
+                color: #828380; 
+                }
+
+            h2 {
+                font-family: "RobotoMono", Helvetica, sans-serif;
+                font-size: 3em;
+                font-style: normal;
+                color: #010101;
+                }
+
+            h3 {
+                font-family: sans-serif;
+                font-size: 1.2em;
+                font-style: normal;
+                }
+
+
+            p   {
+                font-family: Helvetica, sans-serif;
+                font-size: 1.3em;
+                font-style: normal;    
+                }    
+
+
+		</style>
+
+		<script>
+			function go(loc) {	document.getElementById('frame').src = loc; }
+		</script>
+		<script src="modules/reporter.js"></script>
+
+
+
+    </head>
+
+    <body>
+        <header>
+			CLIx English
+        </header>
+
+        <nav>
+            {% for x in modules %}
+				<a href="modules/{{ x }}/index.html" target="frame">
+					{{ x }}
+				</a>
+				<br>
+			{% endfor %}
+        </nav>
+
+        <div id="main">
+            <iframe name="frame" frameBorder="0" src="/modules/index.html" ></iframe>
+        </div>
+
+        <footer>
+        </footer>
+    </body>
+</html>
