@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 't6pvr_b(uxd5rwem_&lh)-oe=u6wsqxio_iyt%3el36_4xw*7%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -160,10 +160,12 @@ BROKER_URL = 'django://'
 from datetime import timedelta
 import unplatform.tasks
 
+CELERY_ACCEPT_CONTENT = ['pickle']
+
 CELERYBEAT_SCHEDULE = {
     'post-every-30-seconds': {
         'task': 'research.tasks.send_data_to_cloud',
-        'schedule': timedelta(minutes=5),
+        'schedule': timedelta(seconds=5),
         'args': ()
     },
 }
@@ -200,7 +202,6 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
-
 
 MODULES_FOLDER = os.path.join(BASE_DIR,'modules/')
 

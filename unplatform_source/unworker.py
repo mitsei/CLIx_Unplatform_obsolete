@@ -20,13 +20,16 @@ import celery.events
 import celery.worker.strategy
 import celery.backends.base
 
-worker = worker.worker(app=celery_app)
-worker.app.IS_WINDOWS = False
+from billiard import freeze_support
+freeze_support()
 
-options = {
-
-    'traceback': True,
-    'beat': True,
-}
-
-worker.run(**options) 
+if __name__ == '__main__':
+    print('main')
+    worker = worker.worker(app=celery_app)
+    worker.app.IS_WINDOWS = False
+    options = {
+        'traceback': True,
+        'beat': True,
+        'autoscale': [1,1],
+    }
+    worker.run(**options)
