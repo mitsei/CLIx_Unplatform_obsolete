@@ -24,7 +24,7 @@ from billiard import freeze_support
 freeze_support()
 
 if __name__ == '__main__':
-    print('main')
+    print('Beginning sync worker')
     worker = worker.worker(app=celery_app)
     worker.app.IS_WINDOWS = False
     options = {
