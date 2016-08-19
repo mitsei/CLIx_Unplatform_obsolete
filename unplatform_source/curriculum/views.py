@@ -57,7 +57,10 @@ def show_activities(request, subject, grade, unit, lesson):
     activities = os.listdir(activity_location)
     activities = sorted(activities)
     contentName = request.GET.get('contentName') # not sure if this will be needed
-    template = loader.get_template('curriculum/activity.html')
+    if contentName is not None:
+        template = loader.get_template('curriculum/activity.html')
+    else:
+        template = loader.get_template('curriculum/tools.html')
     return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'lesson':lesson, 'activities':activities, 'epubs':epubs, 'contentName': contentName}))
 
 

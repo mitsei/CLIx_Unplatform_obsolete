@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
+
+		<!-- <link type="text/css" rel="stylesheet" href="stylesheet.css"/> -->
+		<style>
+			header {
+			    background-color:black;
+			    color:white;
+			    text-align:center;
+			    padding:5px;
+			}
+			nav {
+			    line-height:30px;
+			    background-color:#eeeeee;
+			    float:left;
+			    padding:5px;
+                height: 550px;
+			}
+			div {
+	            width:auto;
+				height:auto;
+			    float:left;
+			    padding:10px;
+			}
+			footer {
+			    background-color:black;
+			    color:white;
+			    clear:both;
+			    text-align:center;
+			    padding:5px;
+			}
+			img {
+				width:auto;
+				height:auto;
+				max-height: 120px;
+				max-width: 100px;
+				}
+			iframe {
+				position:absolute;
+				width: 80%;
+				height:850px;
+			}
+			.container-popup {
+			    position: relative;
+			    position: fixed;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    background: rgba(0,0,0,.8);
+			}
+			.popup {
+			    width: 50%;
+			    height: 50%;
+			    background: white;
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    margin: auto;
+			    text-align:center;
+			}
+		</style>
+
+		<script src="/modules/unplatform/report.js"></script>
+		<script>
+		var wentHome = function() {
+			var home_report = new Report()
+			current_url = window.location.href
+			data = { "app_name": "Unplatform",
+					"event_type": "home_click",
+					"params": {  url : current_url }
+				}
+			home_report.submitData('/api/appdata/', data) }
+		var toggleFinished = function(state) {
+			document.getElementsByClassName('container-popup')[0].style.display = state;
+		}
+		var finished = function(answer) {
+			var finished_report = new Report()
+			current_url = window.location.href
+			data = { "app_name": "Unplatform",
+					"event_type": "clicked_finished",
+					"params": {  url : current_url, response : answer }
+				}
+			finished_report.submitData('/api/appdata/', data)
+			if (answer == 'yes') {
+				finished_report.setUUIDCookie()
+				window.location.href = '/';
+			}
+		}
+		</script>
+
+    </head>
+
+    <body>
+        <header>
+			CLIx
+        </header>
+
+        <nav>
+        <img src='/modules/unplatform/left_arrow.png' onclick=window.history.go(-1);>
+        <br>
+            {% for x in activities %}
+				<a href="/modules/{{ subject }}/{{ grade }}/{{ unit }}/{{ lesson }}/{{ x }}/index.html" target="frame" style="font-size:16pt">
+					{{ x }}
+				</a>
+				<br>
+			{% endfor %}
+			 <a href='/subject/'><img id='home' src="/modules/unplatform/home.png" onclick=wentHome()></a>
+			 <img id='done' src="/modules/unplatform/done.png" onclick=toggleFinished('block')>
+        </nav>
+
+        <div id="main">
+            <iframe name="frame" frameBorder="0" src="/modules/index.html" style="position: absolute"></iframe>
+        </div>
+
+        <div class="container-popup" style="display:none">
+		    <div class="popup">
+			    <span>
+				    <strong>Do you want to end the session?</strong>
+				    <br>
+				    <button onclick=finished('yes')>Yes</button>
+				    <button onclick="toggleFinished('none'); finished('no');">No</button>
+			    </span>
+		    </div>
+		</div>
+
+        <!--<footer>-->
+        <!--</footer>-->
+    </body>
+</html>
