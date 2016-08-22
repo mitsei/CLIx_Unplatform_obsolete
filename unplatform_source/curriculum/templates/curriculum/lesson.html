@@ -22,17 +22,17 @@
         <table>
         	<tr>
         		{% for x in lessons %}
-        		<td>
-					<a href="{{ x }}/?contentName={{ x }}">
-						<div>{{ x }}</div>
-					</a>
-				</td>
-				<br>
+					{% if x == "Tools" %}
+					{% else %}
+					<td>
+						<a href="{{ x }}/?contentName={{ x }}">
+							<div>{{ x }}</div>
+						</a>
+					</td>
+					<br>
+					{% endif %}
 				{% endfor %}
-				<td>
-					<a href="Tools/"><div>Tools</div></a>
-				</td>
-			</tr>u
+			</tr>
 		</table>
 		</center>
 
