@@ -21,11 +21,11 @@
         <center>
         <table>
         	<tr>
+				<td>
+					<a href="Tools/"><div>Tools</div></a>
+				</td>
         		{% for x in lessons %}
 					{% if x == "Tools" %}
-					<td>
-						<a href="Tools/"><div>Tools</div></a>
-					</td>
 					{% else %}
 					<td>
 						<a href="{{ x }}/?contentName={{ x }}">
