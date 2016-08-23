@@ -31,8 +31,13 @@
         <h1 class="pg-title">User Survey</h1>
         <h2 class="pg-subtitle">Select your Lesson</h2>
           <article class="subj-select">
+
+          <button type="button" class="lesn-but" onclick=window.location.href="Tools">Tools</button>
           {% for x in lessons %}
-            <button type="button" class="lesn-but" onclick="clickThru('{{ x }}')">{{ x }}</button>
+            {% if x == "Tools" %}
+            {% else %}
+              <button type="button" class="lesn-but" onclick="clickThru('{{ x }}')">{{ x }}</button>
+            {% endif %}
           {% endfor %}
           </article>
       </main>
