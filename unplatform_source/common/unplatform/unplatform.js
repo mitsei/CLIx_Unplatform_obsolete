@@ -199,3 +199,29 @@ function hidePopover() {
 	 document.getElementById("popover").style="display:none"
 }
 idleTimer();
+
+var wentHome = function() {
+		var home_report = new Report()
+		current_url = window.location.href
+		data = { "app_name": "unplatform",
+				"event_type": "home_click",
+				"params": {  url : current_url }
+			}
+		home_report.submitData('/api/appdata/', data) }
+	var toggleFinished = function(state) {
+		document.getElementsByClassName('container-popup')[0].style.display = state;
+	}
+
+var finished = function(answer) {
+	var finished_report = new Report()
+	current_url = window.location.href
+	data = { "app_name": "unplatform",
+			"event_type": "clicked_finished",
+			"params": {  url : current_url, response : answer }
+		}
+	finished_report.submitData('/api/appdata/', data)
+	if (answer == 'yes') {
+		finished_report.setUUIDCookie()
+		window.location.href = '/';
+	}
+}
