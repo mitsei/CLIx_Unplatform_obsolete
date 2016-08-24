@@ -19,13 +19,6 @@ def select_school(request):
     template = loader.get_template('curriculum/school.html')
     return HttpResponse(template.render())
 
-def select_epub(request):
-    epub_location = os.path.join(MODULES_FOLDER, 'epubs/pubs')
-    epubs = os.listdir(epub_location)
-    epubs = sorted(epubs)
-    template = loader.get_template('curriculum/epubs.html')
-    return HttpResponse(template.render({'epubs':epubs}))
-
 
 def select_subject(request):
     template = loader.get_template('curriculum/subject.html')
