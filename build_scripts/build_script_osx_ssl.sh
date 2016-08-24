@@ -36,4 +36,6 @@ cp unplatform_source/unplatform.key.dummy.pem unplatform_distributable/unplatfor
 
 cp unplatform_distributable/launchers/unplatform_osx_ssl.sh unplatform_distributable/unplatform_osx
 
+cp unplatform_distributable/qbank/qbank-lite-v0.0.65-mac-ssl unplatform_distributable/unplatform_osx
+
 cp -r -v unplatform_distributable/readme unplatform_distributable/unplatform_osx/readme
