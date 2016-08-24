@@ -12,17 +12,12 @@ Google Chrome 49+
 2) Open a terminal and navigate to the unzipped folder. 
 
 For example:
-    cd Desktop/unplatform_v3.0.0_osx
-You will know you are in the right directory if you enter:
-    ls
-and it responds with:
-    unplatform unplatform_osx_ssl.sh
+    cd Desktop/unplatform_v0.4.1_osx
+
 
 3) Give execute permission to the launcher with the following commands:
-    chmod +x unplatform_osx.sh
-    chmod +x unplatform/unplatform_osx
-    chmod +x unplatform/unplatfomr_osx_worker
-    
+    chmod +x unplatform_osx_ssl.sh
+''
 This only needs to be done once per unzip!
 
 
