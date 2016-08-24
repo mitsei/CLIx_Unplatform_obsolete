@@ -1,6 +1,6 @@
 from django.shortcuts import loader
 from django.http import HttpResponse
-from unplatform.settings import MODULES_FOLDER, BASE_DIR
+from unplatform.settings import MODULES_FOLDER, BASE_DIR, UNPLATFORM_VERSION
 
 import os
 import posixpath
@@ -33,14 +33,14 @@ def select_unit(request, subject, grade):
     units = os.listdir(unit_location)
     units = sorted(units)
     template = loader.get_template('curriculum/unit.html')
-    return HttpResponse(template.render({'units':units, 'subject':subject, 'grade':grade}))
+    return HttpResponse(template.render({'units':units, 'subject':subject, 'grade':grade, 'version':UNPLATFORM_VERSION}))
 
 def select_lesson(request, subject, grade, unit):
     lesson_location = os.path.join(MODULES_FOLDER, subject, grade, unit)
     lessons = os.listdir(lesson_location)
     lessons = sorted(lessons)
     template = loader.get_template('curriculum/lesson.html')
-    return HttpResponse(template.render({'lessons':lessons}))
+    return HttpResponse(template.render({'lessons':lessons, 'version':UNPLATFORM_VERSION}))
 
 def show_activities(request, subject, grade, unit, lesson):
     activity_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
@@ -54,7 +54,7 @@ def show_activities(request, subject, grade, unit, lesson):
         template = loader.get_template('curriculum/activity.html')
     else:
         template = loader.get_template('curriculum/tools.html')
-    return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'lesson':lesson, 'activities':activities, 'epubs':epubs, 'contentName': contentName}))
+    return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'lesson':lesson, 'activities':activities, 'epubs':epubs, 'contentName': contentName, 'version':UNPLATFORM_VERSION}))
 
 
 # Modified version of django.contrib.staticfiles.views which returns a directory listing as json
