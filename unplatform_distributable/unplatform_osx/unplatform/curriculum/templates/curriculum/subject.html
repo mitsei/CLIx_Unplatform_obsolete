@@ -1,38 +1,36 @@
 <!DOCTYPE html>
-<html>
-	<head>
-	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
-
-	<script src="/modules/unplatform/report.js"></script>
-	<style> 
-		div { width:200px; height:200px; text-align:center; font-size:30pt; font-color:black; vertical-align:middle; } 
-		a:link { color: black; }
-		a:visited { color: black; }
-		a:hover { color: yellow; }
-		a:active { color: black; }
-	</style>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" type="text/css" href="/modules/unplatform/user-survey.css">
+        <script src="/modules/unplatform/jquery-3.1.0.min.js"></script>
+        <script src="/modules/unplatform/ui-features.js"></script>
+        <<script src="/modules/unplatform/unplatform.js"></script>
+        <script type="text/javascript">
+          var clickThru = function(button_info) {
+            window.location.href=button_info;
+          }
+        </script>
     </head>
 
     <body>
-        <header>
-
+        <img src="/modules/unplatform/images/clix-i2c-flowers4.svg" alt="" class="bg-img">
+        <header id="header" class="">
+            <nav>
+                <ul class="breadcrumbs">
+                    <li><a href="/">Select User</a>&nbsp;&nbsp;<i class="fa fa-chevron-right pink-chev" aria-hidden="true"></i></li>
+                </ul>
+            </nav>
         </header>
-        <center>
-        <table>
-        	<tr>
-        		<td>
-        			<a href='/English/'><div style="background-color:red">English</div></a>
-        		</td>
-        		<td>
-        			<a href='/Math/'><div style="background-color:blue">Math</div></a>
-        		</td>
-        		<td>
-        			<a href='/Physics/'><div style="background-color:green">Physics</div></a>
-    			</td>
-			</tr>
-		</table>
-		</center>
-
-
+        <main class="span_10_of_12">
+            <h1 class="pg-title">User Survey</h1>
+            <h2 class="pg-subtitle">Select your subject</h2>
+            <article class="subj-select">
+                    <button type="button" class="select-but" onclick="clickThru('/English/')">English</button>
+                    <button type="button" class="select-but" onclick="clickThru('/Math/')">Math</button>
+                    <button type="button" class="select-but" onclick="clickThru('/Physics/')">Physics</button>
+            </article>
+        </main>
     </body>
 </html>

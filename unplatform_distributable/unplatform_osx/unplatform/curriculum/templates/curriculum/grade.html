@@ -1,41 +1,37 @@
 <!DOCTYPE html>
-<html>
-	<head>
-	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
-
-	<script src="/modules/unplatform/report.js"></script>
-	<style> 
-		div { width:200px; height:200px; text-align:center; font-size:30pt; font-color:black; vertical-align:middle; border:solid;} 
-		a:link { color: black; }
-		a:visited { color: black; }
-		a:hover { color: green; }
-		a:active { color: black; }
-	</style>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" type="text/css" href="/modules/unplatform/user-survey.css">
+        <script src="/modules/unplatform/jquery-3.1.0.min.js"></script>
+        <script src="/modules/unplatform/ui-features.js"></script>
+        <script src="/modules/unplatform/unplatform.js"></script>
+        <script type="text/javascript">
+          var clickThru = function(button_info) {
+            window.location.href=button_info;
+          }
+        </script>
     </head>
 
     <body>
-        <header>
-			
+        <img src="/modules/unplatform/images/clix-i2c-flowers4.svg" alt="" class="bg-img">
+        <header id="header" class="">
+            <nav>
+                <ul class="breadcrumbs">
+                    <li><a href="/">Select User</a>&nbsp;&nbsp;<i class="fa fa-chevron-right pink-chev" aria-hidden="true"></i></li>
+                    <li><a href="/subject">Select Subject</a>&nbsp;&nbsp;<i class="fa fa-chevron-right pink-chev" aria-hidden="true"></i></li>
+                </ul>
+            </nav>
         </header>
-        <img src='/modules/unplatform/left_arrow.png' onclick=window.history.go(-1);>
-        <center>
-        <table>
-        	<tr>
-
-        		<td>
-
-        			<a href='G9/'><div>Grade 9</div></a>
-        		</td>
-        		<td>
-        			<a href='G11/'><div>Grade 11</div></a>
-        		</td>
-        		<td>
-        			<a href='G12/'><div>Grade 12</div></a>
-    			</td>
-			</tr>
-		</table>
-		</center>
-
-
+        <main class="span_10_of_12">
+            <h1 class="pg-title">User Survey</h1>
+            <h2 class="pg-subtitle">Select your Grade</h2>
+            <article class="subj-select">
+                    <button type="button" class="select-but" onclick="clickThru('G9/')">G9</button>
+                    <button type="button" class="select-but" onclick="clickThru('G11/')">G11</button>
+                    <button type="button" class="select-but" onclick="clickThru('G12/')">G12</button>
+            </article>
+        </main>
     </body>
 </html>

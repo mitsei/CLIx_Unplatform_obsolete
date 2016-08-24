@@ -10,7 +10,9 @@ from research.utils import is_connected, REMOTE_SERVER
 
 @shared_task
 def send_data_to_cloud():
+    print('Checking for live connection')
     if (is_connected()):
+        print('Attempting to send data')
         configurations_to_be_sent = Configuration.objects.exclude(is_sent=True)
         serialized_configurations = json.loads(serializers.serialize('json', configurations_to_be_sent))
         for index, obj in enumerate(serialized_configurations):
@@ -44,4 +46,5 @@ def send_data_to_cloud():
                 appdata_to_be_sent[index].save()
                 print("appdata pk=" + str(appdata_to_be_sent[index].pk) + " succcessfully sent")
     else:
+        print('No connection')
         return

@@ -160,10 +160,12 @@ BROKER_URL = 'django://'
 from datetime import timedelta
 import unplatform.tasks
 
+CELERY_ACCEPT_CONTENT = ['pickle']
+
 CELERYBEAT_SCHEDULE = {
     'post-every-30-seconds': {
         'task': 'research.tasks.send_data_to_cloud',
-        'schedule': timedelta(minutes=5),
+        'schedule': timedelta(seconds=5),
         'args': ()
     },
 }
@@ -201,7 +203,6 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
 
-
 MODULES_FOLDER = os.path.join(BASE_DIR,'modules/')
 
 # Logging
@@ -225,3 +226,5 @@ LOGGING = {
         },
     },
 }
+
+UNPLATFORM_VERSION = '0.4.1'
