@@ -17,7 +17,7 @@ For example:
 
 3) Give execute permission to the launcher with the following commands:
     chmod +x unplatform_osx_ssl.sh
-''
+
 This only needs to be done once per unzip!
 
 
