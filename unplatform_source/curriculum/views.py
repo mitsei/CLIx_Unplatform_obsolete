@@ -57,6 +57,11 @@ def show_activities(request, subject, grade, unit, lesson):
     return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'lesson':lesson, 'activities':activities, 'epubs':epubs, 'contentName': contentName, 'version':UNPLATFORM_VERSION}))
 
 
+def oea(request):
+    template = loader.get_template('curriculum/oea.html')
+    return HttpResponse(template.render())
+
+
 # Modified version of django.contrib.staticfiles.views which returns a directory listing as json
 def serve_module(request, path, insecure=False, **kwargs):
     file_path =  os.path.join(BASE_DIR, 'common/', path)
