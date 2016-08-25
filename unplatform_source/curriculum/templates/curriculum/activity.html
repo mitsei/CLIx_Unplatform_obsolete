@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-<html>
-	<head>
-	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
-	<link rel="stylesheet" type="text/css" href="/modules/unplatform/html5reset_css.css">
-	<link rel="stylesheet" type="text/css" href="/modules/unplatform/header.css">
-	<link rel="stylesheet" type="text/css" href="/modules/unplatform/nav.css">
-	<script src="/modules/unplatform/unplatform.js"></script>
-	<!--<script src="/modules/unplatform/oea_settings.js"></script>-->
-	<script src="/modules/unplatform/content_player.js"></script>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
+  <link rel="stylesheet" type="text/css" href="/modules/unplatform/activity.css">
+  <link rel="stylesheet" type="text/css" href="/modules/unplatform/header.css">
+  <link rel="stylesheet" type="text/css" href="/modules/unplatform/nav.css">
 
-	<style>
-			.container-popup {
-			    position: relative;
-			    position: fixed;
-			    top: 0;
-			    right: 0;
-			    bottom: 0;
-			    left: 0;
-			    background: rgba(0,0,0,.8);
-			}
-			.popup {
-			    width: 50%;
-			    height: 50%;
-			    background: white;
-			    position: absolute;
-			    top: 0;
-			    right: 0;
-			    bottom: 0;
-			    left: 0;
-			    margin: auto;
-			    text-align:center;
-			}
-	</style>
-	</head>
+  <script src="/modules/unplatform/jquery-3.1.0.min.js"></script>
+  <script src="/modules/unplatform/ui-features.js"></script>
+  <script src="/modules/unplatform/unplatform.js"></script>
+  <script src="/modules/unplatform/content_player.js"></script>
+
+  <script>
+    var toggleFinished = function(state) {
+    document.getElementsByClassName('container-popup')[0].style.display = state;
+    document.getElementsByClassName('zoomModal')[0].style.display = state;
+  }
+  </script>
+
+  </head>
 <header>
   <h1 class="logo">CLIx Connected Learning Initiative</h1>
   <p class="unplat-v">unplatform version {{ version }}</p>
   <nav>
-   	<button onclick="window.location.href='/{{ subject }}/{{ grade }}/{{ unit }}/'">choose new lesson</button>
-	<button onclick=toggleFinished('block')>finish lesson</button>
+    <button onclick="window.location.href='/{{ subject }}/{{ grade }}/{{ unit }}/'">choose new lesson</button>
+  <button onclick="toggleFinished('block')">finish lesson</button>
   </nav>
 </header>
 <body>
 <iframe src="/modules/epubs/index.html?epubUrl=/modules/{{ subject }}/{{ grade }}/{{ unit }}/{{ contentName }}" class="fill-win" frameBorder="0"></iframe>
 
 <div class="container-popup" style="display:none">
-	<div class="popup">
-		<span>
-			<strong>Do you want to end the session?</strong>
-			<br>
-			<button onclick=finished('yes')>Yes</button>
-			<button onclick="toggleFinished('none'); finished('no');">No</button>
-		</span>
-	</div>
+  <dialog class="zoomModal span_6_of_12">
+    <h2 class="zoom-label">Do you want to end this session?</h2>
+   <form method="dialog">
+      <button value="close" onclick="finished('yes')">Yes</button>
+      <button value="close" onclick="toggleFinished('none'); finished('no');">No</button>
+    </form>
+  </dialog>
 </div>
 
 
