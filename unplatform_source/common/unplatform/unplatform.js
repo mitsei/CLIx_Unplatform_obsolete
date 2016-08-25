@@ -185,16 +185,23 @@ function continue_prompt() {
 	var body = document.getElementsByTagName('body')[0]
 	body.appendChild(idleStyle)
 
-	var popover = document.createElement('div');
-	popover.id='popover'
-	popover.innerHTML = '<div class="container-popup" ><div class="popup"> ' +
-			'<span><strong>Are you still working on the same session?</strong>' +
-			'<br><button onclick="resetTimer(); hidePopover();">Yes</button>' +
-			'<button onclick="idReset()">No' +
-			'</button></span></div></div>'
+	var popover = document.createElement('div class="container-popup"');
+	popover.id='popover';
+	popover.innerHTML = '<dialog class="zoomModal span_6_of_12">' +
+	 '<h2 class="zoom-label">Are you still working on the same session?</h2>' +
+	 '<form method="dialog">' +
+	 '<button value="close" onclick="resetTimer(); hidePopover();">Yes</button>' +
+	 '<button value="close" onclick="idReset()">No</button>' +
+	 '</form>' +
+	 '</dialog>';
 
-	body.appendChild(popover)
+	body.appendChild(popover);
+
 }
+
+
+
+
 function hidePopover() {
 	 document.getElementById("popover").style="display:none"
 }
