@@ -63,7 +63,7 @@ a:visited {
 .breadcrumbs {
   position: absolute;
   top: 0;
-  right: 2rem;
+  left: 2rem;
   display: inline-block;
 }
 
