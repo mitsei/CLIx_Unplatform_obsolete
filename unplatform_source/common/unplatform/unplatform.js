@@ -104,7 +104,7 @@ function callback(e) {
 	//		"params": { "from": window.location.href, "to": e.target.parentElement.href }
 	//	}
 	//}
-	if (e.target.tagName.toLowerCase() == 'html' || e.target.tagName.toLowerCase() == 'body') {
+	if (e.target.tagName.toLowerCase() == 'html' || e.target.tagName.toLowerCase() == 'body' || e.target.tagName.toLowerCase() == 'main') {
 		return;
 	} else {
 		console.log(e)
