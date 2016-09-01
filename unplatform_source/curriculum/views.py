@@ -89,3 +89,7 @@ def serve_module(request, path, insecure=False, **kwargs):
         return HttpResponse(files)
     else:
         return static.serve(request, path, document_root=document_root, **kwargs)
+
+def show_tool(request, subject, grade, unit, tool):
+    template = loader.get_template('curriculum/tool.html')
+    return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'tool': tool, 'version':UNPLATFORM_VERSION}))

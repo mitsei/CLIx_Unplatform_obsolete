@@ -1,21 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-  <meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
-  <script src="/modules/unplatform/jquery-2.2.4.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/modules/unplatform/html5reset_css.css">
-  <link rel="stylesheet" type="text/css" href="/modules/unplatform/header.css">
-  <link rel="stylesheet" type="text/css" href="/modules/unplatform/nav.css">
-  <link rel="stylesheet" type="text/css" href="/modules/unplatform/user-survey.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/modules/unplatform/user-survey.css">
     <script src="/modules/unplatform/jquery-3.1.0.min.js"></script>
     <script src="/modules/unplatform/ui-features.js"></script>
-  <script src="/modules/unplatform/nav.js"></script>
-  <script src="/modules/unplatform/unplatform.js"></script>
-    <script type="text/javascript">
-        var clickThru = function(button_info) {
-        window.location.href=button_info;
-        }
-    </script>
+    <script src="/modules/unplatform/unplatform.js"></script>
   </head>
 
   <body>
@@ -32,14 +23,24 @@
           </nav>
       </header>
 
+
+
       <main class="span_10_of_12">
-        <h1 class="pg-title">User Survey</h1>
-        <h2 class="pg-subtitle">Select Tool</h2>
-        <article class="subj-select">
-        {% for x in activities %}
-          <button type="button" class="choice-select" onclick="clickThru('{{ x }}/')">{{ x }}</button>
-        {% endfor %}
-        </article>
+          <iframe src="/modules/{{ subject }}/{{ grade }}/{{ unit }}/Tools/{{ tool }}/index.html"></iframe>
+
+        <!--<h1 class="pg-title">User Survey</h1>-->
+        <!--<h2 class="pg-subtitle">Select Tool</h2>-->
+        <!--<article class="subj-select">-->
+        <!--&lt;!&ndash;{% for x in activities %}&ndash;&gt;-->
+          <!--&lt;!&ndash;<button type="button" class="choice-select" onclick="clickThru('{{ x }}/')">{{ x }}</button>&ndash;&gt;-->
+        <!--&lt;!&ndash;{% endfor %}&ndash;&gt;-->
+        <!--</article>-->
       </main>
+</body>
+</html>
+</title>
+</head>
+<body>
+
 </body>
 </html>
