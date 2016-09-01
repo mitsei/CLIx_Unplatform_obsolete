@@ -87,23 +87,36 @@ function callback(e) {
     var e = window.e || e;
 	var currentURL = (function(){ return window.location.href; })();
 	console.log(e.target.tagName)
-    if (e.target.tagName.toLowerCase() == 'a') {
-		data = {
-			"app_name": "Unplatform",
-			"event_type": "link_click",
-			"params": {"from": window.location.href, "to": e.target.href}
-		}
-	} else if (e.target.tagName.toLowerCase() == 'html') {
+	//old reporting function
+    //if (e.target.tagName.toLowerCase() == 'a') {
+	//	data = {
+	//		"app_name": "Unplatform",
+	//		"event_type": "link_click",
+	//		"params": {"from": window.location.href, "to": e.target.href}
+	//	}
+	//} else if (e.target.tagName.toLowerCase() == 'html') {
+	//	return;
+	//} else {
+	//	//console.log(e)
+	//	data = {
+	//		"app_name": "Unplatform",
+	//		"event_type": "link_click",
+	//		"params": { "from": window.location.href, "to": e.target.parentElement.href }
+	//	}
+	//}
+	if (e.target.tagName.toLowerCase() == 'html' || e.target.tagName.toLowerCase() == 'body') {
 		return;
 	} else {
-		//console.log(e)
+		console.log(e)
 		data = {
 			"app_name": "Unplatform",
-			"event_type": "link_click",
-			"params": { "from": window.location.href, "to": e.target.parentElement.href }
+			"event_type": "click",
+			"params": { "url": window.location.href, "target": e.target}
 		}
+		//navReporter.submitData('/api/appdata/', data)
 	}
-	navReporter.submitData('/api/appdata/', data)
+
+
 }
 
 
