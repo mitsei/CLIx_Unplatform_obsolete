@@ -231,8 +231,9 @@ xcuserdata/
 # Backup files
 *~.nib
 
-## Database
+# Database
 db.sqlite3
+*.sqlite3
 
 # Dot files, including IDE
 .*

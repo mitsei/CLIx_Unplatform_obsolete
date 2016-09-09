@@ -29,10 +29,10 @@
       </header>
 
       <main class="span_10_of_12">
-        <h1 class="pg-title">Select your Lesson</h1>
+        <h1 class="pg-title">Select a tool</h1>
         <h2 class="pg-subtitle"></h2>
           <article class="subj-select">
-        {% for x in activities %}
+        {% for x in tools %}
           <button type="button" class="lesn-but" onclick="clickThru('{{ x }}/')">{{ x }}</button>
         {% endfor %}
         </article>

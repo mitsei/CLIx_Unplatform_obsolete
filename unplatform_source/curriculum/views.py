@@ -90,6 +90,15 @@ def serve_module(request, path, insecure=False, **kwargs):
     else:
         return static.serve(request, path, document_root=document_root, **kwargs)
 
-def show_tool(request, subject, grade, unit, tool):
+def select_tool(request):
+    tool_location = os.path.join(MODULES_FOLDER, "Tools")
+    tools = os.listdir(tool_location)
+    tools = sorted(tools)
+    template = loader.get_template('curriculum/tools.html')
+    return HttpResponse(template.render({'tools':tools, 'version':UNPLATFORM_VERSION}))
+
+
+
+def show_tool(request, tool):
     template = loader.get_template('curriculum/tool.html')
-    return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'tool': tool, 'version':UNPLATFORM_VERSION}))
+    return HttpResponse(template.render({'tool': tool, 'version':UNPLATFORM_VERSION}))
