@@ -21,9 +21,7 @@
             <ul class="breadcrumbs">
                 <li><i class="fa fa-chevron-left pink-chev" aria-hidden="true"></i>&nbsp;&nbsp;<a href="/">Select User</a></li>
                 <li><i class="fa fa-chevron-left pink-chev" aria-hidden="true"></i>&nbsp;&nbsp;<a href="/subject">Select Subject</a></li>
-                <li onclick="window.history.go(-3);"><i class="fa fa-chevron-left pink-chev" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Select Grade</a></li>
-                <li onclick="window.history.go(-2);"><i class="fa fa-chevron-left pink-chev" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Select Unit</a></li>
-                <li onclick="window.history.go(-1);"><i class="fa fa-chevron-left pink-chev" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">Select Lesson</a></li>
+
             </ul>
           </nav>
       </header>
@@ -33,7 +31,7 @@
         <h2 class="pg-subtitle"></h2>
           <article class="subj-select">
         {% for x in tools %}
-          <button type="button" class="lesn-but" onclick="clickThru('{{ x }}/')">{{ x }}</button>
+          <button type="button" class="choice-select" onclick="clickThru('{{ x }}/')">{{ x }}</button>
         {% endfor %}
         </article>
       </main>
