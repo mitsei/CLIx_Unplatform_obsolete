@@ -36,11 +36,7 @@
         <h1 class="pg-title">Select your Lesson</h1>
         <h2 class="pg-subtitle"></h2>
           <article class="subj-select">
-
-          <button type="button" class="lesn-but" onclick="toolClickThru('Tools')">Tools</button>
           {% for x in lessons %}
-            {% if x == "Tools" %}
-            {% else %}
               <button type="button" class="lesn-but" onclick="lesonClickThru('{{ x }}')">{{ x }}</button>
             {% endif %}
           {% endfor %}
