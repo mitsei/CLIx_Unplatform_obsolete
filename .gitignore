@@ -232,7 +232,7 @@ xcuserdata/
 *~.nib
 
 ## Database
-#*.sqlite3
+db.sqlite3
 
 # Dot files, including IDE
 .*
@@ -257,3 +257,4 @@ releases/
 
 # Celery
 celerybeat-schedule
+
