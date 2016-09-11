@@ -21,12 +21,18 @@ def select_school(request):
 
 
 def select_subject(request):
+    subject_location = os.path.join(MODULES_FOLDER)
+    subjects = os.listdir(subject_location)
+    subjects = sorted(subjects)
     template = loader.get_template('curriculum/subject.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({'subjects':subjects, 'version':UNPLATFORM_VERSION}))
 
 def select_grade(request, subject):
+    grade_location = os.path.join(MODULES_FOLDER, subject)
+    grades = os.listdir(grade_location)
+    grades = sorted(grades)
     template = loader.get_template('curriculum/grade.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({'grades':grades, 'version':UNPLATFORM_VERSION}))
 
 def select_unit(request, subject, grade):
     unit_location = os.path.join(MODULES_FOLDER, subject, grade)

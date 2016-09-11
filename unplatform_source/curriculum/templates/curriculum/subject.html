@@ -27,10 +27,15 @@
             <h1 class="pg-title">Select your subject</h1>
             <h2 class="pg-subtitle"></h2>
             <article class="subj-select">
-
-                    <button type="button" class="choice-select" onclick="clickThru('/English/')">English</button>
-                    <button type="button" class="choice-select" onclick="clickThru('/Math/')">Math</button>
-                    <button type="button" class="choice-select" onclick="clickThru('/Physics/')">Physics</button>
+            {% for x in subjects %}
+                {% if x == "Tools" %}
+                {% else %}
+                    <button type="button" class="choice-select" onclick="clickThru('/{{ x }}/')">{{ x }}</button>
+                {% endif %}
+          {% endfor %}
+                    <!--<button type="button" class="choice-select" onclick="clickThru('/English/')">English</button>-->
+                    <!--<button type="button" class="choice-select" onclick="clickThru('/Math/')">Math</button>-->
+                    <!--<button type="button" class="choice-select" onclick="clickThru('/Physics/')">Physics</button>-->
                     <button type="button" class="choice-select" onclick="clickThru('/Tools/')">Tools</button>
             </article>
         </main>

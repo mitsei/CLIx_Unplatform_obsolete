@@ -259,3 +259,4 @@ releases/
 # Celery
 celerybeat-schedule
 
+/unplatform_source/db.sqlite3
