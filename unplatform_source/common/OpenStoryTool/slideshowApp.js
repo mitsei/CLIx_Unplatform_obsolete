@@ -280,7 +280,7 @@ var Slideshow;
             this.element.append(this.duplicateBtn);
             this.element.append(this.deleteBtn);
             this.element.append(this.dragHandle);
-            this.deleteModal = $("<div title='Delete this slide?'></div>").addClass("deleteModal").append("<div>Delete this slide?</div>");
+            this.deleteModal = $("<div title='Delete this slide?'></div>").addClass("deleteModal").append("<h3>Delete this slide?</h3>");
             this.deleteConfirmBtn = $("<button>Delete</button>").addClass("textBtn");
             this.deleteCancelBtn = $("<button>Cancel</button>").addClass("textBtn");
             this.deleteModal.append(this.deleteConfirmBtn);
