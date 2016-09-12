@@ -1,9 +1,11 @@
 v0.4.3
 * Tools have been moved to be alongside subjects
 * Navigation has been updated to be more flexible with module folder names to support more translations
+* Windows is now the only officially supported OS
 
 v0.4.2
 * qbank & OEA have been further integrated
+* build scripts have been updated
 
 v0.4.1
 * New styling has been applied
