@@ -23,8 +23,9 @@
   <h1 class="logo">CLIx Connected Learning Initiative</h1>
   <p class="unplat-v">unplatform version {{ version }}</p>
   <nav>
+    <button onclick="window.location.href='/Tools/'">choose tool</button>
     <button onclick="window.location.href='/{{ subject }}/{{ grade }}/{{ unit }}/'">choose new lesson</button>
-  <button onclick="toggleFinished('block')">finish lesson</button>
+    <button onclick="toggleFinished('block')">finish lesson</button>
   </nav>
 </header>
 <body>
