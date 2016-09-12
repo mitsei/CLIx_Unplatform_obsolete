@@ -57,7 +57,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 2000, function(sym, e) {
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 2250, function(sym, e) {
          sym.stop();
 
       });
@@ -94,6 +94,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // insert code for mouse click here
          OpenMenu();
          
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 2000, function(sym, e) {
+         sym.stop();
 
       });
       //Edge binding end
@@ -162,8 +168,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'BG08'
    (function(symbolName) {   
    
-   })("BG08");
-   //Edge symbol end:'BG08'
+   })("BG09");
+   //Edge symbol end:'BG09'
 
    //=========================================================
    
@@ -196,5 +202,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    
    })("skip_btn");
    //Edge symbol end:'skip_btn'
+
+   //=========================================================
+   
+   //Edge symbol: 'BG_08'
+   (function(symbolName) {   
+   
+   })("BG_08");
+   //Edge symbol end:'BG_08'
 
 })(jQuery, AdobeEdge, "intro");

@@ -27,12 +27,61 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          // Show an Element.
          //  (sym.$("name") resolves an Edge Animate element name to a DOM
          //  element that can be used with jQuery)
-         sym.$("level_02").show();
+         sym.$("Mission_02").show();
          // Lookup the Edge Animate Symbol Javascript Object from an element that is
          // an instance of a symbol. The symbol object can be used to invoke
          // symbol functions like play, stop etc.
-         var mySymbolObject = sym.getSymbol("level_02").play();
+         var mySymbolObject = sym.getSymbol("Mission_02").play();
          
+         
+         
+
+      });
+      //Edge binding end
+
+      
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_LAUNCH1}", "click", function(sym, e) {
+         // Show an Element.
+         //  (sym.$("name") resolves an Edge Animate element name to a DOM
+         //  element that can be used with jQuery)
+         sym.$("Mission_01").show();
+         // Lookup the Edge Animate Symbol Javascript Object from an element that is
+         // an instance of a symbol. The symbol object can be used to invoke
+         // symbol functions like play, stop etc.
+         var mySymbolObject = sym.getSymbol("Mission_01").play();
+         
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_LAUNCHCopy}", "click", function(sym, e) {
+         // Show an Element.
+         //  (sym.$("name") resolves an Edge Animate element name to a DOM
+         //  element that can be used with jQuery)
+         sym.$("Mission_04").show();
+         // Lookup the Edge Animate Symbol Javascript Object from an element that is
+         // an instance of a symbol. The symbol object can be used to invoke
+         // symbol functions like play, stop etc.
+         var mySymbolObject = sym.getSymbol("Mission_04").play();
+         
+         
+         
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_LAUNCHCopy2}", "click", function(sym, e) {
+         // Show an Element.
+         //  (sym.$("name") resolves an Edge Animate element name to a DOM
+         //  element that can be used with jQuery)
+         sym.$("Mission_03").show();
+         // Lookup the Edge Animate Symbol Javascript Object from an element that is
+         // an instance of a symbol. The symbol object can be used to invoke
+         // symbol functions like play, stop etc.
+         var mySymbolObject = sym.getSymbol("Mission_03").play();
          
          
 
@@ -170,13 +219,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       //Edge binding end
 
       Symbol.bindElementAction(compId, symbolName, "${_btn_nextCopy}", "click", function(sym, e) {
-         mission1();
+         Mission2();
 
       });
       //Edge binding end
 
-   })("level_02");
-   //Edge symbol end:'level_02'
+   })("Mission_02");
+   //Edge symbol end:'Mission_02'
 
    //=========================================================
    
@@ -185,5 +234,209 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    
    })("BG09");
    //Edge symbol end:'BG09'
+
+   //=========================================================
+   
+   //Edge symbol: 'Mission_1'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 250, function(sym, e) {
+         sym.stop();
+
+      });
+         //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 500, function(sym, e) {
+         sym.stop();
+
+      });
+         //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 750, function(sym, e) {
+         sym.stop();
+
+      });
+         //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_next}", "click", function(sym, e) {
+         sym.play();
+
+      });
+         //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_back}", "click", function(sym, e) {
+         sym.playReverse();
+
+      });
+         //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_nextCopy}", "click", function(sym, e) {
+         Mission1();
+
+      });
+         //Edge binding end
+
+      })("Mission_01");
+   //Edge symbol end:'Mission_01'
+
+   //=========================================================
+   
+   //Edge symbol: 'BG09_1'
+   (function(symbolName) {   
+   
+      })("M1_BG01");
+   //Edge symbol end:'M1_BG01'
+
+   //=========================================================
+   
+   //Edge symbol: 'M1_BG01_1'
+   (function(symbolName) {   
+   
+      })("M1_BG02");
+   //Edge symbol end:'M1_BG02'
+
+   //=========================================================
+   
+   //Edge symbol: 'BG11_1'
+   (function(symbolName) {   
+   
+      })("M1_BG03");
+   //Edge symbol end:'M1_BG03'
+
+   //=========================================================
+   
+   //Edge symbol: 'Mission_1'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 250, function(sym, e) {
+         sym.stop();
+
+      });
+            //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 500, function(sym, e) {
+         sym.stop();
+
+      });
+            //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 750, function(sym, e) {
+         sym.stop();
+
+      });
+            //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_next}", "click", function(sym, e) {
+         sym.play();
+
+      });
+            //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_back}", "click", function(sym, e) {
+         sym.playReverse();
+
+      });
+            //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_nextCopy}", "click", function(sym, e) {
+         mission3();
+
+      });
+            //Edge binding end
+
+         })("Mission_03");
+   //Edge symbol end:'Mission_03'
+
+   //=========================================================
+   
+   //Edge symbol: 'M1_BG01_1'
+   (function(symbolName) {   
+   
+         })("M3_BG01");
+   //Edge symbol end:'M3_BG01'
+
+   //=========================================================
+   
+   //Edge symbol: 'M1_BG02_1'
+   (function(symbolName) {   
+   
+         })("M3_BG02");
+   //Edge symbol end:'M3_BG02'
+
+   //=========================================================
+   
+   //Edge symbol: 'M1_BG03_1'
+   (function(symbolName) {   
+   
+         })("M3_BG03");
+   //Edge symbol end:'M3_BG03'
+
+   //=========================================================
+   
+   //Edge symbol: 'Mission_1'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 250, function(sym, e) {
+         sym.stop();
+
+      });
+               //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 500, function(sym, e) {
+         sym.stop();
+
+      });
+               //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 750, function(sym, e) {
+         sym.stop();
+
+      });
+               //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_next}", "click", function(sym, e) {
+         sym.play();
+
+      });
+               //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_back}", "click", function(sym, e) {
+         sym.playReverse();
+
+      });
+               //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_btn_nextCopy}", "click", function(sym, e) {
+         mission4();
+
+      });
+               //Edge binding end
+
+            })("Mission_04");
+   //Edge symbol end:'Mission_04'
+
+   //=========================================================
+   
+   //Edge symbol: 'M3_BG01_1'
+   (function(symbolName) {   
+   
+            })("M4_BG01");
+   //Edge symbol end:'M4_BG01'
+
+   //=========================================================
+   
+   //Edge symbol: 'M3_BG02_1'
+   (function(symbolName) {   
+   
+            })("M4_BG02");
+   //Edge symbol end:'M4_BG02'
+
+   //=========================================================
+   
+   //Edge symbol: 'M3_BG03_1'
+   (function(symbolName) {   
+   
+            })("M4_BG03");
+   //Edge symbol end:'M4_BG03'
 
 })(jQuery, AdobeEdge, "book");

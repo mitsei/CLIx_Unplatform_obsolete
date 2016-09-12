@@ -45,4 +45,19 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("btn_Instructions");
    //Edge symbol end:'btn_Instructions'
 
+   //=========================================================
+   
+   //Edge symbol: 'stars'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 5500, function(sym, e) {
+         sym.stop();
+         
+
+      });
+      //Edge binding end
+
+   })("stars");
+   //Edge symbol end:'stars'
+
 })(jQuery, AdobeEdge, "splash");

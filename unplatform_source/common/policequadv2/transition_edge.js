@@ -153,20 +153,20 @@ var symbols = {
       fill: ['rgba(255,255,255,0.40)']
    },
    {
-      rect: ['155px','289px','288px','124px','auto','auto'],
       font: ['Verdana, Geneva, sans-serif',14,'rgba(255,255,255,1.00)','normal','none','normal'],
+      type: 'text',
       id: 'Text6',
       text: 'You are onto another case. In this case take the help of G8 to identify the culprit. Query the robot to shortlist the culprit.<br><br>Click next to move onto the instruction Screen.<br>',
       align: 'left',
-      type: 'text'
+      rect: ['155px','289px','288px','124px','auto','auto']
    },
    {
-      rect: ['155px','227px','288px','39px','auto','auto'],
       font: ['Verdana, Geneva, sans-serif',34,'rgba(255,255,255,1.00)','normal','none','normal'],
+      type: 'text',
       id: 'Text6Copy',
       text: 'MISSION BRIEF',
       align: 'center',
-      type: 'text'
+      rect: ['155px','227px','288px','39px','auto','auto']
    }],
    symbolInstances: [
    ]
@@ -230,7 +230,7 @@ var symbols = {
       id: 'BG09',
       type: 'image',
       rect: ['0px','0px','1014px','650px','auto','auto'],
-      fill: ['rgba(0,0,0,0)','images/BG12.jpg','0px','0px']
+      fill: ['rgba(0,0,0,0)','images/M2_BG12.jpg','0px','0px']
    },
    {
       rect: ['471px','26px','128px','49px','auto','auto'],
@@ -245,10 +245,10 @@ var symbols = {
       rect: ['122','29','148','120','auto','auto'],
       c: [
       {
-         rect: ['30px','25px','35px','104px','auto','auto'],
-         id: 'pointer',
-         transform: [[0,0],['-131'],[],['0.689']],
          type: 'image',
+         id: 'pointer',
+         rect: ['30px','25px','35px','104px','auto','auto'],
+         transform: [[0,0],['-131'],[],['0.689']],
          fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
       },
       {
@@ -260,12 +260,12 @@ var symbols = {
          fill: ['rgba(255,255,255,1)']
       },
       {
+         type: 'text',
          rect: ['18px','8px','117px','38px','auto','auto'],
-         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
          id: 'Text',
          text: 'That was some good work! ',
          align: 'center',
-         type: 'text'
+         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
       }]
    },
    {
@@ -274,10 +274,10 @@ var symbols = {
       rect: ['817','37','154','169','auto','auto'],
       c: [
       {
-         rect: ['58px','-50px','35px','104px','auto','auto'],
-         id: 'pointerCopy2',
-         transform: [[0,0],['-149'],[],['0.689','1.216']],
          type: 'image',
+         id: 'pointerCopy2',
+         rect: ['58px','-50px','35px','104px','auto','auto'],
+         transform: [[0,0],['-149'],[],['0.689','1.216']],
          fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
       },
       {
@@ -289,12 +289,12 @@ var symbols = {
          fill: ['rgba(255,255,255,1)']
       },
       {
+         type: 'text',
          rect: ['24px','8px','117px','61px','auto','auto'],
-         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
          id: 'TextCopy2',
          text: 'Hello! Hello!  What? Another water robbery!<br>',
          align: 'center',
-         type: 'text'
+         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
       }]
    },
    {
@@ -303,10 +303,10 @@ var symbols = {
       rect: ['34','339','242','162','auto','auto'],
       c: [
       {
-         rect: ['157px','-21px','35px','104px','auto','auto'],
-         id: 'pointerCopy3',
-         transform: [[0,0],['-219'],[],['0.689','0.885']],
          type: 'image',
+         id: 'pointerCopy3',
+         rect: ['157px','-21px','35px','104px','auto','auto'],
+         transform: [[0,0],['-219'],[],['0.689','0.885']],
          fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
       },
       {
@@ -318,12 +318,12 @@ var symbols = {
          fill: ['rgba(255,255,255,1)']
       },
       {
+         type: 'text',
          rect: ['12px','11px','183px','69px','auto','auto'],
-         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
          id: 'TextCopy3',
          text: 'This is bad, Geo. Now they are stealing water from water tanks. It’s the Judic gang again.',
          align: 'center',
-         type: 'text'
+         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
       }]
    },
    {
@@ -332,10 +332,10 @@ var symbols = {
       rect: ['417px','339px','242','162','auto','auto'],
       c: [
       {
-         rect: ['53px','-58px','35px','104px','auto','auto'],
-         id: 'pointerCopy5',
-         transform: [[0,0],['-132'],[],['0.689','1.815']],
          type: 'image',
+         id: 'pointerCopy5',
+         rect: ['53px','-58px','35px','104px','auto','auto'],
+         transform: [[0,0],['-132'],[],['0.689','1.815']],
          fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
       },
       {
@@ -347,12 +347,12 @@ var symbols = {
          fill: ['rgba(255,255,255,1)']
       },
       {
+         type: 'text',
          rect: ['-60px','19px','172px','35px','auto','auto'],
-         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
          id: 'TextCopy5',
          text: 'G8 saw the robbery. <br>Let me get the robot in.',
          align: 'center',
-         type: 'text'
+         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
       }]
    },
    {
@@ -361,10 +361,10 @@ var symbols = {
       rect: ['114','439','92','108','auto','auto'],
       c: [
       {
-         rect: ['57px','-83px','35px','104px','auto','auto'],
-         id: 'pointerCopy4',
-         transform: [[0,0],['-153'],[],['0.689','0.885']],
          type: 'image',
+         id: 'pointerCopy4',
+         rect: ['57px','-83px','35px','104px','auto','auto'],
+         transform: [[0,0],['-153'],[],['0.689','0.885']],
          fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
       },
       {
@@ -376,12 +376,12 @@ var symbols = {
          fill: ['rgba(255,255,255,1)']
       },
       {
+         type: 'text',
          rect: ['6px','9px','80px','20px','auto','auto'],
-         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
          id: 'TextCopy4',
          text: 'Hmmm…<br>',
          align: 'center',
-         type: 'text'
+         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
       }]
    },
    {
@@ -390,10 +390,10 @@ var symbols = {
       rect: ['324','63','80','120','auto','auto'],
       c: [
       {
-         rect: ['45px','-71px','35px','104px','auto','auto'],
-         id: 'pointerCopy',
-         transform: [[0,0],['-151'],[],['0.689','0.887']],
          type: 'image',
+         id: 'pointerCopy',
+         rect: ['45px','-71px','35px','104px','auto','auto'],
+         transform: [[0,0],['-151'],[],['0.689','0.887']],
          fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
       },
       {
@@ -406,20 +406,20 @@ var symbols = {
       }]
    },
    {
+      type: 'text',
       rect: ['334px','71px','63px','38px','auto','auto'],
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
       id: 'TextCopy',
       text: 'Thank you sir.<br>',
       align: 'center',
-      type: 'text'
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
    },
    {
+      type: 'text',
       rect: ['486px','32px','98px','37px','auto','auto'],
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','italic'],
       id: 'Text2',
       text: 'Just then the phone rings.<br>',
       align: 'center',
-      type: 'text'
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','italic']
    },
    {
       rect: ['127px','579px','22px','20px','auto','auto'],
@@ -438,12 +438,12 @@ var symbols = {
       fill: ['rgba(255,255,255,1)']
    },
    {
+      type: 'text',
       rect: ['151px','565px','90px','53px','auto','auto'],
-      font: ['Verdana, Geneva, sans-serif',12,'rgba(0,0,0,1.00)','normal','none','normal'],
       id: 'Text4',
       text: 'A few bad eggs and we all get a bad name!<br>',
       align: 'center',
-      type: 'text'
+      font: ['Verdana, Geneva, sans-serif',12,'rgba(0,0,0,1.00)','normal','none','normal']
    },
    {
       rect: ['117px','570px','11px','10px','auto','auto'],
@@ -612,12 +612,6 @@ var symbols = {
             ["style", "msTransformOrigin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
             ["style", "-o-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}]
          ],
-         "${_RoundRectCopy2}": [
-            ["style", "top", '0px'],
-            ["style", "height", '69px'],
-            ["style", "left", '12px'],
-            ["style", "width", '142px']
-         ],
          "${_Text}": [
             ["style", "top", '8px'],
             ["style", "text-align", 'center'],
@@ -638,6 +632,12 @@ var symbols = {
             ["style", "-ms-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
             ["style", "msTransformOrigin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}],
             ["style", "-o-transform-origin", [50,100],{valueTemplate:'@@0@@% @@1@@%'}]
+         ],
+         "${_RoundRectCopy2}": [
+            ["style", "top", '0px'],
+            ["style", "height", '69px'],
+            ["style", "left", '12px'],
+            ["style", "width", '142px']
          ],
          "${_pointer}": [
             ["style", "top", '25px'],
@@ -709,19 +709,19 @@ var symbols = {
          fill: ['rgba(255,255,255,1)']
       },
       {
-         rect: ['220px','13px','35px','120px','auto','auto'],
-         id: 'pointer',
          transform: [[0,0],['-206'],[],['0.745','1.454']],
+         id: 'pointer',
          type: 'image',
+         rect: ['220px','13px','35px','120px','auto','auto'],
          fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
       },
       {
-         rect: ['25px','21px','255px','90px','auto','auto'],
          font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1.00)','normal','none','normal'],
+         type: 'text',
          id: 'Text5',
          text: 'The robot on duty, G2 witnessed the robbery. I’ve called G2 over to answer our questions. But G2 can only reply with “Yes”, “No” and “I don’t know.” You know that, right?<br>',
          align: 'left',
-         type: 'text'
+         rect: ['25px','21px','255px','90px','auto','auto']
       }]
    },
    {
@@ -730,10 +730,10 @@ var symbols = {
       rect: ['117','196','101','138','auto','auto'],
       c: [
       {
-         rect: ['52px','-80px','35px','120px','auto','auto'],
-         id: 'pointerCopy',
          transform: [[0,0],['-160'],[],['0.745','1.092']],
+         id: 'pointerCopy',
          type: 'image',
+         rect: ['52px','-80px','35px','120px','auto','auto'],
          fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
       },
       {
@@ -745,13 +745,13 @@ var symbols = {
          fill: ['rgba(255,255,255,1)']
       },
       {
-         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1.00)','normal','none','normal'],
          type: 'text',
-         transform: [],
+         font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1.00)','normal','none','normal'],
+         rect: ['20px','10px','68px','19px','auto','auto'],
          id: 'Text5Copy',
          text: 'Yes Sir.',
          align: 'center',
-         rect: ['20px','10px','68px','19px','auto','auto']
+         transform: []
       }]
    }],
    symbolInstances: [
@@ -859,13 +859,15 @@ var symbols = {
       rect: ['-2px','0px','auto','auto','auto','auto']
    },
    {
+      rect: ['953px','593px','auto','auto','auto','auto'],
       id: 'btn_next',
-      type: 'rect',
+      userClass: 'btnClick',
       cursor: ['pointer'],
-      rect: ['953px','593px','auto','auto','auto','auto']
+      type: 'rect'
    },
    {
       rect: ['953px','593px','auto','auto','auto','auto'],
+      userClass: 'btnClick mainSND',
       id: 'btn_nextCopy',
       display: 'none',
       cursor: ['pointer'],
@@ -873,6 +875,7 @@ var symbols = {
    },
    {
       rect: ['8px','593px','auto','auto','auto','auto'],
+      userClass: 'btnClick',
       id: 'btn_back',
       display: 'none',
       cursor: ['pointer'],
@@ -1035,19 +1038,22 @@ var symbols = {
       rect: ['-2px','-8px','auto','auto','auto','auto']
    },
    {
+      rect: ['953px','593px','auto','auto','auto','auto'],
       id: 'btn_next',
-      type: 'rect',
+      userClass: 'btnClick mainSND',
       cursor: ['pointer'],
-      rect: ['953px','593px','auto','auto','auto','auto']
+      type: 'rect'
    },
    {
+      rect: ['953px','593px','auto','auto','auto','auto'],
       id: 'btn_nextCopy',
-      type: 'rect',
+      userClass: 'btnClick ',
       cursor: ['pointer'],
-      rect: ['953px','593px','auto','auto','auto','auto']
+      type: 'rect'
    },
    {
       rect: ['8px','593px','auto','auto','auto','auto'],
+      userClass: 'btnClick',
       id: 'btn_back',
       display: 'none',
       cursor: ['pointer'],
@@ -1091,12 +1097,6 @@ var symbols = {
             ["style", "left", '0px'],
             ["style", "top", '0px']
          ],
-         "${_btn_nextCopy}": [
-            ["style", "display", 'block'],
-            ["style", "cursor", 'pointer'],
-            ["style", "left", '953px'],
-            ["style", "top", '593px']
-         ],
          "${symbolSelector}": [
             ["style", "height", '652px'],
             ["style", "width", '2026px']
@@ -1104,6 +1104,12 @@ var symbols = {
          "${_BG12b}": [
             ["style", "left", '1014px'],
             ["style", "top", '-8px']
+         ],
+         "${_btn_nextCopy}": [
+            ["style", "display", 'block'],
+            ["style", "cursor", 'pointer'],
+            ["style", "left", '953px'],
+            ["style", "top", '593px']
          ],
          "${_BG14}": [
             ["style", "left", '1014px'],
@@ -1155,20 +1161,20 @@ var symbols = {
       id: 'BG09',
       type: 'image',
       rect: ['0px','0px','1014px','650px','auto','auto'],
-      fill: ['rgba(0,0,0,0)','images/BG13.jpg','0px','0px']
+      fill: ['rgba(0,0,0,0)','images/M2_BG13.jpg','0px','0px']
    },
    {
-      rect: ['38px','37px','559px','49px','auto','auto'],
+      rect: ['38px','37px','345px','53px','auto','auto'],
       id: 'Rectangle2',
       stroke: [0,'rgb(0, 0, 0)','none'],
       type: 'rect',
       fill: ['rgba(255,255,255,1)']
    },
    {
-      rect: ['118px','115px','35px','104px','auto','auto'],
-      id: 'pointerCopy5',
-      transform: [[0,0],['-253'],[],['0.689','1.183']],
       type: 'image',
+      id: 'pointerCopy5',
+      rect: ['118px','115px','35px','104px','auto','auto'],
+      transform: [[0,0],['-253'],[],['0.689','1.183']],
       fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
    },
    {
@@ -1180,20 +1186,20 @@ var symbols = {
       fill: ['rgba(255,255,255,1)']
    },
    {
+      type: 'text',
       rect: ['67px','163px','71px','108px','auto','auto'],
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
       id: 'TextCopy5',
       text: 'Really?<br>Hmm…<br>Ok.<br>Hmmm.<br>Ok.<br>Yes Sir!',
       align: 'center',
-      type: 'text'
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
    },
    {
-      rect: ['53px','44px','529px','35px','auto','auto'],
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','italic'],
+      type: 'text',
+      rect: ['52px','47px','316px','33px','auto','auto'],
       id: 'Text2',
-      text: 'Just when the two are about to call it a day, Insp. Kata gets a phone call. After a brief conversation he cuts the call, and…<br>',
+      text: 'Just when the two are about to call it a day, Chief of Police Kata gets a phone call.',
       align: 'left',
-      type: 'text'
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','italic']
    },
    {
       rect: ['694px','266px','22px','20px','auto','auto'],
@@ -1220,13 +1226,13 @@ var symbols = {
       fill: ['rgba(255,255,255,1)']
    },
    {
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1.00)','normal','none','normal'],
       type: 'text',
-      transform: [],
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1.00)','normal','none','normal'],
+      rect: ['749px','180px','90px','53px','auto','auto'],
       id: 'Text4',
       text: 'I wonder what it is now !',
       align: 'center',
-      rect: ['749px','180px','90px','53px','auto','auto']
+      transform: []
    },
    {
       rect: ['674px','286px','11px','10px','auto','auto'],
@@ -1242,10 +1248,10 @@ var symbols = {
    states: {
       "Base State": {
          "${_Rectangle2}": [
-            ["style", "height", '49px'],
+            ["style", "height", '53px'],
             ["style", "top", '37px'],
             ["style", "left", '38px'],
-            ["style", "width", '559px']
+            ["style", "width", '345px']
          ],
          "${_TextCopy5}": [
             ["style", "top", '163px'],
@@ -1258,11 +1264,11 @@ var symbols = {
             ["style", "font-size", '14px']
          ],
          "${_Text2}": [
-            ["style", "top", '44px'],
+            ["style", "top", '47px'],
             ["style", "text-align", 'left'],
-            ["style", "height", '35px'],
-            ["style", "left", '53px'],
-            ["style", "width", '529px']
+            ["style", "height", '33px'],
+            ["style", "left", '52px'],
+            ["style", "width", '316px']
          ],
          "${_pointerCopy5}": [
             ["style", "top", '115px'],
@@ -1301,6 +1307,12 @@ var symbols = {
             ["style", "height", '650px'],
             ["style", "width", '1014px']
          ],
+         "${_Ellipse2Copy3}": [
+            ["style", "height", '27px'],
+            ["style", "top", '242px'],
+            ["style", "left", '720px'],
+            ["style", "width", '30px']
+         ],
          "${_Ellipse2}": [
             ["style", "left", '674px'],
             ["style", "top", '286px']
@@ -1310,12 +1322,6 @@ var symbols = {
             ["style", "height", '20px'],
             ["style", "left", '694px'],
             ["style", "width", '22px']
-         ],
-         "${_Ellipse2Copy3}": [
-            ["style", "height", '27px'],
-            ["style", "top", '242px'],
-            ["style", "left", '720px'],
-            ["style", "width", '30px']
          ],
          "${_RoundRectCopy5}": [
             ["style", "height", '123px'],
@@ -1350,13 +1356,13 @@ var symbols = {
       id: 'BG09',
       type: 'image',
       rect: ['0px','0px','1014px','650px','auto','auto'],
-      fill: ['rgba(0,0,0,0)','images/BG14.jpg','0px','0px']
+      fill: ['rgba(0,0,0,0)','images/M2_BG14.jpg','0px','0px']
    },
    {
-      type: 'image',
-      id: 'pointerCopy5',
-      rect: ['94px','18px','35px','104px','auto','auto'],
       transform: [[0,0],['-204'],[],['0.689','0.827']],
+      id: 'pointerCopy5',
+      type: 'image',
+      rect: ['94px','18px','35px','104px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
    },
    {
@@ -1368,18 +1374,18 @@ var symbols = {
       fill: ['rgba(255,255,255,1)']
    },
    {
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
       type: 'text',
-      rect: ['55px','55px','193px','71px','auto','auto'],
       id: 'TextCopy5',
       text: 'Geo, the ringleaders of this gang of water robbers are still around. Now they are diverting pipes.',
       align: 'left',
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
+      rect: ['55px','55px','193px','71px','auto','auto']
    },
    {
-      type: 'image',
-      id: 'pointerCopy7',
-      rect: ['658px','-15px','35px','104px','auto','auto'],
       transform: [[0,0],['-239'],[],['0.689','1.894']],
+      id: 'pointerCopy7',
+      type: 'image',
+      rect: ['658px','-15px','35px','104px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
    },
    {
@@ -1391,18 +1397,18 @@ var symbols = {
       fill: ['rgba(255,255,255,1)']
    },
    {
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
       type: 'text',
-      rect: ['591px','60px','140px','38px','auto','auto'],
       id: 'TextCopy7',
       text: 'Yes. Geo, we have to find these guys.',
       align: 'left',
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
+      rect: ['591px','60px','140px','38px','auto','auto']
    },
    {
-      type: 'image',
-      id: 'pointerCopy10',
-      rect: ['779px','345px','35px','104px','auto','auto'],
       transform: [[0,0],['-248'],[],['0.689','1.703']],
+      id: 'pointerCopy10',
+      type: 'image',
+      rect: ['779px','345px','35px','104px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
    },
    {
@@ -1414,18 +1420,18 @@ var symbols = {
       fill: ['rgba(255,255,255,1)']
    },
    {
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
       type: 'text',
-      rect: ['717px','403px','178px','57px','auto','auto'],
       id: 'TextCopy10',
       text: 'Don’t worry sir, I will work with G2 to release the innocent Judics.<br>',
       align: 'left',
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
+      rect: ['717px','403px','178px','57px','auto','auto']
    },
    {
-      type: 'image',
-      id: 'pointerCopy6',
-      rect: ['307px','115px','35px','104px','auto','auto'],
       transform: [[0,0],['-165'],[],['0.689','0.827']],
+      id: 'pointerCopy6',
+      type: 'image',
+      rect: ['307px','115px','35px','104px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
    },
    {
@@ -1437,18 +1443,18 @@ var symbols = {
       fill: ['rgba(255,255,255,1)']
    },
    {
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
       type: 'text',
-      rect: ['240px','171px','102px','57px','auto','auto'],
       id: 'TextCopy6',
       text: 'Really? Is that what they are up to now?<br>',
       align: 'left',
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
+      rect: ['240px','171px','102px','57px','auto','auto']
    },
    {
-      type: 'image',
-      id: 'pointerCopy8',
-      rect: ['596px','92px','35px','104px','auto','auto'],
       transform: [[0,0],['-111'],[],['0.689','0.827']],
+      id: 'pointerCopy8',
+      type: 'image',
+      rect: ['596px','92px','35px','104px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
    },
    {
@@ -1460,18 +1466,18 @@ var symbols = {
       fill: ['rgba(255,255,255,1)']
    },
    {
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
       type: 'text',
-      rect: ['600px','176px','129px','57px','auto','auto'],
       id: 'TextCopy8',
       text: 'Has G2 spotted the robber in any of these cases?',
       align: 'left',
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
+      rect: ['600px','176px','129px','57px','auto','auto']
    },
    {
-      type: 'image',
-      id: 'pointerCopy9',
-      rect: ['676px','253px','35px','104px','auto','auto'],
       transform: [[0,0],['-126'],[],['0.689','0.962']],
+      id: 'pointerCopy9',
+      type: 'image',
+      rect: ['676px','253px','35px','104px','auto','auto'],
       fill: ['rgba(0,0,0,0)','images/pointer.svg','0px','0px']
    },
    {
@@ -1483,12 +1489,12 @@ var symbols = {
       fill: ['rgba(255,255,255,1)']
    },
    {
+      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal'],
       type: 'text',
-      rect: ['657px','306px','121px','57px','auto','auto'],
       id: 'TextCopy9',
       text: 'Yes, Geo. Sorry to say it’s those  Judics  again. <br>',
       align: 'left',
-      font: ['Verdana, Geneva, sans-serif',14,'rgba(0,0,0,1)','normal','none','normal']
+      rect: ['657px','306px','121px','57px','auto','auto']
    }],
    symbolInstances: [
    ]
@@ -1708,20 +1714,20 @@ var symbols = {
       fill: ['rgba(255,255,255,0.40)']
    },
    {
-      rect: ['155px','289px','288px','124px','auto','auto'],
       font: ['Verdana, Geneva, sans-serif',14,'rgba(255,255,255,1.00)','normal','none','normal'],
+      type: 'text',
       id: 'Text6',
       text: 'You are onto another case. In this case take the help of G8 to identify the culprit. Query the robot to shortlist the culprit.<br><br>Click next to move onto the instruction Screen.<br>',
       align: 'left',
-      type: 'text'
+      rect: ['155px','289px','288px','124px','auto','auto']
    },
    {
-      rect: ['155px','227px','288px','39px','auto','auto'],
       font: ['Verdana, Geneva, sans-serif',34,'rgba(255,255,255,1.00)','normal','none','normal'],
+      type: 'text',
       id: 'Text6Copy',
       text: 'MISSION BRIEF',
       align: 'center',
-      type: 'text'
+      rect: ['155px','227px','288px','39px','auto','auto']
    }],
    symbolInstances: [
    ]

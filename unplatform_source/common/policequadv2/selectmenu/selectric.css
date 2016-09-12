@@ -130,9 +130,13 @@
   font-family: Tahoma, Arial;
   color: white;
 }
+
 .selectric-items .selectric-scroll {
   height: 100%;
   overflow: auto;
+}
+#mission3 .selectric-items{
+	height:75px;
 }
 .selectric-above .selectric-items {
   top: auto;

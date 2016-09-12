@@ -1133,7 +1133,7 @@
 		<curvedSide>Y</curvedSide>
 		<equalSidePair>NA</equalSidePair>
 		<equalSides>0</equalSides>
-		<allSideEqual>Y</allSideEqual>
+		<allSideEqual>N</allSideEqual>
 		<rightAngle>0</rightAngle>
 		<obtuseAngle>0</obtuseAngle>
 		<acuteAngle>0</acuteAngle>
@@ -1150,7 +1150,7 @@
 		<curvedSide>Y</curvedSide>
 		<equalSidePair>NA</equalSidePair>
 		<equalSides>0</equalSides>
-		<allSideEqual>Y</allSideEqual>
+		<allSideEqual>N</allSideEqual>
 		<rightAngle>0</rightAngle>
 		<obtuseAngle>0</obtuseAngle>
 		<acuteAngle>0</acuteAngle>
@@ -1167,7 +1167,7 @@
 		<curvedSide>Y</curvedSide>
 		<equalSidePair>NA</equalSidePair>
 		<equalSides>0</equalSides>
-		<allSideEqual>Y</allSideEqual>
+		<allSideEqual>N</allSideEqual>
 		<rightAngle>0</rightAngle>
 		<obtuseAngle>0</obtuseAngle>
 		<acuteAngle>0</acuteAngle>
@@ -1201,7 +1201,7 @@
 		<curvedSide>Y</curvedSide>
 		<equalSidePair>1</equalSidePair>
 		<equalSides>2</equalSides>
-		<allSideEqual>Y</allSideEqual>
+		<allSideEqual>N</allSideEqual>
 		<rightAngle>0</rightAngle>
 		<obtuseAngle>0</obtuseAngle>
 		<acuteAngle>0</acuteAngle>
@@ -1218,7 +1218,7 @@
 		<curvedSide>Y</curvedSide>
 		<equalSidePair>1</equalSidePair>
 		<equalSides>2</equalSides>
-		<allSideEqual>Y</allSideEqual>
+		<allSideEqual>N</allSideEqual>
 		<rightAngle>0</rightAngle>
 		<obtuseAngle>0</obtuseAngle>
 		<acuteAngle>1</acuteAngle>

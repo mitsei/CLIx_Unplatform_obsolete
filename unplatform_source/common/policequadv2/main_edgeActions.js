@@ -117,6 +117,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'robot'
    (function(symbolName) {   
    
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 4010, function(sym, e) {
+         sym.play(1);
+
+      });
+      //Edge binding end
+
    })("robot");
    //Edge symbol end:'robot'
 
@@ -192,4 +198,44 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("Symbol_7");
    //Edge symbol end:'Symbol_7'
 
-})(jQuery, AdobeEdge, "main");
+   //=========================================================
+   
+   //Edge symbol: 'Symbol_8'
+   (function(symbolName) {   
+   
+   })("Symbol_8");
+   //Edge symbol end:'Symbol_8'
+
+   //=========================================================
+   
+   //Edge symbol: 'btn_release_1'
+   (function(symbolName) {   
+   
+      })("btn_next");
+   //Edge symbol end:'btn_next'
+
+   //=========================================================
+   
+   //Edge symbol: 'Symbol_1_1'
+   (function(symbolName) {   
+   
+   })("Symbol_1_1");
+   //Edge symbol end:'Symbol_1_1'
+
+   //=========================================================
+   
+   //Edge symbol: 'Symbol_9'
+   (function(symbolName) {   
+   
+   })("Symbol_9");
+   //Edge symbol end:'Symbol_9'
+
+   //=========================================================
+   
+   //Edge symbol: 'Symbol_10'
+   (function(symbolName) {   
+   
+   })("Symbol_10");
+   //Edge symbol end:'Symbol_10'
+
+})(jQuery, AdobeEdge, "mission2");

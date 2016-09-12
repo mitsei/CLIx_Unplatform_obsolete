@@ -63,4 +63,76 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("Symbol_1");
    //Edge symbol end:'Symbol_1'
 
+   //=========================================================
+   
+   //Edge symbol: 'm02_feedback_1'
+   (function(symbolName) {   
+   
+      })("m01_feedback");
+   //Edge symbol end:'m01_feedback'
+
+   //=========================================================
+   
+   //Edge symbol: 'm02_feedback_1'
+   (function(symbolName) {   
+   
+      })("m03_feedback");
+   //Edge symbol end:'m03_feedback'
+
+   //=========================================================
+   
+   //Edge symbol: 'CaseEnd_M1'
+   (function(symbolName) {   
+   
+   })("CaseEnd_M1");
+   //Edge symbol end:'CaseEnd_M1'
+
+   //=========================================================
+   
+   //Edge symbol: 'CaseEnd_M3'
+   (function(symbolName) {   
+   
+   })("CaseEnd_M3");
+   //Edge symbol end:'CaseEnd_M3'
+
+   //=========================================================
+   
+   //Edge symbol: 'm03_feedback_1'
+   (function(symbolName) {   
+   
+         })("m04_feedback");
+   //Edge symbol end:'m04_feedback'
+
+   //=========================================================
+   
+   //Edge symbol: 'g4x4'
+   (function(symbolName) {   
+   
+   })("g4x4");
+   //Edge symbol end:'g4x4'
+
+   //=========================================================
+   
+   //Edge symbol: 'circle'
+   (function(symbolName) {   
+   
+   })("circle");
+   //Edge symbol end:'circle'
+
+   //=========================================================
+   
+   //Edge symbol: 'opp'
+   (function(symbolName) {   
+   
+   })("opp");
+   //Edge symbol end:'opp'
+
+   //=========================================================
+   
+   //Edge symbol: 'g5x5'
+   (function(symbolName) {   
+   
+   })("g5x5");
+   //Edge symbol end:'g5x5'
+
 })(jQuery, AdobeEdge, "feedback");
