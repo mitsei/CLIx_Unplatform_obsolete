@@ -46,7 +46,7 @@ def select_lesson(request, subject, grade, unit):
     lessons = os.listdir(lesson_location)
     lessons = sorted(lessons)
     template = loader.get_template('curriculum/lesson.html')
-    return HttpResponse(template.render({'lessons':lessons, 'version':UNPLATFORM_VERSION}))
+    return HttpResponse(template.render({'grade': grade, 'subject': subject, 'lessons':lessons, 'version':UNPLATFORM_VERSION}))
 
 def show_activities(request, subject, grade, unit, lesson):
     activity_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
