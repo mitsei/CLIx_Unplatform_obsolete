@@ -1,7 +1,7 @@
 ********** Windows Instructions **********
 
 Requirements:
-Windows XP (32 or 64) or higher
+Windows XP or higher
 Chrome version 49+
 
 ******************** Installation ********************
@@ -11,7 +11,7 @@ Chrome version 49+
 
 ******************** Instructions ********************
 
-1) Open the unzipped folder and locate unplatform_win_ssl.bat
+1) Open the unzipped folder and locate unplatform_win32_ssl.bat
 
 2) Click it to run. If any firewall permissions are requested, click allow.
 
@@ -27,4 +27,4 @@ Chrome version 49+
 
 Send all feedback to: bhanks@mit.edu
     
-Comments, including ease of use, suggestions, and difficulties are appreciated! Please include your operating system specifics (for example OSX 10.7.1, or Windows 7 32 bit) and Chrome version. Thanks! 
+Comments, including ease of use, suggestions, and difficulties are appreciated! Please include your operating system specifics (for example Windows XP 32 bit) and Chrome version. Thanks!
