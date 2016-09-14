@@ -1,3 +1,7 @@
+v0.4.4
+* updated qbank & OEA
+* added more tools
+
 v0.4.3
 * Tools have been moved to be alongside subjects
 * Navigation has been updated to be more flexible with module folder names to support more translations
