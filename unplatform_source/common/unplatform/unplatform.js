@@ -87,25 +87,14 @@ function callback(e) {
     var e = window.e || e;
 	var currentURL = (function(){ return window.location.href; })();
 	console.log(e.target.tagName)
-	//old reporting function
-    if (e.target.tagName.toLowerCase() == 'a') {
+	if (e.target.tagName.toLowerCase() == 'html' || e.target.tagName.toLowerCase() == 'body' || e.target.tagName.toLowerCase() == 'main') {
+		return;
+	} else if (e.target.tagName.toLowerCase() == 'a') {
 		data = {
 			"app_name": "Unplatform",
 			"event_type": "link_click",
 			"params": {"from": window.location.href, "to": e.target.href}
 		}
-	} else if (e.target.tagName.toLowerCase() == 'html') {
-		return;
-	} else {
-		//console.log(e)
-		data = {
-			"app_name": "Unplatform",
-			"event_type": "link_click",
-			"params": { "from": window.location.href, "to": e.target.parentElement.href }
-		}
-	}
-	if (e.target.tagName.toLowerCase() == 'html' || e.target.tagName.toLowerCase() == 'body' || e.target.tagName.toLowerCase() == 'main') {
-		return;
 	} else {
 		console.log(e)
 		data = {
@@ -113,12 +102,9 @@ function callback(e) {
 			"event_type": "click",
 			"params": { "url": window.location.href, "target": e.target}
 		}
-		navReporter.submitData('/api/appdata/', data)
 	}
-
-
+	navReporter.submitData('/api/appdata/', data)
 }
-
 
 (function(){if (document.addEventListener) {
 		document.addEventListener('click', callback, false);
