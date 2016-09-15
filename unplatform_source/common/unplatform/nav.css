@@ -1,8 +1,6 @@
-/*@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i';*/
-
 body {
-  font-family: 'Open Sans', Arial, sans-serif;
-  font-weight: 400;
+  font-family: 'open_sansregular', Arial, sans-serif;
+  font-weight: normal;
   font-size: 1em;
 }
 
@@ -70,12 +68,12 @@ nav{
 }
 
 #toggler {
-	display: none;
+  display: none;
 }
 #toggler ~ nav  {
   height: 100vh;
   width: 0;
-  opacity: 0; 
+  opacity: 0;
   transition: width 1s ease-in-out, opacity .7s linear 0.5s;
 }
 
@@ -87,7 +85,7 @@ nav{
 }
 
 #toggler:checked ~ nav, #toggler:checked ~ nav > ul  {
-	width: 292px;
+  width: 292px;
   opacity: 1;
 }
 
@@ -121,22 +119,22 @@ li.effect-bar a {
 }
 
 li.effect-bar a::before {
-	position: absolute;
-	left: 281px;
-	height: 34px;
+  position: absolute;
+  left: 281px;
+  height: 34px;
   width: 0;
-	background: #fff;
-	content: '';
+  background: #fff;
+  content: '';
   opacity: 0;
-	transform: translate3d(7px,-4px,0);
-	transition: opacity 0.35s, transform 0.35s;
+  transform: translate3d(7px,-4px,0);
+  transition: opacity 0.35s, transform 0.35s;
 }
 
 
 li.effect-bar:hover a::before {
-	width: 6px;
+  width: 6px;
   opacity: 1;
-	transform: translate3d(-5px,-4px,0);
+  transform: translate3d(-5px,-4px,0);
 }
 
 
@@ -152,7 +150,6 @@ li.effect-bar:hover a::before {
   margin: 0;
   padding: 0;
   border: none;
-  height: 100%;
-  min-height: 768px;
+  height: 609px;
   width: 100%;
 }

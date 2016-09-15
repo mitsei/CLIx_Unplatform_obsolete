@@ -1,9 +1,12 @@
 v0.4.5
-* bug fix
+* Styling update
+
+v0.4.5
+* Bug fix
 
 v0.4.4
-* updated qbank & OEA
-* added more tools
+* Updated qbank & OEA
+* Added more tools
 
 v0.4.3
 * Tools have been moved to be alongside subjects
