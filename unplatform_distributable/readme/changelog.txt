@@ -1,4 +1,7 @@
-v0.4.5
+v0.4.7
+* Minor text fixes
+
+v0.4.6
 * Styling update
 
 v0.4.5
@@ -15,7 +18,7 @@ v0.4.3
 
 v0.4.2
 * qbank & OEA have been further integrated
-* build scripts have been updated
+* Build scripts have been updated
 
 v0.4.1
 * New styling has been applied
@@ -26,18 +29,18 @@ v0.4.0
 * OEA has been integrated
 
 v0.3.0
-* navigation has been reworked
-* modules now have nested structure
-* session id now should time out
-* async worker now works again on all platforms & harvests from all API data types
-* launcher now points at https
-* misc bugfixes
+* Navigation has been reworked
+* Modules now have nested structure
+* Session id now should time out
+* Async worker now works again on all platforms & harvests from all API data types
+* Launcher now points at https
+* Misc bugfixes
 
 v0.2.0
 * /api/ now includes support for school configuration and user information
-* changed local webserver from waitress to tornado
-* added SSL support. dummy files are included and must be accepted by the user
-* async worker disabled until windows issues are resolved
+* Changed local webserver from waitress to tornado
+* Added SSL support. dummy files are included and must be accepted by the user
+* Async worker disabled until windows issues are resolved
 
 v0.1.4
 * Bug fixes for cross platform support
