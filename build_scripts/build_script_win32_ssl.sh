@@ -37,5 +37,6 @@ cp unplatform_distributable/launchers/unplatform_win32_ssl.bat unplatform_distri
 cp unplatform_distributable/qbank/qbank-lite-v0.0.80-32bit-ssl.exe unplatform_distributable/unplatform_win32
 
 cp unplatform_distributable/data_extraction_scripts/DataExtractionScript.bat unplatform_distributable/unplatform_win32
+cp unplatform_distributable/data_extraction_scripts/zipjs.bat unplatform_distributable/unplatform_win32
 
 cp -r -v unplatform_distributable/readme unplatform_distributable/unplatform_win32/readme
