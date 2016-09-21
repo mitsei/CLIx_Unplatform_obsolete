@@ -106,8 +106,8 @@ function callback(e) {
 	navReporter.submitData('/api/appdata/', data)
 }
 
-(
-	document.addEventListener('DOMContentLoaded',function() {
+(function() {
+	document.addEventListener('DOMContentLoaded', function () {
 		var iframelistener = document.getElementsByTagName('iframe')[0].contentWindow
 		if (document.addEventListener) {
 
@@ -126,7 +126,7 @@ function callback(e) {
 			})
 		}
 	})
-)();
+})();
 
 
 
