@@ -127,10 +127,9 @@ nav.controls {
 /* SECTIONS */
 
 main#wrapper {
-    margin: 30px 0 0;
+    margin: 0;
     padding: 0;
     background-color: #fff;
-
 }
 
 section#content {
@@ -556,8 +555,8 @@ article.slideRollHolder {
 }
 
 #toggleRecordBtn {
-    width: 80px;
-    height: 60px;
+    width: 60px;
+    height: 50px;
     background: hsla(213, 50%, 55%, 1);
     border-radius: 0 0 5px 5px;
     color: #fff;
@@ -576,7 +575,7 @@ article.slideRollHolder {
 
 #toggleRecordBtn i {
     margin: 0 0 3px 0;
-    font-size: 44px;
+    font-size: 34px;
 }
 
 
@@ -698,6 +697,8 @@ article.slideRollHolder {
 
 #dialogWrapper {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     min-height: 100%;
     margin: 0;
@@ -744,7 +745,7 @@ article.slideRollHolder {
 }
 
 .disabled, .disabled i {
-    color: #AAA;
+    /*color: #AAA;*/
     user-select: none;
 }
 
@@ -753,3 +754,7 @@ article.slideRollHolder {
 }
 
 
+audio {
+    width: 200px;
+    display: inline-block;
+}
