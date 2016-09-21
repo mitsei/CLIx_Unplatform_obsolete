@@ -106,25 +106,27 @@ function callback(e) {
 	navReporter.submitData('/api/appdata/', data)
 }
 
-(function(){
-	var iframelistener = document.getElementsByTagName('iframe')[0].contentWindow
-	if (document.addEventListener) {
+(
+	document.addEventListener('DOMContentLoaded',function() {
+		var iframelistener = document.getElementsByTagName('iframe')[0].contentWindow
+		if (document.addEventListener) {
 
-		document.addEventListener('click', callback, false);
-
-		iframelistener.document.addEventListener('DOMContentLoaded', function () {
 			document.addEventListener('click', callback, false);
-			iframelistener.document.addEventListener('click', callback, false);
-		})
-	} else {
-		document.attachEvent('onclick', callback);
-		iframelistener.document.addEventListener('DOMContentLoaded', function () {
-			document.attachEvent('onclick', callback);
-			document.getElementsByTagName('iframe')[0].contentWindow.document.attachEvent('onclick', callback);
 
-		})
-	}
-})();
+			iframelistener.document.addEventListener('DOMContentLoaded', function () {
+				document.addEventListener('click', callback, false);
+				iframelistener.document.addEventListener('click', callback, false);
+			})
+		} else {
+			document.attachEvent('onclick', callback);
+			iframelistener.document.addEventListener('DOMContentLoaded', function () {
+				document.attachEvent('onclick', callback);
+				document.getElementsByTagName('iframe')[0].contentWindow.document.attachEvent('onclick', callback);
+
+			})
+		}
+	})
+)();
 
 
 
