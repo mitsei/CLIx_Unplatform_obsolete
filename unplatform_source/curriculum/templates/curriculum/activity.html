@@ -43,10 +43,8 @@
 
 <script>
   var iframelistener = document.getElementsByTagName('iframe')[0]
-  if (document.addEventListener) {
-    iframelistener.contentWindow.document.addEventListener('click', callback, false);
-  } else {
-    iframelistener.contentWindow.document.attachEvent('onclick', callback);
-  }
+  iframelistener.contentWindow.document.addEventListener('click', callback, false);
+  var iframelistenertwo = iframelistener.contentWindow.document.getElementsByTagName('iframe')[0]
+  iframelistenertwo.contentWindow.document.addEventListener('click', callback, false);
 </script>
 </body>
