@@ -41,5 +41,12 @@
   </dialog>
 </div>
 
-
+<script>
+  var iframelistener = document.getElementsByTagName('iframe')[0]
+  if (document.addEventListener) {
+    iframelistener.contentWindow.document.addEventListener('click', callback, false);
+  } else {
+    iframelistener.contentWindow.document.attachEvent('onclick', callback);
+  }
+</script>
 </body>
