@@ -106,17 +106,25 @@ function callback(e) {
 	navReporter.submitData('/api/appdata/', data)
 }
 
-document.addEventListener('DOMContentLoaded', function (){if (document.addEventListener) {
+(function(){
+	var iframelistener = document.getElementsByTagName('iframe')[0].contentWindow
+	if (document.addEventListener) {
+
 		document.addEventListener('click', callback, false);
-		var iframelistener = document.getElementsByTagName('iframe')[0].contentWindow.document.addEventListener('click', callback, false);
-		//document.getElementsByTagName('iframe')[0].contentWindow.document.getElementsByTagName('iframe')[0].contentWindow.document.addEventListener('click', callback, false);
+
+		iframelistener.document.addEventListener('DOMContentLoaded', function () {
+			document.addEventListener('click', callback, false);
+			iframelistener.document.addEventListener('click', callback, false);
+		})
 	} else {
 		document.attachEvent('onclick', callback);
-		var iframelistener = document.getElementsByTagName('iframe')[0].contentWindow.document.attachEvent('onclick', callback);
-		//document.getElementsByTagName('iframe')[0].contentWindow.document.getElementsByTagName('iframe')[0].contentWindow.document.attachEvent('onclick', callback);
+		iframelistener.document.addEventListener('DOMContentLoaded', function () {
+			document.attachEvent('onclick', callback);
+			document.getElementsByTagName('iframe')[0].contentWindow.document.attachEvent('onclick', callback);
 
+		})
 	}
-});
+})();
 
 
 
