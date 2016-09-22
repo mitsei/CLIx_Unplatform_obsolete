@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 't6pvr_b(uxd5rwem_&lh)-oe=u6wsqxio_iyt%3el36_4xw*7%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -90,40 +90,40 @@ WSGI_APPLICATION = 'unplatform.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#         # for sqlite write lock timeout
-#         'OPTIONS': {
-#             'timeout': 30,
-#         }
-#     }
-# }
-
-# # PAAS settings -------------------------------------------------
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'unplatform',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # for sqlite write lock timeout
+        'OPTIONS': {
+            'timeout': 30,
+        }
     }
 }
 
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-dbconfig = dj_database_url.config()
-if dbconfig:
-    DATABASES['default'] =  dbconfig
-
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT=True
+# # PAAS settings -------------------------------------------------
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#         'NAME': 'unplatform',                      # Or path to database file if using sqlite3.
+#         # The following settings are not used with sqlite3:
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+#         'PORT': '',                      # Set to empty string for default.
+#     }
+# }
+#
+# # Parse database configuration from $DATABASE_URL
+# import dj_database_url
+# dbconfig = dj_database_url.config()
+# if dbconfig:
+#     DATABASES['default'] =  dbconfig
+#
+# # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT=True
 
 # # END --------------------------------------------
 
