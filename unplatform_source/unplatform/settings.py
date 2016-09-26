@@ -150,7 +150,7 @@ DATABASES = {
 
 # # Django backend setup for async tasks since redis doesn't support Windows ----------------
 BROKER_URL = 'django://'
-CELERY_REDIRECT_STDOUTS_LEVEL = 'DEBUG',
+CELERY_REDIRECT_STDOUTS_LEVEL = 'DEBUG'
 # # End ---------------------------------------------------
 
 
