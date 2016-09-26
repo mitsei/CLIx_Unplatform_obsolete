@@ -86,37 +86,43 @@ var navReporter = new Report()
 function callback(e) {
     var e = window.e || e;
 	var currentURL = (function(){ return window.location.href; })();
-	console.log(e.target.tagName)
+	//console.log(e.target)
 	if (e.target.tagName.toLowerCase() == 'html' || e.target.tagName.toLowerCase() == 'body' || e.target.tagName.toLowerCase() == 'main') {
 		return;
-	} else if (e.target.tagName.toLowerCase() == 'a') {
-		data = {
-			"app_name": "Unplatform",
-			"event_type": "link_click",
-			"params": {"from": window.location.href, "to": e.target.href}
-		}
+	//} else if (e.target.tagName.toLowerCase() == 'a') {
+	//	data = {
+	//		"app_name": "unplatform",
+	//		"event_type": "link_click",
+	//		"params": {"from": window.location.href, "to": e.target.href}
+	//	}
 	} else {
-		console.log(e)
 		data = {
-			"app_name": "Unplatform",
+			"app_name": "unplatform",
 			"event_type": "click",
-			"params": { "url": window.location.href, "target": e.target}
+			"params": { "url": window.location.href, "tag": e.target.tagName, 'ID': e.target.id, 'classes': e.target.classList.value, 'text': e.target.innerText}
 		}
+		//console.log(data)
+
 	}
 	navReporter.submitData('/api/appdata/', data)
 }
 
-(function(){if (document.addEventListener) {
+window.onload = function(){
+	var iframelistener = document.getElementsByTagName('iframe')[0]
+	if (document.addEventListener) {
 		document.addEventListener('click', callback, false);
+		if (iframelistener != null) { iframelistener.contentDocument.addEventListener('click', callback, false) };
 	} else {
-		document.attachEvent('onclick', callback);}
-})();
+		document.attachEvent('onclick', callback);
+		if (iframelistener != null) { iframelistener.contentDocument.addEventListener('click', callback, false) };
+	}
+};
 
 
 
 function focusData(appdata) {
 	var data = appdata;
-	data["app_name"] = "Unplatform";
+	data["app_name"] = "unplatform";
 	navReporter.submitData('/api/appdata/', data)
 }
 
@@ -138,7 +144,7 @@ var idleTime;
 var idleCount = 0;
 var idleThreshold = 60; // seconds you must be idle before reporting
 var idleData = {
-	"app_name": "Unplatform",
+	"app_name": "unplatform",
 	"event_type": "idle_time",
 }
 var idleTimer = function () {
