@@ -30,6 +30,5 @@ if __name__ == '__main__':
     options = {
         'traceback': True,
         'beat': True,
-        'autoscale': [1,1],
     }
     worker.run(**options)

@@ -153,13 +153,9 @@ BROKER_URL = 'django://'
 
 # # End ---------------------------------------------------
 
-
-CELERY_MAX_CACHED_RESULTS = 1
-CELERYD_MAX_TASKS_PER_CHILD = 20
-
-CELERY_REDIRECT_STDOUTS = True
-CELERYD_LOG_LEVEL = "DEBUG"
-
+if DEBUG:
+    CELERY_REDIRECT_STDOUTS = True
+    CELERY_REDIRECT_STDOUTS_LEVEL = 'DEBUG'
 
 # This part adds an asynchronous job on an interval
 # Execute it with celery -A unplatform worker -B --loglevel=info
