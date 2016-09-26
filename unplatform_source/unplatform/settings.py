@@ -150,6 +150,7 @@ DATABASES = {
 
 # # Django backend setup for async tasks since redis doesn't support Windows ----------------
 BROKER_URL = 'django://'
+CELERY_REDIRECT_STDOUTS_LEVEL = 'DEBUG',
 # # End ---------------------------------------------------
 
 
@@ -165,7 +166,7 @@ CELERY_ACCEPT_CONTENT = ['pickle']
 CELERYBEAT_SCHEDULE = {
     'post-every-30-seconds': {
         'task': 'research.tasks.send_data_to_cloud',
-        'schedule': timedelta(seconds=5),
+        'schedule': timedelta(seconds=15),
         'args': ()
     },
 }
