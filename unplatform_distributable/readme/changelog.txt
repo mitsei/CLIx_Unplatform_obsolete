@@ -1,3 +1,9 @@
+v0.4.9
+* Data reporting fixes
+
+v0.4.8
+* Styling fixes
+
 v0.4.7
 * Minor text fixes
 
