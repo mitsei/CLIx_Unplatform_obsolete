@@ -150,9 +150,15 @@ DATABASES = {
 
 # # Django backend setup for async tasks since redis doesn't support Windows ----------------
 BROKER_URL = 'django://'
-CELERY_REDIRECT_STDOUTS_LEVEL = 'DEBUG'
+
 # # End ---------------------------------------------------
 
+
+CELERY_MAX_CACHED_RESULTS = 1
+CELERYD_MAX_TASKS_PER_CHILD = 20
+
+CELERY_REDIRECT_STDOUTS = True
+CELERYD_LOG_LEVEL = "DEBUG"
 
 
 # This part adds an asynchronous job on an interval
