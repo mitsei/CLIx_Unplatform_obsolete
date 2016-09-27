@@ -2,8 +2,6 @@
 
 cd ..
 
-rm -r build
-rm *.spec
 find . -name "*.pyc" -type f -delete
 find . -name ".DS_Store" -type f -delete
 find . -name ".directory" -type f -delete

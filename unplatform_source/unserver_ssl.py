@@ -8,7 +8,7 @@ from tornado import httpserver, wsgi, ioloop
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "unplatform.settings")
 import django.views.defaults
-from unplatform.celery import app as celery_app
+from unplatform.celeryapp import app as celery_app
 from celery.bin import worker
 import celery.apps
 import celery.apps.worker
