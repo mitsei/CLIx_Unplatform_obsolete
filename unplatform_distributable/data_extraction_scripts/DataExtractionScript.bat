@@ -1,14 +1,16 @@
 
 @ECHO OFF
 
-REM Create unique temporary folder using the current date. 
+REM Create unique temporary folder using the current date.
 set TIMESTAMP=%DATE:~10,4%-%DATE:~4,2%-%DATE:~7,2%-%TIME:~0,2%-%TIME:~3,2%-%TIME:~6,2%
-set Dirname=QBank-%TIMESTAMP%
+set Parentdir=%~p0
+set Parentdir=%Parentdir:\=%
+set Dirname=%Parentdir%-QBank-%TIMESTAMP%
 set /a inx=2
 
 :LOOP
 IF NOT EXIST "%Dirname%" GOTO CREATE
-set Dirname=QBank-%TIMESTAMP% (%inx%)
+set Dirname=%Parentdir%-QBank-%TIMESTAMP% (%inx%)
 set /a inx+=1
 if %inx% gtr 9 goto :END REM Eh, giving up.
 goto LOOP
@@ -53,7 +55,7 @@ echo Coping data from repository folders
 echo ===========================================================================
 copy "webapps\CLIx\datastore\repository" "%Dirname%/repository"
 copy "webapps\CLIx\datastore\repository\Asset" "%Dirname%\repository\Asset"
-copy "webapps\CLIx\datastore\repository\AssetContent" "%Dirname%\repository\AssetContent"
+copy "webapps\CLIx\datastore\studentResponseFiles" "%Dirname%\repository\AssetContent"
 
 echo ===========================================================================
 echo Coping data from unplatform
