@@ -41,3 +41,7 @@ cp unplatform_distributable/data_extraction_scripts/zipjs.bat unplatform_distrib
 cp -r -v unplatform_distributable/readme unplatform_distributable/unplatform_win32/readme
 
 cp -r -f -v unplatform_distributable/unplatform_win32_worker/* unplatform_distributable/unplatform_win32/unplatform/
+
+VERSION=$(awk -F" = " '$1=="UNPLATFORM_VERSION"{print $2}' unplatform_source/unplatform/settings.py)
+cd unplatform_distributable
+zip -r "unplatform_v${VERSION//\'/}_win32.zip" unplatform_win32
