@@ -192,12 +192,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-if getattr(sys, 'frozen', False):
-    ABS_PATH = os.path.dirname(sys.executable)
-else:
-    ABS_PATH = os.path.abspath(__file__)
+
 STATIC_URL = '/modules/'
-STATIC_ROOT = '{0}/modules/'.format(ABS_PATH)
+STATIC_ROOT = 'unused'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'modules'),
