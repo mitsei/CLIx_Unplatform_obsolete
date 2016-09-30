@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 from unplatform.wsgi import application
-from tornado import httpserver, wsgi, ioloop
+from tornado import httpserver, wsgi, ioloop, web
 
 # The rest of these imports are so pyinstaller can find hidden imports
 # during the build process. This can be done in the spec file but live
@@ -29,8 +29,20 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CERTFILE = os.path.join(BASE_DIR, "unplatform/unplatform.cert.dummy.pem")
 KEYFILE = os.path.join(BASE_DIR, "unplatform/unplatform.key.dummy.pem")
 
-container = wsgi.WSGIContainer(application)
-http_server = httpserver.HTTPServer(container,
+# Let Tornado handle static files and media from epubs
+import sys
+if getattr(sys, 'frozen', False):
+    ABS_PATH = os.path.dirname(sys.executable)
+else:
+    ABS_PATH = BASE_DIR
+
+wsgi_container = wsgi.WSGIContainer(application)
+tornado_app = web.Application([
+    (r'/static/(.*)', web.StaticFileHandler, {'path': '{0}/common/'.format(ABS_PATH)}),
+    (r'/media/(.*)', web.StaticFileHandler, {'path': '{0}/modules/'.format(ABS_PATH)}),
+    (r'.*', web.FallbackHandler, dict(fallback=wsgi_container)),
+])
+http_server = httpserver.HTTPServer(tornado_app,
                                     ssl_options = {
             "certfile":  CERTFILE,
                 "keyfile": KEYFILE })

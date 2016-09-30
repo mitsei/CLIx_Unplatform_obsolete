@@ -1,5 +1,6 @@
 from django.shortcuts import loader
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core.servers.basehttp import FileWrapper
 from unplatform.settings import MODULES_FOLDER, BASE_DIR, UNPLATFORM_VERSION
 
 import os
@@ -94,7 +95,8 @@ def serve_module(request, path, insecure=False, **kwargs):
     if valid_path:
         return HttpResponse(files)
     else:
-        return static.serve(request, path, document_root=document_root, **kwargs)
+        # redirect to Tornado for static files / media inside of the epubs
+        return HttpResponseRedirect('/media/{0}'.format(path))
 
 def select_tool(request):
     tool_location = os.path.join(MODULES_FOLDER, "Tools")
