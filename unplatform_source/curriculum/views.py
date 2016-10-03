@@ -104,9 +104,3 @@ def select_tool(request):
     tools = sorted(tools)
     template = loader.get_template('curriculum/tools.html')
     return HttpResponse(template.render({'tools':tools, 'version':UNPLATFORM_VERSION}))
-
-
-
-def show_tool(request, tool):
-    template = loader.get_template('curriculum/tool.html')
-    return HttpResponse(template.render({'tool': tool, 'version':UNPLATFORM_VERSION}))

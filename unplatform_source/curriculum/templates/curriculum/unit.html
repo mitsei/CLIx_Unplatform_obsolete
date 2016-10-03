@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}unplatform/user-survey.css">
-    <script src="{{ STATIC_URL }}unplatform/jquery-3.1.0.min.js"></script>
-    <script src="{{ STATIC_URL }}unplatform/ui-features.js"></script>
-    <script src="{{ STATIC_URL }}unplatform/unplatform.js"></script>
-    <script type="text/javascript">
-      var clickThru = function(button_info) {
-        window.location.href=button_info;
-      }
-    </script>
+{% extends "base_nav.html" %}
 
-  </head>
-
-  <body>
-    <img src="{{ STATIC_URL }}unplatform/images/clix-i2c-flowers4.svg" alt="" class="bg-img">
+{% block sub_content %}
     <header id="header" class="">
         <nav>
             <ul class="breadcrumbs">
@@ -36,8 +20,5 @@
           {% endfor %}
           </article>
       </main>
-    </body>
-</html>
-
-
+{% endblock %}
 

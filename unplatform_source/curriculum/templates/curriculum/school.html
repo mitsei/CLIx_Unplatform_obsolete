@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
 
-	<script src="{{ STATIC_URL }}unplatform/unplatform.js"></script>
+	<script src="{% static "unplatform/unplatform.js" %}"></script>
 	<script type="text/javascript">
 	var current_terminal
 	var current_school	
