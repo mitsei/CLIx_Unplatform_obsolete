@@ -109,11 +109,11 @@ function callback(e) {
 
     // if this is a left-nav item in the content player (class includes c-book-item), then
     // re-attach click event callback to the nearest iframe...
-    if (e.target.classList.value.indexOf('c-book-item') >= 0) {
-      // super-brittle -- assumes content player container is two parent levels up
-      var activityIframe = e.target.parentElement.parentElement.getElementsByTagName('iframe')[0];
-      activityIframe.contentDocument.addEventListener('click', callback, false);
-    }
+//    if (e.target.classList.value.indexOf('c-book-item') >= 0) {
+//      // super-brittle -- assumes content player container is two parent levels up
+//      var activityIframe = e.target.parentElement.parentElement.getElementsByTagName('iframe')[0];
+//      activityIframe.contentDocument.addEventListener('click', callback, false);
+//    }
 
     //console.log(data)
 
@@ -129,8 +129,8 @@ window.onload = function(){
       iframelistener.contentDocument.addEventListener('click', callback, false);
       // this will only work for the first activity page loaded -- need to re-attach the
       // iframe for each click on the left-nav of the content player?
-      var subIframe = iframelistener.contentDocument.getElementsByTagName('iframe')[0];
-      subIframe.contentDocument.addEventListener('click', callback, false);
+//      var subIframe = iframelistener.contentDocument.getElementsByTagName('iframe')[0];
+//      subIframe.contentDocument.addEventListener('click', callback, false);
     }
   } else {
     document.attachEvent('onclick', callback);
@@ -138,8 +138,8 @@ window.onload = function(){
       iframelistener.contentDocument.attachEvent('onclick', callback);
       // this will only work for the first activity page loaded -- need to re-attach the
       // iframe for each click on the left-nav of the content player?
-      var subIframe = iframelistener.contentDocument.getElementsByTagName('iframe')[0];
-      subIframe.contentDocument.attachEvent('onclick', callback);
+//      var subIframe = iframelistener.contentDocument.getElementsByTagName('iframe')[0];
+//      subIframe.contentDocument.attachEvent('onclick', callback);
     }
   }
 };

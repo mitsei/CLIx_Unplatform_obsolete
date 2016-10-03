@@ -114,3 +114,9 @@ def select_tool(request):
     return HttpResponse(template.render({'tools':tools,
                                          'version':UNPLATFORM_VERSION,
                                          'MEDIA_URL': MEDIA_URL}))
+
+def show_tool(request, tool):
+    template = loader.get_template('curriculum/tool.html')
+    return HttpResponse(template.render({'tool': tool,
+                                         'version':UNPLATFORM_VERSION,
+                                         'MEDIA_URL': MEDIA_URL}))
