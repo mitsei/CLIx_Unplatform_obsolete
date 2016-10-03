@@ -1,7 +1,7 @@
 from django.shortcuts import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.servers.basehttp import FileWrapper
-from unplatform.settings import MODULES_FOLDER, BASE_DIR, UNPLATFORM_VERSION
+from unplatform.settings import MODULES_FOLDER, BASE_DIR, UNPLATFORM_VERSION, MEDIA_URL
 
 import os
 import posixpath
@@ -61,7 +61,15 @@ def show_activities(request, subject, grade, unit, lesson):
         template = loader.get_template('curriculum/activity.html')
     else:
         template = loader.get_template('curriculum/tools.html')
-    return HttpResponse(template.render({'subject':subject, 'grade':grade, 'unit':unit, 'lesson':lesson, 'activities':activities, 'epubs':epubs, 'contentName': contentName, 'version':UNPLATFORM_VERSION}))
+    return HttpResponse(template.render({'subject':subject,
+                                         'grade':grade,
+                                         'unit':unit,
+                                         'lesson':lesson,
+                                         'activities':activities,
+                                         'epubs':epubs,
+                                         'contentName': contentName,
+                                         'version':UNPLATFORM_VERSION,
+                                         'MEDIA_URL': MEDIA_URL}))
 
 
 def oea(request):
@@ -96,11 +104,13 @@ def serve_module(request, path, insecure=False, **kwargs):
         return HttpResponse(files)
     else:
         # redirect to Tornado for static files / media inside of the epubs
-        return HttpResponseRedirect('/media/{0}'.format(path))
+        return HttpResponseRedirect('{0}{1}'.format(MEDIA_URL, path))
 
 def select_tool(request):
     tool_location = os.path.join(MODULES_FOLDER, "Tools")
     tools = os.listdir(tool_location)
     tools = sorted(tools)
     template = loader.get_template('curriculum/tools.html')
-    return HttpResponse(template.render({'tools':tools, 'version':UNPLATFORM_VERSION}))
+    return HttpResponse(template.render({'tools':tools,
+                                         'version':UNPLATFORM_VERSION,
+                                         'MEDIA_URL': MEDIA_URL}))
