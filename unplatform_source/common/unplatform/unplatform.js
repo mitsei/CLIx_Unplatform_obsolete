@@ -108,7 +108,7 @@ function callback(e) {
 }
 
 window.onload = function(){
-	var iframelistener = document.getElementsByTagName('iframe')[0]
+	var iframelistener = document.getElementsByTagName('iframe')[0];
 	if (document.addEventListener) {
 		document.addEventListener('click', callback, false);
 		if (iframelistener != null) { iframelistener.contentDocument.addEventListener('click', callback, false) };
