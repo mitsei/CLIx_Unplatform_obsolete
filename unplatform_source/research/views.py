@@ -77,6 +77,7 @@ class AppDataViewSet(APIView):
         log_entry_url = '{0}/{1}/logentries'.format(settings.QBANK_LOGGING_ENDPOINT,
                                                     default_log['id'])
         requests.post(log_entry_url, json=payload, verify=False)
+        return Response()
 
 
 class UUIDViewSet(viewsets.ModelViewSet):
