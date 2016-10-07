@@ -63,7 +63,7 @@ class AppDataViewSet(APIView):
         default_log = self._get_log()
         url = '{0}/{1}/logentries'.format(settings.QBANK_LOGGING_ENDPOINT,
                                           default_log['id'])
-        req = requests.get(url)
+        req = requests.get(url, verify=False)
         log_entries = req.json()
         return Response(log_entries)
 
@@ -76,7 +76,7 @@ class AppDataViewSet(APIView):
         }
         log_entry_url = '{0}/{1}/logentries'.format(settings.QBANK_LOGGING_ENDPOINT,
                                                     default_log['id'])
-        requests.post(log_entry_url, json=payload)
+        requests.post(log_entry_url, json=payload, verify=False)
 
 
 class UUIDViewSet(viewsets.ModelViewSet):
