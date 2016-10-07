@@ -1,7 +1,8 @@
 from django.shortcuts import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.servers.basehttp import FileWrapper
-from unplatform.settings import MODULES_FOLDER, BASE_DIR, UNPLATFORM_VERSION, MEDIA_URL
+from unplatform.settings import MODULES_FOLDER, BASE_DIR, UNPLATFORM_VERSION, MEDIA_URL,\
+    STATIC_URL
 
 import os
 import posixpath
@@ -10,6 +11,7 @@ from django.http import Http404
 from django.utils.six.moves.urllib.parse import unquote
 from django.views import static
 import json
+import requests
 
 
 def start(request):
@@ -99,12 +101,14 @@ def serve_module(request, path, insecure=False, **kwargs):
         if path.endswith('/') or path == '':
             raise Http404("Directory indexes are not allowed here.")
         raise Http404("'%s' could not be found" % path)
-    document_root, path = os.path.split(absolute_path)
+    #document_root, path = os.path.split(absolute_path)
     if valid_path:
         return HttpResponse(files)
     else:
         # redirect to Tornado for static files / media inside of the epubs
-        return HttpResponseRedirect('{0}{1}'.format(MEDIA_URL, path))
+        # use STATIC_URL because previously /modules/ pointed to the
+        # common directory, which is now STATIC_URL
+        return HttpResponseRedirect('{0}{1}'.format(STATIC_URL, path))
 
 def select_tool(request):
     tool_location = os.path.join(MODULES_FOLDER, "Tools")
