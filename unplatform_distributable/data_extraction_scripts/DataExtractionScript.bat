@@ -29,9 +29,9 @@ md "%Dirname%\assessment\AssessmentTaken"
 md "%Dirname%\logging"
 md "%Dirname%\logging\Log"
 md "%Dirname%\logging\LogEntry"
-md "%Dirname%\Repository"
-md "%Dirname%\Repository\Asset"
-md "%Dirname%\Repository\AssetContent"
+md "%Dirname%\repository"
+md "%Dirname%\repository\Asset"
+md "%Dirname%\repository\AssetContent"
 :END
 
 REM Copy QBank data directories to temporary folder.
