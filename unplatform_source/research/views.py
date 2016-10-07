@@ -42,7 +42,7 @@ class AppDataViewSet(APIView):
     """
     def _get_log(self):
         url = settings.QBANK_LOGGING_ENDPOINT
-        req = requests.get(url)
+        req = requests.get(url, verify=False)
         logs = req.json()
         default_log = None
         for log in logs:
@@ -55,7 +55,7 @@ class AppDataViewSet(APIView):
                 'description': 'For logging info from unplatform and tools, which do not know about catalog IDs',
                 'genusTypeId': DEFAULT_LOG_GENUS_TYPE
             }
-            req = requests.post(url, json=payload)
+            req = requests.post(url, json=payload, verify=False)
             default_log = req.json()
         return default_log
 
