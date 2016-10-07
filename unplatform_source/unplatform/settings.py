@@ -241,4 +241,4 @@ LOGGING = {
 
 QBANK_LOGGING_ENDPOINT = 'https://localhost:8080/api/v1/logging/logs'
 
-UNPLATFORM_VERSION = '0.5.2'
+UNPLATFORM_VERSION = '0.5.3'
