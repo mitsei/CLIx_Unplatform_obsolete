@@ -23,6 +23,7 @@ import celery.app.control
 import celery.events
 import celery.worker.strategy
 import celery.backends.base
+import natsort
 
 # This doesn't always work right, depending on where you launch the executable from
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

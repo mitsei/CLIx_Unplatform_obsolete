@@ -26,21 +26,21 @@ def select_school(request):
 def select_subject(request):
     subject_location = os.path.join(MODULES_FOLDER)
     subjects = os.listdir(subject_location)
-    subjects = sorted(subjects)
+    subjects = natsorted(subjects)
     template = loader.get_template('curriculum/subject.html')
     return HttpResponse(template.render({'subjects':subjects, 'version':UNPLATFORM_VERSION}))
 
 def select_grade(request, subject):
     grade_location = os.path.join(MODULES_FOLDER, subject)
     grades = os.listdir(grade_location)
-    grades = sorted(grades)
+    grades = natsorted(grades)
     template = loader.get_template('curriculum/grade.html')
     return HttpResponse(template.render({'grades':grades, 'version':UNPLATFORM_VERSION}))
 
 def select_unit(request, subject, grade):
     unit_location = os.path.join(MODULES_FOLDER, subject, grade)
     units = os.listdir(unit_location)
-    units = sorted(units)
+    units = natsorted(units)
     template = loader.get_template('curriculum/unit.html')
     return HttpResponse(template.render({'units':units, 'subject':subject, 'grade':grade, 'version':UNPLATFORM_VERSION}))
 
@@ -55,9 +55,9 @@ def show_activities(request, subject, grade, unit, lesson):
     activity_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
     epub_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
     epubs = os.listdir(epub_location)
-    epubs = sorted(epubs)
+    epubs = natsorted(epubs)
     activities = os.listdir(activity_location)
-    activities = sorted(activities)
+    activities = natsorted(activities)
     contentName = request.GET.get('contentName') # not sure if this will be needed
     if contentName is not None:
         template = loader.get_template('curriculum/activity.html')
@@ -113,7 +113,7 @@ def serve_module(request, path, insecure=False, **kwargs):
 def select_tool(request):
     tool_location = os.path.join(MODULES_FOLDER, "Tools")
     tools = os.listdir(tool_location)
-    tools = sorted(tools)
+    tools = natsorted(tools)
     template = loader.get_template('curriculum/tools.html')
     return HttpResponse(template.render({'tools':tools,
                                          'version':UNPLATFORM_VERSION,
