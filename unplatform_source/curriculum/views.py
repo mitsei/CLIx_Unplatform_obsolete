@@ -12,7 +12,7 @@ from django.utils.six.moves.urllib.parse import unquote
 from django.views import static
 import json
 import requests
-
+from natsort import natsorted
 
 def start(request):
     template = loader.get_template('curriculum/start.html')
@@ -47,7 +47,7 @@ def select_unit(request, subject, grade):
 def select_lesson(request, subject, grade, unit):
     lesson_location = os.path.join(MODULES_FOLDER, subject, grade, unit)
     lessons = os.listdir(lesson_location)
-    lessons = sorted(lessons)
+    lessons = natsorted(lessons)
     template = loader.get_template('curriculum/lesson.html')
     return HttpResponse(template.render({'grade': grade, 'subject': subject, 'lessons':lessons, 'version':UNPLATFORM_VERSION}))
 
