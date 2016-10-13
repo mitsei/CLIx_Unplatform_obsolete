@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta http-equiv="Content-Type" content="HTML, CSS, JavaScript" charset=UTF-8>
-  <link rel="stylesheet" type="text/css" href="/modules/unplatform/activity.css">
-  <link rel="stylesheet" type="text/css" href="/modules/unplatform/header.css">
-  <link rel="stylesheet" type="text/css" href="/modules/unplatform/nav.css">
+{% extends "curriculum/base_nav.html" %}
+{% load static %}
 
-  <script src="/modules/unplatform/jquery-3.1.0.min.js"></script>
-  <script src="/modules/unplatform/ui-features.js"></script>
-  <script src="/modules/unplatform/unplatform.js"></script>
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static "unplatform/activity.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "unplatform/header.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "unplatform/nav.css" %}">
+{% endblock %}
+
+{% block header_scripts %}
   <script>
     var toggleFinished = function(state) {
     document.getElementsByClassName('container-popup')[0].style.display = state;
     document.getElementsByClassName('zoomModal')[0].style.display = state;
   }
   </script>
+{% endblock %}
 
-  </head>
+{% block header %}
 <header>
   <h1 class="logo">CLIx Connected Learning Initiative</h1>
   <p class="unplat-v">unplatform version {{ version }}</p>
@@ -26,8 +26,10 @@
     <button onclick="toggleFinished('block')">finish session</button>
   </nav>
 </header>
-<body>
-<iframe src="/modules/Tools/{{ tool }}/index.html" class="fill-win" frameBorder="0" allowfullscreen></iframe>
+{% endblock %}
+
+{% block main_content %}
+<iframe src="{{ MEDIA_URL }}Tools/{{ tool }}/index.html" class="fill-win" frameBorder="0" allowfullscreen></iframe>
 
 <div class="container-popup" style="display:none">
   <dialog class="zoomModal span_6_of_12">
@@ -38,6 +40,4 @@
     </form>
   </dialog>
 </div>
-
-
-</body>
+{% endblock %}

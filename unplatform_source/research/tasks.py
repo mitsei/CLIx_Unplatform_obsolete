@@ -37,6 +37,7 @@ def send_data_to_cloud():
                 fingerprints_to_be_sent[index].is_sent=True
                 fingerprints_to_be_sent[index].save()
                 print("fingerprint pk=" + str(fingerprints_to_be_sent[index].pk) + " succcessfully sent")
+        # this may break when we shift to using qbank requests behind /api/appdata/
         appdata_to_be_sent = AppData.objects.exclude(is_sent=True)
         serialized_appdata = json.loads(serializers.serialize('json', appdata_to_be_sent))
         for index, obj in enumerate(serialized_appdata):

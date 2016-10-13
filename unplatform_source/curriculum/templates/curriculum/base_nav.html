@@ -1,0 +1,22 @@
+{% extends "curriculum/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static "unplatform/user-survey.css" %}">
+{% endblock %}
+
+{% block header_scripts %}
+<script type="text/javascript">
+  var clickThru = function(button_info) {
+    window.location.href=button_info;
+  };
+</script>
+{% endblock %}
+
+{% block main_content %}
+    <img src="{% static "unplatform/images/clix-i2c-flowers4.svg" %}" alt="" class="bg-img">
+
+    {% block sub_content %}
+
+    {% endblock %}
+{% endblock %}

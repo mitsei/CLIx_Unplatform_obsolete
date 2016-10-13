@@ -1,14 +1,21 @@
+import requests
+
 from django.shortcuts import render, loader
 from django.http import HttpResponse
+from django.conf import settings
 
 from research.models import Fingerprint, AppData, UUID, Configuration, User
 from research.serializers import FingerprintSerializer, AppDataSerializer, UUIDSerializer, ConfigurationSerializer, UserSerializer
 from rest_framework import viewsets, status
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
 
 
 from research.utils import get_client_ip, get_host_ip, get_session_id
+
+DEFAULT_LOG_GENUS_TYPE = 'log-genus-type%3Adefault-clix%40ODL.MIT.EDU'
+
 
 class FingerprintViewSet(viewsets.ModelViewSet):
 
@@ -28,12 +35,50 @@ class FingerprintViewSet(viewsets.ModelViewSet):
                         client_ip_other=other_ip)
 
 
-class AppDataViewSet(viewsets.ModelViewSet):
+class AppDataViewSet(APIView):
     """
     API endpoint that allows appdata to be viewed or edited.
+    Uses QBank logging as the back-end
     """
-    queryset = AppData.objects.all().order_by('-creation_time')
-    serializer_class = AppDataSerializer
+    def _get_log(self):
+        url = settings.QBANK_LOGGING_ENDPOINT
+        req = requests.get(url, verify=False)
+        logs = req.json()
+        default_log = None
+        for log in logs:
+            if log['genusTypeId'] == DEFAULT_LOG_GENUS_TYPE:
+                default_log = log
+                break
+        if default_log is None:
+            payload = {
+                'name': 'Default CLIx log',
+                'description': 'For logging info from unplatform and tools, which do not know about catalog IDs',
+                'genusTypeId': DEFAULT_LOG_GENUS_TYPE
+            }
+            req = requests.post(url, json=payload, verify=False)
+            default_log = req.json()
+        return default_log
+
+    def get(self, request, format=None):
+        default_log = self._get_log()
+        url = '{0}/{1}/logentries'.format(settings.QBANK_LOGGING_ENDPOINT,
+                                          default_log['id'])
+        req = requests.get(url, verify=False)
+        log_entries = req.json()
+        return Response(log_entries)
+
+    def post(self, request, format=None):
+        # get or find a default log genus type
+        default_log = self._get_log()
+
+        payload = {
+            'data': request.data
+        }
+        log_entry_url = '{0}/{1}/logentries'.format(settings.QBANK_LOGGING_ENDPOINT,
+                                                    default_log['id'])
+        requests.post(log_entry_url, json=payload, verify=False,
+                      headers={'x-api-proxy': request.data['session_id']})
+        return Response()
 
 
 class UUIDViewSet(viewsets.ModelViewSet):

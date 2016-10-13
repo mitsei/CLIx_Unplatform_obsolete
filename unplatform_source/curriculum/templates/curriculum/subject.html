@@ -1,43 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" type="text/css" href="/modules/unplatform/user-survey.css">
-        <script src="/modules/unplatform/jquery-3.1.0.min.js"></script>
-        <script src="/modules/unplatform/ui-features.js"></script>
-        <script src="/modules/unplatform/unplatform.js"></script>
-        <script type="text/javascript">
-          var clickThru = function(button_info) {
-            window.location.href=button_info;
-          }
-        </script>
-    </head>
+{% extends "curriculum/base_nav.html" %}
 
-    <body>
-        <img src="/modules/unplatform/images/clix-i2c-flowers4.svg" alt="" class="bg-img">
-        <header id="header" class="">
-            <nav>
-                <ul class="breadcrumbs">
-                    <li><i class="fa fa-chevron-left pink-chev" aria-hidden="true"></i>&nbsp;&nbsp;<a href="/">Select User</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main class="span_10_of_12">
-            <h1 class="pg-title">Select your subject</h1>
-            <h2 class="pg-subtitle"></h2>
-            <article class="subj-select">
-            {% for x in subjects %}
-                {% if x == "Tools" %}
-                {% else %}
-                    <button type="button" class="choice-select" onclick="clickThru('/{{ x }}/')">{{ x }}</button>
-                {% endif %}
-          {% endfor %}
-                    <!--<button type="button" class="choice-select" onclick="clickThru('/English/')">English</button>-->
-                    <!--<button type="button" class="choice-select" onclick="clickThru('/Math/')">Math</button>-->
-                    <!--<button type="button" class="choice-select" onclick="clickThru('/Physics/')">Physics</button>-->
-                    <button type="button" class="choice-select" onclick="clickThru('/Tools/')">Tools</button>
-            </article>
-        </main>
-    </body>
-</html>
+{% block sub_content %}
+    <header id="header" class="">
+        <nav>
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-chevron-left pink-chev" aria-hidden="true"></i>&nbsp;&nbsp;<a href="/">Select User</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="span_10_of_12">
+        <h1 class="pg-title">Select your subject</h1>
+        <h2 class="pg-subtitle"></h2>
+        <article class="subj-select">
+        {% for x in subjects %}
+            {% if x == "Tools" %}
+            {% else %}
+                <button type="button" class="choice-select" onclick="clickThru('/{{ x }}/')">{{ x }}</button>
+            {% endif %}
+      {% endfor %}
+                <!--<button type="button" class="choice-select" onclick="clickThru('/English/')">English</button>-->
+                <!--<button type="button" class="choice-select" onclick="clickThru('/Math/')">Math</button>-->
+                <!--<button type="button" class="choice-select" onclick="clickThru('/Physics/')">Physics</button>-->
+                <button type="button" class="choice-select" onclick="clickThru('/Tools/')">Tools</button>
+        </article>
+    </main>
+{% endblock %}

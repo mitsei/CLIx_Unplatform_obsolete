@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 from unplatform.wsgi import application
-from tornado import httpserver, wsgi, ioloop
+from tornado import httpserver, wsgi, ioloop, web
 
 # The rest of these imports are so pyinstaller can find hidden imports
 # during the build process. This can be done in the spec file but live
@@ -23,14 +23,29 @@ import celery.app.control
 import celery.events
 import celery.worker.strategy
 import celery.backends.base
+import natsort
 
 # This doesn't always work right, depending on where you launch the executable from
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CERTFILE = os.path.join(BASE_DIR, "unplatform/unplatform.cert.dummy.pem")
 KEYFILE = os.path.join(BASE_DIR, "unplatform/unplatform.key.dummy.pem")
 
-container = wsgi.WSGIContainer(application)
-http_server = httpserver.HTTPServer(container,
+# Let Tornado handle static files and media from epubs
+import sys
+if getattr(sys, 'frozen', False):
+    ABS_PATH = os.path.dirname(sys.executable)
+else:
+    ABS_PATH = BASE_DIR
+
+wsgi_container = wsgi.WSGIContainer(application)
+# Note, these two static / media URLs must match the Django settings in unplatform/settings.py
+# for STATIC_URL and MEDIA_URL
+tornado_app = web.Application([
+    (r'/static/(.*)', web.StaticFileHandler, {'path': '{0}/common/'.format(ABS_PATH)}),
+    (r'/media/(.*)', web.StaticFileHandler, {'path': '{0}/modules/'.format(ABS_PATH)}),
+    (r'.*', web.FallbackHandler, dict(fallback=wsgi_container)),
+])
+http_server = httpserver.HTTPServer(tornado_app,
                                     ssl_options = {
             "certfile":  CERTFILE,
                 "keyfile": KEYFILE })

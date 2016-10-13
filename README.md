@@ -6,15 +6,15 @@ unplatform is written in python3.4 and powered by django, tornado, and pyinstall
 
 Features
 --------
-unplatform provides a way to deliver web-like HTML5 content to the browser in a way that requires no software installation, 
-no network infrastructure, and no particular OS. Additionally it provides an API so that education research data can be captured, 
+unplatform provides a way to deliver web-like HTML5 content to the browser in a way that requires no software installation,
+no network infrastructure, and no particular OS. Additionally it provides an API so that education research data can be captured,
 even when users are not reliably identifiable. unplatform also tries to detect when network infrastructure is available
 so that data can be automatically passed to researchers when possible.
 
 How to build
 -------------
-unplatform is pure python, and has no external dependancies. This allows it to be built into executable distributables 
-which require no environment configuration. After cloning, install all neccesary python packages via 
+unplatform is pure python, and has no external dependancies. This allows it to be built into executable distributables
+which require no environment configuration. After cloning, install all neccesary python packages via
 
 ```pip install -r unplatform_source/requirements.txt```
 
@@ -25,3 +25,9 @@ folder to the distributable folder. Additionally a launcher and ssl certificates
 Typical releases are structured like this:
 
 top level folder + launcher / unplatform executable + async worker executable + unplatform folders + certificates
+
+NOTE: the Windows build script assumes that you have the zip package and Git / Git Bash installed.
+You can find them here:
+
+zip: http://gnuwin32.sourceforge.net/packages/zip.htm
+git bash: https://git-scm.com/download/win

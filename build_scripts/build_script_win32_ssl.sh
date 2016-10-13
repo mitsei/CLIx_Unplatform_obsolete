@@ -32,9 +32,16 @@ cp unplatform_source/unplatform.key.dummy.pem unplatform_distributable/unplatfor
 
 cp unplatform_distributable/launchers/unplatform_win32_ssl.bat unplatform_distributable/unplatform_win32
 
-cp unplatform_distributable/qbank/qbank-lite-v0.0.80-32bit-ssl.exe unplatform_distributable/unplatform_win32
+FILE=$(find unplatform_distributable/qbank/ -name qbank-lite*.exe | sort -n | tail -1)
+cp $FILE unplatform_distributable/unplatform_win32/
 
 cp unplatform_distributable/data_extraction_scripts/DataExtractionScript.bat unplatform_distributable/unplatform_win32
 cp unplatform_distributable/data_extraction_scripts/zipjs.bat unplatform_distributable/unplatform_win32
 
 cp -r -v unplatform_distributable/readme unplatform_distributable/unplatform_win32/readme
+
+cp -r -f -v unplatform_distributable/unplatform_win32_worker/* unplatform_distributable/unplatform_win32/unplatform/
+
+VERSION=$(awk -F" = " '$1=="UNPLATFORM_VERSION"{print $2}' unplatform_source/unplatform/settings.py)
+cd unplatform_distributable
+zip -r "unplatform_v${VERSION//\'/}_win32.zip" unplatform_win32

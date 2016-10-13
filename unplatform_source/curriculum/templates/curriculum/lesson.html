@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="/modules/unplatform/user-survey.css">
-    <script src="/modules/unplatform/jquery-3.1.0.min.js"></script>
-    <script src="/modules/unplatform/ui-features.js"></script>
-    <script src="/modules/unplatform/unplatform.js"></script>
-    <script type="text/javascript">
-      var lesonClickThru = function(lesonBtn_info) {
-        window.location.href=lesonBtn_info + "/?contentName=" + lesonBtn_info;
-      }
-    </script>
-  </head>
+{% extends "curriculum/base_nav.html" %}
 
-  <body>
-    <img src="/modules/unplatform/images/clix-i2c-flowers4.svg" alt="" class="bg-img">
+{% block header_scripts %}
+<script type="text/javascript">
+  var lessonClickThru = function(lessonBtn_info) {
+    window.location.href=lessonBtn_info + "/?contentName=" + lessonBtn_info;
+  };
+</script>
+{% endblock %}
+
+{% block sub_content %}
     <header id="header" class="">
         <nav>
             <ul class="breadcrumbs">
@@ -32,12 +25,11 @@
         <h2 class="pg-subtitle"></h2>
           <article class="subj-select">
           {% for x in lessons %}
-              <button type="button" class="lesn-but" onclick="lesonClickThru('{{ x }}')">{{ x }}</button>
+              <button type="button" class="lesn-but" onclick="lessonClickThru('{{ x }}')">{{ x }}</button>
           {% endfor %}
           </article>
       </main>
-    </body>
-</html>
+{% endblock %}
 
 
 

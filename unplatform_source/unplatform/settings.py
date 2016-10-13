@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
+import random
+import string
+
+def rand_generator(size=24, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for x in range(size))
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 't6pvr_b(uxd5rwem_&lh)-oe=u6wsqxio_iyt%3el36_4xw*7%'
+SECRET_KEY = rand_generator()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -70,6 +76,8 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -192,8 +200,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/modules/'
-STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATIC_ROOT = 'unused'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'modules'),
@@ -230,4 +239,6 @@ LOGGING = {
     },
 }
 
-UNPLATFORM_VERSION = '0.4.9'
+QBANK_LOGGING_ENDPOINT = 'https://localhost:8080/api/v1/logging/logs'
+
+UNPLATFORM_VERSION = '0.5.4'
