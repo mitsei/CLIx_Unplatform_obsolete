@@ -1,6 +1,6 @@
 levelSelect = {
     create: function() {
-        
+            document.getElementsByTagName('body')[0].style="background-color:#E1E1F5;"
             game.stage.backgroundColor = 'rgb(225, 225, 245)';
             bkgnd = game.add.image(0, h - 564, 'levelselectscreen');
             // bkgnd.alpha = .5
@@ -14,7 +14,7 @@ levelSelect = {
             levelSixButton = new LevelButton(600, 500, 6)
             levelSevenButton = new LevelButton(700, 500, 7)
     
-            textBoxOne = new Description(120, 150, "You are a biomechanical engineer creating a robotic cat. Carefully adjust your cat’s speed to catch the target mouse. Pay attention -- the mouse always gets a head start.")
+            textBoxOne = new Description(120, 130, "You are a biomechanical engineer creating a robotic cat. Carefully adjust your cat’s speed to catch the target mouse. Pay attention -- the mouse always gets a head start.")
             textBoxTwo = new Description(120, textBoxOne.bottom + 15, "If there are two players, one player controls the cat. The other player places their bet predicting what they think happen.")
             textBoxThree = new Description(120, textBoxTwo.bottom + 15, 'If you are sharing a computer, take turns controling the cat and placing bets.\nGood hunting!')
             // textBoxFour = new Description(100, textBoxThree.bottom + 5, 'Good hunting!')
@@ -28,19 +28,29 @@ class Description extends Phaser.Sprite {
         game.add.existing(this);
         this.xScale = 2.0
         this.yScale = 0.7
+        
+        this.scale.setTo(this.xScale, 1)
 
         this.tint = '0x0b4f6c'
         this.alpha = 0.8
+        
+        this.textwidth = 228*this.xScale,
+        
         this.style = {
                 font: "20px PT Mono",
                 fill: "white",
                 wordWrap: true,
-                wordWrapWidth: 235*this.xScale,
+                wordWrapWidth: this.textwidth,
                 align: "center",
+                // fontWeight: 'bold',
             };
-        this.text = game.add.text(x + (10*this.xScale) , y + (10*this.yScale), text, this.style)
+        this.text = game.add.text(this.left + 31 , y + (10*this.yScale), text, this.style)
+        // this.text.anchor.set(.5)
+        // this.text.stroke = "#eee";
+        // this.text.strokeThickness = 0;
 
-        this.scale.setTo(this.xScale, this.text.height/(246))
+
+        this.scale.setTo(this.xScale, this.text.height/(230))
     }
 }
 
@@ -49,7 +59,7 @@ class LevelButton extends Phaser.Sprite {
         super(game, x, y, 'levelbutton');
         game.add.existing(this);
         this.style = {
-            'font': '15px Arial',
+            'font': '15px PT Mono',
             'fill': 'white'
         };
         this.text = game.add.text(this.x + 32, this.y+ 16, "Level " + levelnum, this.style)

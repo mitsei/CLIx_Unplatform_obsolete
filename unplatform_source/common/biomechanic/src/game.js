@@ -15,10 +15,6 @@ var leverBounds = new Array() //debug
 var graphElement = document.getElementById('graphs')
 
 
-
-
-
-
 game.prompt = new Array(7)
 
 game.prompt[1] = "Make the cat reach the finish at the same time to catch the mouse. Move the Cat Throttle to adjust your cat's speed. Then click"

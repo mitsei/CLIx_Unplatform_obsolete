@@ -32,9 +32,17 @@ loading = {
         game.load.image('speedometer', 'assets/speedometer.png')
         game.load.image('hourglass', 'assets/hourglass.png')
         game.load.image('pointer', 'assets/pointer.png')
+        game.load.image('ending', 'assets/ending.png')
+        
+        // game.time.advancedTiming = true
         
         
-        // http://phaser.io/docs/2.4.4/Phaser.ScaleManager.html#scaleMode  
+        // game.scale.onSizeChange(function() {
+        //     var graphWidth = document.getElementById('posgraph').style.width
+        //     document.getElementById('posgraph').style.width = "inline";
+            
+        // })
+        // // http://phaser.io/docs/2.4.4/Phaser.ScaleManager.html#scaleMode  
         // game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
         
     },
