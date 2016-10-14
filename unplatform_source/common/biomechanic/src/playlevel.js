@@ -154,13 +154,13 @@ playLevel = {
         } else if (game.level === 6 ) {
             posgraph.fullGraph()
             velgraph.fullGraph()
-            playertwo.lever.inputEnabled = false
+            // playertwo.lever.inputEnabled = false
             playertwo.lever.toggleEnabled()
 
             playertwo.lever.visible = false;
             playertwo.lever.slider.visible = false;
             playertwo.lever.text.visible = false;
-            playertwo.lever.label.visible = false
+            // playertwo.lever.label.visible = false
 
             graphControl = new GraphControl(50, 340)
             document.getElementById('posgraph-ctr').style.display = "none";
