@@ -881,7 +881,7 @@
                     if (prop['chart.outofbounds.clip']) {
                         co.restore();
                     }
-            co.setLineDash([3]) // asdf
+            co.setLineDash([3, 4]) // asdf
                     co.stroke();
 
 /**

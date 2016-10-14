@@ -84,6 +84,9 @@ playLevel = {
         posgraph = new Graph("Position (m)", playerone, playertwo, 'posgraph')
         velgraph = new Graph("Velocity (m/s)", playerone, playertwo, 'velgraph')
 
+        posgraph.redraw()
+        velgraph.redraw()
+
         if (game.level < 6) {
             legend = new Legend(960, 350)
         } else { legend = new Legend(530, 350)   }
@@ -157,19 +160,22 @@ playLevel = {
             // playertwo.lever.inputEnabled = false
             playertwo.lever.toggleEnabled()
 
-            playertwo.lever.visible = false;
-            playertwo.lever.slider.visible = false;
+            // playertwo.lever.visible = false;
+            // playertwo.lever.slider.visible = false;
             playertwo.lever.text.visible = false;
             // playertwo.lever.label.visible = false
 
-            graphControl = new GraphControl(50, 340)
+            // graphControl = new GraphControl(50, 340)
             document.getElementById('posgraph-ctr').style.display = "none";
 
-            pointerloc.x = graphControl.x
-            pointerloc.y = graphControl.y
-            pointerloc.y += 118
+            // pointerloc.x = graphControl.x
+            // pointerloc.y = graphControl.y
+            // pointerloc.y += 118
+            // pointer = new Pointer(pointerloc)
+            pointerloc.x = playertwo.lever.slider.x
+            pointerloc.y = playertwo.lever.slider.y
+            pointerloc.y += 168
             pointer = new Pointer(pointerloc)
-
 
         } else if (game.level === 7 ) {
             // playertwo.lever.inputEnabled = false
@@ -177,6 +183,9 @@ playLevel = {
             velgraph.fullGraph()
             document.getElementById('velgraph-ctr').style.display = "none";
             playertwo.lever.text.visible = false;
+            
+            legend.minimouse.visible = false;
+            legend.mouseline.visible = false
 
             pointerloc.x = playertwo.lever.slider.x
             pointerloc.y = playertwo.lever.slider.y
@@ -407,7 +416,7 @@ class Player extends Phaser.Sprite {
 
 
 
-        this.text = game.add.text(this.x - 96 + 18, this.y + 16, "Delay:\n   " + label + " s", {
+        this.text = game.add.text(this.x - 96 + 18, this.y + 18, "Delay:\n   " + label + " s", {
             font: "18px PT Mono",
             fill: "#000",
             align: "left"
@@ -469,6 +478,7 @@ class Player extends Phaser.Sprite {
     resetDelay() {
         clearInterval(this.timer)
         clearInterval(this.movement)
+        clearInterval(this.motion)
     }
 
     checkSolution() {
@@ -571,7 +581,7 @@ class Lever extends Phaser.Sprite {
         game.add.existing(this)
         game.world.bringToTop(this)
 
-        if (game.level != 4 && game.level != 5 && game.level != 6)
+        if (game.level != 4 && game.level != 5 )
         this.label = game.add.text(this.x + 3, this.y - 102, "Cat Throttle", {
             font: "12px PT Mono",
             fill: "white",
@@ -588,7 +598,7 @@ class Lever extends Phaser.Sprite {
             var previous_speed = player.speed
             player.speed = player.speeds[10 - Math.floor((e.y - _this.y)/9)] // improve this
             e.updateText(player);
-            if (game.level == 2 || game.level == 3 || game.level == 7) {
+            if (game.level == 2 || game.level == 3 || game.level == 6 || game.level == 7) {
                 posgraph.fullGraph()
                 velgraph.fullGraph()
             }
@@ -622,7 +632,7 @@ class Lever extends Phaser.Sprite {
         }
 
         this.textcolor = '#fff'
-        this.text = game.add.text(this.slider.x - 10, this.slider.y + 130, "Speed:\n " + player.speed + " m/s", {
+        this.text = game.add.text(this.slider.x - 10 + 4, this.slider.y + 130, "Speed:\n " + player.speed + " m/s", {
             font: "28px PT Mono",
             fill: this.textcolor,
             align: "left"
@@ -639,12 +649,12 @@ class Lever extends Phaser.Sprite {
     }
     updateText(player) {
         this.text.destroy();
-        this.text = game.add.text(this.slider.x - 10, this.slider.y + 130, "Speed:\n " + player.speed + " m/s", {
+        this.text = game.add.text(this.slider.x - 10 + 4, this.slider.y + 130, "Speed:\n " + player.speed + " m/s", {
             font: "28px PT Mono",
             fill: this.textcolor,
             align: "left"
 		});
-        if (game.level === 7) { this.text.visible = false; }
+        if (game.level === 6 || game.level === 7) { this.text.visible = false; }
     }
 };
 
@@ -737,6 +747,7 @@ class BetButton extends Phaser.Sprite {
         this.finished = false
 
     }
+    
     check(comp,player) {
         // console.log(player.x)
         // console.log(comp.x)
@@ -767,11 +778,11 @@ class BetButton extends Phaser.Sprite {
                 console.log(this.check(comp,player))
                 if (this.frame == this.check(comp,player)) {
                     this.style.fill = "green";
-                    label = "Yes! The cat was "
+                    label = "Yes, you bet right.\nThe cat was "
                     this.result = 'correct'
                 } else {
                     this.style.fill = "red";
-                    label = "No, the cat was "}
+                    label = "No, you bet wrong.\nThe cat was "}
                     this.result = 'incorrect'
                 if (game.ontime) {
                     label += 'on time.'
@@ -851,6 +862,20 @@ class Graph extends RGraph.Line {
             enableArrows()
         } else {};
 
+        var background = new RGraph.Drawing.Background({
+            id: id,
+            options: {
+                gutterLeft: 30,
+                // gutterRight: 35,
+                // gutterTop: 35,
+                gutterBottom: 30,
+                backgroundGridAutofitNumvlines: 6,
+                backgroundGridAutofitNumhlines: 12,
+                // backgroundGridColor: '#eee',
+                backgroundGridDotted: true,
+                backgroundColor: '#88c',
+            }
+        }).draw();
 
         var line = super({
             id: id,
@@ -865,8 +890,8 @@ class Graph extends RGraph.Line {
                 outofbounds: false,
                 ylabelsCount: 6,
                 // xlabelsCount: 6,
-                backgroundColor: '#88c',
-                labels: ['0', '10', '20', '30'],
+                // backgroundColor: '#88c',
+                labels: ['0', '5', '10','15','20' ,'25', '30'],
                 numxticks: 30,
                 numyticks: 6,
                 ymax: 60,
@@ -888,9 +913,10 @@ class Graph extends RGraph.Line {
         this.id = id
         this.data = data
         this.graphdata = graphdata
+        this.background = background
 
         this.line.draw();
-
+        
 
         function positionData(player) {
             var posdata = []
@@ -967,10 +993,12 @@ class Graph extends RGraph.Line {
     }
 
     liveGraph() {
+        
         this.updateLine(); // once for t=0
         this.updateLine(); // once because setinterval doesn't fire until the delay
         this.plotter = setInterval(this.updateLine.bind(this), 1000)
         }
+        
 
     updateLine() {
             if (this.counter <= 30) {
@@ -984,6 +1012,7 @@ class Graph extends RGraph.Line {
 
     redraw() {
             RGraph.clear(this.line.canvas)
+            this.background.draw()
             this.line.draw()
         }
 
@@ -996,7 +1025,7 @@ class Graph extends RGraph.Line {
 
 class GraphControl extends Phaser.Sprite {
     constructor(x,y){
-        super(game, x, y, 'arrows');
+        super(game, x + 14, y - 6, 'arrows');
         game.add.existing(this);
 
         this.inputEnabled = true;
@@ -1092,13 +1121,10 @@ class ProgressIndicator extends Phaser.Sprite {
             } else {
                 this.frame = 3
                 game.progress = 0
-                // if (game.level >= 7) {
-
-                // } else {
-                    game.level++
-                // }
-
+                
+                game.level++
             }
+            
             promptBox.updatePrompt()
             this.finished = true;
         }
@@ -1158,14 +1184,20 @@ class Prompt extends TextBox{
 
     }
     doBtnStartHandler() {  //when the game starts
+        levelIndicator.button.text.text.inputEnabled = false;
         if (game.level == 3 || game.level == 4) {
             document.getElementById('graphs').style.display = "inline";
             legend.toggleHide()
             posgraph.liveGraph()
             velgraph.liveGraph()
         }
+        if (game.level == 4) {
+            playertwo.delayController.plus.inputEnabled = false
+            playertwo.delayController.minus.inputEnabled = false
+        }
 		playerone.fakeMove();
         playertwo.fakeMove();
+        if (game.level == 3) { playertwo.lever.inputEnabled = false  }
         betButton.inputEnabled = false;
         betButton.toggleEnabled()
         console.log(this.wiggler)
@@ -1213,9 +1245,14 @@ class Prompt extends TextBox{
 
 
     nextGame() {
-
+        document.getElementById('graphs').style.display = "none";
+        if (game.level == 5 && game.progress > 2) {
+            document.getElementById('velgraph-ctr').style="position:absolute; left:-430px;"
+        } else if (game.level == 6 && game.progress > 2) {
+            document.getElementById('velgraph-ctr').style="position:absolute; left:0px;"
+        }
         if (game.level >= 8) {
-            document.getElementById('graphs').style.display = "none";
+            
             game.state.start("Ending");
         } else {
             posgraph.resetGraph()
@@ -1246,6 +1283,7 @@ class Prompt extends TextBox{
         betButton.finished = false;
         betButton.betButton.inputEnabled = true;
         betButton.betButton.finished = false;
+        betButton.betButton.frame = 0;
         this.alsofinished = false
         if (betButton.betButton.label != null) {
             betButton.betButton.label.destroy()
@@ -1258,6 +1296,10 @@ class Prompt extends TextBox{
 
         promptBox.text.text.destroy()
 
+        if (game.level == 4 ) {
+            playertwo.delayController.plus.inputEnabled = true
+            playertwo.delayController.minus.inputEnabled = true
+        }
 
         if (game.level < 4) { playertwo.lever.inputEnabled = true }
 
@@ -1311,10 +1353,10 @@ class Prompt extends TextBox{
         if (!this.alsofinished) {
             this.text.text.destroy()
             // this.go_button.visibile = false
-
+            levelIndicator.button.text.text.inputEnabled = true;
             if (game.ontime) {
                 this.feedback = 'You caught the mouse!'
-                this.next_button = new LabelButton(game, this.x+100, this.y + 30, 'buttons', "Next Level", this.nextGame, this, 2, 1, 0);
+                this.next_button = new LabelButton(game, this.x+100, this.y + 30, 'buttons', "Next", this.nextGame, this, 2, 1, 0);
                 this.next_button.scale.set(.7)
                 this.result = 'correct'
             } else {
@@ -1414,6 +1456,8 @@ class DelayController extends TextBox {
                 'fill': 'white',
                 'wordWrap': false,
             })
+            posgraph.fullGraph()
+            velgraph.fullGraph()
         })
 
         // this.sprite = game.add.sprite(playertwo.x - 105, playertwo.y + 16,'minicat')

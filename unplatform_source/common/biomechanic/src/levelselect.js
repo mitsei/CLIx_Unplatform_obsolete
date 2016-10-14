@@ -62,7 +62,7 @@ class LevelButton extends Phaser.Sprite {
             'font': '15px PT Mono',
             'fill': 'white'
         };
-        this.text = game.add.text(this.x + 32, this.y+ 16, "Level " + levelnum, this.style)
+        this.text = game.add.text(this.x + 32, this.y+ 18, "Level " + levelnum, this.style)
         this.text.anchor.setTo(0.5, 0.5)
         
         this.levelnum = levelnum

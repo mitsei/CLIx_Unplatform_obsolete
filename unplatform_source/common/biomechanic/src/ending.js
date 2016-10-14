@@ -1,7 +1,7 @@
  
 ending = {
     create: function() {
-        
+        document.getElementById('graphs').style.display = "none"
         game.add.image(0, 0, 'ending');
        
         this.header = game.add.text(w/2, h*5/7, 'Biomechanic!',{

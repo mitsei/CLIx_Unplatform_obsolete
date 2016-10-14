@@ -21,7 +21,7 @@ game.prompt[1] = "Make the cat reach the finish at the same time to catch the mo
 game.prompt[2] = "Look closely at the graphs to help you. Make the cat reach the finish at the same time to catch the mouse. Move the Cat Throttle to adjust your cat's speed. Then click"
 game.prompt[3] = "Make the cat reach the finish at the same time to catch the mouse. Move the Cat Throttle to adjust your cat's speed. Then click"
 game.prompt[4] = "Your cat’s speed is now fixed, but you can adjust your Cat Delay controller. Then click"
-game.prompt[5] = "Make the cat reach the finish at the same time to catch the mouse. Adjust your cat's speed using the graph using the slider. Then click"
+game.prompt[5] = "Make the cat reach the finish at the same time to catch the mouse. Adjust your cat's speed using the arrows. Then click"
 game.prompt[6] = "Look closely at the velocity graph for clues to help your cat catch the mouse. Move the Cat Throttle to adjust your cat's speed. Then click"
 game.prompt[7] = "Make the cat reach the target speed. Adjust the cat's line on the position graph. Then click"
 
