@@ -101,14 +101,12 @@ def serve_module(request, path, insecure=False, **kwargs):
         if path.endswith('/') or path == '':
             raise Http404("Directory indexes are not allowed here.")
         raise Http404("'%s' could not be found" % path)
-    #document_root, path = os.path.split(absolute_path)
+    document_root, path = os.path.split(absolute_path)
     if valid_path:
         return HttpResponse(files)
     else:
-        # redirect to Tornado for static files / media inside of the epubs
-        # use STATIC_URL because previously /modules/ pointed to the
-        # common directory, which is now STATIC_URL
-        return HttpResponseRedirect('{0}{1}'.format(STATIC_URL, path))
+        # revert to Django serving, so not break OST
+        return static.serve(request, path, document_root=document_root, **kwargs)
 
 def select_tool(request):
     tool_location = os.path.join(MODULES_FOLDER, "Tools")

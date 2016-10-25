@@ -41,7 +41,6 @@ wsgi_container = wsgi.WSGIContainer(application)
 # Note, these two static / media URLs must match the Django settings in unplatform/settings.py
 # for STATIC_URL and MEDIA_URL
 tornado_app = web.Application([
-    (r'/static/(.*)', web.StaticFileHandler, {'path': '{0}/common/'.format(ABS_PATH)}),
     (r'/media/(.*)', web.StaticFileHandler, {'path': '{0}/modules/'.format(ABS_PATH)}),
     (r'.*', web.FallbackHandler, dict(fallback=wsgi_container)),
 ])
