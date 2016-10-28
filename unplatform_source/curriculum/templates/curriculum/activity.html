@@ -1,5 +1,6 @@
 {% extends "curriculum/base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block css %}
   <link rel="stylesheet" type="text/css" href="{% static "unplatform/activity.css" %}">
@@ -21,24 +22,27 @@
   <h1 class="logo">CLIx Connected Learning Initiative</h1>
   <p class="unplat-v">unplatform version {{ version }}</p>
   <nav>
-    <button onclick="window.location.href='/Tools/'">choose tool</button>
-    <button onclick="window.location.href='/{{ subject }}/{{ grade }}/{{ unit }}/'">choose new lesson</button>
-    <button onclick="toggleFinished('block')">finish lesson</button>
+    {% language locale %}
+    <button onclick="window.location.href='/Tools/'">{% trans "choose tool" %}</button>
+    <button onclick="window.location.href='/{{ subject }}/{{ grade }}/{{ unit }}/'">{% trans "choose new lesson" %}</button>
+    <button onclick="toggleFinished('block')">{% trans "finish lesson" %}</button>
+    {% endlanguage %}
   </nav>
 </header>
 {% endblock %}
 
 {% block main_content %}
 <iframe src="{% static "unplatform/content_player/index.html?epubUrl=" %}{{ MEDIA_URL }}{{ subject }}/{{ grade }}/{{ unit }}/{{ contentName }}" class="fill-win" frameBorder="0"></iframe>
-
+{% language locale %}
 <div class="container-popup" style="display:none">
   <dialog class="zoomModal span_6_of_12">
-    <h2 class="zoom-label">Do you want to end this session?</h2>
+    <h2 class="zoom-label">{% trans "Do you want to end this session?" %}"</h2>
    <form method="dialog">
-      <button value="close" onclick="finished('yes')">Yes</button>
-      <button value="close" onclick="toggleFinished('none'); finished('no');">No</button>
+      <button value="close" onclick="finished('yes')">{% trans "Yes" %}</button>
+      <button value="close" onclick="toggleFinished('none'); finished('no');">{% trans "No" %}</button>
     </form>
   </dialog>
 </div>
+{% endlanguage %}
 
 {% endblock %}
