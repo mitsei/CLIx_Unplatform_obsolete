@@ -13,7 +13,6 @@ pip install -r unplatform_source/requirements.txt
 rm -r unplatform_distributable/unplatform_win32
 
 pyinstaller unplatform_source/unserver_ssl.py --clean --distpath unplatform_distributable -n unplatform_win32 -y
-pyinstaller unplatform_source/unworker.py --clean --distpath unplatform_distributable -n unplatform_win32_worker -y
 
 rm -r build
 rm *.spec
@@ -39,8 +38,6 @@ cp unplatform_distributable/data_extraction_scripts/DataExtractionScript.bat unp
 cp unplatform_distributable/data_extraction_scripts/zipjs.bat unplatform_distributable/unplatform_win32
 
 cp -r -v unplatform_distributable/readme unplatform_distributable/unplatform_win32/readme
-
-cp -r -f -v unplatform_distributable/unplatform_win32_worker/* unplatform_distributable/unplatform_win32/unplatform/
 
 VERSION=$(awk -F" = " '$1=="UNPLATFORM_VERSION"{print $2}' unplatform_source/unplatform/settings.py)
 cd unplatform_distributable
