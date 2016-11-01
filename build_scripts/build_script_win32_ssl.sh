@@ -17,7 +17,6 @@ pyinstaller unplatform_source/unserver_ssl.py --clean --distpath unplatform_dist
 rm -r build
 rm *.spec
 
-
 mv unplatform_distributable/unplatform_win32/* unplatform_distributable/unplatform_win32/unplatform/
 
 cp -r -v unplatform_source/common unplatform_distributable/unplatform_win32/unplatform/
@@ -25,6 +24,7 @@ cp -r -v unplatform_source/curriculum unplatform_distributable/unplatform_win32/
 cp -r -v unplatform_source/modules unplatform_distributable/unplatform_win32/unplatform/
 cp -r -v unplatform_source/research unplatform_distributable/unplatform_win32/unplatform/
 cp -r -v unplatform_source/unplatform unplatform_distributable/unplatform_win32/unplatform/
+cp -r -v unplatform_source/locale unplatform_distributable/unplatform_win32/unplatform/
 
 cp unplatform_source/unplatform.cert.dummy.pem unplatform_distributable/unplatform_win32/unplatform/
 cp unplatform_source/unplatform.key.dummy.pem unplatform_distributable/unplatform_win32/unplatform/
