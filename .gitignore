@@ -93,7 +93,8 @@ coverage.xml
 .hypothesis/
 
 # Translations
-*.mo
+# put in .mo files so that django compiled translations are available
+#*.mo
 *.pot
 
 # Django stuff:

@@ -14,13 +14,23 @@ import json
 import requests
 from natsort import natsorted
 
+
+# try to get the current, configured locale from the school settings
+def get_locale():
+    from research.models import Configuration
+    try:
+        current_school = Configuration.objects.all().order_by('-creation_time')[0]
+        return current_school.locale
+    except IndexError:
+        return 'en'
+
 def start(request):
     template = loader.get_template('curriculum/start.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({'locale': get_locale()}))
 
 def select_school(request):
     template = loader.get_template('curriculum/school.html')
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({'locale': get_locale()}))
 
 
 def select_subject(request):
@@ -28,28 +38,40 @@ def select_subject(request):
     subjects = os.listdir(subject_location)
     subjects = natsorted(subjects)
     template = loader.get_template('curriculum/subject.html')
-    return HttpResponse(template.render({'subjects':subjects, 'version':UNPLATFORM_VERSION}))
+    return HttpResponse(template.render({'subjects':subjects,
+                                         'version':UNPLATFORM_VERSION,
+                                         'locale': get_locale()}))
 
 def select_grade(request, subject):
     grade_location = os.path.join(MODULES_FOLDER, subject)
     grades = os.listdir(grade_location)
     grades = natsorted(grades)
     template = loader.get_template('curriculum/grade.html')
-    return HttpResponse(template.render({'grades':grades, 'version':UNPLATFORM_VERSION}))
+    return HttpResponse(template.render({'grades':grades,
+                                         'version':UNPLATFORM_VERSION,
+                                         'locale': get_locale()}))
 
 def select_unit(request, subject, grade):
     unit_location = os.path.join(MODULES_FOLDER, subject, grade)
     units = os.listdir(unit_location)
     units = natsorted(units)
     template = loader.get_template('curriculum/unit.html')
-    return HttpResponse(template.render({'units':units, 'subject':subject, 'grade':grade, 'version':UNPLATFORM_VERSION}))
+    return HttpResponse(template.render({'units':units,
+                                         'subject':subject,
+                                         'grade':grade,
+                                         'version':UNPLATFORM_VERSION,
+                                         'locale': get_locale()}))
 
 def select_lesson(request, subject, grade, unit):
     lesson_location = os.path.join(MODULES_FOLDER, subject, grade, unit)
     lessons = os.listdir(lesson_location)
     lessons = natsorted(lessons)
     template = loader.get_template('curriculum/lesson.html')
-    return HttpResponse(template.render({'grade': grade, 'subject': subject, 'lessons':lessons, 'version':UNPLATFORM_VERSION}))
+    return HttpResponse(template.render({'grade': grade,
+                                         'subject': subject,
+                                         'lessons':lessons,
+                                         'version':UNPLATFORM_VERSION,
+                                         'locale': get_locale()}))
 
 def show_activities(request, subject, grade, unit, lesson):
     activity_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
@@ -71,7 +93,8 @@ def show_activities(request, subject, grade, unit, lesson):
                                          'epubs':epubs,
                                          'contentName': contentName,
                                          'version':UNPLATFORM_VERSION,
-                                         'MEDIA_URL': MEDIA_URL}))
+                                         'MEDIA_URL': MEDIA_URL,
+                                         'locale': get_locale()}))
 
 
 def oea(request):
@@ -115,10 +138,12 @@ def select_tool(request):
     template = loader.get_template('curriculum/tools.html')
     return HttpResponse(template.render({'tools':tools,
                                          'version':UNPLATFORM_VERSION,
-                                         'MEDIA_URL': MEDIA_URL}))
+                                         'MEDIA_URL': MEDIA_URL,
+                                         'locale': get_locale()}))
 
 def show_tool(request, tool):
     template = loader.get_template('curriculum/tool.html')
     return HttpResponse(template.render({'tool': tool,
                                          'version':UNPLATFORM_VERSION,
-                                         'MEDIA_URL': MEDIA_URL}))
+                                         'MEDIA_URL': MEDIA_URL,
+                                         'locale': get_locale()}))

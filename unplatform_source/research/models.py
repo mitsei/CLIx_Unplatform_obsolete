@@ -8,6 +8,7 @@ class Configuration(models.Model):
     district = models.CharField(max_length=32, null=True)
     school_id = models.CharField(max_length=36, primary_key=True)
     terminal_id = models.CharField(max_length=6, null=True)
+    locale = models.CharField(max_length=2, default='en')
     is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to remote db (e.g. cloud repo)
     creation_time = models.DateTimeField(default=timezone.now)
 
@@ -52,6 +53,3 @@ class AppData(models.Model):
     params = models.TextField()
     is_sent = models.NullBooleanField(null=True) # for tracking if it was passed to a remote db (e.g. cloud repo)
     creation_time = models.DateTimeField(default=timezone.now)
-
-
-

@@ -1,4 +1,5 @@
 {% extends "curriculum/base_nav.html" %}
+{% load i18n %}
 
 {% block header_scripts %}
 <script type="text/javascript">
@@ -63,21 +64,22 @@
 
     </script>
 {% endblock %}
+  {% block sub_content %}
 
-{% block sub_content %}
+    {% language locale %}
     <main class="span_10_of_12">
-      <h1 class="pg-title">CLIx Module</h1>
-      <h2 class="pg-subtitle">Before you begin, please tell us about yourself</h2>
+      <h1 class="pg-title">{% trans "CLIx Module" %}</h1>
+      <h2 class="pg-subtitle">{% trans "Before you begin, please tell us about yourself" %}</h2>
 
 
         <article class="but-select">
-          <button type="button" class="user-select" onclick="teacher()">Teacher</button>
-          <button type="button" class="user-select" onclick="student()">Student</button>
-          <button type="button" class="user-select" onclick="visitor()">Visitor/Other</button>
-          <button type="button" class="user-select" onclick="demo()">Class Demonstration</button>
+          <button type="button" class="user-select" onclick="teacher()">{% trans "Teacher" %}</button>
+          <button type="button" class="user-select" onclick="student()">{% trans "Student" %}</button>
+          <button type="button" class="user-select" onclick="visitor()">{% trans "Visitor/Other" %}</button>
+          <button type="button" class="user-select" onclick="demo()">{% trans "Class Demonstration" %}</button>
         </article>
 
-        <h3 class="count users-count" style="display: none">How many users are at this computer?</h3>
+        <h3 class="count users-count" style="display: none">{% trans "How many users are at this computer?" %}"</h3>
         <article class="count-select">
           <button type="button" class="count count-num" style="display: none" onclick="count('1')">1</button>
           <button type="button" class="count count-num" style="display: none" onclick="count('2')"> 2 </button>
@@ -85,7 +87,8 @@
           <button type="button" class="count count-num" style="display: none" onclick="count('3+')"> 3+ </button>
         </article>
 
-        <button class="hi-but" type="button" id="next" style="display: none" onclick="next(user_info)">Select Subject&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="hi-but" type="button" id="next" style="display: none" onclick="next(user_info)">{% trans "Select Subject" %}&nbsp;&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></button>
     </main>
-{% endblock %}
 
+    {% endlanguage %}
+{% endblock %}
