@@ -7,30 +7,36 @@
 	<script src="{% static "unplatform/unplatform.js" %}"></script>
 	<script type="text/javascript">
 	var current_terminal
-	var current_school	
+	var current_school
 	var current_state
-	var current_district	
+	var current_district
 	var populate = function(){
 		var xhr = new XMLHttpRequest();
-		xhr.open('GET', '/api/configuration/?format=json', false);		
+		xhr.open('GET', '/api/configuration/?format=json', false);
 		xhr.send()
 		var response = JSON.parse(xhr.response)
-		if (response.length == 0) { 
+		if (response.length == 0) {
 			current_school = 'NOTSET'
 			current_terminal = 'NOTSET'
 			current_state = 'NOTSET'
 			current_district = 'NOTSET'
+			current_locale = 'NOTSET'
 		} else {
 			current_state = response[0]['state']
 			current_district = response[0]['district']
 			current_school = response[0]['school_id']
 			current_terminal = response[0]['terminal_id']
+			current_locale = response[0]['locale']
 		}
 
 		var current_location = document.getElementById('current_location')
 		current_location.textContent = current_state + " / " + current_district
 		var current_setting = document.getElementById('current_setting')
 		current_setting.textContent =  current_school + " / " + current_terminal
+		var locale_object = document.getElementById('current_locale')
+		locale_object.textContent = current_locale
+		var locale_selector = document.getElementById('locale')
+		locale_selector.value = current_locale
 
 		var school = document.getElementById('school')
 		school.value = current_school
@@ -38,10 +44,10 @@
 		terminal.value = current_terminal
 
 	    var state_districts = {
-	    	"Chhattisgarh":["Dhamteri","Bilaspur"], 
+	    	"Chhattisgarh":["Dhamteri","Bilaspur"],
 	    	"Mizoram":["Aizawl"],
 	    	"Rajasthan":["Baran", "Jaipur", "Jhalawar", "Sirohi"],
-	    	"Telangana":["Karimnagar","Warangal","RangaReddy"] 
+	    	"Telangana":["Karimnagar","Warangal","RangaReddy"]
 	    };
 
 	    var state = document.getElementById('state');
@@ -99,8 +105,6 @@
 	    <option value="" disabled="disabled" selected="selected">Please select a district</option>
 	</select>
 
-
-
 	<form action="/api/configuration/" method="POST" onsubmit="setTimeout(function () { location.reload();}, 50)">
 	    <label for="school">School ID: </label>
 	    <br>
@@ -111,11 +115,21 @@
 	    <input id="terminal" type="text" name="terminal_id">
 	    <input id="state_input" type="text" name="state" style='display:none'>
 	    <input id="district_input" type="text" name="district" style='display:none'>
+			<br>
+			<label for="locale">UI Language</label>
+			<br>
+			<select id="locale" name="locale">
+				<option value="en">English</option>
+				<option value="hi">Hindi</option>
+				<option value="te">Telugu</option>
+			</select>
+			<br>
 	    <input type="submit" value="OK">
 	</form>
 	<br>
 	<strong>Current State / District: </strong><span id=current_location></span>
 	<br>
-	<strong>Current School / Terminal: </strong><span id=current_setting></span>	
+	<strong>Current School / Terminal: </strong><span id=current_setting></span>
+	<strong>Current Locale: </strong><span id=current_locale></span>
     </body>
 </html>
