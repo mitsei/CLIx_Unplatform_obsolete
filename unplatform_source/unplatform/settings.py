@@ -60,6 +60,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware'
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -196,6 +197,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR,'locale'),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -241,4 +245,4 @@ LOGGING = {
 
 QBANK_LOGGING_ENDPOINT = 'https://localhost:8080/api/v1/logging/logs'
 
-UNPLATFORM_VERSION = '0.5.5'
+UNPLATFORM_VERSION = '0.5.6'

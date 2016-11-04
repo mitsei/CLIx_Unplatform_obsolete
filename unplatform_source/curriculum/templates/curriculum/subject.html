@@ -1,15 +1,17 @@
 {% extends "curriculum/base_nav.html" %}
+{% load i18n %}
 
 {% block sub_content %}
+  {% language locale %}
     <header id="header" class="">
         <nav>
             <ul class="breadcrumbs">
-                <li><i class="fa fa-chevron-left pink-chev" aria-hidden="true"></i>&nbsp;&nbsp;<a href="/">Select User</a></li>
+                <li><i class="fa fa-chevron-left pink-chev" aria-hidden="true"></i>&nbsp;&nbsp;<a href="/">{% trans "Select User" %}</a></li>
             </ul>
         </nav>
     </header>
     <main class="span_10_of_12">
-        <h1 class="pg-title">Select your subject</h1>
+        <h1 class="pg-title">{% trans "Select your subject" %}</h1>
         <h2 class="pg-subtitle"></h2>
         <article class="subj-select">
         {% for x in subjects %}
@@ -21,7 +23,8 @@
                 <!--<button type="button" class="choice-select" onclick="clickThru('/English/')">English</button>-->
                 <!--<button type="button" class="choice-select" onclick="clickThru('/Math/')">Math</button>-->
                 <!--<button type="button" class="choice-select" onclick="clickThru('/Physics/')">Physics</button>-->
-                <button type="button" class="choice-select" onclick="clickThru('/Tools/')">Tools</button>
+                <button type="button" class="choice-select" onclick="clickThru('/Tools/')">{% trans "Tools" %}</button>
         </article>
     </main>
+  {% endlanguage %}
 {% endblock %}
