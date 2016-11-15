@@ -2,10 +2,10 @@
 ending = {
     create: function() {
         document.getElementById('graphs').style.display = "none"
-        game.add.image(0, 0, 'ending');
-       
+        stage = game.add.image(0, 0, 'ending');
+        stage.alpha = .9
         this.header = game.add.text(w/2, h*5/7, 'Biomechanic!',{
-            font: '70px PT Mono',
+            font: '70px Arial',
             fill: 'green',
             fontWeight: 'bold',
         })
@@ -15,7 +15,7 @@ ending = {
         this.header.strokeThickness = 10;
         
 		this.text = game.add.text(w/2, h*3/5, 'Nice work! You have completed the game.',{
-            font: '44px PT Mono',
+            font: '44px Arial',
             fill: 'green',
         })
 		this.text.anchor.set(.5)
