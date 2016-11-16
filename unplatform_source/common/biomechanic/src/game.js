@@ -5,7 +5,8 @@ var debug = false;
 var game = new Phaser.Game(w, h, Phaser.CANVAS, '');
 
 var playerone, playertwo, gem, gems, flags, button, betButton; //,buttonsprite;
-
+var highlight, highlightframe
+var cat, catspeech, mouse, mousespeech, tutorialbutton, tutorialtext, tutorialpointer, stage
 var distance, indicator
 var computerSpeed
 var delay = 40
@@ -35,6 +36,7 @@ game.loadJSONTilemap = function(url) {
         }
 
 game.state.add("Loading", loading);
+game.state.add("Tutorial", tutorial);
 game.state.add("LevelSelect", levelSelect);
 game.state.add("PlayLevel", playLevel);
 game.state.add("Ending", ending);

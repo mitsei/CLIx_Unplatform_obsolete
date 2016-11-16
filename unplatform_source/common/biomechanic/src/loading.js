@@ -33,34 +33,55 @@ loading = {
         game.load.image('hourglass', 'assets/hourglass.png')
         game.load.image('pointer', 'assets/pointer.png')
         game.load.image('ending', 'assets/ending.png')
-        
+        game.load.image('clixlogo', 'assets/clixlogo.png')
+        game.load.image('stage', 'assets/stage.png')
+        game.load.image('speech', 'assets/speech.png')
+        game.load.spritesheet('tutorial_graph', 'assets/tutorial_graph.png', 420, 171);
+        game.load.spritesheet('tutorial_delay', 'assets/tutorial_delay.png', 142, 119);
+        game.load.spritesheet('tutorial_lever', 'assets/tutorial_lever.png', 93, 235);
+        game.load.image('tutorial_bet', 'assets/tutorial_bet.png');
+        game.load.image('graybox', 'assets/graybox.png');
         // game.time.advancedTiming = true
         
         
-        // game.scale.onSizeChange(function() {
-        //     var graphWidth = document.getElementById('posgraph').style.width
-        //     document.getElementById('posgraph').style.width = "inline";
-            
-        // })
         // // http://phaser.io/docs/2.4.4/Phaser.ScaleManager.html#scaleMode  
         // game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
+        
+        game.scale.setUserScale(.85, .85, 0, 0)
+        game.scale.scaleMode = Phaser.ScaleManager.USER_SCALE;
         
     },
   
     create: function() {
-        
         game.state.onStateChange.add(function (state) { console.log(state)}) 
-        
+              
         loadscreen = game.add.image(0, 0, 'loadscreen');
         logo = game.add.sprite(200, 250, 'logo');
-        logo.scale.setTo(1.1,1.1)
+        logo.scale.setTo(1.1)
+        
+        clix = game.add.sprite(w/2, 60, 'clixlogo');
+        clix.scale.setTo(.5)
+        clix.anchor.setTo(.5)
+        this.copyright = game.add.text(w/2, 110, '©2016 MIT unless otherwise specified.\nEmail contact@clix.tiss.edu for more information',{
+            font: '15px Arial',
+            fill: 'black',
+            fontWeight: 'bold',
+            align: "center",
+        })
+        this.copyright.anchor.set(.5)
+        // this.copyright.stroke = "#000";
+        // this.copyright.strokeThickness = 10;
+        
+        // ©MIT\nPLACEHOLDER\nCC\nCLIX\nLOGO
+        
+
         
         game.load.start()       
         if (debug) { game.time.advancedTiming = true; }
         
          setTimeout(function(){
-                game.state.start("LevelSelect")
-            }, 3000);
+                game.state.start("Tutorial")
+            }, 4000);
         
         
         
