@@ -8,6 +8,10 @@ from tornado import httpserver, wsgi, ioloop, web
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "unplatform.settings")
 import django.views.defaults
+import django.contrib.auth.apps
+import django.contrib.messages.apps
+import django.contrib.contenttypes.apps
+import django.contrib.staticfiles.apps
 from unplatform.celeryapp import app as celery_app
 from celery.bin import worker
 import celery.apps
@@ -24,6 +28,20 @@ import celery.events
 import celery.worker.strategy
 import celery.backends.base
 import natsort
+import requests
+import rest_framework
+import corsheaders
+import kombu.transport.django
+import rest_framework_swagger
+import corsheaders.middleware
+import django.contrib.sessions.middleware
+import django.contrib.sessions.apps
+import django.contrib.auth.middleware
+import django.contrib.messages.middleware
+import rest_framework.routers
+import rest_framework.renderers
+import rest_framework.parsers
+import rest_framework.authentication
 
 # This doesn't always work right, depending on where you launch the executable from
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

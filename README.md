@@ -14,7 +14,7 @@ so that data can be automatically passed to researchers when possible.
 How to build
 -------------
 unplatform is pure python, and has no external dependancies. This allows it to be built into executable distributables
-which require no environment configuration. After cloning, install all neccesary python packages via
+which require no environment configuration. After cloning, install all necessary python packages via
 
 ```pip install -r unplatform_source/requirements.txt```
 
@@ -31,3 +31,15 @@ You can find them here:
 
 zip: http://gnuwin32.sourceforge.net/packages/zip.htm
 git bash: https://git-scm.com/download/win
+
+NOTE:
+For Linux builds, you may run into this PyInstaller issue:
+
+github.com/pyinstaller/pyinstaller/issues/1539
+
+To solve, I just "touched" the empty, missing file.
+
+For Ubuntu builds, if you get a SyntaxError about missing parentheses
+when trying `from wsgiref import simple_server`, the Python3 version of
+`wsgiref` may not be in your `PYTHONPATH` -- make sure that it is not including the
+Python 2 version by default.

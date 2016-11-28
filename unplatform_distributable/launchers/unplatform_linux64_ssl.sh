@@ -1,5 +1,5 @@
 ./unplatform/unplatform_linux64 &
 sleep 6
-./unplatform/unplatform_linux64_worker &
-./qbank-lite-v0.0.65-ubuntu-ssl
+FILE=$(find . -name qbank-lite*ubuntu* | sort -n | tail -1)
+./$FILE
 google-chrome https://localhost:8888
