@@ -118,7 +118,7 @@ class GameReporter {
 		for (var key in data) {data_string[key] = data[key];};
 		data_string = JSON.stringify(data_string);
 
-		xhr.open('POST', url, false);
+		xhr.open('POST', url, true);
 		xhr.setRequestHeader("Content-Type","application/json");
 		xhr.send(data_string);
 		return xhr.response
