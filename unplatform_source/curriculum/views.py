@@ -34,7 +34,7 @@ def select_school(request):
 
 
 def select_subject(request):
-    subject_location = os.path.join(MODULES_FOLDER)
+    subject_location = u'{0}'.format(os.path.join(MODULES_FOLDER))  # for python 2.7 compatibility
     subjects = os.listdir(subject_location)
     subjects = natsorted(subjects)
     template = loader.get_template('curriculum/subject.html')
@@ -43,7 +43,7 @@ def select_subject(request):
                                          'locale': get_locale()}))
 
 def select_grade(request, subject):
-    grade_location = os.path.join(MODULES_FOLDER, subject)
+    grade_location = u'{0}'.format(os.path.join(MODULES_FOLDER, subject))
     grades = os.listdir(grade_location)
     grades = natsorted(grades)
     template = loader.get_template('curriculum/grade.html')
@@ -52,7 +52,7 @@ def select_grade(request, subject):
                                          'locale': get_locale()}))
 
 def select_unit(request, subject, grade):
-    unit_location = os.path.join(MODULES_FOLDER, subject, grade)
+    unit_location = u'{0}'.format(os.path.join(MODULES_FOLDER, subject, grade))
     units = os.listdir(unit_location)
     units = natsorted(units)
     template = loader.get_template('curriculum/unit.html')
@@ -63,7 +63,7 @@ def select_unit(request, subject, grade):
                                          'locale': get_locale()}))
 
 def select_lesson(request, subject, grade, unit):
-    lesson_location = os.path.join(MODULES_FOLDER, subject, grade, unit)
+    lesson_location = u'{0}'.format(os.path.join(MODULES_FOLDER, subject, grade, unit))
     lessons = os.listdir(lesson_location)
     lessons = natsorted(lessons)
     template = loader.get_template('curriculum/lesson.html')
@@ -74,8 +74,8 @@ def select_lesson(request, subject, grade, unit):
                                          'locale': get_locale()}))
 
 def show_activities(request, subject, grade, unit, lesson):
-    activity_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
-    epub_location = os.path.join(MODULES_FOLDER, subject, grade, unit, lesson)
+    activity_location = u'{0}'.format(os.path.join(MODULES_FOLDER, subject, grade, unit, lesson))
+    epub_location = u'{0}'.format(os.path.join(MODULES_FOLDER, subject, grade, unit, lesson))
     epubs = os.listdir(epub_location)
     epubs = natsorted(epubs)
     activities = os.listdir(activity_location)

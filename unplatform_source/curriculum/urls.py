@@ -13,11 +13,10 @@ urlpatterns = [
     url(r'^subject/$', views.select_subject),
     url(r'^oea/$', views.oea),
     url(r'^Tools/$', views.select_tool),
-    url(r'^Tools/(?P<tool>[-\s\w]+)/$', views.show_tool),
-    url(r'^(?P<subject>[-\s\w]+)/$', views.select_grade),
-    url(r'^(?P<subject>[-\s\w]+)/(?P<grade>[-\s\w]+)/$', views.select_unit),
-    url(r'^(?P<subject>[-\s\w]+)/(?P<grade>[-\s\w]+)/(?P<unit>[-\s\w]+)/$', views.select_lesson),
-    url(r'^(?P<subject>[-\s\w]+)/(?P<grade>[-\s\w]+)/(?P<unit>[-\s\w]+)/(?P<lesson>[-\s\w]+)/$', views.show_activities),
+    url(r'^Tools/(?P<tool>.*)/$', views.show_tool),
+    url(r'^(?P<subject>.*)/$', views.select_grade),
+    url(r'^(?P<subject>.*)/(?P<grade>.*)/$', views.select_unit),
+    url(r'^(?P<subject>.*)/(?P<grade>.*)/(?P<unit>.*)/$', views.select_lesson),
+    url(r'^(?P<subject>.*)/(?P<grade>.*)/(?P<unit>.*)/(?P<lesson>.*)/$', views.show_activities),
 
     ]
-
