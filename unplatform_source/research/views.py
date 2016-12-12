@@ -76,8 +76,14 @@ class AppDataViewSet(APIView):
         }
         log_entry_url = '{0}/{1}/logentries'.format(settings.QBANK_LOGGING_ENDPOINT,
                                                     default_log['id'])
+        if 'session_id' in request.data:
+            session_id = request.data['session_id']
+        elif 'sessionId' in request.data:
+            session_id = request.data['sessionId']
+        else:
+            session_id = 'none_provided'
         requests.post(log_entry_url, json=payload, verify=False,
-                      headers={'x-api-proxy': request.data['session_id']})
+                      headers={'x-api-proxy': session_id})
         return Response()
 
 
