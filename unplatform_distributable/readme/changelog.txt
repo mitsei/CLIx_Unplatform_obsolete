@@ -1,3 +1,16 @@
+v0.7.1
+* Content Player Tool - Added Analytics
+* Content Player Tool - Fixed getting media sources
+* Allowed for Unicode folder names in ``/module``
+* Changed data reporting in biomechanic to async
+* Updated the linux scripts to include translations and remove unworker
+* Updated QBank-lite to version 1.2.0
+* Changed tools to point to ``/modules`` instead of ``/static``
+
+v0.7.0
+* Version 0.7.0 doesn't have a tracked release. Please use v0.7.1
+  instead. It's shinier.
+
 v0.6.0
 * Add biomechanical tutorial
 
