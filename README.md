@@ -1,6 +1,8 @@
 # unplatform
 ==========
-This version is obsolete. Please see the current version of Unplatform at: https://github.com/CLIxIndia-Dev/unplatform_v2
+This version is obsolete. 
+Please see the current version of Unplatform at: 
+https://github.com/CLIxIndia-Dev/unplatform_v2
 ==========
 A modularized quasi-LMS for use in unconnected learning environments.
 
