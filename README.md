@@ -1,5 +1,7 @@
 # unplatform
 ==========
+This version is obsolete. Please see the current version of Unplatform at: https://github.com/CLIxIndia-Dev/unplatform_v2
+==========
 A modularized quasi-LMS for use in unconnected learning environments.
 
 unplatform is written in python3.4 and powered by django, tornado, and pyinstaller
